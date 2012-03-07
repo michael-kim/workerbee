@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <!--<definition name="template-main" template="/WEB-INF/layout/layout.jsp">-->
+        <!--<put-attribute name="title" value="" />-->
+        <!--<put-attribute name="body" value="" />-->
+    <!--</definition>-->
+    
+    <definition name="template-common" template="/WEB-INF/views/layout/layout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="body" value="" />
+    </definition>
+
+    <definition name="helloWorld" extends="template-common">
+        <put-attribute name="title" value="Hellow World" />
+        <put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+    </definition> 
+    
+</tiles-definitions>
