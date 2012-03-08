@@ -3,6 +3,14 @@
 <head>
 <title>Message List</title></head>
 <body>
+<h2>Welcome! <sec:authentication property="name" /></h2>
+<sec:authentication property="authorities" var="authorities" />
+<ul>
+	<c:forEach items="${authorities}" var="authority">
+		<li>${authority.authority}</li>
+	</c:forEach>
+</ul>
+<a href="<c:url value="/j_spring_security_logout" />">logout</a>
 <c:forEach items="${messages}" var="message">
 <table>
 	<tr>
@@ -17,11 +25,13 @@
 		<td>Body</td>
 		<td>${message.body}</td>
 	</tr>
+	<sec:authorize ifAllGranted="ROLE_ADMIN">
 	<tr>
 		<td colspan="2">
 			<a href="messageDelete?messageId=${message.id}">Delete</a>
 		</td>
 	</tr>
+	</sec:authorize>
 </table>
 <hr/>
 </c:forEach>
