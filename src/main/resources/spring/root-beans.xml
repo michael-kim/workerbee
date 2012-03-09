@@ -1,8 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	
+	<!--spring property -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:spring/spring-config.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- message source -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+	  <property name="basenames">
+         <list> 
+            <value>classpath:/messages/messages</value>
+         </list>
+      </property>
+    </bean>
+    
+    
+    <!-- Application Event Listener -->
+    <bean class="com.nexr.workerbee.web.event.CheckoutListener" />
+    
+    <bean name="cashier" class="com.nexr.workerbee.web.event.Cashier" />
+    
+    <!-- property editor -->
+    <bean id="dateEditor" class="org.springframework.beans.propertyeditors.CustomDateEditor">
+    	<constructor-arg>
+    		<bean class="java.text.SimpleDateFormat">
+    			<constructor-arg value="yyyy-MM-dd" />
+    		</bean>
+    	</constructor-arg>
+    	<constructor-arg value="true" />
+    </bean>
+    
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+    	<property name="customEditors">
+    		<map>
+    			<entry key="java.util.Date" value-ref="dateEditor " />
+    		</map>
+    	</property>
+    </bean>
+    
 </beans>
