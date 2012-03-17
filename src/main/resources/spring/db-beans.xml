@@ -37,6 +37,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>com.nexr.workerbee.web.dto.Course</value>
+				<value>com.nexr.workerbee.web.dto.Group</value>
 			</list>
 		</property>
 	</bean>

@@ -16,6 +16,11 @@
     <definition name="helloWorld" extends="template-common">
         <put-attribute name="title" value="Hellow World" />
         <put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+    </definition>
+    
+    <definition name="exception.message" extends="template-common">
+    	<put-attribute name="title" value="Exception" />
+    	<put-attribute name="body" value="/WEB-INF/views/exception/message.jsp" />
     </definition> 
     
 </tiles-definitions>

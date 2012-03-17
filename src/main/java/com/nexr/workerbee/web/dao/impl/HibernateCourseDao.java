@@ -21,7 +21,8 @@ public class HibernateCourseDao implements CourseDao {
 	public void store(Course course) {
 		Session session = sessionFactory.getCurrentSession();
 		System.out.println("1234");
-		session.save(course);
+		//session.save(course);
+		session.saveOrUpdate(course);
 	}
 	
 	@Transactional

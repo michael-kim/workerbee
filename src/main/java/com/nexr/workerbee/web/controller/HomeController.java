@@ -25,6 +25,11 @@ public class HomeController {
 	@Autowired
 	private HelloService helloService;
 	
+	@RequestMapping(value = "/helloWorld", method = RequestMethod.GET)
+	public String hello(Locale locale, Model model) {
+		return "helloWorld";
+	}
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! the client locale is "+ locale.toString());

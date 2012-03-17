@@ -54,6 +54,11 @@
 		
 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="defaultErrorView" value="error" />
+		<property name="exceptionMappings">
+			<map>
+				<entry key="com.nexr.workerbee.exception.MessageException" value="exception.message" />
+			</map>
+		</property>
 	</bean>
 	
 	<!-- WebBindingInitializer  -->

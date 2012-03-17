@@ -31,7 +31,10 @@
     
     <bean name="cashier" class="com.nexr.workerbee.web.event.Cashier" />
     
+    
+    
     <!-- property editor -->
+    
     <bean id="dateEditor" class="org.springframework.beans.propertyeditors.CustomDateEditor">
     	<constructor-arg>
     		<bean class="java.text.SimpleDateFormat">
@@ -44,7 +47,7 @@
     <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
     	<property name="customEditors">
     		<map>
-    			<entry key="java.util.Date" value-ref="dateEditor " />
+    			<entry key="java.util.Date" value-ref="dateEditor" />
     		</map>
     	</property>
     </bean>

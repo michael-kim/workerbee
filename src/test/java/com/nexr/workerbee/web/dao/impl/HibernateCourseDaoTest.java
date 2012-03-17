@@ -38,6 +38,7 @@ public class HibernateCourseDaoTest {
 		course.setBeginDate(new Date(2102));
 
 		courseDao.store(course);
+		
 		Course c = courseDao.findById(course.getId());
 		Assert.assertEquals("cs101",c.getTitle());
 		courseDao.delete(course.getId());

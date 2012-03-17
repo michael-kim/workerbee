@@ -1,5 +1,7 @@
 package com.nexr.workerbee.web.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,8 @@ import com.nexr.workerbee.web.validator.ReservationValidator;
 @Controller
 @SessionAttributes("reservation")
 public class FormController {
+    private static final Logger LOG = LoggerFactory.getLogger(FormController.class);
+
 	
 	@RequestMapping(value="/form",method=RequestMethod.GET)
 	public String setupForm(Model model){

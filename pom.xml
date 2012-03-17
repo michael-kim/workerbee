@@ -18,51 +18,56 @@
 	<dependencies>
 		<!-- hibernate -->
 		<dependency>
-      		<groupId>org.hibernate</groupId>
-      		<artifactId>hibernate-core</artifactId>
-      		<version>${hibernate-version}</version>
-    	</dependency>
-    	<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate-version}</version>
+		</dependency>
+		<dependency>
 			<groupId>javassist</groupId>
 			<artifactId>javassist</artifactId>
 			<version>3.12.1.GA</version>
 		</dependency>
-    	
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>2.2</version>
+		</dependency>
+
 		<!-- spring security -->
 		<dependency>
-		  <groupId>org.springframework.security</groupId>
-		  <artifactId>spring-security-core</artifactId>
-		  <version>${spring.security-version}</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring.security-version}</version>
 		</dependency>
 		<dependency>
-		  <groupId>org.springframework.security</groupId>
-		  <artifactId>spring-security-web</artifactId>
-		  <version>${spring.security-version}</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security-version}</version>
 		</dependency>
-		
+
 		<dependency>
-		  <groupId>org.springframework.security</groupId>
-		  <artifactId>spring-security-taglibs</artifactId>
-		  <version>${spring.security-version}</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security-version}</version>
 		</dependency>
-		
+
 		<dependency>
-		  <groupId>org.springframework.security</groupId>
-		  <artifactId>spring-security-config</artifactId>
-		  <version>${spring.security-version}</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security-version}</version>
 		</dependency>
-		
+
 		<dependency>
-		  <groupId>org.springframework.security</groupId>
-		  <artifactId>spring-security-acl</artifactId>
-		  <version>${spring.security-version}</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-acl</artifactId>
+			<version>${spring.security-version}</version>
 		</dependency>
-		
+
 		<!-- taglib -->
 		<dependency>
-		  	<groupId>taglibs</groupId>
-		  	<artifactId>standard</artifactId>
-		  	<version>1.1.2</version>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
 		</dependency>
 		<!-- tiles -->
 		<dependency>
@@ -76,7 +81,20 @@
 			<artifactId>backport-util-concurrent</artifactId>
 			<version>3.1</version>
 		</dependency>
-		
+
+		<!-- activeMq -->
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jms_1.1_spec</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-all</artifactId>
+			<version>5.3.0</version>
+		</dependency>
+
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -87,7 +105,7 @@
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
-				 </exclusion>
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -139,7 +157,8 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework-version}</version>
-		</dependency>		
+		</dependency>
+
 		<!-- mysql client -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -153,21 +172,21 @@
 			<artifactId>commons-lang</artifactId>
 			<version>2.6</version>
 		</dependency>
-		
+
 		<!-- dbcp -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
-				
+
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
-		</dependency>	
-		
+		</dependency>
+
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -217,7 +236,7 @@
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
-				
+
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -236,7 +255,7 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-	
+
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
