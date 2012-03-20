@@ -31,15 +31,10 @@
 			<props>
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop> 
 				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
 			</props>
 		</property>
-		<property name="annotatedClasses">
-			<list>
-				<value>com.nexr.workerbee.web.dto.Course</value>
-				<value>com.nexr.workerbee.web.dto.Group</value>
-			</list>
-		</property>
+		<property name="packagesToScan" value="com.nexr.workerbee.web.dto" />
 	</bean>
 	
 </beans>

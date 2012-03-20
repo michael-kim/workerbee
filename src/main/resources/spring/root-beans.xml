@@ -21,6 +21,7 @@
 	  <property name="basenames">
          <list> 
             <value>classpath:/messages/messages</value>
+            <value>classpath:/messages/security-messages</value>
          </list>
       </property>
     </bean>

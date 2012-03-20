@@ -49,6 +49,10 @@ public abstract class GenericHibernateDao <T, ID extends Serializable> implement
         return page;
     }
     
+    public T merge(T entity){
+        return (T)getSession().merge(entity);
+    }
+    
     @Override
     public T findById(ID id, boolean lock) {
         T entity;

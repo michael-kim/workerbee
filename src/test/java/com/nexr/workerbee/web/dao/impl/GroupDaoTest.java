@@ -20,8 +20,8 @@ import com.nexr.workerbee.web.dto.Group;
 @ContextConfiguration(locations={
     "classpath:spring/root-beans.xml",
     "classpath:spring/db-beans.xml"})
-public class GroupDaoImplTest {
-    private static final Logger logger = LoggerFactory.getLogger(GroupDaoImplTest.class);
+public class GroupDaoTest {
+    private static final Logger logger = LoggerFactory.getLogger(GroupDaoTest.class);
     
     @Resource
     GroupDao groupDao;

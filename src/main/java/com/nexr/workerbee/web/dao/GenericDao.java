@@ -18,6 +18,8 @@ public interface GenericDao<T,ID> {
 	
 	public void makeTransient(T entity);
 	
+	public T merge(T entity);
+	
 	public void flush();
 	
 	public void clear();

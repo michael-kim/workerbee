@@ -20,7 +20,7 @@ import com.nexr.workerbee.web.dto.Course;
 @ContextConfiguration(locations={
 	"classpath:spring/root-beans.xml",
 	"classpath:spring/db-beans.xml"})
-public class HibernateCourseDaoTest {
+public class CourseDaoTest {
 	
 	@Autowired
 	private CourseDao courseDao;

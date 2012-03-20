@@ -12,7 +12,7 @@ import com.nexr.workerbee.web.dao.CourseDao;
 import com.nexr.workerbee.web.dto.Course;
 
 @Repository("courseDao")
-public class HibernateCourseDao implements CourseDao {
+public class CourseDaoImpl implements CourseDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
