@@ -8,7 +8,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import com.nexr.workerbee.web.domain.Reservation;
+import com.nexr.workerbee.web.model.Reservation;
 
 @Component
 public class ReservationValidator implements Validator {

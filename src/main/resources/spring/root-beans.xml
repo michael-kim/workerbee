@@ -6,7 +6,7 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
-	<!--spring property -->
+	<!-- Property Placeholder Configurer-->
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
@@ -15,7 +15,7 @@
 		</property>
 	</bean>
 	
-	<!-- message source -->
+	<!-- Message Source -->
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 	  <property name="basenames">
@@ -27,14 +27,14 @@
     </bean>
     
     
-    <!-- Application Event Listener -->
-    <bean class="com.nexr.workerbee.web.event.CheckoutListener" />
+    <!-- Application Event Publisher and Listener -->
+    <bean class="com.nexr.workerbee.event.CheckoutListener" />
     
-    <bean name="cashier" class="com.nexr.workerbee.web.event.Cashier" />
+    <bean name="cashier" class="com.nexr.workerbee.event.Cashier" />
     
     
     
-    <!-- property editor -->
+    <!-- Property Editor -->
     
     <bean id="dateEditor" class="org.springframework.beans.propertyeditors.CustomDateEditor">
     	<constructor-arg>

@@ -11,7 +11,7 @@
 	<context:annotation-config />
 	
 	<!-- Component scan -->
-	<context:component-scan base-package="com.nexr.workerbee.web" />
+	<context:component-scan base-package="com.nexr.workerbee" />
 	
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
@@ -64,7 +64,7 @@
 	<!-- WebBindingInitializer  -->
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
     	<property name="webBindingInitializer">
-    		<bean class="com.nexr.workerbee.web.domain.ReservationBindingInitializer" />
+    		<bean class="com.nexr.workerbee.web.model.ReservationBindingInitializer" />
     	</property>
     </bean>
     

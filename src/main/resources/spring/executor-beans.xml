@@ -14,7 +14,8 @@
 		
 	<context:annotation-config />
 	
-	<bean id="task" class="com.nexr.workerbee.web.concurent.DemonstrationRunnable" />
+	<!-- Runnable Task -->
+	<bean id="task" class="com.nexr.workerbee.concurent.DemonstrationRunnable" />
 	
 	<!-- TaskExecutors -->
 	<bean
@@ -60,6 +61,6 @@
 		p:allowCoreThreadTimeOut="true" />
 	
 	<!-- 클라이언트 빈 -->
-	<bean id="springExecutorsDemo" class="com.nexr.workerbee.web.concurent.SpringExecutorsDemo" />
+	<bean id="springExecutorsDemo" class="com.nexr.workerbee.concurent.SpringExecutorsDemo" />
 </beans>
 

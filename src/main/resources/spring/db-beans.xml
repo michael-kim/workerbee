@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		
-	<context:component-scan base-package="com.nexr.workerbee.web" />
+	<context:component-scan base-package="com.nexr.workerbee" />
 	
  	<tx:annotation-driven />
 	
@@ -30,11 +30,13 @@
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop> 
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
-			</props>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				<prop key="hibernate.connection.characterEncoding">${hibernate.connection.characterEncoding}</prop> 
+				<prop key="hibernate.connection.charSet">${hibernate.connection.charSet}</prop> 
+ 				</props>
 		</property>
-		<property name="packagesToScan" value="com.nexr.workerbee.web.dto" />
+		<property name="packagesToScan" value="com.nexr.workerbee.dto" />
 	</bean>
 	
 </beans>

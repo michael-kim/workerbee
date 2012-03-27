@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.nexr.workerbee.web.domain.Message;
-import com.nexr.workerbee.web.service.MessageBoardService;
+import com.nexr.workerbee.service.MessageBoardService;
+import com.nexr.workerbee.web.model.Message;
 
 @Controller
 @RequestMapping("/messagePost*")

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.nexr.workerbee.web.domain.Reservation;
+import com.nexr.workerbee.web.model.Reservation;
 import com.nexr.workerbee.web.validator.ReservationValidator;
 
 @Controller

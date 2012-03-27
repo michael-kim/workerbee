@@ -5,6 +5,7 @@
 <body>
 <h2>Welcome! <sec:authentication property="name" /></h2>
 <sec:authentication property="authorities" var="authorities" />
+Logged as ${username}
 <ul>
 	<c:forEach items="${authorities}" var="authority">
 		<li>${authority.authority}</li>
