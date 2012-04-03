@@ -1,17 +1,26 @@
 package com.nexr.workerbee.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
-@Table(name="`USER_DETAILS`")
-public class UserDetails {
+@Table(name="`USER_PROFILES`")
+public class UserProfile {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="ID")
@@ -30,6 +39,23 @@ public class UserDetails {
     @Column(name="EMAIL")
     private String email;
     
+    @ManyToOne(cascade={CascadeType.ALL})
+    @JoinColumn(name="USER_GROUP_ID")
+    private UserGroup userGroup;
+    
+    @OneToMany(mappedBy="userProfile",cascade=CascadeType.ALL,orphanRemoval=true)
+    @LazyCollection(LazyCollectionOption.EXTRA)
+    private List<Authority> authorities = new ArrayList<Authority>();
+    
+    public UserProfile(){
+    }
+    
+    public UserProfile(String firstName, String lastName, String email){
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.email=email;
+    }
+    
     public Long getId() {
         return id;
     }
@@ -45,7 +71,6 @@ public class UserDetails {
     public void setUser(User user) {
         this.user = user;
     }
-
 
     public String getFirstName() {
         return firstName;
@@ -70,4 +95,23 @@ public class UserDetails {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public UserGroup getUserGroup() {
+        return userGroup;
+    }
+
+    public void setUserGroup(UserGroup userGroup) {
+        userGroup.getUserProfiles().add(this);
+        this.userGroup=userGroup;
+    }
+    
+    public List<Authority> getAuthority() {
+        return authorities;
+    }
+
+    public void addAuthority(Authority authority) {
+        authority.setUserProfile(this);
+        this.authorities.add(authority);
+    }
+
 }

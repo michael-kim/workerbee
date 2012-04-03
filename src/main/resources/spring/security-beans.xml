@@ -18,6 +18,7 @@
 		<logout 
 			invalidate-session="true"
 			logout-success-url="/login" />
+			
 		<remember-me key="workerbee_security_key" token-validity-seconds="-1"/>
 	
 		<intercept-url pattern="/login" access="permitAll" />
@@ -30,13 +31,25 @@
 	<!-- JdbcDaoImpl -->
 	<beans:bean id="jdbcUserService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
 		<beans:property name="dataSource" ref="dataSource" />
-		<beans:property name="enableGroups" value="false" />
-		<beans:property name="enableAuthorities" value="true" />
+		<beans:property name="enableGroups" value="true" />
+		<beans:property name="enableAuthorities" value="false" />
 		<beans:property name="usersByUsernameQuery">
 			<beans:value>SELECT USERNAME,PASSWORD,1 FROM USERS WHERE USERNAME=?</beans:value>
 		</beans:property>
 		<beans:property name="authoritiesByUsernameQuery">
-			<beans:value>SELECT u.USERNAME,a.AUTHORITY FROM AUTHORITIES a JOIN USERS u ON a.USER_ID=u.ID WHERE u.USERNAME=?</beans:value>
+			<beans:value>
+			SELECT u.USERNAME,a.AUTHORITY
+			FROM USERS u JOIN USER_PROFILES p ON u.ID=p.USER_ID
+			JOIN  AUTHORITIES a ON a.USER_PROFILE_ID=p.ID
+			WHERE u.USERNAME=?</beans:value>
+		</beans:property>
+		<beans:property name="groupAuthoritiesByUsernameQuery">
+			<beans:value>
+			SELECT u.USERNAME,g.GROUP_NAME,p.AUTHORITY
+			FROM USERS u JOIN USER_PROFILES pf ON u.ID=pf.USER_ID
+			JOIN USER_GROUPS g ON pf.USER_GROUP_ID=g.ID
+			JOIN USER_GROUPS_PERMISSIONS gp ON gp.USER_GROUP_ID=g.ID
+			JOIN PERMISSIONS p ON p.ID=gp.PERMISSION_ID WHERE u.USERNAME=?</beans:value>
 		</beans:property>
 	</beans:bean>
 

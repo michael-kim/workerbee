@@ -24,9 +24,15 @@ public class Authority {
     private String authority;
 
     @ManyToOne
-    @ForeignKey(name="FK_AUTHORITY_USER")
-    @JoinColumn(name="USER_ID",nullable=false)
-    private User user;
+    @ForeignKey(name="FK_AUTHORITY_USER_PROFILE")
+    @JoinColumn(name="USER_PROFILE_ID",nullable=false)
+    private UserProfile userProfile;
+    
+    public Authority() {}
+    
+    public Authority(String authority){
+        this.authority=authority;
+    }
 
     public Long getId() {
         return id;
@@ -44,11 +50,12 @@ public class Authority {
         this.authority = authority;
     }
 
-    public User getUser() {
-        return user;
+    public UserProfile getUserProfile() {
+        return userProfile;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
     }
+
 }

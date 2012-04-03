@@ -15,10 +15,10 @@ public class TaskProperty {
     @Column(name="ID")
     private Long id;
     
-    @Column(name="KEY")
+    @Column(name="PROP_KEY")
     private String key;
     
-    @Column(name="VALUE")
+    @Column(name="PROP_VALUE")
     private String value;
 
     public Long getId() {

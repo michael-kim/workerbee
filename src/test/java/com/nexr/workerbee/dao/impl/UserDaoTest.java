@@ -14,6 +14,7 @@ import com.nexr.workerbee.dao.AuthorityDao;
 import com.nexr.workerbee.dao.UserDao;
 import com.nexr.workerbee.dto.Authority;
 import com.nexr.workerbee.dto.User;
+import com.nexr.workerbee.dto.UserProfile;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={
@@ -31,7 +32,6 @@ public class UserDaoTest {
     @Transactional
     @Rollback(value=false)
     public void test(){
-        
         User user = new User();
         user.setUsername("user");
         user.setPassword("11");
@@ -39,20 +39,21 @@ public class UserDaoTest {
         Authority auth1 = new Authority();
         auth1.setAuthority("ROLE_USER");
         
-        user.addAuthority(auth1);
-        auth1.setUser(user);
+        UserProfile profile = user.getUserProfile();
+        profile.addAuthority(auth1);
         
         Authority auth2 = new Authority();
         auth2.setAuthority("ROLE_ADMIN");
-        user.addAuthority(auth2);
-        auth2.setUser(user);
+        
+        profile.addAuthority(auth2);
+        auth2.setUserProfile(profile);
         
         userDao.makePersistent(user);
         userDao.flush();
         userDao.clear();
         
         User user2 = userDao.findById(user.getId(), false);
-        List<Authority> auths = user2.getAuthority();
+        List<Authority> auths = user2.getUserProfile().getAuthority();
         for(Authority a : auths){
             System.out.println(a.getAuthority());
         }
@@ -65,9 +66,7 @@ public class UserDaoTest {
         userDao.makePersistent(user3);
         userDao.flush();
         
-        
-        user3.addAuthority(auth2);
-        auth2.setUser(user3);
+        user3.getUserProfile().addAuthority(auth2);
         userDao.makePersistent(user3);
         userDao.flush();
         userDao.clear();

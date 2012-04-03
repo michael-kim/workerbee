@@ -3,10 +3,10 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
-    <!--<definition name="template-main" template="/WEB-INF/layout/layout.jsp">-->
-        <!--<put-attribute name="title" value="" />-->
-        <!--<put-attribute name="body" value="" />-->
-    <!--</definition>-->
+    <definition name="template-bootstrap" template="/WEB-INF/views/bootstrap/layout.jsp">
+    	<put-attribute name="title" value="Workerbee" />
+    	<put-attribute name="body" value="" />
+    </definition> 
     
     <definition name="template-common" template="/WEB-INF/views/layout/layout.jsp">
         <put-attribute name="title" value="" />
@@ -21,6 +21,10 @@
     <definition name="exception.message" extends="template-common">
     	<put-attribute name="title" value="Exception" />
     	<put-attribute name="body" value="/WEB-INF/views/exception/message.jsp" />
-    </definition> 
+    </definition>
     
+    <definition name="login" extends="template-bootstrap">
+    	<put-attribute name="title" value="Wookerbee Login" />
+    	<put-attribute name="body" value="/WEB-INF/views/login/login.jsp" />
+    </definition>
 </tiles-definitions>

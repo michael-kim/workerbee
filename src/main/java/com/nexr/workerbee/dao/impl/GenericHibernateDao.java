@@ -53,13 +53,17 @@ public abstract class GenericHibernateDao <T, ID extends Serializable> implement
         return (T)getSession().merge(entity);
     }
     
+    public T findById(ID id){
+        return findById(id, false);
+    }
+    
     @Override
     public T findById(ID id, boolean lock) {
         T entity;
         if(lock){
-            entity = (T)getSession().load(getPersistentClass(), id,LockOptions.UPGRADE);
+            entity = (T)getSession().get(getPersistentClass(), id,LockOptions.UPGRADE);
         }else{
-            entity = (T)getSession().load(getPersistentClass(), id);
+            entity = (T)getSession().get(getPersistentClass(), id);
         }
         return entity;
     }
