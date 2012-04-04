@@ -3,22 +3,17 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
-    <definition name="template-bootstrap" template="/WEB-INF/views/bootstrap/layout.jsp">
+    <definition name="template-bootstrap" template="/WEB-INF/views/layout/layout.jsp">
     	<put-attribute name="title" value="Workerbee" />
     	<put-attribute name="body" value="" />
     </definition> 
     
-    <definition name="template-common" template="/WEB-INF/views/layout/layout.jsp">
-        <put-attribute name="title" value="" />
-        <put-attribute name="body" value="" />
-    </definition>
-
-    <definition name="helloWorld" extends="template-common">
+    <definition name="helloWorld" extends="template-bootstrap">
         <put-attribute name="title" value="Hellow World" />
         <put-attribute name="body" value="/WEB-INF/views/home.jsp" />
     </definition>
     
-    <definition name="exception.message" extends="template-common">
+    <definition name="exception.message" extends="template-bootstrap">
     	<put-attribute name="title" value="Exception" />
     	<put-attribute name="body" value="/WEB-INF/views/exception/message.jsp" />
     </definition>
@@ -26,5 +21,15 @@
     <definition name="login" extends="template-bootstrap">
     	<put-attribute name="title" value="Wookerbee Login" />
     	<put-attribute name="body" value="/WEB-INF/views/login/login.jsp" />
+    </definition>
+    
+    <definition name="messageList" extends="template-bootstrap">
+    	<put-attribute name="title" value="Wookerbee Messages" />
+    	<put-attribute name="body" value="/WEB-INF/views/messages/messageList.jsp" />
+    </definition>
+    
+    <definition name="messagePost" extends="template-bootstrap">
+    	<put-attribute name="title" value="Wookerbee Messages" />
+    	<put-attribute name="body" value="/WEB-INF/views/messages/messagePost.jsp" />
     </definition>
 </tiles-definitions>

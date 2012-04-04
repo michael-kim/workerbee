@@ -42,7 +42,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "test.view.resolver";
+		return "helloWorld";
 	}
 	
 	@RequestMapping(value = "/tiles", method = RequestMethod.GET)

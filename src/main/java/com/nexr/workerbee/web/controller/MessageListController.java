@@ -15,7 +15,7 @@ import com.nexr.workerbee.service.MessageBoardService;
 import com.nexr.workerbee.web.model.Message;
 
 @Controller
-@RequestMapping("/messageList*")
+@RequestMapping("/messageList")
 public class MessageListController {
 	
 	@Autowired
@@ -30,6 +30,6 @@ public class MessageListController {
 		List<Message> messages = Collections.emptyList();
 		messages = messageBoardService.listMessage();
 		model.addAttribute("messages",messages);
-		return "messages/messageList";
+		return "messageList";
 	}
 }

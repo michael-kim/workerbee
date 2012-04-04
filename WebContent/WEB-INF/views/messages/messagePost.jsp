@@ -1,25 +1,45 @@
+<%@ page  isELIgnored="false" session="true" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
 <%@ include file="/WEB-INF/views/common/include.jsp"%>
-<html>
-<head>
-<title>Message Post</title></head>
-<body>
-<form:form method="POST" modelAttribute="message">
-<table>
-	<tr>
-		<td>Title</td>
-		<td><form:input path="title" /></td>
-	</tr>
-	<tr>
-		<td>Body</td>
-		<td><form:textarea path="body" /></td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			<input type="submit" value="Post" />
-		</td>
-	</tr>
-</table>
-</form:form>
-<a href="messageList">List</a>
-</body>
-</html>
+<div class="page-header">
+	<h1>Message Post
+		<small>Messages</small>
+	</h1>
+</div>
+<div class="btn-toolbar">
+	<div class="btn-group">
+		<a class="btn" href="messageList"><i class="icon-arrow-left"></i> List</a>
+	</div>
+</div>
+
+<form class="form-horizontal" method="POST" action="${ContextPath}/messagePost">
+<fieldset>
+	<legend>Message Post</legend>
+	<div class="control-group">
+		<label class="control-label" for="author">Author</label>
+		<div class="controls">
+			<span class="input-xlarge uneditable-input"><sec:authentication property="name" /></span>
+			<input name="author" type="hidden" value="<sec:authentication property="name" />" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="title">Title</label>
+		<div class="controls">
+			<input id="title" class="input-xlarge" name="title" type="text" />
+			<p class="help-block">Supporting help text</p>
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="body">Body</label>
+		<div class="controls">
+			<textarea id="body" class="input-xlarge" name="body"></textarea>
+			<p class="help-block">Supporting help text</p>
+		</div>
+	</div>
+	<div class="form-actions">
+		<input class="btn btn-primary" type="submit" value="Post" />
+		<input class="btn" type="reset" value="Reset" />
+	</div>
+</fieldset>
+</form>
+
+

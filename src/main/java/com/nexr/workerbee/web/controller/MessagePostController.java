@@ -12,7 +12,7 @@ import com.nexr.workerbee.service.MessageBoardService;
 import com.nexr.workerbee.web.model.Message;
 
 @Controller
-@RequestMapping("/messagePost*")
+@RequestMapping("/messagePost")
 public class MessagePostController {
 	
 	@Autowired
@@ -22,14 +22,14 @@ public class MessagePostController {
 	public String setupFrom(Model model){
 		Message message = new Message();
 		model.addAttribute("message",message);
-		return "messages/messagePost";
+		return "messagePost";
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public String onSubmit(@ModelAttribute("message") Message message,
 			BindingResult result){
 		if(result.hasErrors()){
-			return "messages/messagePost";
+			return "messagePost";
 		}else{
 			messageBoardService.postMessage(message);
 		}

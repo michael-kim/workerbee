@@ -37,18 +37,27 @@
 	</div>
 </fieldset>
 </form>
+<script type="text/javascript">
+(function(){
+	$('#username').focus();
+})();
+</script>
+
 <a class="btn" data-toggle="modal" href="#myModal" >Launch Modal</a>
 
-<div class="modal hide" id="myModal">
-  <div class="modal-header">
-    <a class="close" data-dismiss="modal">x</a>
-    <h3>Modal header</h3>
-  </div>
-  <div class="modal-body">
-    <p>One fine body</p>
-  </div>
-  <div class="modal-footer">
-    <a href="#" class="btn">Close</a>
-    <a href="#" class="btn btn-primary">Save changes</a>
-  </div>
-</div>
+<!-- Modals -->
+<section id="models">
+	<div class="modal hide" id="myModal">
+	  <div class="modal-header">
+	    <a class="close" data-dismiss="modal">x</a>
+	    <h3>Modal header</h3>
+	  </div>
+	  <div class="modal-body">
+	    <p>One fine body</p>
+	  </div>
+	  <div class="modal-footer">
+	    <a href="#" class="btn">Close</a>
+	    <a href="#" class="btn btn-primary">Save changes</a>
+	  </div>
+	</div>
+</section>

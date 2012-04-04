@@ -1,3 +1,4 @@
+<%@ page  isELIgnored="false" session="true" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
 <%@ include file="/WEB-INF/views/common/include.jsp"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
@@ -15,7 +16,7 @@
     <script type="text/javascript" src="<c:url value='/resources/bootstrap/js/bootstrap.min.js'/>"></script>
     <style>
       body {
-        padding-top: 50px; /* 60px to make the container go all the way to the bottom of the topbar */
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
 </head>
@@ -30,6 +31,7 @@
 	 		<li><a href="#">link2</a></li>
 	 		<li><a href="#">link3</a></li>
 	 	</ul>
+	 	<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
 	 	<ul class="nav pull-right">
 	 		<li class="dropdown" id="menu1">
 			    <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Dropdown
@@ -47,14 +49,12 @@
 	</div>
 </div><!-- /navbar -->
 <div class="container">
-	<div class="btn-toolbar">
 	<div class="btn-group">
 	  <button class="btn">1</button>
 	  <button class="btn">2</button>
 	  <button class="btn">3</button>
 	</div>
-	</div>
 	<tiles:insertAttribute name="body"/>
-	</div>
+</div><!-- /containter -->
 </body>
 </html>
