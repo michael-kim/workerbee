@@ -19,17 +19,27 @@
     </definition>
     
     <definition name="login" extends="template-bootstrap">
-    	<put-attribute name="title" value="Wookerbee Login" />
+    	<put-attribute name="title" value="Workerbee Login" />
     	<put-attribute name="body" value="/WEB-INF/views/login/login.jsp" />
     </definition>
     
     <definition name="messageList" extends="template-bootstrap">
-    	<put-attribute name="title" value="Wookerbee Messages" />
+    	<put-attribute name="title" value="Workerbee Messages" />
     	<put-attribute name="body" value="/WEB-INF/views/messages/messageList.jsp" />
     </definition>
     
     <definition name="messagePost" extends="template-bootstrap">
-    	<put-attribute name="title" value="Wookerbee Messages" />
+    	<put-attribute name="title" value="Workerbee Messages" />
     	<put-attribute name="body" value="/WEB-INF/views/messages/messagePost.jsp" />
+    </definition>
+    
+    <definition name="userList" extends="template-bootstrap">
+    	<put-attribute name="title" value="Wookerbee Users" />
+    	<put-attribute name="body" value="/WEB-INF/views/users/userList.jsp" />
+    </definition>
+    
+    <definition name="simpleForm" extends="template-bootstrap">
+    	<put-attribute name="title" value="Workerbee Simeple Form" />
+    	<put-attribute name="body" value="/WEB-INF/views/form/simpleform.jsp" />
     </definition>
 </tiles-definitions>

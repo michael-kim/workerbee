@@ -5,5 +5,6 @@
 </head>
 <body>
 	An error has occurred.
+	${exception.message}
 </body>	
 </html>

@@ -17,31 +17,28 @@
 	</div>
 </div>
 </sec:authorize>
-<c:forEach items="${messages}" var="message">
 <table class="table table-striped table-bordered">
 	<thead>
 	<tr>
 		<th>Author</th>
 		<th>Title</th>
 		<th>Body</th>
+		<th>Actions</th>
 	</tr>
 	</thead>
 	<tbody>
+	<c:forEach items="${messages}" var="message">
 	<tr>
 		<td>${message.author}</td>
 		<td>${message.title}</td>
 		<td>${message.body}</td>
+		<sec:authorize ifAllGranted="ROLE_ADMIN">
+		<td><a class="btn btn-danger" href="messageDelete?messageId=${message.id}"><i class="icon-trash icon-white"></i> Delete</a></td>
+		</sec:authorize>
 	</tr>
-	<sec:authorize ifAllGranted="ROLE_ADMIN">
-	<tr>
-		<td colspan="3">
-			<a class="btn btn-danger pull-right" href="messageDelete?messageId=${message.id}"><i class="icon-trash icon-white"></i> Delete</a>
-		</td>
-	</tr>
-	</sec:authorize>
+	</c:forEach>
 	</tbody>
 </table>
-</c:forEach>
 
 <div class="pagination">
   <ul>

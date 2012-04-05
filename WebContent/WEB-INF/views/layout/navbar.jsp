@@ -9,9 +9,16 @@
 	 		<li class="active"><a href="#">Tasks</a></li>
 	 		<li><a href="#">Jobs</a></li>
 	 		<li><a href="<c:url value='/messageList' />">Messages</a></li>
-			<sec:authorize ifAllGranted="ROLE_ADMIN">
-	 		<li><a href="#">Admin</a></li>
-	 		</sec:authorize>
+	 		<li><a href="${ContextPath}/simpleForm">SimpleForm</a></li>
+	 		<sec:authorize ifAllGranted="ROLE_ADMIN">
+	 		<li class="dropdown active">
+	 			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin <b class="caret"></b></a>
+	 			<ul class="dropdown-menu">
+	 				<li><a href="#">User Admin</a></li>
+	 				<li><a href="#">Configuration</a></li>
+	 			</ul>
+	 		</li>
+		 	</sec:authorize>
 	 	</ul>
 	 	<sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
 	 	<ul class="nav pull-right">
@@ -20,8 +27,8 @@
 	 	</sec:authorize>
 		<sec:authorize ifNotGranted="ROLE_ANONYMOUS">
 	 	<ul class="nav pull-right">
-	 		<li class="dropdown" id="menu1">
-			    <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1"><sec:authentication property="name" /> <b class="caret"></b></a>
+	 		<li class="dropdown">
+			    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><sec:authentication property="name" /> <b class="caret"></b></a>
 			    <ul class="dropdown-menu">
 			      <li><a href="#">Account Settings</a></li>
 			      <li><a href="#">Edit Profile</a></li>

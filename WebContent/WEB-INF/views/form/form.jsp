@@ -16,7 +16,7 @@ form controller</title>
 	<table>
 		<tr>
 			<td>Id</td>
-			<td><form:input path="id" disabled="true"/></td>
+			<td><form:input path="id" disabled="true" /></td>
 			<td><form:errors path="id" cssClass="error"/></td>
 		</tr>
 		<tr>

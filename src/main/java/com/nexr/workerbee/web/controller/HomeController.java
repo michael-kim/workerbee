@@ -26,11 +26,6 @@ public class HomeController {
 	@Autowired
 	private HelloService helloService;
 	
-	@RequestMapping(value = "/helloWorld", method = RequestMethod.GET)
-	public String hello(Locale locale, Model model) {
-		return "helloWorld";
-	}
-	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! the client locale is "+ locale.toString());
@@ -45,22 +40,6 @@ public class HomeController {
 		return "helloWorld";
 	}
 	
-	@RequestMapping(value = "/tiles", method = RequestMethod.GET)
-	public String tiles(Locale locale, Model model) {
-		logger.info("Welcome home! the client locale is "+ locale.toString());
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		logger.info("Say Hello : " +helloService.sayHello());
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "helloWorld";
-	}
-	
 	@RequestMapping(value = "/error", method = RequestMethod.GET)
 	public String error(Locale locale, Model model) throws Exception {
 		if (true)
@@ -68,9 +47,9 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value="/views/bootstrap/{name}", method=RequestMethod.GET)
+	@RequestMapping(value="/static/{name}", method=RequestMethod.GET)
 	public String views(@PathVariable String name){
-	    return "bootstrap/"+name;
+	    return "static/"+name;
 	}
 	
 }

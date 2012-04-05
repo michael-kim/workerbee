@@ -52,6 +52,7 @@
 		p:prefix="/WEB-INF/views/"
 		p:suffix=".jsp" />
 		
+	<!-- 
 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="defaultErrorView" value="error" />
 		<property name="exceptionMappings">
@@ -60,6 +61,7 @@
 			</map>
 		</property>
 	</bean>
+	 -->
 	
 	<!-- WebBindingInitializer  -->
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">

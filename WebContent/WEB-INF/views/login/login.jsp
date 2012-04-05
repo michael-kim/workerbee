@@ -1,3 +1,4 @@
+<%@ page  isELIgnored="false" session="true" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
 <%@ include file="/WEB-INF/views/common/include.jsp"%>
 <form class="form-horizontal" method="POST" action="<c:url value="/j_spring_security_check"/>">
 <fieldset>
@@ -6,7 +7,7 @@
 	<div class="control-group">
 		<div class="controls">
 			<div class="alert alert-error">
-				<a class="close" data-dismiss="alert">×</a>	
+				<a class="close" data-dismiss="alert">x</a>	
 				<strong>Login error.</strong><br />
 				Reason : ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
 			</div>

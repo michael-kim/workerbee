@@ -1,5 +1,7 @@
 package com.nexr.workerbee.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -41,5 +43,12 @@ public class UserServiceImpl implements UserService{
         userDao.flush();
         return user;
     }
+
+    public List<User> getAllUsers() {
+        List<User> list = userDao.findAll();
+        userDao.flush();
+        return list;
+    }
+    
     
 }
