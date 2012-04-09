@@ -17,19 +17,19 @@ import com.nexr.workerbee.web.model.Message;
 @Controller
 @RequestMapping("/messageList")
 public class MessageListController {
-	
-	@Autowired
-	private MessageBoardService messageBoardService;
-	
-	@RequestMapping(method=RequestMethod.GET)
-	public String generateList(Model model){
-	    
-	        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	        
-	        model.addAttribute("username",auth.getName());
-		List<Message> messages = Collections.emptyList();
-		messages = messageBoardService.listMessage();
-		model.addAttribute("messages",messages);
-		return "messageList";
-	}
+    
+    @Autowired
+    private MessageBoardService messageBoardService;
+    
+    @RequestMapping(method=RequestMethod.GET)
+    public String generateList(Model model){
+        
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        
+        model.addAttribute("username",auth.getName());
+        List<Message> messages = Collections.emptyList();
+        messages = messageBoardService.listMessage();
+        model.addAttribute("messages",messages);
+        return "tiles.messages.messageList";
+    }
 }

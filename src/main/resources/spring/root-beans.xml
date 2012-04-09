@@ -20,8 +20,9 @@
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 	  <property name="basenames">
          <list> 
+         	<value>classpath:/messages/exceptions</value>
             <value>classpath:/messages/messages</value>
-            <value>classpath:/messages/security-messages</value>
+            <value>classpath:/messages/security</value>
          </list>
       </property>
     </bean>

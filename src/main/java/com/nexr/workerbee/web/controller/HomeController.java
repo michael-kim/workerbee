@@ -21,35 +21,35 @@ import com.nexr.workerbee.service.HelloService;
  */
 @Controller
 public class HomeController {
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	@Autowired
-	private HelloService helloService;
-	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! the client locale is "+ locale.toString());
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "helloWorld";
-	}
-	
-	@RequestMapping(value = "/error", method = RequestMethod.GET)
-	public String error(Locale locale, Model model) throws Exception {
-		if (true)
-			throw new Exception("error");
-		return "home";
-	}
-	
-	@RequestMapping(value="/static/{name}", method=RequestMethod.GET)
-	public String views(@PathVariable String name){
-	    return "static/"+name;
-	}
-	
+    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+    
+    @Autowired
+    private HelloService helloService;
+    
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String home(Locale locale, Model model) {
+        logger.info("Welcome home! the client locale is "+ locale.toString());
+        
+        Date date = new Date();
+        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+        
+        String formattedDate = dateFormat.format(date);
+        
+        model.addAttribute("serverTime", formattedDate );
+        
+        return "tiles.helloWorld";
+    }
+    
+    @RequestMapping(value = "/error", method = RequestMethod.GET)
+    public String error(Locale locale, Model model) throws Exception {
+        if (true)
+            throw new Exception("error");
+        return "home";
+    }
+    
+    @RequestMapping(value="/static/{name}", method=RequestMethod.GET)
+    public String views(@PathVariable String name){
+        return "static/"+name;
+    }
+    
 }

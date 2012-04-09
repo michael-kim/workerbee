@@ -34,7 +34,7 @@
 		<beans:property name="enableGroups" value="true" />
 		<beans:property name="enableAuthorities" value="false" />
 		<beans:property name="usersByUsernameQuery">
-			<beans:value>SELECT USERNAME,PASSWORD,1 FROM USERS WHERE USERNAME=?</beans:value>
+			<beans:value>SELECT USERNAME,PASSWORD,CASE ENABLED WHEN 'T' THEN 1 ELSE 0 END FROM USERS WHERE USERNAME=?</beans:value>
 		</beans:property>
 		<beans:property name="authoritiesByUsernameQuery">
 			<beans:value>

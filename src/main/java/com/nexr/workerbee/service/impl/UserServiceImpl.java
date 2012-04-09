@@ -44,6 +44,7 @@ public class UserServiceImpl implements UserService{
         return user;
     }
 
+    @Override
     public List<User> getAllUsers() {
         List<User> list = userDao.findAll();
         userDao.flush();

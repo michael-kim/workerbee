@@ -3,6 +3,7 @@ package com.nexr.workerbee.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name="`USER_GROUPS`")
 public class UserGroup {
@@ -22,13 +24,13 @@ public class UserGroup {
     @Column(name="ID")
     private Long id;
     
-    @Column(name="GROUP_NAME")
+    @Column(name="GROUP_NAME",unique=true)
     private String groupName;
     
     @Column(name="DESCRIPTION")
     private String description;
     
-    @OneToMany(mappedBy="userGroup")
+    @OneToMany(mappedBy="userGroup",cascade={CascadeType.PERSIST,CascadeType.MERGE})
     private List<UserProfile> userProfiles = new ArrayList<UserProfile>();
     
     @ManyToMany

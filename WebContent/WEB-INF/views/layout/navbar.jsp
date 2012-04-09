@@ -6,12 +6,23 @@
 	 	<a class="brand" href="${ContextPath}">WorkerBee</a>
 	 	<ul class="nav">
 	 		<li class="divider-vertical"></li>
-	 		<li class="active"><a href="#">Tasks</a></li>
-	 		<li><a href="#">Jobs</a></li>
-	 		<li><a href="<c:url value='/messageList' />">Messages</a></li>
-	 		<li><a href="${ContextPath}/simpleForm">SimpleForm</a></li>
+	 		<li class="<tiles:insertAttribute name='nav.groups' defaultValue=''/>">
+	 			<a href="${ContextPath}/userGroups/list">Groups</a>
+	 		</li>
+	 		<li class="<tiles:insertAttribute name='nav.users' defaultValue=''/>">
+	 			<a href="${ContextPath}/users/list">Users</a>
+	 		</li>
+	 		<li class="<tiles:insertAttribute name='nav.messages' defaultValue=''/>">
+	 			<a href="<c:url value='/messageList' />">Messages</a>
+	 		</li>
+	 		<li class="<tiles:insertAttribute name='nav.tasks' defaultValue=''/>">
+	 			<a href="<c:url value='/taskList' />">Tasks</a>
+	 		</li>
+	 		<li class="<tiles:insertAttribute name='nav.simpleform' defaultValue=''/>">
+	 			<a href="${ContextPath}/simpleForm">SimpleForm</a>
+	 		</li>
 	 		<sec:authorize ifAllGranted="ROLE_ADMIN">
-	 		<li class="dropdown active">
+	 		<li class="dropdown">
 	 			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin <b class="caret"></b></a>
 	 			<ul class="dropdown-menu">
 	 				<li><a href="#">User Admin</a></li>

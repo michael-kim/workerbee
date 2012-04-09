@@ -39,8 +39,8 @@ public class UserProfile {
     @Column(name="EMAIL")
     private String email;
     
-    @ManyToOne(cascade={CascadeType.ALL})
-    @JoinColumn(name="USER_GROUP_ID")
+    @ManyToOne
+    @JoinColumn(name="USER_GROUP_ID",nullable=true)
     private UserGroup userGroup;
     
     @OneToMany(mappedBy="userProfile",cascade=CascadeType.ALL,orphanRemoval=true)
@@ -101,7 +101,8 @@ public class UserProfile {
     }
 
     public void setUserGroup(UserGroup userGroup) {
-        userGroup.getUserProfiles().add(this);
+        if (userGroup!=null)
+            userGroup.getUserProfiles().add(this);
         this.userGroup=userGroup;
     }
     

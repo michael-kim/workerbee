@@ -13,18 +13,18 @@ import com.nexr.workerbee.web.model.Message;
 @Controller
 @RequestMapping("/messageDelete*")
 public class MessageDeleteController {
-	
-	@Autowired
-	private MessageBoardService messageBoardService;
-	
-	@RequestMapping(method=RequestMethod.GET)
-	public String messsageDelete(@RequestParam(required=true,value="messageId") 
-		Long messageId,Model model){
-		
-		Message message = messageBoardService.findMessageById(messageId);
-		messageBoardService.deleteMessage(message);
-		return "redirect:messageList";
-		
-	}
-
+    
+    @Autowired
+    private MessageBoardService messageBoardService;
+    
+    @RequestMapping(method=RequestMethod.GET)
+    public String messsageDelete(@RequestParam(required=true,value="messageId") 
+    Long messageId,Model model){
+        
+        Message message = messageBoardService.findMessageById(messageId);
+        messageBoardService.deleteMessage(message);
+        return "redirect:messageList";
+        
+    }
+    
 }

@@ -8,13 +8,13 @@ import com.nexr.workerbee.exception.MessageException;
 
 @Controller
 public class ExceptionController {
-	
-	
-	@RequestMapping(value="/messageException",method=RequestMethod.GET)
-	public String messageException() {
-
-		if (true) throw new MessageException("exception.message","test!");
-		return "messages/messageList";
-	}
-
+    
+    
+    @RequestMapping(value="/messageException",method=RequestMethod.GET)
+    public String messageException() {
+        
+        if (true) throw new MessageException("exception.message","test!");
+        return "";
+    }
+    
 }

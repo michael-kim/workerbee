@@ -10,6 +10,7 @@
 	display: block;
 	margin-bottom: 9px;
 }
+
 .CodeMirror {
 	border: 1px solid #eee;
 }
@@ -22,6 +23,7 @@
 	overflow-x: auto;
 	width: 100%;
 }
+
 </style>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -37,6 +39,35 @@ $(document).ready(function(){
 	var hlLine = myCodeMirror.setLineClass(0, "activeline");
 });
 </script>
+<div class="row">
+  <div class="subnav">
+    <ul class="nav nav-pills">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Buttons <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#buttonGroups">Button groups</a></li>
+          <li><a href="#buttonDropdowns">Button dropdowns</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Navigation <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#navs">Nav, tabs, pills</a></li>
+          <li><a href="#navbar">Navbar</a></li>
+          <li><a href="#breadcrumbs">Breadcrumbs</a></li>
+          <li><a href="#pagination">Pagination</a></li>
+        </ul>
+      </li>
+      <li><a href="#labels">Labels</a></li>
+      <li><a href="#badges">Badges</a></li>
+      <li><a href="#typography">Typography</a></li>
+      <li><a href="#thumbnails">Thumbnails</a></li>
+      <li><a href="#alerts">Alerts</a></li>
+      <li><a href="#progress">Progress bars</a></li>
+      <li><a href="#misc">Miscellaneous</a></li>
+    </ul>
+  </div>
+</div>
 <div class="row">
 	<ul class="breadcrumb">
 	  <li>

@@ -14,25 +14,25 @@ import com.nexr.workerbee.web.model.Message;
 @Controller
 @RequestMapping("/messagePost")
 public class MessagePostController {
-	
-	@Autowired
-	private MessageBoardService messageBoardService;
-	
-	@RequestMapping(method=RequestMethod.GET)
-	public String setupFrom(Model model){
-		Message message = new Message();
-		model.addAttribute("message",message);
-		return "messagePost";
-	}
-	
-	@RequestMapping(method=RequestMethod.POST)
-	public String onSubmit(@ModelAttribute("message") Message message,
-			BindingResult result){
-		if(result.hasErrors()){
-			return "messagePost";
-		}else{
-			messageBoardService.postMessage(message);
-		}
-		return "redirect:messageList";
-	}
+    
+    @Autowired
+    private MessageBoardService messageBoardService;
+    
+    @RequestMapping(method=RequestMethod.GET)
+    public String setupFrom(Model model){
+        Message message = new Message();
+        model.addAttribute("message",message);
+        return "tiles.messages.messagePost";
+    }
+    
+    @RequestMapping(method=RequestMethod.POST)
+    public String onSubmit(@ModelAttribute("message") Message message,
+            BindingResult result){
+        if(result.hasErrors()){
+            return "tiles.messages.messagePost";
+        }else{
+            messageBoardService.postMessage(message);
+        }
+        return "redirect:messageList";
+    }
 }

@@ -22,7 +22,7 @@ public class FormController {
     
     @RequestMapping(value="/simpleForm",method=RequestMethod.GET)    
     public String simpleForm(Model model){
-        return "simpleForm";
+        return "tiles.simpleForm";
     }
     
     @RequestMapping(value="/form",method=RequestMethod.GET)

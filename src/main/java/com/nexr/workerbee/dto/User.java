@@ -78,7 +78,8 @@ public class User {
     }
 
     public void setUserProfile(UserProfile userProfile) {
-        userProfile.setUser(this);
+        if (userProfile!=null)
+            userProfile.setUser(this);
         this.userProfile = userProfile;
     }
 }

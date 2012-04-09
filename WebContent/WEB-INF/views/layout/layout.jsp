@@ -5,7 +5,9 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title><tiles:getAsString name="title"/></title>
+    <link rel="shortcut icon" href="<c:url value='/resources/favicon.ico'/>" type="image/x-icon" />
     <link href="<c:url value='/resources/bootstrap/css/bootstrap.css'/>" rel="stylesheet">
+    <link href="<c:url value='/resources/bootstrap/css/subnav.css'/>" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
