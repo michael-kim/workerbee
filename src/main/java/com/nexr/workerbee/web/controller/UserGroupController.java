@@ -50,7 +50,7 @@ public class UserGroupController {
             BindingResult result, SessionStatus status,Model model){
         
         // TO-DO : validate user group
-        result.rejectValue("groupName", "exception.usergroups.error", "error1234");
+        //result.rejectValue("groupName", "exception.usergroups.error", "error1234");
         
         if (result.hasErrors()){
             model.addAttribute("userGroup",userGroup);

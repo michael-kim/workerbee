@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.model;
+package com.nexr.workerbee.model;
 
 public class JobType {
 	private int id;

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
 import com.nexr.workerbee.dao.UserDao;
@@ -50,6 +51,9 @@ public class UserServiceImpl implements UserService{
         userDao.flush();
         return list;
     }
-    
-    
+
+    @Override
+    public User getUser(String username) {
+        return userDao.findByCriteria(Restrictions.eq("username", username)).get(0);
+    }
 }

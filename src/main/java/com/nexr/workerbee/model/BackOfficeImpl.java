@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.model;
+package com.nexr.workerbee.model;
 
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;

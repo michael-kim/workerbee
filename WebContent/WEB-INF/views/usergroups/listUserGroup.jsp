@@ -2,8 +2,8 @@
 <%@ include file="/WEB-INF/views/common/include.jsp"%>
 
 <div class="page-header">
-	<h1>Group List
-		<small>Group list</small>
+	<h1>User Group List
+		<small>User Group List</small>
 	</h1>
 </div>
 <div class="btn-toolbar">

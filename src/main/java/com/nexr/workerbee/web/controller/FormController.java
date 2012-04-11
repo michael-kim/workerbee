@@ -12,13 +12,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.nexr.workerbee.web.model.Reservation;
+import com.nexr.workerbee.model.Reservation;
 import com.nexr.workerbee.web.validator.ReservationValidator;
 
 @Controller
 @SessionAttributes("reservation")
 public class FormController {
     private static final Logger LOG = LoggerFactory.getLogger(FormController.class);
+    
+    @Autowired
+    private ReservationValidator reservationValidator;
     
     @RequestMapping(value="/simpleForm",method=RequestMethod.GET)    
     public String simpleForm(Model model){
@@ -32,9 +35,6 @@ public class FormController {
         model.addAttribute("reservation",reservation);
         return "form/form";
     }
-    
-    @Autowired
-    private ReservationValidator reservationValidator;
     
     @RequestMapping(value="/form",method=RequestMethod.POST)
     public String submitForm(@ModelAttribute("reservation") Reservation reservation,

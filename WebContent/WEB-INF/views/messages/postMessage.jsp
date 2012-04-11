@@ -7,31 +7,30 @@
 </div>
 <div class="btn-toolbar">
 	<div class="btn-group">
-		<a class="btn" href="messageList"><i class="icon-arrow-left"></i> List</a>
+		<a class="btn" href="list"><i class="icon-arrow-left"></i> List</a>
 	</div>
 </div>
 
-<form class="form-horizontal" method="POST" action="${ContextPath}/messagePost">
+<form:form cssClass="form-horizontal" method="POST" modelAttribute="message">
 <fieldset>
 	<legend>Message Post</legend>
 	<div class="control-group">
 		<label class="control-label" for="author">Author</label>
 		<div class="controls">
 			<span class="input-xlarge uneditable-input"><sec:authentication property="name" /></span>
-			<input name="author" type="hidden" value="<sec:authentication property="name" />" />
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="title">Title</label>
 		<div class="controls">
-			<input id="title" class="input-xlarge" name="title" type="text" />
+			<form:input path="title" cssClass="input-xlarge" />
 			<p class="help-block">Supporting help text</p>
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="body">Body</label>
 		<div class="controls">
-			<textarea id="body" class="input-xlarge" name="body"></textarea>
+			<form:textarea path="body" cssClass="input-xlarge" />
 			<p class="help-block">Supporting help text</p>
 		</div>
 	</div>
@@ -40,6 +39,6 @@
 		<input class="btn" type="reset" value="Reset" />
 	</div>
 </fieldset>
-</form>
+</form:form>
 
 

@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.model;
+package com.nexr.workerbee.model;
 
 import java.util.Date;
 

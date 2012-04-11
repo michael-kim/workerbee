@@ -22,4 +22,7 @@ public interface UserService{
     
     @Transactional
     public User getUser(Long userId);
+    
+    @Transactional
+    public User getUser(String username);
 }

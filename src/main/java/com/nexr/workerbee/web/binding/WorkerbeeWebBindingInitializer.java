@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.model;
+package com.nexr.workerbee.web.binding;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,15 +10,17 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.support.WebBindingInitializer;
 import org.springframework.web.context.request.WebRequest;
 
-public class ReservationBindingInitializer implements WebBindingInitializer {
-	private static final Logger logger = LoggerFactory.getLogger(ReservationBindingInitializer.class);
+import com.nexr.workerbee.dto.UserProfile;
+
+public class WorkerbeeWebBindingInitializer implements WebBindingInitializer {
+	private static final Logger logger = LoggerFactory.getLogger(WorkerbeeWebBindingInitializer.class);
 	
     public void initBinder(WebDataBinder binder, WebRequest request) {
-    	
     	logger.warn("Init!! WebBindingInitializer!!");
-
+    	
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+        binder.registerCustomEditor(UserProfile.class, new UserProfilePropertyEditor());
     }
 }

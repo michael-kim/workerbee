@@ -13,7 +13,7 @@
 <sec:authorize ifAnyGranted="ROLE_ADMIN,ROLE_USER">
 <div class="btn-toolbar">
 	<div class="btn-group">
-		<a class="btn" href="${ContextPath}/messagePost"><i class="icon-plus"></i>&nbsp;Add Post</a>
+		<a class="btn" href="${ContextPath}/messages/post"><i class="icon-plus"></i>&nbsp;Add Post</a>
 	</div>
 </div>
 </sec:authorize>
@@ -31,12 +31,12 @@
 	<tbody>
 	<c:forEach items="${messages}" var="message">
 	<tr>
-		<td>${message.author}</td>
+		<td>${message.author.user.username}</td>
 		<td>${message.title}</td>
 		<td>${message.body}</td>
 		<sec:authorize ifAllGranted="ROLE_ADMIN">
 		<td>
-		<a class="btn btn-mini btn-danger" href="messageDelete?messageId=${message.id}"><i class="icon-trash icon-white"></i> Delete</a>
+		<a class="btn btn-mini btn-danger" href="delete?messageId=${message.id}"><i class="icon-trash icon-white"></i> Delete</a>
 		</td>
 		</sec:authorize>
 	</tr>

@@ -13,10 +13,7 @@
 	 			<a href="${ContextPath}/users/list">Users</a>
 	 		</li>
 	 		<li class="<tiles:insertAttribute name='nav.messages' defaultValue=''/>">
-	 			<a href="<c:url value='/messageList' />">Messages</a>
-	 		</li>
-	 		<li class="<tiles:insertAttribute name='nav.tasks' defaultValue=''/>">
-	 			<a href="<c:url value='/taskList' />">Tasks</a>
+	 			<a href="<c:url value='/messages/list' />">Messages</a>
 	 		</li>
 	 		<li class="<tiles:insertAttribute name='nav.simpleform' defaultValue=''/>">
 	 			<a href="${ContextPath}/simpleForm">SimpleForm</a>
