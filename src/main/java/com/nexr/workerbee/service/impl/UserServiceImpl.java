@@ -8,6 +8,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
 import com.nexr.workerbee.dao.UserDao;
+import com.nexr.workerbee.dao.impl.EntityPage;
 import com.nexr.workerbee.dto.User;
 import com.nexr.workerbee.service.UserService;
 
@@ -55,5 +56,27 @@ public class UserServiceImpl implements UserService{
     @Override
     public User getUser(String username) {
         return userDao.findByCriteria(Restrictions.eq("username", username)).get(0);
+    }
+
+    @Override
+    public EntityPage<User> getUserPage(int pageNum, int pageSize) {
+        EntityPage<User> pager = userDao.getPage(pageNum, pageSize);
+        return pager;
+    }
+
+    @Override
+    public void enableUser(Long userId) {
+        User user = userDao.findById(userId);
+        user.setEnabled(true);
+        userDao.makePersistent(user);
+        userDao.flush();
+    }
+
+    @Override
+    public void disableUser(Long userId) {
+        User user = userDao.findById(userId);
+        user.setEnabled(false);
+        userDao.makePersistent(user);
+        userDao.flush();
     }
 }

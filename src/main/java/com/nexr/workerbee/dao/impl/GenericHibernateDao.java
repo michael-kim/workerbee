@@ -43,6 +43,11 @@ public abstract class GenericHibernateDao <Enitity, ID extends Serializable> imp
         return sessionFactory.getCurrentSession();
     }
     
+    public EntityPage<Enitity> getPage(Criteria criteria, int pageNum,int pageSize){
+        EntityPage<Enitity> page = new EntityPage<Enitity>(criteria,pageNum,pageSize);
+        return page;
+    }
+    
     public EntityPage<Enitity> getPage(int pageNum,int pageSize){
         Criteria crit = getSession().createCriteria(getPersistentClass());
         EntityPage<Enitity> page = new EntityPage<Enitity>(crit,pageNum,pageSize);

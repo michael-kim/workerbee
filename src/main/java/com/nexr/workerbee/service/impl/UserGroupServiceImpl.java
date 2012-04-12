@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.nexr.workerbee.dao.UserGroupDao;
+import com.nexr.workerbee.dao.impl.EntityPage;
 import com.nexr.workerbee.dto.UserGroup;
 import com.nexr.workerbee.dto.UserProfile;
 import com.nexr.workerbee.service.UserGroupService;
@@ -40,12 +41,22 @@ public class UserGroupServiceImpl implements UserGroupService{
         return userGroup;
     }
 
-
     @Override
     public void updateUserGroup(UserGroup userGroup) {
         userGroupDao.merge(userGroup);
         userGroupDao.flush();
         
+    }
+
+    @Override
+    public void addUserGroup(UserGroup userGroup) {
+        userGroupDao.makePersistent(userGroup);
+    }
+
+
+    @Override
+    public EntityPage<UserGroup> getUserGroupPage(int pageNum, int pageSize) {
+        return userGroupDao.getPage(pageNum, pageSize);
     }
     
 }

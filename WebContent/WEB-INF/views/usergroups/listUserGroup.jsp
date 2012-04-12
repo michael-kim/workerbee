@@ -9,7 +9,7 @@
 <div class="btn-toolbar">
 	<div class="btn-group">
 		<sec:authorize ifAllGranted="ROLE_ADMIN">
-		<a class="btn" href="form"><i class="icon-plus"></i>&nbsp;Add Group</a>
+		<a class="btn" href="add"><i class="icon-plus"></i>&nbsp;Add Group</a>
 		</sec:authorize>
 	</div>
 </div>
@@ -18,8 +18,8 @@
 		<tr>
 			<th>Group Name</th>
 			<th>Description</th>
-			<th>Users</th>
 			<th>Permissions</th>
+			<th>Users</th>
 			<th>Actions</th>
 		</tr>
 	</thead>
@@ -29,10 +29,10 @@
 			<td>${userGroup.groupName}</td>
 			<td>${userGroup.description}</td>
 			<td>
-				<c:forEach items="${userGroup.userProfiles}" var="userProfile" varStatus="status">${userProfile.user.username}<c:out value="${status.last ? '': ', '}" /></c:forEach>
+				<c:forEach items="${userGroup.permissions}" var="permission" varStatus="status">${permission.authority}<c:out value="${status.last ? '': ', '}" /></c:forEach>
 			</td>
 			<td>
-				<c:forEach items="${userGroup.permissions}" var="permission" varStatus="status">${permission.authority}<c:out value="${status.last ? '': ', '}" /></c:forEach>
+				<c:forEach items="${userGroup.userProfiles}" var="userProfile" varStatus="status">${userProfile.user.username}<c:out value="${status.last ? '': ', '}" /></c:forEach>
 			</td>
 			<td>
 				<sec:authorize ifAllGranted="ROLE_ADMIN">
@@ -44,3 +44,4 @@
 	</c:forEach>
 	</tbody>
 </table>
+<%@ include file="/WEB-INF/views/common/pagination.jsp"%>

@@ -17,6 +17,9 @@
 	</div>
 </div>
 </sec:authorize>
+<p class="pull-right">
+	Displaying messages ${pager.firstResultNum} to ${pager.lastResultNum} of ${pager.totalResults} 
+</p>
 <table class="table table-striped table-bordered">
 	<thead>
 	<tr>
@@ -36,23 +39,26 @@
 		<td>${message.body}</td>
 		<sec:authorize ifAllGranted="ROLE_ADMIN">
 		<td>
-		<a class="btn btn-mini btn-danger" href="delete?messageId=${message.id}"><i class="icon-trash icon-white"></i> Delete</a>
+		<a class="btn btn-mini" href="edit?messageId=${message.id}"><i class="icon-pencil"></i>&nbsp;Edit</a>&nbsp;&nbsp;
+		<a class="btn btn-mini btn-danger" href="delete?messageId=${message.id}"><i class="icon-trash icon-white"></i>&nbsp;Delete</a>
 		</td>
 		</sec:authorize>
 	</tr>
 	</c:forEach>
 	</tbody>
 </table>
-
 <div class="pagination">
-  <ul>
-    <li><a href="#">Prev</a></li>
-    <li class="active">
-      <a href="#">1</a>
-    </li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">Next</a></li>
-  </ul>
+<ul>
+	<li class="previous"><a href="list?pageNum=${pager.firstPageNum}">First</a></li>
+ 	<c:if test="${pager.hasPrevPage}"><li><a href="list?pageNum=${pager.prevPageNum}">Prev</a></li></c:if>
+ 	<c:if test="${!pager.hasPrevPage}"><li class="disabled"><a>Prev</a></li></c:if>
+ 	<c:forEach var="pageNum" begin="${pager.firstPageNum}" end="${pager.lastPageNum}" step="1">
+ 		<c:set var="condition" value="${pageNum==pager.currentPageNum}" />
+		<c:if test="${condition}"><li class="active"><a href="list?pageNum=${pageNum}">${pageNum}</a></li></c:if>
+		<c:if test="${!condition}"><li><a href="list?pageNum=${pageNum}">${pageNum}</a></li></c:if>
+	 	</c:forEach>
+ 	<c:if test="${pager.hasNextPage}"><li><a href="list?pageNum=${pager.nextPageNum}">Next</a></li></c:if>
+	<c:if test="${!pager.hasNextPage}"><li class="disabled"><a>Next</a></li></c:if>
+	<li class="next"><a href="list?pageNum=${pager.lastPageNum}">Last</a></li>
+</ul>
 </div>

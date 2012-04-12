@@ -12,24 +12,13 @@ import org.slf4j.LoggerFactory;
 public class EntityPage<T> {
     private static final Logger logger = LoggerFactory.getLogger(EntityPage.class);
 
-    private final int pageNumBase=1;
+    private final int startPageNum=1;
     private List<T> results;
     private int pageSize;
     private int pageNum;
     private ScrollableResults scrollableResults;
     private int totalResults = 0;
     
-    /**
-     * Construct a new Page. Page numbers are zero-based, so the
-     * first page is page 0.
-     * 
-     * @param query
-     * the Hibernate Query
-     * @param pageNum
-     * the page number (zero-based)
-     * @param pageSize
-     * the number of results to display on the page
-     */
     public EntityPage(Query query, int pageNum, int pageSize) {
         this.pageNum = pageNum;
         this.pageSize = pageSize;
@@ -41,7 +30,7 @@ public class EntityPage<T> {
              * to display). The result set is trimmed down to just the pageSize
              * before being displayed later (in getList()).
              */
-            results = query.setFirstResult((pageNum-pageNumBase) * pageSize).setMaxResults(pageSize + 1).list();
+            results = query.setFirstResult((pageNum-startPageNum) * pageSize).setMaxResults(pageSize + 1).list();
         } catch (HibernateException e) {
             logger.error("Failed to get paginated results: " + e.getMessage());
         }
@@ -52,35 +41,37 @@ public class EntityPage<T> {
         this.pageSize = pageSize;
         try {
             scrollableResults = crit.scroll();
-            results = crit.setFirstResult((pageNum-pageNumBase) * pageSize).setMaxResults( pageSize + 1).list();
+            results = crit.setFirstResult((pageNum-startPageNum) * pageSize).setMaxResults( pageSize + 1).list();
         } catch (HibernateException e) {
             logger.error("Failed to get paginated results: " + e.getMessage());
         }
     }
     
+    
     public boolean isFirstPage() {
-        return pageNum == 0;
+        return pageNum == startPageNum;
     }
     
     public boolean isLastPage() {
-        return pageNum >= getLastPageNumber();
+        return pageNum >= getLastPageNum();
     }
     
-    public boolean hasNextPage() {
+    public boolean hasNextPage(){
         return results.size() > pageSize;
     }
     
-    public boolean hasPreviousPage() {
-        return pageNum > 0;
+    public boolean hasPrevPage() {
+        return pageNum > startPageNum;
     }
     
-    public int getLastPageNumber() {
+    
+    public int getLastPageNum() {
         /*
          * We use the Math.floor() method because page numbers are zero-based
          * (i.e. the first page is page 0).
          */
         double totalResults = new Integer(getTotalResults()).doubleValue();
-        return new Double(Math.floor(totalResults / pageSize)).intValue();
+        return new Double(Math.floor(totalResults / pageSize)).intValue()+startPageNum;
     }
     
     public List<T> getList() {
@@ -103,24 +94,28 @@ public class EntityPage<T> {
         return totalResults;
     }
     
-    public int getFirstResultNumber(){
-        return (pageNum-pageNumBase)* pageSize + 1;
+    public int getFirstResultNum(){
+        return (pageNum-startPageNum)* pageSize + 1;
     }
     
-    public int getLastResultNumber() {
-        int fullPage = getFirstResultNumber() + pageSize - 1;
+    public int getFirstPageNum(){
+        return startPageNum;
+    }
+    
+    public int getLastResultNum() {
+        int fullPage = getFirstResultNum() + pageSize - 1;
         return getTotalResults() < fullPage ? getTotalResults() : fullPage;
     }
     
-    public int getNextPageNumber() {
+    public int getNextPageNum() {
         return pageNum + 1;
     }
     
-    public int getPreviousPageNumber() {
+    public int getPrevPageNum() {
         return pageNum - 1;
     }
     
-    public int getCurrentPageNumber(){
+    public int getCurrentPageNum(){
         return pageNum;
     }
     
@@ -132,12 +127,31 @@ public class EntityPage<T> {
         return scrollableResults;
     }
     
+    /* the following methods are work around for jsp el.
+     * the reason start with 'get' is to access variable in jsp' expression lauguage. */
+    
+    public boolean getHasNextPage(){
+        return hasNextPage();
+    }
+    
+    public boolean getHasPrevPage(){
+        return hasPrevPage();
+    }
+    
+    public boolean getIsFirstPage(){
+        return isFirstPage();
+    }
+    
+    public boolean getIsLastPage(){
+        return isLastPage();
+    }
+    
     public String toString(){
-        String str = "Last Page Number : " + getLastPageNumber()+"\n"+
-                "Previous Page Number : " + getPreviousPageNumber() + "\n" +
-                "Next Page Number : " + getNextPageNumber() +"\n"+
-                "First Result Number : " + getFirstResultNumber() + "\n" +
-                "Last Result Number : " + getLastResultNumber() +"\n" +
+        String str = "Last Page Number : " + getLastPageNum()+"\n"+
+                "Previous Page Number : " + getPrevPageNum() + "\n" +
+                "Next Page Number : " + getNextPageNum() +"\n"+
+                "First Result Number : " + getFirstResultNum() + "\n" +
+                "Last Result Number : " + getLastResultNum() +"\n" +
                 "Total Results " + getTotalResults();
         return str;
     }

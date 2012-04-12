@@ -2,6 +2,7 @@ package com.nexr.workerbee.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.criterion.Criterion;
 
 import com.nexr.workerbee.dao.impl.EntityPage;
@@ -29,5 +30,7 @@ public interface GenericDao<Entity,ID> {
     List<Entity> findByCriteria(Criterion... criterion);
     
     public EntityPage<Entity> getPage(int pageNum,int pageSize);
+    
+    public EntityPage<Entity> getPage(Criteria criteria,int pageNum,int pageSize);
     
 }

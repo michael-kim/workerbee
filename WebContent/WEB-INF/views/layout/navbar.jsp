@@ -6,7 +6,7 @@
 	 	<a class="brand" href="${ContextPath}">WorkerBee</a>
 	 	<ul class="nav">
 	 		<li class="divider-vertical"></li>
-	 		<li class="<tiles:insertAttribute name='nav.groups' defaultValue=''/>">
+	 		<li class="<tiles:insertAttribute name='nav.usergroups' defaultValue=''/>">
 	 			<a href="${ContextPath}/userGroups/list">Groups</a>
 	 		</li>
 	 		<li class="<tiles:insertAttribute name='nav.users' defaultValue=''/>">

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.nexr.workerbee.dao.MessageDao;
 import com.nexr.workerbee.dao.UserProfileDao;
+import com.nexr.workerbee.dao.impl.EntityPage;
 import com.nexr.workerbee.dto.Message;
 import com.nexr.workerbee.dto.UserProfile;
 import com.nexr.workerbee.service.MessageService;
@@ -27,16 +28,29 @@ public class MessageServiceImpl implements MessageService{
     @Override
     public void postMessage(Message message) {
         messageDao.makePersistent(message);
+        messageDao.flush();
     }
 
     @Override
     public void deleteMessage(Message message) {
         messageDao.makeTransient(message);
+        messageDao.flush();
     }
 
     @Override
     public Message findMessageById(Long messageId) {
         return messageDao.findById(messageId);
+    }
+
+    @Override
+    public EntityPage<Message> getMessagePage(int pageNum, int pageSize) {
+        return messageDao.getPage(pageNum, pageSize);
+    }
+
+    @Override
+    public void updateMessage(Message message) {
+        messageDao.merge(message);
+        messageDao.flush();
     }
     
 }

@@ -3,6 +3,7 @@ package com.nexr.workerbee.web.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.nexr.workerbee.dao.impl.EntityPage;
 import com.nexr.workerbee.dto.UserGroup;
 import com.nexr.workerbee.service.UserGroupService;
 
@@ -26,17 +28,46 @@ public class UserGroupController {
     UserGroupService userGroupService;
     
     @RequestMapping(value="list",method=RequestMethod.GET)
-    public String groupList(Model model){
-        List<UserGroup> userGroups = userGroupService.getAllUserGroups();
+    public String groupList(@RequestParam(value="pageNum",required=false,defaultValue="1")int pageNum,
+            Model model){
+        final int PAGE_SIZE=2;
+        EntityPage<UserGroup> pager = userGroupService.getUserGroupPage(pageNum, PAGE_SIZE);
+        List<UserGroup> userGroups = pager.getList();
         model.addAttribute("userGroups",userGroups);
+        model.addAttribute("pager", pager);
         return "tiles.usergroups.list";
     }
     
     @RequestMapping(value="delete",method=RequestMethod.GET)
-    public String groupList(@RequestParam("userGroupId") Long userGroupId, Model model){
+    public String groupList(@RequestParam("userGroupId") Long userGroupId, Model model,
+            HttpServletRequest request){
         userGroupService.deleteUserGroup(userGroupId);
+        return "redirect:"+ request.getHeader("Referer");
+    }
+    
+    @RequestMapping(value="add",method=RequestMethod.GET)
+    public String addUserGroup(Model model){
+        UserGroup userGroup = new UserGroup();
+        model.addAttribute("userGroup", userGroup);
+        return "tiles.usergroups.add";
+    }
+    
+    @RequestMapping(value="add",method=RequestMethod.POST)
+    public String submitUserGroup(@ModelAttribute("userGroup")UserGroup userGroup,
+            BindingResult result, SessionStatus status,Model model){
+        
+        // TO-DO : validate user group
+        if (result.hasErrors()){
+            model.addAttribute("userGroup",userGroup);
+            return "tiles.usergroups.add";
+        }else{
+            status.setComplete();
+        }
+        
+        userGroupService.addUserGroup(userGroup);
         return "redirect:list";
     }
+    
     
     @RequestMapping(value="edit",method=RequestMethod.GET)
     public String editUserGroup(@RequestParam("userGroupId") Long userGroupId, Model model){
@@ -46,7 +77,7 @@ public class UserGroupController {
     }
     
     @RequestMapping(value="edit",method=RequestMethod.POST)
-    public String submitUserGroup(@ModelAttribute("userGroup")UserGroup userGroup,
+    public String updateUserGroup(@ModelAttribute("userGroup")UserGroup userGroup,
             BindingResult result, SessionStatus status,Model model){
         
         // TO-DO : validate user group
@@ -58,7 +89,6 @@ public class UserGroupController {
         }else{
             status.setComplete();
         }
-        
         userGroupService.updateUserGroup(userGroup);
         return "redirect:list";
     }

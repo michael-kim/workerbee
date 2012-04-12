@@ -3,6 +3,7 @@ package com.nexr.workerbee.web.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.nexr.workerbee.dao.impl.EntityPage;
 import com.nexr.workerbee.dto.User;
+import com.nexr.workerbee.dto.UserProfile;
 import com.nexr.workerbee.service.UserService;
+import com.nexr.workerbee.web.command.UserCommand;
 
 @Controller
-@SessionAttributes("user")
+@SessionAttributes(value={"userCommand"})
 @RequestMapping("/users")
 public class UserController {
     
@@ -26,30 +30,62 @@ public class UserController {
     UserService userService;
 
     @RequestMapping(value="list",method=RequestMethod.GET)
-    public String uesrList(Model model){
-        List<User> users = userService.getAllUsers();
+    public String uesrList(@RequestParam(value="pageNum",required=false,defaultValue="1")int pageNum, Model model){
+        EntityPage<User> pager = userService.getUserPage(pageNum, 2);
+        List<User> users = pager.getList();
         model.addAttribute("users",users);
+        model.addAttribute("pager", pager);
         return "tiles.users.list";
     }
     
     
-    @RequestMapping(value="form",method=RequestMethod.GET)
-    public String formUser(Model model){
-        User user = new User();
-        model.addAttribute(user);
-        return "tiles.users.form";
+    @RequestMapping(value="add",method=RequestMethod.GET)
+    public String addUser(Model model){
+        UserCommand userCommand = new UserCommand();
+        model.addAttribute("userCommand",userCommand);
+        return "tiles.users.add";
     }
     
-    @RequestMapping(value="submit",method=RequestMethod.POST)
-    public String submitUser(@ModelAttribute("user") User user,
+    @RequestMapping(value="add",method=RequestMethod.POST)
+    public String submitUser(@ModelAttribute("userCommand") UserCommand userCommand,
             BindingResult result, SessionStatus status, Model model){
+        
+        // validate
+        
+        if (result.hasErrors()){
+            model.addAttribute("userCommand", userCommand);
+            return "tiles.users.add";
+        }else{
+            status.setComplete();
+        }
+        
+        User user = userCommand.genUser();
+        UserProfile userProfile = userCommand.genUserProfile();
+        user.setUserProfile(userProfile);
+        userService.createUser(user);
+        
         return "redirect:/users/list";
     }
     
     @RequestMapping(value="delete",method=RequestMethod.GET)
-    public String deleteUser(@RequestParam("userId") Long userId){
+    public String deleteUser(@RequestParam("userId") Long userId,
+            HttpServletRequest request){
         userService.deleteUser(userId);
-        return "redirect:/users/list";
+        return "redirect:"+request.getHeader("Referer");
+    }
+    
+    @RequestMapping(value="enable",method=RequestMethod.GET)
+    public String enableUser(@RequestParam("userId") Long userId,
+            HttpServletRequest request){
+        userService.enableUser(userId);
+        return "redirect:"+ request.getHeader("Referer");
+    }
+    
+    @RequestMapping(value="disable",method=RequestMethod.GET)
+    public String disableUser(@RequestParam("userId") Long userId,
+            HttpServletRequest request){
+        userService.disableUser(userId);
+        return "redirect:"+ request.getHeader("Referer");
     }
     
 }
