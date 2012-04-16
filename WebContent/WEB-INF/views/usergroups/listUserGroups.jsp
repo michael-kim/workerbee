@@ -1,9 +1,8 @@
 <%@ page  isELIgnored="false" session="true" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
 <%@ include file="/WEB-INF/views/common/include.jsp"%>
-
 <div class="page-header">
-	<h1>User Group List
-		<small>User Group List</small>
+	<h1>User Groups
+		<small>User Groups</small>
 	</h1>
 </div>
 <div class="btn-toolbar">
@@ -20,7 +19,7 @@
 			<th>Description</th>
 			<th>Permissions</th>
 			<th>Users</th>
-			<th>Actions</th>
+			<th style="width:120px">Actions</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -36,8 +35,10 @@
 			</td>
 			<td>
 				<sec:authorize ifAllGranted="ROLE_ADMIN">
+				<div class="btn-group">
 				<a class="btn btn-mini" href="edit?userGroupId=${userGroup.id}"><i class="icon-pencil"></i>&nbsp;Edit</a>&nbsp;
 				<a class="btn btn-mini btn-danger" href="delete?userGroupId=${userGroup.id}"><i class="icon-trash icon-white"></i>&nbsp;Delete</a>
+				</div>
 				</sec:authorize>
 			</td>
 		</tr>

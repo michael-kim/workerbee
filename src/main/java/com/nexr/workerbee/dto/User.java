@@ -34,6 +34,10 @@ public class User {
     private UserProfile userProfile;
 
     public User (){}
+
+    public User (Long id){
+        this.id=id;
+    }
     
     public User(String username,String password,boolean enabled){
         this.username=username;

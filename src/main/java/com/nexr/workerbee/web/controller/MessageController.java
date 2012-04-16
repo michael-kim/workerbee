@@ -34,14 +34,21 @@ public class MessageController {
     private UserService userService;
     
     @RequestMapping(value="delete",method=RequestMethod.GET)
-    public String messsageDelete(@RequestParam(required=true,value="messageId")Long messageId,Model model){
+    public String delete(@RequestParam(required=true,value="messageId")Long messageId,Model model){
         Message message = messageService.findMessageById(messageId);
         messageService.deleteMessage(message);
         return "redirect:list";
     }
     
+    @RequestMapping(value="view",method=RequestMethod.GET)
+    public String view(@RequestParam(required=true,value="messageId")Long messageId,Model model){
+        Message message = messageService.findMessageById(messageId);
+        model.addAttribute("message", message);
+        return "tiles.messages.view";
+    }
+    
     @RequestMapping(value="list",method=RequestMethod.GET)
-    public String generateList(
+    public String list(
             @RequestParam(value="pageNum",required=false,defaultValue="1")int pageNum,
             Model model){
         final int PAGE_SIZE=3;
@@ -72,7 +79,7 @@ public class MessageController {
         User user = userService.getUser(auth.getName());
         message.setAuthor(user.getUserProfile());
         messageService.postMessage(message);
-        return "redirect:list";
+        return "redirect:view?messageId="+message.getId();
     }
     
     @RequestMapping(value="edit", method=RequestMethod.GET)
@@ -94,8 +101,7 @@ public class MessageController {
             status.setComplete();
         }
         messageService.updateMessage(message);
-        return "redirect:list";
+        return "redirect:view?messageId="+message.getId();
     }
-    
     
 }

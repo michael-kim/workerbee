@@ -3,77 +3,149 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
-    <definition name="template-bootstrap" template="/WEB-INF/views/layout/layout.jsp">
+    <definition name="template-main" template="/WEB-INF/views/layout/layout.jsp">
     	<put-attribute name="title" value="Workerbee" />
     	<put-attribute name="body" value="" />
-    </definition> 
+    </definition>
     
-    <definition name="tiles.helloWorld" extends="template-bootstrap">
+    <definition name="template-admin" template="/WEB-INF/views/layout/layoutAdmin.jsp">
+    	<put-attribute name="title" value="Workerbee" />
+    	<put-attribute name="nav" value="" />
+    	<put-attribute name="body" value="" />
+    </definition>  
+    
+    <definition name="tiles.helloWorld" extends="template-main">
         <put-attribute name="title" value="Hellow World" />
         <put-attribute name="body" value="/WEB-INF/views/home.jsp" />
     </definition>
     
-    <definition name="tiles.exception.message" extends="template-bootstrap">
+    <definition name="tiles.exception.message" extends="template-main">
     	<put-attribute name="title" value="Exception" />
     	<put-attribute name="body" value="/WEB-INF/views/exception/message.jsp" />
     </definition>
     
-    <definition name="tiles.login" extends="template-bootstrap">
+    <definition name="tiles.login" extends="template-main">
     	<put-attribute name="title" value="Workerbee Login" />
     	<put-attribute name="body" value="/WEB-INF/views/login/login.jsp" />
     </definition>
     
-    <definition name="tiles.messages.messageList" extends="template-bootstrap">
+    <!-- messages -->
+    
+    <definition name="tiles.messages.messageList" extends="template-main">
     	<put-attribute name="title" value="Workerbee Messages" />
     	<put-attribute name="nav.messages" value="active" />
-    	<put-attribute name="body" value="/WEB-INF/views/messages/listMessage.jsp" />
+    	<put-attribute name="body" value="/WEB-INF/views/messages/listMessages.jsp" />
     </definition>
     
-    <definition name="tiles.messages.messagePost" extends="template-bootstrap">
+    <definition name="tiles.messages.messagePost" extends="template-main">
     	<put-attribute name="title" value="Workerbee Messages" />
     	<put-attribute name="nav.messages" value="active" />
     	<put-attribute name="body" value="/WEB-INF/views/messages/postMessage.jsp" />
     </definition>
     
-    <definition name="tiles.messages.edit" extends="template-bootstrap">
+    <definition name="tiles.messages.edit" extends="template-main">
     	<put-attribute name="title" value="Workerbee Messages" />
     	<put-attribute name="nav.messages" value="active" />
     	<put-attribute name="body" value="/WEB-INF/views/messages/editMessage.jsp" />
     </definition>
     
-    <definition name="tiles.users.list" extends="template-bootstrap">
-    	<put-attribute name="title" value="Wookerbee Users" />
-    	<put-attribute name="nav.users" value="active" />
-    	<put-attribute name="body" value="/WEB-INF/views/users/listUser.jsp" />
+    <definition name="tiles.messages.view" extends="template-main">
+    	<put-attribute name="title" value="Workerbee View Message" />
+    	<put-attribute name="nav.messages" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/messages/viewMessage.jsp" />
     </definition>
     
-    <definition name="tiles.users.add" extends="template-bootstrap">
+	<!-- users -->
+    
+    <definition name="tiles.users.list" extends="template-admin">
     	<put-attribute name="title" value="Wookerbee Users" />
+    	<put-attribute name="nav.admin" value="active" />
+    	<put-attribute name="nav.users" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/users/listUsers.jsp" />
+    </definition>
+    
+    <definition name="tiles.users.add" extends="template-admin">
+    	<put-attribute name="title" value="Wookerbee Users" />
+    	<put-attribute name="nav.admin" value="active" />
     	<put-attribute name="nav.users" value="active" />
     	<put-attribute name="body" value="/WEB-INF/views/users/addUser.jsp" />
     </definition>
     
-    <definition name="tiles.simpleForm" extends="template-bootstrap">
-    	<put-attribute name="title" value="Workerbee Simeple Form" />
-		<put-attribute name="nav.simpleform" value="active" />
-    	<put-attribute name="body" value="/WEB-INF/views/form/simpleform.jsp" />
+    
+	<!-- usergroups -->
+    
+	<definition name="tiles.usergroups.list" extends="template-admin">
+    	<put-attribute name="title" value="Wookerbee User Groups" />
+    	<put-attribute name="nav.admin" value="active" />
+    	<put-attribute name="nav.usergroups" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/usergroups/listUserGroups.jsp" />
     </definition>
     
-	<definition name="tiles.usergroups.list" extends="template-bootstrap">
-    	<put-attribute name="title" value="Wookerbee User Groups" />
-    	<put-attribute name="nav.usergroups" value="active" />
-    	<put-attribute name="body" value="/WEB-INF/views/usergroups/listUserGroup.jsp" />
-    </definition>
-    <definition name="tiles.usergroups.edit" extends="template-bootstrap">
+    <definition name="tiles.usergroups.edit" extends="template-admin">
     	<put-attribute name="title" value="Wookerbee Edit UserGroup" />
+    	<put-attribute name="nav.admin" value="active" />
     	<put-attribute name="nav.usergroups" value="active" />
     	<put-attribute name="body" value="/WEB-INF/views/usergroups/editUserGroup.jsp" />
     </definition>
     
-    <definition name="tiles.usergroups.add" extends="template-bootstrap">
+    <definition name="tiles.usergroups.add" extends="template-admin">
     	<put-attribute name="title" value="Wookerbee Add UserGroup" />
+    	<put-attribute name="nav.admin" value="active" />
     	<put-attribute name="nav.usergroups" value="active" />
     	<put-attribute name="body" value="/WEB-INF/views/usergroups/addUserGroup.jsp" />
     </definition>
     
+    <!-- projects -->
+    <definition name="tiles.projects.list" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Projects" />
+    	<put-attribute name="nav.tasks" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/projects/listProjects.jsp" />
+    </definition>
+    
+    <definition name="tiles.projects.add" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Projects" />
+    	<put-attribute name="nav.tasks" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/projects/addProject.jsp" />
+    </definition>
+    
+    <definition name="tiles.projects.edit" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Edit Projects" />
+    	<put-attribute name="nav.tasks" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/projects/editProject.jsp" />
+    </definition>
+    
+    <!-- taskgroups -->
+    
+    <definition name="tiles.taskgroups.list" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Task Groups" />
+    	<put-attribute name="nav.tasks" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/taskgroups/listTaskGroups.jsp" />
+    </definition>
+    
+    <definition name="tiles.taskgroups.edit" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Edit Task Group" />
+    	<put-attribute name="nav.tasks" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/taskgroups/editTaskGroup.jsp" />
+    </definition>
+    
+    <definition name="tiles.taskgroups.add" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Add Task Group" />
+    	<put-attribute name="nav.tasks" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/taskgroups/addTaskGroup.jsp" />
+    </definition>
+    
+    <!-- tasks -->
+
+    <definition name="tiles.tasks.list" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Task Groups" />
+    	<put-attribute name="nav.tasks" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/tasks/listTasks.jsp" />
+    </definition>
+        
+    <!-- etc. -->
+    <definition name="tiles.simpleForm" extends="template-main">
+    	<put-attribute name="title" value="Workerbee Simeple Form" />
+		<put-attribute name="nav.simpleform" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/form/simpleform.jsp" />
+    </definition>
 </tiles-definitions>

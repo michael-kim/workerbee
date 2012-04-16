@@ -21,7 +21,7 @@ import com.nexr.workerbee.service.UserGroupService;
 
 @Controller
 @SessionAttributes("userGroup")
-@RequestMapping("/userGroups")
+@RequestMapping("/usergroups")
 public class UserGroupController {
     
     @Resource
@@ -39,7 +39,7 @@ public class UserGroupController {
     }
     
     @RequestMapping(value="delete",method=RequestMethod.GET)
-    public String groupList(@RequestParam("userGroupId") Long userGroupId, Model model,
+    public String deleteUserGroup(@RequestParam("userGroupId") Long userGroupId, Model model,
             HttpServletRequest request){
         userGroupService.deleteUserGroup(userGroupId);
         return "redirect:"+ request.getHeader("Referer");

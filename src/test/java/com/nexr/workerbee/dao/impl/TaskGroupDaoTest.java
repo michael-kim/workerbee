@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import junit.framework.Assert;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -13,8 +15,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.nexr.workerbee.dao.ProjectDao;
 import com.nexr.workerbee.dao.TaskGroupDao;
-import com.nexr.workerbee.dao.impl.EntityPage;
+import com.nexr.workerbee.dto.Project;
 import com.nexr.workerbee.dto.TaskGroup;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -27,55 +30,44 @@ public class TaskGroupDaoTest {
     @Resource
     TaskGroupDao taskGroupDao;
     
+    @Resource
+    ProjectDao projectDao;
+    
     @Test
     @Transactional
-    @Rollback(false)
-    public void testTreeTraverse(){
+    @Rollback(true)
+    public void addTest(){
+        Project project = new Project();
+        project.setName("project222");
+        project.setDescription("description");
+        projectDao.makePersistent(project);
+        projectDao.flush();
         
-        TaskGroup group1 = new TaskGroup();
-        group1.setName("group1");
+        Long projectId = project.getId();
         
-        TaskGroup group2 = new TaskGroup();
-        group2.setName("group2");
+        Project project2 = new Project();
+        project2.setId(projectId);
         
-        taskGroupDao.makePersistent(group1);
+        TaskGroup taskGroup = new TaskGroup();
+        taskGroup.setName("task group name");
+        taskGroup.setDescription("description");
+        taskGroup.setProject(project2);
         
-        group1.addChildren(group2);
-        group2.setParent(group1);
-        
-        taskGroupDao.makePersistent(group2);
+        taskGroupDao.makePersistent(taskGroup);
         taskGroupDao.flush();
         
+        Assert.assertEquals("project222", taskGroup.getProject().getName());
     }
     
     @Test
     @Transactional
     @Rollback(true)
-    public void test(){
-        TaskGroup group = new TaskGroup();
-        group.setName("first group");
-        taskGroupDao.makePersistent(group);
-
-        List<TaskGroup> list= taskGroupDao.findAll();
-        
-        int i=0;
-        for(TaskGroup g:list){
-            System.out.println(g.getName());
-            i++;
-            g.setName("group "+i);
-            taskGroupDao.makePersistent(g);
-            System.out.println(g.getName());
-        }
-        taskGroupDao.flush();
-        
-        EntityPage<TaskGroup> page = taskGroupDao.getPage(1, 2);
-        List<TaskGroup> groups = page.getList();
-        for(TaskGroup g:groups){
-            System.out.println(g.getName());
-        }
-        System.out.println(page);
-        taskGroupDao.flush();
-        taskGroupDao.clear();
+    public void test2(){
+        Project project = new Project((long)401);
+        TaskGroup taskGroup = new TaskGroup();
+        taskGroup.setProject(project);
+        List<TaskGroup> list = taskGroupDao.findByExample(taskGroup);
+        Assert.assertEquals(2, list.size());
     }
     
 }

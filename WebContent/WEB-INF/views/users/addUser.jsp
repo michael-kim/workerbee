@@ -1,6 +1,5 @@
 <%@ page  isELIgnored="false" session="true" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
 <%@ include file="/WEB-INF/views/common/include.jsp"%>
-<a class="btn" href="list"><i class="icon-arrow-left"></i>&nbsp;User List</a>
 <form:form method="post" cssClass="form-horizontal" modelAttribute="userCommand">
 	<fieldset>
 		<legend>Add User</legend>

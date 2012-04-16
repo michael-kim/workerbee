@@ -20,6 +20,7 @@ import com.nexr.workerbee.dto.User;
 import com.nexr.workerbee.dto.UserProfile;
 import com.nexr.workerbee.service.UserService;
 import com.nexr.workerbee.web.command.UserCommand;
+import com.nexr.workerbee.web.validator.UserCommandValidator;
 
 @Controller
 @SessionAttributes(value={"userCommand"})
@@ -28,6 +29,9 @@ public class UserController {
     
     @Resource
     UserService userService;
+    
+    @Resource
+    UserCommandValidator userCommandValidator;
 
     @RequestMapping(value="list",method=RequestMethod.GET)
     public String uesrList(@RequestParam(value="pageNum",required=false,defaultValue="1")int pageNum, Model model){
@@ -51,6 +55,7 @@ public class UserController {
             BindingResult result, SessionStatus status, Model model){
         
         // validate
+        userCommandValidator.validate(userCommand, result);
         
         if (result.hasErrors()){
             model.addAttribute("userCommand", userCommand);

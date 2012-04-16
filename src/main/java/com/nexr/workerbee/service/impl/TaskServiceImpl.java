@@ -1,0 +1,46 @@
+package com.nexr.workerbee.service.impl;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Service;
+
+import com.nexr.workerbee.dao.TaskDao;
+import com.nexr.workerbee.dao.impl.EntityPage;
+import com.nexr.workerbee.dto.Task;
+import com.nexr.workerbee.service.TaskService;
+
+@Service("taskService")
+public class TaskServiceImpl implements TaskService{
+    
+    @Resource
+    TaskDao taskDao;
+    
+    @Override
+    public List<Task> findByTaskGroupId(Long taskGroupId) {
+        DetachedCriteria dcrit = DetachedCriteria.forClass(Task.class);
+        dcrit.createAlias("taskGroup", "t").add(Restrictions.eq("t.id", taskGroupId));
+        return taskDao.findByDetachedCriteria(dcrit);
+    }
+
+    @Override
+    public EntityPage<Task> getPage(Long taskGroupId, int pageNum, int pageSize) {
+        DetachedCriteria dcrit = DetachedCriteria.forClass(Task.class);
+        dcrit.createAlias("taskGroup", "t").add(Restrictions.eq("t.id", taskGroupId));
+        return taskDao.getPage(dcrit, pageNum, pageSize);
+    }
+
+    @Override
+    public void deleteTask(Long taskId) {
+        taskDao.deleteById(taskId);
+        taskDao.flush();
+    }
+
+    @Override
+    public Task findById(Long taskId) {
+        return taskDao.findById(taskId);
+    }
+}

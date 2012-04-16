@@ -87,7 +87,7 @@ public class EntityPage<T> {
     public int getTotalResults() {
         try {
             getScrollableResults().last();
-            totalResults = getScrollableResults().getRowNumber();
+            totalResults = getScrollableResults().getRowNumber()+1;
         } catch (HibernateException e) {
             logger.error( "Failed to get last row number from scollable results: "  + e.getMessage());
         }

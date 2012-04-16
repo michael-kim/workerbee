@@ -6,28 +6,38 @@
 	 	<a class="brand" href="${ContextPath}">WorkerBee</a>
 	 	<ul class="nav">
 	 		<li class="divider-vertical"></li>
-	 		<li class="<tiles:insertAttribute name='nav.usergroups' defaultValue=''/>">
-	 			<a href="${ContextPath}/userGroups/list">Groups</a>
-	 		</li>
-	 		<li class="<tiles:insertAttribute name='nav.users' defaultValue=''/>">
-	 			<a href="${ContextPath}/users/list">Users</a>
-	 		</li>
 	 		<li class="<tiles:insertAttribute name='nav.messages' defaultValue=''/>">
 	 			<a href="<c:url value='/messages/list' />">Messages</a>
 	 		</li>
+	 		<li class="divider-vertical"></li>
+	 		<li class="<tiles:insertAttribute name='nav.tasks' defaultValue=''/>">
+	 			<a href="<c:url value='/projects/list' />">Tasks</a>
+	 		</li>
+	 		<li class="<tiles:insertAttribute name='nav.jobs' defaultValue=''/>">
+	 			<a href="<c:url value='/jobgroups/list' />">Jobs</a>
+	 		</li>
+	 		<li class="<tiles:insertAttribute name='nav.schedules' defaultValue=''/>">
+	 			<a href="<c:url value='/schedules/list' />">Schedules</a>
+	 		</li>
+	 		<li class="divider-vertical"></li>
 	 		<li class="<tiles:insertAttribute name='nav.simpleform' defaultValue=''/>">
 	 			<a href="${ContextPath}/simpleForm">SimpleForm</a>
 	 		</li>
 	 		<sec:authorize ifAllGranted="ROLE_ADMIN">
-	 		<li class="dropdown">
+	 		<li class="dropdown <tiles:insertAttribute name='nav.admin' defaultValue=''/>" ">
 	 			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin <b class="caret"></b></a>
 	 			<ul class="dropdown-menu">
-	 				<li><a href="#">User Admin</a></li>
-	 				<li><a href="#">Configuration</a></li>
+					<li class="<tiles:insertAttribute name='nav.usergroups' defaultValue=''/>">
+	 					<a href="${ContextPath}/usergroups/list">Groups</a>
+	 				</li>	 			
+					<li class="<tiles:insertAttribute name='nav.users' defaultValue=''/>">
+						<a href="${ContextPath}/users/list">Users</a>
+					</li>
 	 			</ul>
 	 		</li>
 		 	</sec:authorize>
 	 	</ul>
+	 	
 	 	<sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
 	 	<ul class="nav pull-right">
 	 		<li><a href="<c:url value='/login'/>">Login</a></li>

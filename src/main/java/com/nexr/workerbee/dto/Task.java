@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -15,19 +17,19 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="`TASKS`")
-public class Task {
+@Inheritance(strategy=InheritanceType.JOINED)
+public abstract class Task {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="ID")
     private Long id;
     
-    @Column(name="DESCRIPTION")
-    private String description;
+    @Column(name="SUMMARY")
+    private String summary;
     
     @ManyToOne
     @JoinColumn(name="TASK_GROUP_ID",nullable=false)
     private TaskGroup taskGroup;
-    
     
     @OneToMany(mappedBy="parentTask")
     private List<TaskDependency> parentTaskDeps = new ArrayList<TaskDependency>();
@@ -43,12 +45,12 @@ public class Task {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
+    public String getSummary() {
+        return summary;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
     public TaskGroup getTaskGroup() {

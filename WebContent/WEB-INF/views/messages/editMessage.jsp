@@ -37,6 +37,7 @@
 	<div class="form-actions">
 		<input class="btn btn-primary" type="submit" value="Post" />
 		<input class="btn" type="reset" value="Reset" />
+		<a class="btn" href="list">Cancel</a>
 	</div>
 </fieldset>
 </form:form>

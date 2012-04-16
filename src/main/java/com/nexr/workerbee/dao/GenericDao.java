@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.DetachedCriteria;
 
 import com.nexr.workerbee.dao.impl.EntityPage;
 
@@ -21,16 +22,20 @@ public interface GenericDao<Entity,ID> {
     
     public void makeTransient(Entity entity);
     
+    public void deleteById(Long id);
+    
     public Entity merge(Entity entity);
     
     public void flush();
     
     public void clear();
     
+    List<Entity> findByDetachedCriteria(DetachedCriteria dcrit);
+    
     List<Entity> findByCriteria(Criterion... criterion);
     
     public EntityPage<Entity> getPage(int pageNum,int pageSize);
     
-    public EntityPage<Entity> getPage(Criteria criteria,int pageNum,int pageSize);
+    public EntityPage<Entity> getPage(DetachedCriteria detachedCriteria, int pageNum,int pageSize);
     
 }

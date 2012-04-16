@@ -1,13 +1,13 @@
 <%@ page  isELIgnored="false" session="true" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
 <%@ include file="/WEB-INF/views/common/include.jsp"%>
-<form:form method="post" cssClass="form-horizontal" modelAttribute="userGroup">
+<form:form method="post" cssClass="form-horizontal" modelAttribute="project">
 	<fieldset>
-		<legend>Add User Group</legend>
+		<legend>Edit Project</legend>
 		<div class="control-group">
-			<label class="control-label">Group Name</label>
+			<label class="control-label">Name</label>
 			<div class="controls">
-				<form:input path="groupName" />
-				<form:errors path="groupName" cssClass="alert alert-error"/>
+				<form:input path="name" />
+				<form:errors path="name" cssClass="alert alert-error"/>
 			</div>
 		</div>
 		<div class="control-group">
@@ -15,16 +15,6 @@
 			<div class="controls">
 				<form:textarea path="description" />
 				<form:errors path="description" cssClass="alert alert-error" />
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label">Permissions</label>
-			<div class="controls">
-			</div>
-		</div>
-				<div class="control-group">
-			<label class="control-label">Users</label>
-			<div class="controls">
 			</div>
 		</div>
 		<div class="form-actions">
