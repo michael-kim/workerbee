@@ -26,6 +26,14 @@
 			<td>${message.author.user.username}</td>
 		</tr>
 		<tr>
+			<th>Created</th>
+			<td>${message.created}</td>
+		</tr>
+		<tr>
+			<th>Modified</th>
+			<td>${message.modified}</td>
+		</tr>
+		<tr>
 			<th>Body</th>
 			<td><pre>${message.body}</pre></td>
 		</tr>

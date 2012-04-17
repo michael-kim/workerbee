@@ -21,6 +21,8 @@
 		<th>Title</th>
 		<th>Author</th>
 		<th>Body</th>
+		<th>Modified</th>
+		<th>Created</th>
 		<sec:authorize ifAllGranted="ROLE_ADMIN">
 		<th style="width:150px">Actions</th>
 		</sec:authorize>
@@ -32,6 +34,8 @@
 		<td><a href="view?messageId=${message.id}">${message.title}</a></td>
 		<td>${message.author.user.username}</td>
 		<td>${fn:substring(message.body, 0, 10)}...</td>
+		<td>${message.modified}</td>
+		<td>${message.created}</td>
 		<sec:authorize ifAllGranted="ROLE_ADMIN">
 		<td>
 		<div class="btn-group">

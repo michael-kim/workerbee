@@ -177,6 +177,12 @@
     	<put-attribute name="nav.tasks" value="active" />
     	<put-attribute name="body" value="/WEB-INF/views/tasks/editSshTask.jsp" />
     </definition>
+    
+    <definition name="tiles.tasks.view" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee View Task" />
+    	<put-attribute name="nav.tasks" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/tasks/viewTask.jsp" />
+    </definition>
         
     <!-- etc. -->
     <definition name="tiles.simpleForm" extends="template-main">

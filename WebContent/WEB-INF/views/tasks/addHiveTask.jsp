@@ -21,7 +21,7 @@ $(document).ready(function(){
 <form:form method="post" cssClass="form-horizontal" modelAttribute="hiveTask">
 	<fieldset>
 		<legend>Add Hive Task</legend>
-<%@ include file="/WEB-INF/views/tasks/taskCommonFields.jsp"%>
+<%@ include file="/WEB-INF/views/tasks/editCommonFields.jsp"%>
 		<div class="control-group">
 			<label class="control-label">Hive Query</label>
 			<div class="controls">

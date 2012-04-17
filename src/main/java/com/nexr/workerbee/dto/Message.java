@@ -1,5 +1,7 @@
 package com.nexr.workerbee.dto;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="MESSAGES")
@@ -27,6 +31,14 @@ public class Message {
     
     @Column(name="BODY",nullable=false)
     private String body;
+    
+    @Column(name="CREATED",insertable=true,updatable=false,nullable=false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date created;
+    
+    @Column(name="MODIFIED",nullable=false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date modified;
 
     public Long getId() {
         return id;
@@ -58,5 +70,13 @@ public class Message {
 
     public void setBody(String body) {
         this.body = body;
+    }
+    
+    public Date getCreated() {
+        return created;
+    }
+    
+    public Date getModified() {
+        return modified;
     }
 }

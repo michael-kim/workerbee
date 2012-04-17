@@ -21,11 +21,11 @@ $(document).ready(function(){
 <form:form method="post" cssClass="form-horizontal" modelAttribute="jdbcTask">
 	<fieldset>
 		<legend>Add Jdbc Task</legend>
-<%@ include file="/WEB-INF/views/tasks/taskCommonFields.jsp"%>
+<%@ include file="/WEB-INF/views/tasks/editCommonFields.jsp"%>
 		<div class="control-group">
 			<label class="control-label">URL</label>
 			<div class="controls">
-				<form:input path="url" />
+				<form:input path="url" cssClass="span5"/>
 				<form:errors path="url" cssClass="alert alert-error" />
 			</div>
 		</div>

@@ -23,6 +23,7 @@
 	  	<li><a href="addHiveTask?taskGroupId=${taskGroup.id}">Hive Task</a></li>
 	  	<li><a href="addJdbcTask?taskGroupId=${taskGroup.id}">JDBC Task</a></li>
 	  	<li><a href="addSshTask?taskGroupId=${taskGroup.id}">SSH Task</a></li>
+	  	<li><a href="#">HDFS Task</a></li>
 	  	<li><a href="#">Sqoop Task</a></li>
 	  	<li><a href="#">RHive Task</a></li>
 	  </ul>
@@ -37,6 +38,7 @@
 		<th>Name</th>
 		<th>Summary</th>
 		<th>Type</th>
+		<th>Modified</th>
 		<sec:authorize ifAllGranted="ROLE_ADMIN">
 		<th style="width:150px">Actions</th>
 		</sec:authorize>
@@ -46,9 +48,10 @@
 	<c:forEach items="${tasks}" var="task">
 	<tr>
 		<td>${task.id}</td>
-		<td>${task.name}</td>
+		<td><a href="view?taskId=${task.id}">${task.name}</a></td>
 		<td>${task.summaryText}</td>
 		<td>${task.taskType}</td>
+		<td>${task.modified}</td>
 		<sec:authorize ifAllGranted="ROLE_ADMIN">
 		<td>
 		<div class="btn-group">

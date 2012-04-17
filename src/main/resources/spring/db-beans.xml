@@ -14,7 +14,8 @@
 	
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager"
-		p:sessionFactory-ref="sessionFactory" /> 
+		p:sessionFactory-ref="sessionFactory">
+	</bean> 
 		
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		p:driverClassName="${db.driverClassName}"
@@ -28,6 +29,9 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
 		p:dataSource-ref="dataSource">
+		<property name="entityInterceptor">
+            <bean class="com.nexr.workerbee.dto.DateInterceptor" />
+         </property>
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop> 

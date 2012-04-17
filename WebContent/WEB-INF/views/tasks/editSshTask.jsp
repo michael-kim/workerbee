@@ -4,11 +4,11 @@
 <form:form method="post" cssClass="form-horizontal" action="editssh" modelAttribute="sshTask">
 	<fieldset>
 		<legend>Edit Ssh Task</legend>
-<%@ include file="/WEB-INF/views/tasks/taskCommonFields.jsp"%>
+<%@ include file="/WEB-INF/views/tasks/editCommonFields.jsp"%>
 		<div class="control-group">
 			<label class="control-label">Host</label>
 			<div class="controls">
-				<form:input path="host" />
+				<form:input path="host" cssClass="span5"/>
 				<form:errors path="host" cssClass="alert alert-error" />
 			</div>
 		</div>
@@ -29,7 +29,7 @@
 		<div class="control-group">
 			<label class="control-label">Command</label>
 			<div class="controls">
-				<form:input path="command" />
+				<form:input path="command" cssClass="span8" />
 				<form:errors path="command" cssClass="alert alert-error"/>
 			</div>
 		</div>

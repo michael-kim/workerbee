@@ -1,6 +1,7 @@
 package com.nexr.workerbee.dto;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -16,6 +17,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="`TASKS`")
@@ -32,6 +35,10 @@ public abstract class Task {
     @Column(name="TASK_TYPE",nullable=false)
     @Enumerated(EnumType.STRING)
     private TaskType taskType;
+    
+    @Column(name="MODIFIED",nullable=false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date modified;
     
     @ManyToOne
     @JoinColumn(name="TASK_GROUP_ID",nullable=false)
@@ -65,6 +72,10 @@ public abstract class Task {
 
     public void setTaskType(TaskType taskType) {
         this.taskType = taskType;
+    }
+
+    public Date getModified() {
+        return modified;
     }
 
     public TaskGroup getTaskGroup() {

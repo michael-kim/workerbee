@@ -37,6 +37,22 @@ public class TaskController {
     TaskGroupService taskGroupService;
     
     
+    @RequestMapping(value="view",method=RequestMethod.GET)
+    public String view(@RequestParam("taskId") Long taskId, Model model){
+        Task task = taskService.findById(taskId);
+        if (task instanceof HiveTask){
+            model.addAttribute("task",(HiveTask)task);
+        }
+        if (task instanceof JdbcTask){
+            model.addAttribute("task", (JdbcTask)task);
+        }
+        if (task instanceof SshTask){
+            model.addAttribute("task", (SshTask)task);
+        }
+        return "tiles.tasks.view";
+    }
+    
+    
     @RequestMapping(value="list",method=RequestMethod.GET)
     public String list(
             @RequestParam("taskGroupId") Long taskGroupId,
