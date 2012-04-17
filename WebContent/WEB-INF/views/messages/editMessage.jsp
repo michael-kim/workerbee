@@ -30,7 +30,7 @@
 	<div class="control-group">
 		<label class="control-label" for="body">Body</label>
 		<div class="controls">
-			<form:textarea path="body" cssClass="input-xlarge" />
+			<form:textarea path="body" cssClass="input-xlarge" rows="15"/>
 			<p class="help-block">Supporting help text</p>
 		</div>
 	</div>

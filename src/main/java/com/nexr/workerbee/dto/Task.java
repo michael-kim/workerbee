@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,8 +26,12 @@ public abstract class Task {
     @Column(name="ID")
     private Long id;
     
-    @Column(name="SUMMARY")
-    private String summary;
+    @Column(name="NAME",nullable=false)
+    private String name;
+    
+    @Column(name="TASK_TYPE",nullable=false)
+    @Enumerated(EnumType.STRING)
+    private TaskType taskType;
     
     @ManyToOne
     @JoinColumn(name="TASK_GROUP_ID",nullable=false)
@@ -45,12 +51,20 @@ public abstract class Task {
         this.id = id;
     }
 
-    public String getSummary() {
-        return summary;
+    public String getName() {
+        return name;
     }
 
-    public void setSummary(String summary) {
-        this.summary = summary;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public TaskType getTaskType() {
+        return taskType;
+    }
+
+    public void setTaskType(TaskType taskType) {
+        this.taskType = taskType;
     }
 
     public TaskGroup getTaskGroup() {
@@ -78,4 +92,6 @@ public abstract class Task {
         childTaskDep.setParentTask(this);
         this.childTaskDeps.add(childTaskDep);
     }
+    
+    public abstract String getSummaryText();
 }

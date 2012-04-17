@@ -141,6 +141,42 @@
     	<put-attribute name="nav.tasks" value="active" />
     	<put-attribute name="body" value="/WEB-INF/views/tasks/listTasks.jsp" />
     </definition>
+    
+    <definition name="tiles.tasks.add.hive" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Add Hive Task" />
+    	<put-attribute name="nav.tasks" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/tasks/addHiveTask.jsp" />
+    </definition>
+    
+    <definition name="tiles.tasks.edit.hive" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Edit Hive Task" />
+    	<put-attribute name="nav.tasks" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/tasks/editHiveTask.jsp" />
+    </definition>
+    
+    <definition name="tiles.tasks.add.jdbc" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Add Jdbc Task" />
+    	<put-attribute name="nav.tasks" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/tasks/addJdbcTask.jsp" />
+    </definition>
+    
+    <definition name="tiles.tasks.edit.jdbc" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Edit Jdbc Task" />
+    	<put-attribute name="nav.tasks" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/tasks/editJdbcTask.jsp" />
+    </definition>
+    
+    <definition name="tiles.tasks.add.ssh" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Add Ssh Task" />
+    	<put-attribute name="nav.tasks" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/tasks/addSshTask.jsp" />
+    </definition>
+    
+    <definition name="tiles.tasks.edit.ssh" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Edit Ssh Task" />
+    	<put-attribute name="nav.tasks" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/tasks/editSshTask.jsp" />
+    </definition>
         
     <!-- etc. -->
     <definition name="tiles.simpleForm" extends="template-main">

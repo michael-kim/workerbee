@@ -21,4 +21,9 @@ public interface TaskService {
     @Transactional
     public Task findById(Long taskId);
     
+    @Transactional
+    public void addTask(Task task);
+    
+    @Transactional
+    public void updateTask(Task task);
 }

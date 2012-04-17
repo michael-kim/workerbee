@@ -2,3 +2,21 @@
 .clear {
 	clear:both;
 }
+
+.docs-input-sizes select,.docs-input-sizes input[type=text] {
+	display: block;
+	margin-bottom: 9px;
+}
+
+.CodeMirror {
+	border: 1px solid #eee;
+}
+.activeline {
+	background: #e8f2ff !important;
+}
+.CodeMirror-scroll {
+	height: auto;
+	overflow-y: hidden;
+	overflow-x: auto;
+	width: 100%;
+}

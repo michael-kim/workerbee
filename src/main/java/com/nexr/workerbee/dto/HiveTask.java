@@ -9,8 +9,12 @@ import javax.persistence.Table;
 public class HiveTask extends Task{
     
     @Column(name="QUERY")
-    
     private String query;
+    
+    public HiveTask(){
+        super();
+        this.setTaskType(TaskType.HIVE);
+    }
 
     public String getQuery() {
         return query;
@@ -19,4 +23,10 @@ public class HiveTask extends Task{
     public void setQuery(String query) {
         this.query = query;
     }
+
+    @Override
+    public String getSummaryText() {
+        return this.query;
+    }
+    
 }

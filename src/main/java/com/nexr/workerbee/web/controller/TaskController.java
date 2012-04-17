@@ -7,11 +7,18 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.nexr.workerbee.dao.impl.EntityPage;
+import com.nexr.workerbee.dto.HiveTask;
+import com.nexr.workerbee.dto.JdbcTask;
+import com.nexr.workerbee.dto.SshTask;
 import com.nexr.workerbee.dto.Task;
 import com.nexr.workerbee.dto.TaskGroup;
 import com.nexr.workerbee.service.TaskGroupService;
@@ -19,6 +26,7 @@ import com.nexr.workerbee.service.TaskService;
 
 @Controller
 @RequestMapping("/tasks")
+@SessionAttributes(value={"hiveTask","jdbcTask","sshTask"})
 public class TaskController {
     
     
@@ -34,7 +42,7 @@ public class TaskController {
             @RequestParam("taskGroupId") Long taskGroupId,
             @RequestParam(value="pageNum",required=false,defaultValue="1") int pageNum,
             Model model){
-        final int PAGE_SIZE=2;
+        final int PAGE_SIZE=10;
         EntityPage<Task> pager = taskService.getPage(taskGroupId, pageNum, PAGE_SIZE);
         List<Task> tasks = pager.getList();
         TaskGroup taskGroup = taskGroupService.getTaskGroup(taskGroupId);
@@ -51,5 +59,147 @@ public class TaskController {
         return "redirect:"+ request.getHeader("Referer");
     }
     
+    
+    @RequestMapping(value="addHiveTask",method=RequestMethod.GET)
+    public String addHiveTask(@RequestParam("taskGroupId") Long taskGroupId,Model model){
+        HiveTask task = new HiveTask();
+        task.setTaskGroup(new TaskGroup(taskGroupId));
+        model.addAttribute("hiveTask", task);
+        return "tiles.tasks.add.hive";
+    }
+    
+    @RequestMapping(value="addHiveTask",method=RequestMethod.POST)
+    public String submitHiveTask(@ModelAttribute("hiveTask")HiveTask task,
+            BindingResult result, SessionStatus status,Model model){
+        
+        // TO-DO : validate 
+        
+        if (result.hasErrors()){
+            model.addAttribute("hiveTask", task);
+            return "tiles.tasks.add.hive";
+        }else{
+            status.setComplete();
+        }
+        
+        taskService.addTask(task);
+        return "redirect:list?taskGroupId="+task.getTaskGroup().getId();
+    }
+    
+    @RequestMapping(value="addJdbcTask",method=RequestMethod.GET)
+    public String addJdbcTask(@RequestParam("taskGroupId") Long taskGroupId,Model model){
+        JdbcTask task = new JdbcTask();
+        task.setTaskGroup(new TaskGroup(taskGroupId));
+        model.addAttribute("jdbcTask", task);
+        return "tiles.tasks.add.jdbc";
+    }
+    
+    @RequestMapping(value="addJdbcTask",method=RequestMethod.POST)
+    public String submitJdbcTask(@ModelAttribute("jdbcTask")JdbcTask task,
+            BindingResult result, SessionStatus status,Model model){
+        
+        // TO-DO : validate 
+        
+        if (result.hasErrors()){
+            model.addAttribute("jdbcTask", task);
+            return "tiles.tasks.add.jdbc";
+        }else{
+            status.setComplete();
+        }
+        
+        taskService.addTask(task);
+        return "redirect:list?taskGroupId="+task.getTaskGroup().getId();
+    }
+    
+    @RequestMapping(value="addSshTask",method=RequestMethod.GET)
+    public String addSshTask(@RequestParam("taskGroupId") Long taskGroupId,Model model){
+        SshTask task = new SshTask();
+        task.setTaskGroup(new TaskGroup(taskGroupId));
+        model.addAttribute("sshTask", task);
+        return "tiles.tasks.add.ssh";
+    }
+    
+    @RequestMapping(value="addSshTask",method=RequestMethod.POST)
+    public String submitSshTask(@ModelAttribute("sshTask")SshTask task,
+            BindingResult result, SessionStatus status,Model model){
+        
+        // TO-DO : validate 
+        
+        if (result.hasErrors()){
+            model.addAttribute("sshTask", task);
+            return "tiles.tasks.add.ssh";
+        }else{
+            status.setComplete();
+        }
+        
+        taskService.addTask(task);
+        return "redirect:list?taskGroupId="+task.getTaskGroup().getId();
+    }
+    
+    @RequestMapping(value="edit",method=RequestMethod.GET)
+    public String edit(@RequestParam("taskId") Long taskId, Model model){
+        Task task = taskService.findById(taskId);
+        if (task instanceof HiveTask){
+            model.addAttribute("hiveTask",(HiveTask)task);
+            return "tiles.tasks.edit.hive";
+        }
+        if (task instanceof JdbcTask){
+            model.addAttribute("jdbcTask", (JdbcTask)task);
+            return "tiles.tasks.edit.jdbc";
+        }
+        if (task instanceof SshTask){
+            model.addAttribute("sshTask", (SshTask)task);
+            return "tiles.tasks.edit.ssh";
+        }
+        return "tiles.tasks.list";
+    }
+    
+    
+    @RequestMapping(value="edithive",method=RequestMethod.POST)
+    public String updateHiveTask(@ModelAttribute("hiveTask")HiveTask task,
+            BindingResult result, SessionStatus status,Model model){
+        
+        // TO-DO : validate hive Task
+        
+        if (result.hasErrors()){
+            model.addAttribute("hiveTask",task);
+            return "tiles.tasks.edit.hive";
+        }else{
+            status.setComplete();
+        }
+        taskService.updateTask(task);
+        return "redirect:list?taskGroupId="+task.getTaskGroup().getId();
+    }
+    
+    @RequestMapping(value="editjdbc",method=RequestMethod.POST)
+    public String updateJdbcTask(@ModelAttribute("jdbcTask")JdbcTask task,
+            BindingResult result, SessionStatus status,Model model){
+        
+        // TO-DO : validate 
+        
+        if (result.hasErrors()){
+            model.addAttribute("jdbcTask",task);
+            return "tiles.tasks.edit.jdbc";
+        }else{
+            status.setComplete();
+        }
+        taskService.updateTask(task);
+        return "redirect:list?taskGroupId="+task.getTaskGroup().getId();
+    }
+    
+    @RequestMapping(value="editssh",method=RequestMethod.POST)
+    public String updateSshTask(@ModelAttribute("sshTask")SshTask task,
+            BindingResult result, SessionStatus status,Model model){
+        
+        // TO-DO : validate 
+        
+        if (result.hasErrors()){
+            model.addAttribute("sshTask",task);
+            return "tiles.tasks.edit.ssh";
+        }else{
+            status.setComplete();
+        }
+        taskService.updateTask(task);
+        return "redirect:list?taskGroupId="+task.getTaskGroup().getId();
+    }
     
 }

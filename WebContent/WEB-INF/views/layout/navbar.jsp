@@ -13,12 +13,6 @@
 	 		<li class="<tiles:insertAttribute name='nav.tasks' defaultValue=''/>">
 	 			<a href="<c:url value='/projects/list' />">Tasks</a>
 	 		</li>
-	 		<li class="<tiles:insertAttribute name='nav.jobs' defaultValue=''/>">
-	 			<a href="<c:url value='/jobgroups/list' />">Jobs</a>
-	 		</li>
-	 		<li class="<tiles:insertAttribute name='nav.schedules' defaultValue=''/>">
-	 			<a href="<c:url value='/schedules/list' />">Schedules</a>
-	 		</li>
 	 		<li class="divider-vertical"></li>
 	 		<li class="<tiles:insertAttribute name='nav.simpleform' defaultValue=''/>">
 	 			<a href="${ContextPath}/simpleForm">SimpleForm</a>
@@ -48,7 +42,6 @@
 	 		<li class="dropdown">
 			    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><sec:authentication property="name" /> <b class="caret"></b></a>
 			    <ul class="dropdown-menu">
-			      <li><a href="#">Account Settings</a></li>
 			      <li><a href="#">Edit Profile</a></li>
 			      <li class="divider"></li>
 			      <li><a href="<c:url value='/j_spring_security_logout'/>">Logout</a></li>

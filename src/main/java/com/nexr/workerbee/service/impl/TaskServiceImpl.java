@@ -43,4 +43,16 @@ public class TaskServiceImpl implements TaskService{
     public Task findById(Long taskId) {
         return taskDao.findById(taskId);
     }
+
+    @Override
+    public void addTask(Task task) {
+        taskDao.makePersistent(task);
+        taskDao.flush();
+    }
+
+    @Override
+    public void updateTask(Task task) {
+        taskDao.merge(task);
+        taskDao.flush();
+    }
 }

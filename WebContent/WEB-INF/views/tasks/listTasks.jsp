@@ -15,13 +15,16 @@
 <sec:authorize ifAnyGranted="ROLE_ADMIN,ROLE_USER">
 <div class="btn-toolbar">
 	<div class="btn-group">
-	  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-	    Add Task
+	  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+	    <i class="icon-plus"></i>&nbsp;&nbsp;Add Task
 	    <span class="caret"></span>
 	  </a>
 	  <ul class="dropdown-menu">
-	  	<li><a href="#">Hive Task</a></li>
+	  	<li><a href="addHiveTask?taskGroupId=${taskGroup.id}">Hive Task</a></li>
+	  	<li><a href="addJdbcTask?taskGroupId=${taskGroup.id}">JDBC Task</a></li>
+	  	<li><a href="addSshTask?taskGroupId=${taskGroup.id}">SSH Task</a></li>
 	  	<li><a href="#">Sqoop Task</a></li>
+	  	<li><a href="#">RHive Task</a></li>
 	  </ul>
 	</div>
 </div>
@@ -30,7 +33,10 @@
 <table class="table table-striped table-bordered">
 	<thead>
 	<tr>
+		<th style="width:40px">Key</th>
+		<th>Name</th>
 		<th>Summary</th>
+		<th>Type</th>
 		<sec:authorize ifAllGranted="ROLE_ADMIN">
 		<th style="width:150px">Actions</th>
 		</sec:authorize>
@@ -39,7 +45,10 @@
 	<tbody>
 	<c:forEach items="${tasks}" var="task">
 	<tr>
-		<td>${task.summary}</td>
+		<td>${task.id}</td>
+		<td>${task.name}</td>
+		<td>${task.summaryText}</td>
+		<td>${task.taskType}</td>
 		<sec:authorize ifAllGranted="ROLE_ADMIN">
 		<td>
 		<div class="btn-group">
