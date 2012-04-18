@@ -1,0 +1,34 @@
+/* reset css sytle */
+.reset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article.reset, aside.reset, details.reset, figcaption.reset, figure.reset, 
+footer.reset, header.reset, hgroup.reset, menu.reset, nav.reset, section.reset {
+	display: block;
+}
+body.reset {
+	line-height: 1;
+}
+ol.reset, ul.reset {
+	list-style: none;
+}
+blockquote.rest, q.reset {
+	quotes: none;
+}
+blockquote.reset:before, 
+blockquote.reset:after,
+q.reset:before,
+q.rest:after {
+	content: '';
+	content: none;
+}
+table.reset {
+	border-collapse: collapse;
+	border-spacing: 0;
+}

@@ -4,17 +4,17 @@
 	<div class="well" style="padding:15px;margin-bottom:15px">
 		<a class="close pull-right" href="${ContextPath}/taskComments/delete?taskCommentId=${comment.id}">&times;</a>
 		<strong>${comment.author.user.username}</strong> added a comment - ${comment.modified}<br/>
-		${comment.comment}
+		<pre class="reset">${comment.comment}</pre>
 	</div>
 	</c:forEach>
 </div>
 
 <form:form id="comment-form" method="post" cssClass="form-horizontal" modelAttribute="taskComment" action="${ContextPath}/taskComments/add">
+	<form:hidden path="task" />
 	<fieldset>
 		<div class="control-group">
 			<label class="control-label">Comment</label>
 			<div class="controls">
-				<form:hidden path="task" />
 				<form:textarea id="comment-textarea" path="comment" cssClass="span9"/>
 				<form:errors path="comment" cssClass="alert alert-error" element="div" cssStyle="margin:10px 0 0" />
 			</div>
