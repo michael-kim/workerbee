@@ -7,7 +7,7 @@
 	 	<ul class="nav">
 	 		<li class="divider-vertical"></li>
 	 		<li class="<tiles:insertAttribute name='nav.messages' defaultValue=''/>">
-	 			<a href="<c:url value='/messages/list' />">Messages</a>
+	 			<a href="<c:url value='/messages/list' />">Board</a>
 	 		</li>
 	 		<li class="divider-vertical"></li>
 	 		<li class="<tiles:insertAttribute name='nav.tasks' defaultValue=''/>">

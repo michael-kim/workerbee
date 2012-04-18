@@ -27,6 +27,7 @@
 <%@ include file="/WEB-INF/views/layout/navbar.jsp"%>
 <div class="container">
 	<tiles:insertAttribute name="body"/>
+	<%@ include file="/WEB-INF/views/layout/footer.jsp"%>
 </div><!-- /containter -->
 </body>
 </html>

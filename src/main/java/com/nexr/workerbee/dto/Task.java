@@ -32,6 +32,9 @@ public abstract class Task {
     @Column(name="NAME",nullable=false)
     private String name;
     
+    @Column(name="DESCRIPTION")
+    private String description;
+    
     @Column(name="TASK_TYPE",nullable=false)
     @Enumerated(EnumType.STRING)
     private TaskType taskType;
@@ -43,6 +46,9 @@ public abstract class Task {
     @ManyToOne
     @JoinColumn(name="TASK_GROUP_ID",nullable=false)
     private TaskGroup taskGroup;
+    
+    @OneToMany(mappedBy="task")
+    private List<TaskComment> taskComments = new ArrayList<TaskComment>();
     
     @OneToMany(mappedBy="parentTask")
     private List<TaskDependency> parentTaskDeps = new ArrayList<TaskDependency>();
@@ -64,6 +70,14 @@ public abstract class Task {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public TaskType getTaskType() {
@@ -104,5 +118,14 @@ public abstract class Task {
         this.childTaskDeps.add(childTaskDep);
     }
     
+    public List<TaskComment> getTaskComments() {
+        return taskComments;
+    }
+
+    public void addTaskComments(TaskComment taskComment) {
+        taskComment.setTask(this);
+        this.taskComments.add(taskComment); 
+    }
+
     public abstract String getSummaryText();
 }

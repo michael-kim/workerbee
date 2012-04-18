@@ -26,6 +26,8 @@
 	  	<li><a href="#">HDFS Task</a></li>
 	  	<li><a href="#">Sqoop Task</a></li>
 	  	<li><a href="#">RHive Task</a></li>
+	  	<li class="divider"></li>
+	  	<li><a href="#">External Task</a></li>
 	  </ul>
 	</div>
 </div>

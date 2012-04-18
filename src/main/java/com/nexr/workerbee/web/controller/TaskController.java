@@ -20,7 +20,9 @@ import com.nexr.workerbee.dto.HiveTask;
 import com.nexr.workerbee.dto.JdbcTask;
 import com.nexr.workerbee.dto.SshTask;
 import com.nexr.workerbee.dto.Task;
+import com.nexr.workerbee.dto.TaskComment;
 import com.nexr.workerbee.dto.TaskGroup;
+import com.nexr.workerbee.service.TaskCommentService;
 import com.nexr.workerbee.service.TaskGroupService;
 import com.nexr.workerbee.service.TaskService;
 
@@ -29,13 +31,14 @@ import com.nexr.workerbee.service.TaskService;
 @SessionAttributes(value={"hiveTask","jdbcTask","sshTask"})
 public class TaskController {
     
-    
     @Resource
     TaskService taskService;
     
     @Resource
     TaskGroupService taskGroupService;
     
+    @Resource
+    TaskCommentService taskCommentService;
     
     @RequestMapping(value="view",method=RequestMethod.GET)
     public String view(@RequestParam("taskId") Long taskId, Model model){
@@ -49,6 +52,10 @@ public class TaskController {
         if (task instanceof SshTask){
             model.addAttribute("task", (SshTask)task);
         }
+        model.addAttribute("taskComments",taskCommentService.findAll(taskId));
+        TaskComment comment = new TaskComment();
+        comment.setTask(task);
+        model.addAttribute("taskComment",comment);
         return "tiles.tasks.view";
     }
     

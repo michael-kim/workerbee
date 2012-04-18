@@ -15,7 +15,7 @@ public class HiveTask extends Task{
         super();
         this.setTaskType(TaskType.HIVE);
     }
-
+    
     public String getQuery() {
         return query;
     }

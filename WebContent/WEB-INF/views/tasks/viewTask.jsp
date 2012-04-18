@@ -16,15 +16,17 @@
 	<div class="btn-group">
 		<a class="btn btn-small" href="list?taskGroupId=${task.taskGroup.id}"><i class="icon-arrow-left"></i> List</a>
 	</div>
+	<sec:authorize ifAnyGranted="ROLE_ADMIN,ROLE_USER">
 	<div class="btn-group pull-right">
 		<a class="btn btn-small" href="edit?taskId=${task.id}"><i class="icon-pencil"></i>&nbsp;Edit&nbsp;</a>
 		<a class="btn btn-small btn-danger" href="delete?taskId=${task.id}"><i class="icon-trash icon-white"></i>&nbsp;Delete&nbsp;</a>
 	</div>
+	</sec:authorize>
 </div>
 <table class="table table-bordered">
 	<tbody>
 		<tr><th style="width:100px">Name</th><td>${task.name}</td></tr>
-		<tr><th>Summary</th><td>${task.summaryText}</td></tr>
+		<tr><th>Description</th><td>${task.description}</td></tr>
 		<tr><th>Type</th><td>${task.taskType}</td></tr>
 		<tr><th>Modified</th><td>${task.modified}</td></tr>
 		<c:if test="${task.taskType=='HIVE'}">
@@ -44,3 +46,21 @@
 		</c:if>
 	</tbody>
 </table>
+
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tabComments" data-toggle="tab">Comments</a></li>
+    <li><a href="#tabActivities" data-toggle="tab">Activity</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tabComments">
+    	<div id="divComment">
+		    <%@ include file="/WEB-INF/views/taskcomments/listTaskComments.jsp"%>
+    	</div>
+    </div>
+    <div class="tab-pane" id="tabActivities">
+      <p>Now, Not support yet.</p>
+    </div>
+  </div>
+</div>
+

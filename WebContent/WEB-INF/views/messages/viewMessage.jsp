@@ -9,10 +9,12 @@
 	<div class="btn-group">
 		<a class="btn" href="list"><i class="icon-arrow-left"></i> List</a>
 	</div>
+	<sec:authorize ifAnyGranted="ROLE_ADMIN,ROLE_USER">
 	<div class="btn-group pull-right">
 		<a class="btn btn-small" href="edit?messageId=${message.id}"><i class="icon-pencil"></i>&nbsp;Edit&nbsp;</a>
 		<a class="btn btn-small btn-danger" href="delete?messageId=${message.id}"><i class="icon-trash icon-white"></i>&nbsp;Delete&nbsp;</a>
 	</div>
+	</sec:authorize>
 </div>
 
 <table class="table table-bordered">

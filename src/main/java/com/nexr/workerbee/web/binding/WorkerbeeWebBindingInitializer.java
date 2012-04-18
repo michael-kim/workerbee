@@ -10,6 +10,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.support.WebBindingInitializer;
 import org.springframework.web.context.request.WebRequest;
 
+import com.nexr.workerbee.dto.Task;
 import com.nexr.workerbee.dto.UserProfile;
 
 public class WorkerbeeWebBindingInitializer implements WebBindingInitializer {
@@ -22,5 +23,6 @@ public class WorkerbeeWebBindingInitializer implements WebBindingInitializer {
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
         binder.registerCustomEditor(UserProfile.class, new UserProfilePropertyEditor());
+        binder.registerCustomEditor(Task.class, new TaskPropertyEditor());
     }
 }

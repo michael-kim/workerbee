@@ -11,6 +11,7 @@ public class UserProfilePropertyEditor extends PropertyEditorSupport {
         if (userProfile==null) return "";
         return String.valueOf(userProfile.getId());
     }
+    
     public void setAsText(String text) throws IllegalArgumentException{
         UserProfile userProfile = new UserProfile();
         userProfile.setId(Long.parseLong(text.trim()));
