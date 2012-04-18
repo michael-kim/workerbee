@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -21,17 +23,22 @@ import com.nexr.workerbee.dto.Message;
 import com.nexr.workerbee.dto.User;
 import com.nexr.workerbee.service.MessageService;
 import com.nexr.workerbee.service.UserService;
+import com.nexr.workerbee.web.validator.MessageValidator;
 
 @Controller
 @RequestMapping("/messages")
 @SessionAttributes("message")
 public class MessageController {
+    private static final Logger logger = LoggerFactory.getLogger(MessageController.class);
     
     @Resource
     private MessageService messageService;
     
     @Resource
     private UserService userService;
+    
+    @Resource
+    MessageValidator messageValidator;
     
     @RequestMapping(value="delete",method=RequestMethod.GET)
     public String delete(@RequestParam(required=true,value="messageId")Long messageId,Model model){
@@ -69,6 +76,9 @@ public class MessageController {
     @RequestMapping(value="post", method=RequestMethod.POST)
     public String onSubmit(@ModelAttribute("message") Message message,
             BindingResult result,SessionStatus status, Model model){
+        
+        messageValidator.validate(message, result);
+        
         if(result.hasErrors()){
             model.addAttribute("message", message);
             return "tiles.messages.messagePost";
@@ -94,6 +104,8 @@ public class MessageController {
     @RequestMapping(value="edit", method=RequestMethod.POST)
     public String updateMessage(@ModelAttribute("message") Message message,
             BindingResult result,SessionStatus status, Model model){
+        
+        messageValidator.validate(message, result);
         if(result.hasErrors()){
             model.addAttribute("message", message);
             return "tiles.messages.edit";

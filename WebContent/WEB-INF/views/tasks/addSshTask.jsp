@@ -1,6 +1,7 @@
 <%@ page  isELIgnored="false" session="true" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
 <%@ include file="/WEB-INF/views/common/include.jsp"%>
 <c:set var="task" value="${sshTask}" />
+<a class="btn" href="list?taskGroupId=${task.taskGroup.id}"><i class="icon-arrow-left"></i> List</a>
 <form:form method="post" cssClass="form-horizontal" modelAttribute="sshTask">
 	<fieldset>
 		<legend>Add Ssh Task</legend>

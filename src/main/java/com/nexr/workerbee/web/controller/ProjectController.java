@@ -5,6 +5,8 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,16 +18,20 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.nexr.workerbee.dto.Project;
-import com.nexr.workerbee.dto.UserGroup;
 import com.nexr.workerbee.service.ProjectService;
+import com.nexr.workerbee.web.validator.ProjectValidator;
 
 @Controller
 @RequestMapping("/projects")
 @SessionAttributes("project")
 public class ProjectController {
+    private static final Logger logger = LoggerFactory.getLogger(ProjectController.class);
     
     @Resource
     ProjectService projectService;
+    
+    @Resource
+    ProjectValidator projectValidator;
     
     @RequestMapping(value="list",method=RequestMethod.GET)
     public String list(Model model){
@@ -52,7 +58,7 @@ public class ProjectController {
     public String submit(@ModelAttribute("project")Project project,
             BindingResult result, SessionStatus status,Model model){
         
-        // TO-DO : validate 
+        projectValidator.validate(project, result);
         
         if (result.hasErrors()){
             model.addAttribute("project", project);
@@ -78,7 +84,7 @@ public class ProjectController {
     public String update(@ModelAttribute("project")Project project,
             BindingResult result, SessionStatus status,Model model){
         
-        // TO-DO : validate 
+        projectValidator.validate(project, result);
         
         if (result.hasErrors()){
             model.addAttribute("project",project);

@@ -588,6 +588,10 @@ legend {
   color: #333333;
   border: 0;
   border-bottom: 1px solid #eee;
+  
+  /* add */
+  padding-left:160px;
+  
 }
 legend small {
   font-size: 13.5px;

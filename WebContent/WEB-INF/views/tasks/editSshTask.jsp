@@ -1,9 +1,16 @@
 <%@ page  isELIgnored="false" session="true" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
 <%@ include file="/WEB-INF/views/common/include.jsp"%>
 <c:set var="task" value="${sshTask}" />
+<a class="btn" href="list?taskGroupId=${task.taskGroup.id}"><i class="icon-arrow-left"></i> List</a>
 <form:form method="post" cssClass="form-horizontal" action="editssh" modelAttribute="sshTask">
 	<fieldset>
 		<legend>Edit Ssh Task</legend>
+		<div class="control-group">
+			<label class="control-label">Key</label>
+			<div class="controls">
+				<span class="input-large uneditable-input">${task.id}</span>
+			</div>
+		</div>
 <%@ include file="/WEB-INF/views/tasks/editCommonFields.jsp"%>
 		<div class="control-group">
 			<label class="control-label">Host</label>

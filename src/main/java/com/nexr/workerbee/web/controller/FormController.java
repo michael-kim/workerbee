@@ -18,7 +18,7 @@ import com.nexr.workerbee.web.validator.ReservationValidator;
 @Controller
 @SessionAttributes("reservation")
 public class FormController {
-    private static final Logger LOG = LoggerFactory.getLogger(FormController.class);
+    private static final Logger logger = LoggerFactory.getLogger(FormController.class);
     
     @Autowired
     private ReservationValidator reservationValidator;

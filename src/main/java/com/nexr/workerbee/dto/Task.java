@@ -19,6 +19,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="`TASKS`")
@@ -42,6 +43,9 @@ public abstract class Task {
     @Column(name="MODIFIED",nullable=false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date modified;
+    
+    @Transient
+    private String precedingTasks;
     
     @ManyToOne
     @JoinColumn(name="TASK_GROUP_ID",nullable=false)

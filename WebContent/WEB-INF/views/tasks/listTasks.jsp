@@ -6,9 +6,7 @@
 	</h1>
 </div>
 <ul class="breadcrumb">
-  <li>
-    <a href="${ContextPath}/projects/list">Projects</a> <span class="divider">/</span>
-  </li>
+  <li><a href="${ContextPath}/projects/list">Projects</a> <span class="divider">/</span></li>
   <li><a href="${ContextPath}/taskgroups/list?projectId=${taskGroup.project.id}">${taskGroup.project.name}</a> <span class="divider">/</span></li>
   <li class="active">${taskGroup.name}</li>
 </ul>

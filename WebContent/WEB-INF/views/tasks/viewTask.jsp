@@ -3,11 +3,8 @@
 <c:if test="${task.taskType=='HIVE'||task.taskType=='JDBC'}">
 <%@ include file="/WEB-INF/views/tasks/codeMirrorReadOnly.jsp"%>
 </c:if>
-
 <ul class="breadcrumb">
-  <li>
-    <a href="${ContextPath}/projects/list">Projects</a> <span class="divider">/</span>
-  </li>
+  <li><a href="${ContextPath}/projects/list">Projects</a> <span class="divider">/</span></li>
   <li><a href="${ContextPath}/taskgroups/list?projectId=${task.taskGroup.project.id}">${task.taskGroup.project.name}</a> <span class="divider">/</span></li>
   <li><a href="${ContextPath}/tasks/list?taskGroupId=${task.taskGroup.id}">${task.taskGroup.name}</a> <span class="divider">/</span></li>
   <li class="active">${task.name}</li>
@@ -25,7 +22,8 @@
 </div>
 <table class="table table-bordered">
 	<tbody>
-		<tr><th style="width:100px">Name</th><td>${task.name}</td></tr>
+		<tr><th style="width:100px">Key</th><td>${task.id}</td></tr>
+		<tr><th>Name</th><td>${task.name}</td></tr>
 		<tr><th>Description</th><td>${task.description}</td></tr>
 		<tr><th>Type</th><td>${task.taskType}</td></tr>
 		<tr><th>Modified</th><td>${task.modified}</td></tr>

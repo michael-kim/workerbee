@@ -5,6 +5,8 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,14 +20,19 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.nexr.workerbee.dao.impl.EntityPage;
 import com.nexr.workerbee.dto.UserGroup;
 import com.nexr.workerbee.service.UserGroupService;
+import com.nexr.workerbee.web.validator.UserGroupValidator;
 
 @Controller
 @SessionAttributes("userGroup")
 @RequestMapping("/usergroups")
 public class UserGroupController {
+    private static final Logger logger = LoggerFactory.getLogger(UserGroupController.class);
     
     @Resource
     UserGroupService userGroupService;
+    
+    @Resource
+    UserGroupValidator userGroupValidator;
     
     @RequestMapping(value="list",method=RequestMethod.GET)
     public String groupList(@RequestParam(value="pageNum",required=false,defaultValue="1")int pageNum,
@@ -56,7 +63,8 @@ public class UserGroupController {
     public String submitUserGroup(@ModelAttribute("userGroup")UserGroup userGroup,
             BindingResult result, SessionStatus status,Model model){
         
-        // TO-DO : validate user group
+        userGroupValidator.validate(userGroup, result);
+        
         if (result.hasErrors()){
             model.addAttribute("userGroup",userGroup);
             return "tiles.usergroups.add";
@@ -80,8 +88,7 @@ public class UserGroupController {
     public String updateUserGroup(@ModelAttribute("userGroup")UserGroup userGroup,
             BindingResult result, SessionStatus status,Model model){
         
-        // TO-DO : validate user group
-        //result.rejectValue("groupName", "exception.usergroups.error", "error1234");
+        userGroupValidator.validate(userGroup, result);
         
         if (result.hasErrors()){
             model.addAttribute("userGroup",userGroup);

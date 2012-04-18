@@ -1,26 +1,17 @@
 <%@ page  isELIgnored="false" session="true" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
 <%@ include file="/WEB-INF/views/common/include.jsp"%>
-<script type="text/javascript" src="<c:url value='/resources/codemirror-2.23/lib/codemirror.js'/>"></script>
-<script type="text/javascript" src="<c:url value='/resources/codemirror-2.23/mode/mysql/mysql.js'/>"></script>
-<link href="<c:url value='/resources/codemirror-2.23/lib/codemirror.css'/>" rel="stylesheet">
-<script type="text/javascript">
-$(document).ready(function(){
-	var myCodeMirror= CodeMirror.fromTextArea($('#codemirror').get(0),{
-        lineNumbers: true,
-        matchBrackets: true,
-        indentUnit: 4,
-        onCursorActivity: function() {
-            myCodeMirror.setLineClass(hlLine, null, null);
-            hlLine = myCodeMirror.setLineClass(myCodeMirror.getCursor().line, null, "activeline");
-        }
-	});
-	var hlLine = myCodeMirror.setLineClass(0, "activeline");
-});
-</script>
+<%@ include file="/WEB-INF/views/tasks/codeMirrorReadOnly.jsp"%>
 <c:set var="task" value="${jdbcTask}" />
+<a class="btn" href="list?taskGroupId=${task.taskGroup.id}"><i class="icon-arrow-left"></i> List</a>
 <form:form method="post" cssClass="form-horizontal" action="editjdbc" modelAttribute="jdbcTask">
 	<fieldset>
 		<legend>Edit Jdbc Task</legend>
+		<div class="control-group">
+			<label class="control-label">Key</label>
+			<div class="controls">
+				<span class="input-large uneditable-input">${task.id}</span>
+			</div>
+		</div>
 <%@ include file="/WEB-INF/views/tasks/editCommonFields.jsp"%>
 		<div class="control-group">
 			<label class="control-label">URL</label>

@@ -5,6 +5,8 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,12 +27,14 @@ import com.nexr.workerbee.dto.TaskGroup;
 import com.nexr.workerbee.service.TaskCommentService;
 import com.nexr.workerbee.service.TaskGroupService;
 import com.nexr.workerbee.service.TaskService;
+import com.nexr.workerbee.web.validator.TaskValidator;
 
 @Controller
 @RequestMapping("/tasks")
 @SessionAttributes(value={"hiveTask","jdbcTask","sshTask"})
 public class TaskController {
-    
+    private static final Logger logger = LoggerFactory.getLogger(TaskController.class);
+
     @Resource
     TaskService taskService;
     
@@ -39,6 +43,9 @@ public class TaskController {
     
     @Resource
     TaskCommentService taskCommentService;
+    
+    @Resource
+    TaskValidator taskValidator;
     
     @RequestMapping(value="view",method=RequestMethod.GET)
     public String view(@RequestParam("taskId") Long taskId, Model model){
@@ -93,9 +100,12 @@ public class TaskController {
     
     @RequestMapping(value="addHiveTask",method=RequestMethod.POST)
     public String submitHiveTask(@ModelAttribute("hiveTask")HiveTask task,
-            BindingResult result, SessionStatus status,Model model){
+            BindingResult result, SessionStatus status,Model model,HttpServletRequest request){
         
-        // TO-DO : validate 
+        String parentTasks = request.getParameter("precedingTasks");
+        logger.error("PARENT_TASKS : "+parentTasks);
+        
+        taskValidator.validate(task, result);
         
         if (result.hasErrors()){
             model.addAttribute("hiveTask", task);
@@ -120,7 +130,7 @@ public class TaskController {
     public String submitJdbcTask(@ModelAttribute("jdbcTask")JdbcTask task,
             BindingResult result, SessionStatus status,Model model){
         
-        // TO-DO : validate 
+        taskValidator.validate(task, result);
         
         if (result.hasErrors()){
             model.addAttribute("jdbcTask", task);
@@ -145,7 +155,7 @@ public class TaskController {
     public String submitSshTask(@ModelAttribute("sshTask")SshTask task,
             BindingResult result, SessionStatus status,Model model){
         
-        // TO-DO : validate 
+        taskValidator.validate(task, result);
         
         if (result.hasErrors()){
             model.addAttribute("sshTask", task);
@@ -181,7 +191,7 @@ public class TaskController {
     public String updateHiveTask(@ModelAttribute("hiveTask")HiveTask task,
             BindingResult result, SessionStatus status,Model model){
         
-        // TO-DO : validate hive Task
+        taskValidator.validate(task, result);
         
         if (result.hasErrors()){
             model.addAttribute("hiveTask",task);
@@ -197,7 +207,7 @@ public class TaskController {
     public String updateJdbcTask(@ModelAttribute("jdbcTask")JdbcTask task,
             BindingResult result, SessionStatus status,Model model){
         
-        // TO-DO : validate 
+        taskValidator.validate(task, result);
         
         if (result.hasErrors()){
             model.addAttribute("jdbcTask",task);
@@ -213,7 +223,7 @@ public class TaskController {
     public String updateSshTask(@ModelAttribute("sshTask")SshTask task,
             BindingResult result, SessionStatus status,Model model){
         
-        // TO-DO : validate 
+        taskValidator.validate(task, result);
         
         if (result.hasErrors()){
             model.addAttribute("sshTask",task);
