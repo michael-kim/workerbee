@@ -13,6 +13,9 @@
 	 		<li class="<tiles:insertAttribute name='nav.tasks' defaultValue=''/>">
 	 			<a href="<c:url value='/projects/list' />">Tasks</a>
 	 		</li>
+	 		<li class="<tiles:insertAttribute name='nav.properties' defaultValue=''/>">
+	 			<a href="<c:url value='/taskproperties/list' />">Properties</a>
+	 		</li>
 	 		<li class="divider-vertical"></li>
 	 		<li class="<tiles:insertAttribute name='nav.simpleform' defaultValue=''/>">
 	 			<a href="${ContextPath}/simpleForm">SimpleForm</a>

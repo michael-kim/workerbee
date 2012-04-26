@@ -10,7 +10,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.nexr.workerbee.dto.Authority;
 import com.nexr.workerbee.dto.User;
 import com.nexr.workerbee.dto.UserGroup;
 import com.nexr.workerbee.dto.UserProfile;

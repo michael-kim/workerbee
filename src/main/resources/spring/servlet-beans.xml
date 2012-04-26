@@ -52,6 +52,10 @@
 		p:prefix="/WEB-INF/views/"
 		p:suffix=".jsp" />
 		
+	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+	
+	<bean id="jsonViewWithoutRoot" class="com.nexr.workerbee.web.mvc.MappingJacksonJsonViewWithoutRoot" />
+		
 	<!-- 
 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="defaultErrorView" value="error" />

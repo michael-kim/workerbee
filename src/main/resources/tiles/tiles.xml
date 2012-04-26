@@ -183,6 +183,25 @@
     	<put-attribute name="nav.tasks" value="active" />
     	<put-attribute name="body" value="/WEB-INF/views/tasks/viewTask.jsp" />
     </definition>
+    
+    <!-- task properties -->
+    <definition name="tiles.taskproperties.list" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Task Properties" />
+    	<put-attribute name="nav.properties" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/taskproperties/listProperties.jsp" />
+    </definition>
+    
+    <definition name="tiles.taskproperties.add" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Add Task Property" />
+		<put-attribute name="nav.properties" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/taskproperties/addProperty.jsp" />
+    </definition>
+    
+    <definition name="tiles.taskproperties.edit" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Edit Properties" />
+		<put-attribute name="nav.properties" value="active" />
+    	<put-attribute name="body" value="/WEB-INF/views/taskproperties/editProperty.jsp" />
+    </definition>
         
     <!-- etc. -->
     <definition name="tiles.simpleForm" extends="template-main">

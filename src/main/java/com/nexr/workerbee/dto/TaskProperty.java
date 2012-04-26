@@ -8,18 +8,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="`TASK_PROPERTIES`")
+@Table(name="TASK_PROPERTIES")
 public class TaskProperty {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="ID")
     private Long id;
     
-    @Column(name="PROP_KEY")
-    private String key;
+    @Column(name="NAME")
+    private String name;
     
-    @Column(name="PROP_VALUE")
+    @Column(name="VALUE")
     private String value;
+    
+    @Column(name="DESCRIPTION")
+    private String description;
 
     public Long getId() {
         return id;
@@ -29,12 +32,12 @@ public class TaskProperty {
         this.id = id;
     }
 
-    public String getKey() {
-        return key;
+    public String getName() {
+        return name;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getValue() {
@@ -43,5 +46,13 @@ public class TaskProperty {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

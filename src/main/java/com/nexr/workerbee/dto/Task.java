@@ -21,6 +21,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonProperty;
+
 @Entity
 @Table(name="`TASKS`")
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -44,19 +47,24 @@ public abstract class Task {
     @Temporal(TemporalType.TIMESTAMP)
     private Date modified;
     
+    @JsonIgnore
     @Transient
     private String precedingTasks;
     
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="TASK_GROUP_ID",nullable=false)
     private TaskGroup taskGroup;
     
+    @JsonIgnore
     @OneToMany(mappedBy="task")
     private List<TaskComment> taskComments = new ArrayList<TaskComment>();
     
+    @JsonIgnore
     @OneToMany(mappedBy="parentTask")
     private List<TaskDependency> parentTaskDeps = new ArrayList<TaskDependency>();
     
+    @JsonIgnore
     @OneToMany(mappedBy="childTask")
     private List<TaskDependency> childTaskDeps = new ArrayList<TaskDependency>();
 
@@ -131,5 +139,6 @@ public abstract class Task {
         this.taskComments.add(taskComment); 
     }
 
+    @JsonProperty("summary")
     public abstract String getSummaryText();
 }

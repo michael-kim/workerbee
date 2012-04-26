@@ -43,10 +43,6 @@ public class UserProfile {
     @JoinColumn(name="USER_GROUP_ID",nullable=true)
     private UserGroup userGroup;
     
-    @OneToMany(mappedBy="userProfile",cascade=CascadeType.ALL,orphanRemoval=true)
-    @LazyCollection(LazyCollectionOption.EXTRA)
-    private List<Authority> authorities = new ArrayList<Authority>();
-    
     public UserProfile(){
     }
     
@@ -106,13 +102,4 @@ public class UserProfile {
         this.userGroup=userGroup;
     }
     
-    public List<Authority> getAuthority() {
-        return authorities;
-    }
-
-    public void addAuthority(Authority authority) {
-        authority.setUserProfile(this);
-        this.authorities.add(authority);
-    }
-
 }

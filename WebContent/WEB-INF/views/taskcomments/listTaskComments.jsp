@@ -50,6 +50,7 @@ $(document).ready(function(){
 	$('#comment-show-btn').click(function(){
 		$(this).hide();
 		$('#comment-form').show();
+		$('#comment-textarea').focus();
 	});
 	$('#comment-cancel-btn').click(function(){
 		$('#comment-form div.alert').remove();

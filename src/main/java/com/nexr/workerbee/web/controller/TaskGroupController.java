@@ -22,6 +22,7 @@ import com.nexr.workerbee.dto.Project;
 import com.nexr.workerbee.dto.TaskGroup;
 import com.nexr.workerbee.service.ProjectService;
 import com.nexr.workerbee.service.TaskGroupService;
+import com.nexr.workerbee.web.validator.TaskGroupValidator;
 
 
 @Controller
@@ -35,6 +36,9 @@ public class TaskGroupController {
     
     @Resource
     ProjectService projectService;
+    
+    @Resource
+    TaskGroupValidator taskGroupValidator;
     
     @RequestMapping(value="list",method=RequestMethod.GET)
     public String list(
@@ -74,7 +78,7 @@ public class TaskGroupController {
     public String submit(@ModelAttribute("taskGroup")TaskGroup taskGroup,
             BindingResult result, SessionStatus status,Model model){
         
-        // TO-DO : validate 
+        taskGroupValidator.validate(taskGroup, result);
         
         if (result.hasErrors()){
             model.addAttribute("taskGroup", taskGroup);
@@ -99,7 +103,7 @@ public class TaskGroupController {
     public String update(@ModelAttribute("taskGroup")TaskGroup taskGroup,
             BindingResult result, SessionStatus status,Model model){
         
-        // TO-DO : validate 
+        taskGroupValidator.validate(taskGroup, result);
         
         if (result.hasErrors()){
             model.addAttribute("taskGroup",taskGroup);

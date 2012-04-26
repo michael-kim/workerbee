@@ -23,6 +23,8 @@
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
+    
+    <script type="text/javascript" src="<c:url value='/resources/js/base.js'/>"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/layout/navbar.jsp"%>

@@ -6,7 +6,7 @@
 		<div class="control-group">
 			<label class="control-label">Username</label>
 			<div class="controls">
-				<form:input path="username" />
+				<form:input id="focus" path="username" />
 				<form:errors path="username" cssClass="alert alert-error"/>
 			</div>
 		</div>

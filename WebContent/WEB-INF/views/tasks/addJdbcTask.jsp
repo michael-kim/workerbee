@@ -1,6 +1,6 @@
 <%@ page  isELIgnored="false" session="true" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
 <%@ include file="/WEB-INF/views/common/include.jsp"%>
-<%@ include file="/WEB-INF/views/tasks/codeMirrorReadOnly.jsp"%>
+<%@ include file="/WEB-INF/views/tasks/include/codeMirrorEditable.jsp"%>
 <c:set var="task" value="${jdbcTask}" />
 <a class="btn" href="list?taskGroupId=${task.taskGroup.id}"><i class="icon-arrow-left"></i> List</a>
 <form:form method="post" cssClass="form-horizontal" modelAttribute="jdbcTask">

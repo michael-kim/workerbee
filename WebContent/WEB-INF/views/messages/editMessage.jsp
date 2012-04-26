@@ -15,23 +15,22 @@
 <fieldset>
 	<legend>Message Post</legend>
 	<div class="control-group">
+		<label class="control-label" for="title">Title</label>
+		<div class="controls">
+			<form:input id="focus" path="title" cssClass="input-xlarge" />
+			<p class="help-block">Supporting help text</p>
+		</div>
+	</div>
+	<div class="control-group">
 		<label class="control-label" for="author">Author</label>
 		<div class="controls">
 			<span class="input-xlarge uneditable-input"><sec:authentication property="name" /></span>
 		</div>
 	</div>
 	<div class="control-group">
-		<label class="control-label" for="title">Title</label>
-		<div class="controls">
-			<form:input path="title" cssClass="input-xlarge" />
-			<p class="help-block">Supporting help text</p>
-		</div>
-	</div>
-	<div class="control-group">
 		<label class="control-label" for="body">Body</label>
 		<div class="controls">
 			<form:textarea path="body" cssClass="input-xlarge" rows="15"/>
-			<p class="help-block">Supporting help text</p>
 		</div>
 	</div>
 	<div class="form-actions">
