@@ -35,7 +35,7 @@ public class ProjectController {
     
     @RequestMapping(value="list",method=RequestMethod.GET)
     public String list(Model model){
-        List<Project> projects = projectService.getAllProjects();
+        List<Project> projects = projectService.findAll();
         model.addAttribute("projects",projects);
         return "tiles.projects.list";
     }
@@ -75,7 +75,7 @@ public class ProjectController {
     @RequestMapping(value="edit",method=RequestMethod.GET)
     public String edit(@RequestParam("projectId") Long projectId, Model model){
         
-        Project project = projectService.getProject(projectId);
+        Project project = projectService.findById(projectId);
         model.addAttribute("project",project);
         return "tiles.projects.edit";
     }

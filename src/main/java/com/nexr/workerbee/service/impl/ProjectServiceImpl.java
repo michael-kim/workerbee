@@ -17,7 +17,7 @@ public class ProjectServiceImpl implements ProjectService {
     ProjectDao projectDao;
     
     @Override
-    public List<Project> getAllProjects() {
+    public List<Project> findAll() {
         return projectDao.findAll();
     }
 
@@ -41,7 +41,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Project getProject(Long projectId) {
+    public Project findById(Long projectId) {
         return projectDao.findById(projectId);
     }
     

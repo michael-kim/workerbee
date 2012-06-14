@@ -34,7 +34,7 @@ public class UserServiceTest {
         user.setUserProfile(profile);
         Long userId = userService.addUser(user);
         
-        User user2 = userService.findUserById(userId);
+        User user2 = userService.findById(userId);
         Assert.assertEquals("testuser",user2.getUsername());
         
         profile =user2.getUserProfile();
@@ -47,12 +47,12 @@ public class UserServiceTest {
         user2.setUsername("testuser2");
         userService.upateUser(user2);
         
-        User user3 = userService.findUserById(userId);
+        User user3 = userService.findById(userId);
         
         Assert.assertEquals("testuser2", user3.getUsername());
         
         userService.deleteUser(userId);
-        User user4 = userService.findUserById(userId);
+        User user4 = userService.findById(userId);
         
         Assert.assertNull(user4);
     }

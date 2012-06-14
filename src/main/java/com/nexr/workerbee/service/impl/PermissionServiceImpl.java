@@ -17,7 +17,7 @@ public class PermissionServiceImpl implements PermissionService{
     PermissionDao permissionDao;
 
     @Override
-    public List<Permission> getAllPermissions() {
+    public List<Permission> findAll() {
         return permissionDao.findAll();
     }
     

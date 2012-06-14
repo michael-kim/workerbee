@@ -25,6 +25,6 @@ public interface TaskGroupService {
     public void updateTaskGroup(TaskGroup taskGroup);
     
     @Transactional
-    public TaskGroup getTaskGroup(Long taskGroupId);
+    public TaskGroup findTaskGroupById(Long taskGroupId);
     
 }

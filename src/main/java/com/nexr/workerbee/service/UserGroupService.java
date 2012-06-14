@@ -13,7 +13,7 @@ public interface UserGroupService {
     public void addUserGroup(UserGroup userGroup);
 
     @Transactional
-    public List<UserGroup> getAllUserGroups();
+    public List<UserGroup> findAllUserGroups();
     
     @Transactional
     public EntityPage<UserGroup> getUserGroupPage(int pageNum,int pageSize);

@@ -20,7 +20,7 @@ public class SettingsController {
     @RequestMapping(value="/settings")
     public String account(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByUsername(auth.getName());
+        User user = userService.findByUsername(auth.getName());
         model.addAttribute("user", user);
         model.addAttribute("userProfile", user.getUserProfile());
         return "tiles.settings.account";
@@ -29,7 +29,7 @@ public class SettingsController {
     @RequestMapping(value="/settings/name")
     public String editName(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByUsername(auth.getName());
+        User user = userService.findByUsername(auth.getName());
         model.addAttribute("user", user);
         model.addAttribute("userProfile", user.getUserProfile());
         return "tiles.settings.edit.name";

@@ -9,6 +9,6 @@ import com.nexr.workerbee.dto.Permission;
 public interface PermissionService {
     @Transactional
     
-    public List<Permission> getAllPermissions();
+    public List<Permission> findAll();
     
 }

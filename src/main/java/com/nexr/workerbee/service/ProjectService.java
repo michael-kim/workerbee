@@ -9,10 +9,10 @@ import com.nexr.workerbee.dto.Project;
 public interface ProjectService {
     
     @Transactional
-    public Project getProject(Long projectId);
+    public Project findById(Long projectId);
     
     @Transactional
-    public List<Project> getAllProjects();
+    public List<Project> findAll();
     
     @Transactional
     public void addProject(Project project);

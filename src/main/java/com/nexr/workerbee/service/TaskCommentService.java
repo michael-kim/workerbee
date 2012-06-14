@@ -12,12 +12,12 @@ public interface TaskCommentService {
     public List<TaskComment> findAll(Long taskId);
     
     @Transactional
-    public void delete(Long taskCommentId);
+    public void deleteTaskComment(Long taskCommentId);
     
     @Transactional
-    public void update(TaskComment taskComment);
+    public void updateTaskComment(TaskComment taskComment);
     
     @Transactional
-    public void post(TaskComment taskComment);
+    public void addTaskComment(TaskComment taskComment);
     
 }

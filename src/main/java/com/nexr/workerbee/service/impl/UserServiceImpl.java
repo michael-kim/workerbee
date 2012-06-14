@@ -40,21 +40,21 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User findUserById(Long userId) {
+    public User findById(Long userId) {
         User user = userDao.findById(userId);
         userDao.flush();
         return user;
     }
 
     @Override
-    public List<User> findAllUsers() {
+    public List<User> findAll() {
         List<User> list = userDao.findAll();
         userDao.flush();
         return list;
     }
 
     @Override
-    public User findUserByUsername(String username) {
+    public User findByUsername(String username) {
         List<User> list = userDao.findByCriteria(Restrictions.eq("username", username));
         return (list.size()>0 ? null : list.get(0));
     }

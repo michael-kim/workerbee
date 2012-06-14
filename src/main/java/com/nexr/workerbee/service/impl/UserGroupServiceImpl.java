@@ -19,7 +19,7 @@ public class UserGroupServiceImpl implements UserGroupService{
     UserGroupDao userGroupDao;
 
     @Override
-    public List<UserGroup> getAllUserGroups() {
+    public List<UserGroup> findAllUserGroups() {
         return userGroupDao.findAll();
     }
 

@@ -52,8 +52,8 @@ public class TaskGroupController {
         System.out.println(pager.toString());
         List<TaskGroup> taskGroups = pager.getList();
         
-        Project project = projectService.getProject(projectId);
-        List<Project> projects = projectService.getAllProjects();
+        Project project = projectService.findById(projectId);
+        List<Project> projects = projectService.findAll();
         model.addAttribute("projects",projects);
         model.addAttribute("project",project);
         model.addAttribute("taskGroups",taskGroups);
@@ -96,7 +96,7 @@ public class TaskGroupController {
     @RequestMapping(value="edit",method=RequestMethod.GET)
     public String edit(@RequestParam("taskGroupId") Long taskGroupId, Model model){
         
-        TaskGroup taskGroup = taskGroupService.getTaskGroup(taskGroupId);
+        TaskGroup taskGroup = taskGroupService.findTaskGroupById(taskGroupId);
         model.addAttribute("taskGroup",taskGroup);
         return "tiles.taskgroups.edit";
     }

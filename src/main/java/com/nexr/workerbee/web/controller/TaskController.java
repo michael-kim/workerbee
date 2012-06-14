@@ -77,7 +77,7 @@ public class TaskController {
         final int PAGE_SIZE=10;
         EntityPage<Task> pager = taskService.getPage(taskGroupId, pageNum, PAGE_SIZE);
         List<Task> tasks = pager.getList();
-        TaskGroup taskGroup = taskGroupService.getTaskGroup(taskGroupId);
+        TaskGroup taskGroup = taskGroupService.findTaskGroupById(taskGroupId);
         model.addAttribute("taskGroup",taskGroup);
         model.addAttribute("tasks",tasks);
         model.addAttribute("pager",pager);

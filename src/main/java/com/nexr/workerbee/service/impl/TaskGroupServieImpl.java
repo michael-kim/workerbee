@@ -38,7 +38,7 @@ public class TaskGroupServieImpl implements TaskGroupService{
     }
 
     @Override
-    public TaskGroup getTaskGroup(Long taskGroupId) {
+    public TaskGroup findTaskGroupById(Long taskGroupId) {
         return taskGroupDao.findById(taskGroupId);
     }
 

@@ -20,13 +20,13 @@ public class MessageServiceImpl implements MessageService{
     MessageDao messageDao;
     
     @Override
-    public List<Message> listMessage() {
+    public List<Message> findAll() {
         List<Message> messages = messageDao.findAll();
         return messages;
     }
 
     @Override
-    public void postMessage(Message message) {
+    public void addMessage(Message message) {
         messageDao.makePersistent(message);
         messageDao.flush();
     }
@@ -38,7 +38,7 @@ public class MessageServiceImpl implements MessageService{
     }
 
     @Override
-    public Message findMessageById(Long messageId) {
+    public Message findById(Long messageId) {
         return messageDao.findById(messageId);
     }
 

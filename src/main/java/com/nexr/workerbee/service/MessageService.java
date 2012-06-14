@@ -10,7 +10,7 @@ import com.nexr.workerbee.dto.Message;
 
 public interface MessageService {
     @Transactional
-    public List<Message> listMessage();
+    public List<Message> findAll();
     
     @Transactional
     public EntityPage<Message> getMessagePage(int pageNum, int pageSize);
@@ -19,11 +19,11 @@ public interface MessageService {
     public void updateMessage(Message message);
     
     @Transactional
-    public void postMessage(Message message);
+    public void addMessage(Message message);
     
     @Transactional
     public void deleteMessage(Message message);
     
     @Transactional
-    public Message findMessageById(Long messageId);
+    public Message findById(Long messageId);
 }

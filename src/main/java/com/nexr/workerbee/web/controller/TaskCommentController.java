@@ -40,7 +40,7 @@ public class TaskCommentController {
     @RequestMapping(value="delete",method=RequestMethod.GET)
     public String delete(@RequestParam(required=true,value="taskCommentId")Long taskCommentId,Model model,
         HttpServletRequest request){
-        taskCommentService.delete(taskCommentId);
+        taskCommentService.deleteTaskComment(taskCommentId);
         return "redirect:"+ request.getHeader("Referer");
     }
     
@@ -58,11 +58,11 @@ public class TaskCommentController {
             status.setComplete();
         }
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByUsername(auth.getName());
+        User user = userService.findByUsername(auth.getName());
         taskComment.setAuthor(user.getUserProfile());
         
         logger.info("post comment "+taskComment.getComment());
-        taskCommentService.post(taskComment);
+        taskCommentService.addTaskComment(taskComment);
         
         TaskComment newComment = new TaskComment();
         newComment.setTask(taskComment.getTask());

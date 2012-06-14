@@ -42,14 +42,14 @@ public class MessageController {
     
     @RequestMapping(value="delete",method=RequestMethod.GET)
     public String delete(@RequestParam(required=true,value="messageId")Long messageId,Model model){
-        Message message = messageService.findMessageById(messageId);
+        Message message = messageService.findById(messageId);
         messageService.deleteMessage(message);
         return "redirect:list";
     }
     
     @RequestMapping(value="view",method=RequestMethod.GET)
     public String view(@RequestParam(required=true,value="messageId")Long messageId,Model model){
-        Message message = messageService.findMessageById(messageId);
+        Message message = messageService.findById(messageId);
         model.addAttribute("message", message);
         return "tiles.messages.view";
     }
@@ -86,9 +86,9 @@ public class MessageController {
             status.setComplete();
         }
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByUsername(auth.getName());
+        User user = userService.findByUsername(auth.getName());
         message.setAuthor(user.getUserProfile());
-        messageService.postMessage(message);
+        messageService.addMessage(message);
         return "redirect:view?messageId="+message.getId();
     }
     
@@ -96,7 +96,7 @@ public class MessageController {
     public String addMessage(
         @RequestParam(required=true,value="messageId")Long messageId,
         Model model){
-        Message message = messageService.findMessageById(messageId);
+        Message message = messageService.findById(messageId);
         model.addAttribute("message",message);
         return "tiles.messages.edit";
     }

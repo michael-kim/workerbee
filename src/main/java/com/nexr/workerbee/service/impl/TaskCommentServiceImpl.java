@@ -28,19 +28,19 @@ public class TaskCommentServiceImpl implements TaskCommentService{
     }
 
     @Override
-    public void delete(Long taskCommentId) {
+    public void deleteTaskComment(Long taskCommentId) {
         taskCommentDao.deleteById(taskCommentId);
         taskCommentDao.flush();
     }
 
     @Override
-    public void update(TaskComment taskComment) {
+    public void updateTaskComment(TaskComment taskComment) {
         taskCommentDao.merge(taskComment);
         taskCommentDao.flush();
     }
 
     @Override
-    public void post(TaskComment taskComment) {
+    public void addTaskComment(TaskComment taskComment) {
         taskCommentDao.makePersistent(taskComment);
         taskCommentDao.flush();
     }
