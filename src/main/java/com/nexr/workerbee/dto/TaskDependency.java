@@ -11,12 +11,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="`TASK_DEPENDENCIES`")
+@Table(name="TASK_DEPENDENCIES")
 public class TaskDependency {
     
     @Embeddable
     public static class Id implements Serializable{
-        
         @Column(name="PARENT_TASK_ID")
         private Long parentTaskId;
         
@@ -59,10 +58,14 @@ public class TaskDependency {
     
     public TaskDependency() {}
     public TaskDependency(Task parentTask, Task childTask){
+        this.parentTask=parentTask;
+        this.childTask=childTask;
+        
         this.id.parentTaskId=parentTask.getId();
         this.id.childTaskId=childTask.getId();
-        parentTask.addChildTaskDeps(this);
-        childTask.addParentTaskDeps(this);
+        
+        parentTask.getChildTaskDeps().add(this);
+        childTask.getParentTaskDeps().add(this);
     }
     
     public Id getId() {

@@ -10,10 +10,10 @@ import com.nexr.workerbee.dto.User;
 public interface UserService{
     
     @Transactional
-    public List<User> getAllUsers();
+    public List<User> findAllUsers();
     
     @Transactional
-    public Long createUser(User user);
+    public Long addUser(User user);
     
     @Transactional
     public void upateUser(User user);
@@ -22,10 +22,10 @@ public interface UserService{
     public void deleteUser(Long userId);
     
     @Transactional
-    public User getUser(Long userId);
+    public User findUserById(Long userId);
     
     @Transactional
-    public User getUser(String username);
+    public User findUserByUsername(String username);
     
     @Transactional
     public EntityPage<User> getUserPage(int pageNum,int pageSize);

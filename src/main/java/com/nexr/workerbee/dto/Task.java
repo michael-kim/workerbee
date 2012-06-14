@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -19,10 +20,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.annotate.JsonProperty;
+import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name="`TASKS`")
@@ -47,25 +46,19 @@ public abstract class Task {
     @Temporal(TemporalType.TIMESTAMP)
     private Date modified;
     
-    @JsonIgnore
-    @Transient
-    private String precedingTasks;
-    
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="TASK_GROUP_ID",nullable=false)
     private TaskGroup taskGroup;
     
-    @JsonIgnore
     @OneToMany(mappedBy="task")
     private List<TaskComment> taskComments = new ArrayList<TaskComment>();
     
-    @JsonIgnore
-    @OneToMany(mappedBy="parentTask")
+    @OneToMany(mappedBy="parentTask",cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
+    @Cascade (org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private List<TaskDependency> parentTaskDeps = new ArrayList<TaskDependency>();
     
-    @JsonIgnore
-    @OneToMany(mappedBy="childTask")
+    @OneToMany(mappedBy="childTask",cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
+    @Cascade (org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private List<TaskDependency> childTaskDeps = new ArrayList<TaskDependency>();
 
     public Long getId() {
@@ -116,20 +109,10 @@ public abstract class Task {
         return parentTaskDeps;
     }
 
-    public void addParentTaskDeps(TaskDependency parentTaskDep) {
-        parentTaskDep.setChildTask(this);
-        this.parentTaskDeps.add(parentTaskDep);
-    }
-
     public List<TaskDependency> getChildTaskDeps() {
         return childTaskDeps;
     }
 
-    public void addChildTaskDeps(TaskDependency childTaskDep) {
-        childTaskDep.setParentTask(this);
-        this.childTaskDeps.add(childTaskDep);
-    }
-    
     public List<TaskComment> getTaskComments() {
         return taskComments;
     }
@@ -138,7 +121,31 @@ public abstract class Task {
         taskComment.setTask(this);
         this.taskComments.add(taskComment); 
     }
-
-    @JsonProperty("summary")
+    
+    public void addParentTask(Task parentTask){
+        TaskDependency dep = new TaskDependency(parentTask,this);
+    }
+    
+    public void addChildTask(Task childTask){
+        TaskDependency dep = new TaskDependency(this,childTask);
+    }
+    
+    public List<Task> getParentTasks(){
+        List<Task> tasks = new ArrayList<Task>();
+        for(TaskDependency dep : this.parentTaskDeps){
+            tasks.add(dep.getParentTask());
+        }
+        return tasks;
+    }
+    
+    public List<Task> getChildTasks(){
+        List<Task> tasks = new ArrayList<Task>();
+        for(TaskDependency dep : this.childTaskDeps){
+            tasks.add(dep.getChildTask());
+        }
+        return tasks;
+    }
+    
     public abstract String getSummaryText();
+    
 }

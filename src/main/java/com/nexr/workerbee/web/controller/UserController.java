@@ -70,7 +70,7 @@ public class UserController {
         User user = userCommand.genUser();
         UserProfile userProfile = userCommand.genUserProfile();
         user.setUserProfile(userProfile);
-        userService.createUser(user);
+        userService.addUser(user);
         
         return "redirect:/users/list";
     }

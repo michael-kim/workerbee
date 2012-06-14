@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.nexr.workerbee.dao.TaskDao;
 import com.nexr.workerbee.dao.impl.EntityPage;
 import com.nexr.workerbee.dto.Task;
+import com.nexr.workerbee.dto.TaskDependency;
 import com.nexr.workerbee.service.TaskService;
 
 @Service("taskService")
@@ -43,7 +44,7 @@ public class TaskServiceImpl implements TaskService{
     public Task findById(Long taskId) {
         return taskDao.findById(taskId);
     }
-
+    
     @Override
     public void addTask(Task task) {
         taskDao.makePersistent(task);
@@ -53,6 +54,17 @@ public class TaskServiceImpl implements TaskService{
     @Override
     public void updateTask(Task task) {
         taskDao.merge(task);
+        taskDao.flush();
+    }
+
+    @Override
+    public void addTask(Task task, Long[] precedingTaskIds) {
+        taskDao.makePersistent(task);
+        for (Long id : precedingTaskIds){
+            Task parentTask = taskDao.findById(id);
+            TaskDependency taskDep = new TaskDependency(parentTask, task);
+        }
+        taskDao.makePersistent(task);
         taskDao.flush();
     }
 }

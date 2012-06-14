@@ -3,12 +3,15 @@ package com.nexr.workerbee.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Session;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.DetachedCriteria;
 
 import com.nexr.workerbee.dao.impl.EntityPage;
 
 public interface GenericDao<Entity,ID> {
+    
+    public Session getSession();
     
     public Entity findById(ID id);
     

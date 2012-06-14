@@ -1,22 +1,20 @@
 package com.nexr.workerbee.dto;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="`USER_PROFILES`")
@@ -38,6 +36,14 @@ public class UserProfile {
 
     @Column(name="EMAIL")
     private String email;
+    
+    @Column(name="LANG")
+    @Enumerated(EnumType.STRING)
+    private Language primaryLanguage;
+    
+    @Column(name="CREATED",insertable=true,updatable=false,nullable=false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date created;
     
     @ManyToOne
     @JoinColumn(name="USER_GROUP_ID",nullable=true)
@@ -101,5 +107,16 @@ public class UserProfile {
             userGroup.getUserProfiles().add(this);
         this.userGroup=userGroup;
     }
-    
+
+    public Language getPrimaryLanguage() {
+        return primaryLanguage;
+    }
+
+    public void setPrimaryLanguage(Language primaryLanguage) {
+        this.primaryLanguage = primaryLanguage;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
 }

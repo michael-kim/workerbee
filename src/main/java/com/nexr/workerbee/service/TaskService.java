@@ -21,6 +21,10 @@ public interface TaskService {
     @Transactional
     public Task findById(Long taskId);
     
+    
+    @Transactional
+    public void addTask(Task task, Long[] precedingTaskIds);
+    
     @Transactional
     public void addTask(Task task);
     

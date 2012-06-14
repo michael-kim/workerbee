@@ -107,6 +107,7 @@ public class TaskController {
         String parentTasks = request.getParameter("precedingTasks");
         logger.error("PARENT_TASKS : "+parentTasks);
         
+        
         taskValidator.validate(task, result);
         
         if (result.hasErrors()){

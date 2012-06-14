@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService{
     private UserDao userDao;
 
     @Override
-    public Long createUser(User user) {
+    public Long addUser(User user) {
         userDao.makePersistent(user);
         userDao.flush();
         return user.getId();
@@ -40,22 +40,23 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User getUser(Long userId) {
+    public User findUserById(Long userId) {
         User user = userDao.findById(userId);
         userDao.flush();
         return user;
     }
 
     @Override
-    public List<User> getAllUsers() {
+    public List<User> findAllUsers() {
         List<User> list = userDao.findAll();
         userDao.flush();
         return list;
     }
 
     @Override
-    public User getUser(String username) {
-        return userDao.findByCriteria(Restrictions.eq("username", username)).get(0);
+    public User findUserByUsername(String username) {
+        List<User> list = userDao.findByCriteria(Restrictions.eq("username", username));
+        return (list.size()>0 ? null : list.get(0));
     }
 
     @Override

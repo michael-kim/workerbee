@@ -58,7 +58,7 @@ public class TaskCommentController {
             status.setComplete();
         }
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.getUser(auth.getName());
+        User user = userService.findUserByUsername(auth.getName());
         taskComment.setAuthor(user.getUserProfile());
         
         logger.info("post comment "+taskComment.getComment());

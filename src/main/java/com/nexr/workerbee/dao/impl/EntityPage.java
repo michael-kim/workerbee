@@ -71,7 +71,7 @@ public class EntityPage<T> {
          * (i.e. the first page is page 0).
          */
         double totalResults = new Integer(getTotalResults()).doubleValue();
-        return new Double(Math.floor(totalResults / pageSize)).intValue()+startPageNum;
+        return new Double(Math.floor(totalResults / (pageSize+1))).intValue()+startPageNum;
     }
     
     public List<T> getList() {

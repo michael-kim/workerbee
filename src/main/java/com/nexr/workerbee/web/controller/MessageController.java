@@ -86,7 +86,7 @@ public class MessageController {
             status.setComplete();
         }
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.getUser(auth.getName());
+        User user = userService.findUserByUsername(auth.getName());
         message.setAuthor(user.getUserProfile());
         messageService.postMessage(message);
         return "redirect:view?messageId="+message.getId();

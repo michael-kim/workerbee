@@ -48,6 +48,8 @@ public class TaskGroupController {
         final int PAGE_SIZE=2;
         
         EntityPage<TaskGroup> pager = taskGroupService.getTaskGroupPage(projectId, pageNum, PAGE_SIZE);
+        
+        System.out.println(pager.toString());
         List<TaskGroup> taskGroups = pager.getList();
         
         Project project = projectService.getProject(projectId);

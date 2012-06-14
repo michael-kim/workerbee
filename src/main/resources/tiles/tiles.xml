@@ -209,4 +209,15 @@
 		<put-attribute name="nav.simpleform" value="active" />
     	<put-attribute name="body" value="/WEB-INF/views/form/simpleform.jsp" />
     </definition>
+    
+    <!-- settings -->
+    <definition name="tiles.settings.account" extends="template-main">
+    	<put-attribute name="title" value="Account settings" />
+    	<put-attribute name="body" value="/WEB-INF/views/settings/account.jsp" />
+    </definition>
+    
+    <definition name="tiles.settings.edit.name" extends="template-main">
+    	<put-attribute name="title" value="Account settings" />
+    	<put-attribute name="body" value="/WEB-INF/views/settings/editName.jsp" />
+    </definition>
 </tiles-definitions>

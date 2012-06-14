@@ -1,5 +1,7 @@
 package com.nexr.workerbee.dto;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Type;
 
@@ -29,6 +33,10 @@ public class User {
     @Type(type="true_false")
     @Column(name="ENABLED")
     private boolean enabled;
+    
+    @Column(name="PASSWORD_MODIFIED",nullable=true)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date passwordModified;
     
     @OneToOne(mappedBy="user",cascade=CascadeType.ALL)
     private UserProfile userProfile;
@@ -85,5 +93,13 @@ public class User {
         if (userProfile!=null)
             userProfile.setUser(this);
         this.userProfile = userProfile;
+    }
+
+    public Date getPasswordModified() {
+        return passwordModified;
+    }
+
+    public void setPasswordModified(Date passwordModified) {
+        this.passwordModified = passwordModified;
     }
 }
