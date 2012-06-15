@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.nexr.workerbee.dao.impl.EntityPage;
+import com.nexr.workerbee.dto.Language;
 import com.nexr.workerbee.dto.User;
 import com.nexr.workerbee.dto.UserProfile;
 import com.nexr.workerbee.service.UserService;
@@ -45,11 +46,12 @@ public class UserController {
         return "tiles.users.list";
     }
     
-    
+
     @RequestMapping(value="add",method=RequestMethod.GET)
     public String addUser(Model model){
         UserCommand userCommand = new UserCommand();
         model.addAttribute("userCommand",userCommand);
+        model.addAttribute("languages", Language.values());
         return "tiles.users.add";
     }
     
@@ -61,6 +63,7 @@ public class UserController {
         userCommandValidator.validate(userCommand, result);
         
         if (result.hasErrors()){
+            model.addAttribute("languages", Language.values());
             model.addAttribute("userCommand", userCommand);
             return "tiles.users.add";
         }else{

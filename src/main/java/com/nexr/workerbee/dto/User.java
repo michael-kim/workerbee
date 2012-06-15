@@ -12,6 +12,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Type;
 
@@ -30,13 +31,16 @@ public class User {
     @Column(name="PASSWORD", nullable=false,length=50)
     private String password;
     
+    @Transient
+    private String verifyPassword;
+    
     @Type(type="true_false")
     @Column(name="ENABLED")
     private boolean enabled;
     
-    @Column(name="PASSWORD_MODIFIED",nullable=true)
+    @Column(name="PASSWORD_LAST_MODIFIED",nullable=true)
     @Temporal(TemporalType.TIMESTAMP)
-    private Date passwordModified;
+    private Date passwordLastModified;
     
     @OneToOne(mappedBy="user",cascade=CascadeType.ALL)
     private UserProfile userProfile;
@@ -77,6 +81,14 @@ public class User {
         this.password = password;
     }
 
+    public String getVerifyPassword() {
+        return verifyPassword;
+    }
+
+    public void setVerifyPassword(String verifyPassword) {
+        this.verifyPassword = verifyPassword;
+    }
+
     public boolean isEnabled() {
         return enabled;
     }
@@ -95,11 +107,11 @@ public class User {
         this.userProfile = userProfile;
     }
 
-    public Date getPasswordModified() {
-        return passwordModified;
+    public Date getPasswordLastModified() {
+        return passwordLastModified;
     }
 
-    public void setPasswordModified(Date passwordModified) {
-        this.passwordModified = passwordModified;
+    public void setPasswordLastModified(Date passwordLastModified) {
+        this.passwordLastModified = passwordLastModified;
     }
 }

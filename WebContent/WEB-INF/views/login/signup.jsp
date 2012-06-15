@@ -2,7 +2,13 @@
 <%@ include file="/WEB-INF/views/common/include.jsp"%>
 <form:form method="post" cssClass="form-horizontal" modelAttribute="userCommand">
 	<fieldset>
-		<legend>Add User</legend>
+		<legend>Sign up</legend>
+		<div class="control-group">
+			<div class="alert alert-block alert-info">
+			<a class="close" data-dismiss="alert" href="#">×</a>
+			<i class="icon-info-sign"></i> To sign up for Workerbee simply enter your details below.
+			</div>
+		</div>
 		<div class="control-group">
 			<label class="control-label">Username:</label>
 			<div class="controls">
@@ -24,14 +30,6 @@
 				<form:errors path="confirmPassword" cssClass="alert alert-error"/>
 			</div>
 		</div>
-		<div class="control-group">
-			<label class="control-label">Enabled:</label>
-			<div class="controls">
-				<form:checkbox path="enabled"/>
-				<form:errors path="enabled" cssClass="alert alert-error"/>
-			</div>
-		</div>
-		<hr>
 		<div class="control-group">
 			<label class="control-label">First Name:</label>
 			<div class="controls">
@@ -55,18 +53,10 @@
 				<form:errors path="email" cssClass="alert alert-error"/>
 			</div>
 		</div>
-		<div class="control-group">
-			<label class="control-label">Language:</label>
-			<div class="controls">
-				<form:select path="primaryLanguage">
-					<form:options items="${languages}" itemLabel="displayText" />
-				</form:select>
-			</div>
-		</div>
 		<div class="form-actions">
-			<input class="btn btn-primary" type="submit" value="Submit" />
-			<input class="btn" type="reset" value="Reset" />
-			<a class="btn" href="list">Cancel</a>
+			<input class="btn btn-primary" type="submit" value="Sign up" />&nbsp;&nbsp;
+			<input class="btn" type="reset" value="Reset" />&nbsp;&nbsp;
+			<a href="${ContextPath}/login">Cancel</a>
 		</div>
 	</fieldset>
 </form:form>

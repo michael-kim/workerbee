@@ -23,7 +23,6 @@ public class UserProfileServiceImpl implements UserProfileService{
     UserProfileDao userProfileDao;
     
     @Override
-    
     public UserProfile findByUsername(String username) {
         List<User> list = userDao.findByCriteria(Restrictions.eq("username", username));
         if (list.size()!=1) {
@@ -32,6 +31,17 @@ public class UserProfileServiceImpl implements UserProfileService{
         User user = list.get(0);
         return user.getUserProfile();
     }
-    
-    
+
+    @Override
+    public void upateUserProfile(UserProfile userProfile) {
+        userProfileDao.merge(userProfile);
+        userProfileDao.flush();
+    }
+
+    @Override
+    public UserProfile findByEmail(String email) {
+        List<UserProfile> list = userProfileDao.findByCriteria(Restrictions.eq("email", email));
+        return (list.size()==0?null:list.get(0));
+    }
+
 }

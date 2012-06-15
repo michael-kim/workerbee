@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public User findByUsername(String username) {
         List<User> list = userDao.findByCriteria(Restrictions.eq("username", username));
-        return (list.size()>0 ? null : list.get(0));
+        return (list.size()>0 ? list.get(0) : null);
     }
 
     @Override

@@ -1268,6 +1268,7 @@ table {
 .table-striped tbody tr:nth-child(odd) th {
   background-color: #f9f9f9;
 }
+
 .table tbody tr:hover td,
 .table tbody tr:hover th {
   /*background-color: #f5f5f5;*/
@@ -2439,6 +2440,7 @@ input[type="submit"].btn.btn-mini {
   border-radius: 4px;
   color: #c09853;
 }
+
 .alert-heading {
   color: inherit;
 }

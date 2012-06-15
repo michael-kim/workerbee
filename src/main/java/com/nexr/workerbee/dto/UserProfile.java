@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="`USER_PROFILES`")
@@ -37,13 +38,16 @@ public class UserProfile {
     @Column(name="EMAIL")
     private String email;
     
-    @Column(name="LANG")
+    @Column(name="PRIMARY_LANGUAGE",columnDefinition="varchar(5) default 'en'")
     @Enumerated(EnumType.STRING)
     private Language primaryLanguage;
     
     @Column(name="CREATED",insertable=true,updatable=false,nullable=false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
+    
+    @Transient
+    private String verifyPassword;
     
     @ManyToOne
     @JoinColumn(name="USER_GROUP_ID",nullable=true)
@@ -56,6 +60,13 @@ public class UserProfile {
         this.firstName=firstName;
         this.lastName=lastName;
         this.email=email;
+    }
+    
+    public UserProfile(String firstName, String lastName, String email,Language primaryLanguage){
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.email=email;
+        this.primaryLanguage=primaryLanguage;
     }
     
     public Long getId() {
@@ -118,5 +129,13 @@ public class UserProfile {
 
     public Date getCreated() {
         return created;
+    }
+
+    public String getVerifyPassword() {
+        return verifyPassword;
+    }
+
+    public void setVerifyPassword(String verifyPassword) {
+        this.verifyPassword = verifyPassword;
     }
 }

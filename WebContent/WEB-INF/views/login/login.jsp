@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/views/common/include.jsp"%>
 <form class="form-horizontal" method="POST" action="<c:url value="/j_spring_security_check"/>">
 <fieldset>
-	<legend>Login In To Workerbee</legend>
+	<legend>Login</legend>
 	<c:if test="${not empty param.error}">
 	<div class="control-group">
 		<div class="controls">
@@ -31,10 +31,15 @@
 		<div class="controls">
 			<input id="remember_me" type="checkbox" name="_spring_security_remember_me" />
 		</div>
-	</div>	
+	</div>
+	<div class="control-group">
+		<div class="controls">
+		Not a member? <a href="${ContextPath}/signup">Sign Up</a> for an account.<br />
+		</div>
+	</div>		
 	<div class="form-actions">
-		<input class="btn btn-primary" type="submit" value="Login" />
-		<input class="btn" type="reset" value="Reset" />
+		<input class="btn btn-primary" type="submit" value="Log In" />&nbsp;&nbsp;
+		<a href="${ContextPath}/forgotLoginDetails">Can't access your account?</a>		
 	</div>
 </fieldset>
 </form>

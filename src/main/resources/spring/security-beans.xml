@@ -22,10 +22,11 @@
 		<remember-me key="workerbee_security_key" token-validity-seconds="-1"/>
 	
 		<intercept-url pattern="/login" access="permitAll" />
+		<intercept-url pattern="/users/signup" access="permitAll" />
 		<intercept-url pattern="/messages/list" access="hasAnyRole('ROLE_USER','ROLE_ANONYMOUS')" />
 		<intercept-url pattern="/messages/post" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/messages/delete*" access="hasRole('ROLE_ADMIN')" />
-		
+		<intercept-url pattern="/settings/**" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
 	</http>
 
 	<!-- JdbcDaoImpl -->
@@ -54,12 +55,12 @@
 	</beans:bean>
 
 	<!-- Password Encoder -->
-	<beans:bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />
+	<beans:bean id="md5PasswordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />
 	 
 	 <!-- Authentication Manager-->
 	<authentication-manager>
 		<authentication-provider user-service-ref="jdbcUserService">
-			<password-encoder ref="passwordEncoder" />
+			<password-encoder ref="md5PasswordEncoder" />
 		</authentication-provider>
 	</authentication-manager>
 			

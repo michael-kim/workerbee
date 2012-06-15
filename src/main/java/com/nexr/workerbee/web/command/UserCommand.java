@@ -1,5 +1,6 @@
 package com.nexr.workerbee.web.command;
 
+import com.nexr.workerbee.dto.Language;
 import com.nexr.workerbee.dto.User;
 import com.nexr.workerbee.dto.UserProfile;
 
@@ -12,6 +13,7 @@ public class UserCommand {
     private String firstName;
     private String lastName;
     private String email;
+    private Language primaryLanguage=Language.en;
     
     public String getUsername() {
         return username;
@@ -55,12 +57,19 @@ public class UserCommand {
     public void setEmail(String email) {
         this.email = email;
     }
+    public Language getPrimaryLanguage() {
+        return primaryLanguage;
+    }
+    public void setPrimaryLanguage(Language primaryLanguage) {
+        this.primaryLanguage = primaryLanguage;
+    }
     
     public User genUser(){
         return new User(username,password,enabled);
     }
     
     public UserProfile genUserProfile(){
-        return new UserProfile(firstName,lastName,email);
+        return new UserProfile(firstName,lastName,email,primaryLanguage);
     }
+    
 }

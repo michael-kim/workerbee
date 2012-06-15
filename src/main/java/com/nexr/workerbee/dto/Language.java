@@ -1,14 +1,20 @@
 package com.nexr.workerbee.dto;
 
 public enum Language {
-    ko("한국어"),en("English(US)");
+    en("English (US)"),ko("한국어");
     
-    private String display;
-    private Language(String display){
-        this.display=display;
+    private String displayText;
+    private Language(String displayText){
+        this.displayText=displayText;
     }
     
-    public String toString(){
-        return this.display;
+    public String getValue(){
+        return name();
+    }
+    
+    public void  setValue(String value) {}
+    
+    public String getDisplayText(){
+        return this.displayText;
     }
 }

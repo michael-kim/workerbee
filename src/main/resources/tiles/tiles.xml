@@ -24,9 +24,26 @@
     	<put-attribute name="body" value="/WEB-INF/views/exception/message.jsp" />
     </definition>
     
+    <!-- login  -->
+    
     <definition name="tiles.login" extends="template-main">
     	<put-attribute name="title" value="Workerbee Login" />
     	<put-attribute name="body" value="/WEB-INF/views/login/login.jsp" />
+    </definition>
+    
+    <definition name="tiles.login.forgotLoginDetails" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee - Can't Access your account?" />
+    	<put-attribute name="body" value="/WEB-INF/views/login/forgotLoginDetails.jsp" />
+    </definition>
+    
+    <definition name="tiles.login.signup" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Signup" />
+    	<put-attribute name="body" value="/WEB-INF/views/login/signup.jsp" />
+    </definition>
+    
+    <definition name="tiles.login.signup.complete" extends="template-main">
+    	<put-attribute name="title" value="Wookerbee Signup" />
+    	<put-attribute name="body" value="/WEB-INF/views/login/signupComplete.jsp" />
     </definition>
     
     <!-- messages -->
@@ -70,6 +87,7 @@
     	<put-attribute name="nav.users" value="active" />
     	<put-attribute name="body" value="/WEB-INF/views/users/addUser.jsp" />
     </definition>
+    
     
     
 	<!-- usergroups -->
@@ -211,7 +229,7 @@
     </definition>
     
     <!-- settings -->
-    <definition name="tiles.settings.account" extends="template-main">
+    <definition name="tiles.settings.general" extends="template-main">
     	<put-attribute name="title" value="Account settings" />
     	<put-attribute name="body" value="/WEB-INF/views/settings/account.jsp" />
     </definition>

@@ -27,3 +27,20 @@
 	overflow-x: auto;
 	width: 100%;
 }
+
+/* table */
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+  background-color: #f5f5f5;
+}
+
+tr:hover.tr-hover  td,
+tr:hover.tr-hover  th {
+  background-color: #f5f5f5;
+}
+
+/* alert */
+.controls .alert{
+	margin:15px 15px 0 0;
+	display:block;	
+}

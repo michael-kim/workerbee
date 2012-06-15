@@ -21,7 +21,7 @@ public class ReservationValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name","required.name","Court name is required.");
-		ValidationUtils.rejectIfEmpty(errors, "date", "required.date", "Date is required.");
+		ValidationUtils.rejectIfEmpty(errors, "date", "error.field.required");
 		ValidationUtils.rejectIfEmpty(errors, "hour", "required.hour", "Hour is required.");
 		
 		Reservation reservation = (Reservation)target;

@@ -10,6 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.nexr.workerbee.dto.Language;
 import com.nexr.workerbee.dto.User;
 import com.nexr.workerbee.dto.UserGroup;
 import com.nexr.workerbee.dto.UserProfile;
@@ -27,7 +28,7 @@ public class UserServiceTest {
     @Transactional
     public void createUserTest(){
         User user = new User("testuser","password",true);
-        UserProfile profile = new UserProfile("michael","kim","a@email.com");
+        UserProfile profile = new UserProfile("michael","kim","a@email.com",Language.en);
         UserGroup group = new UserGroup("group1","test group");
         profile.setUserGroup(group);
 

@@ -17,10 +17,10 @@ public class TaskCommentValidator implements Validator{
 
     @Override
     public void validate(Object target, Errors errors) {
-        ValidationUtils.rejectIfEmpty(errors,"comment","error.comment.required","Comment is required");
+        ValidationUtils.rejectIfEmpty(errors,"comment","error.field.required");
         TaskComment taskComment = (TaskComment)target;
         
         if (taskComment.getComment().length()<=5)
-            errors.rejectValue("comment","error.comment.too.short","Comment is too short, should more than 5 latters");
+            errors.rejectValue("comment","error.too.short");
     }
 }

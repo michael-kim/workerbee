@@ -22,7 +22,7 @@
 	 		</li>
 	 		<sec:authorize ifAllGranted="ROLE_ADMIN">
 	 		<li class="dropdown <tiles:insertAttribute name='nav.admin' defaultValue=''/>" ">
-	 			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin <b class="caret"></b></a>
+	 			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Administration <b class="caret"></b></a>
 	 			<ul class="dropdown-menu">
 					<li class="<tiles:insertAttribute name='nav.usergroups' defaultValue=''/>">
 	 					<a href="${ContextPath}/usergroups/list">Groups</a>
@@ -45,7 +45,7 @@
 	 		<li class="dropdown">
 			    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><sec:authentication property="name" /> <b class="caret"></b></a>
 			    <ul class="dropdown-menu">
-			      <li><a href="${ContextPath}/settings">Account Settings</a></li>
+			      <li><a href="${ContextPath}/settings/general/account">Account Settings</a></li>
 			      <li class="divider"></li>
 			      <li><a href="<c:url value='/j_spring_security_logout'/>">Logout</a></li>
 			    </ul>
