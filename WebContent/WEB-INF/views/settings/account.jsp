@@ -15,8 +15,10 @@
 <div class="span2">
 	<div class="well" style="padding: 8px 0;">
 		<ul class="nav nav-list">
-		  <li class="active"><a href="#">General</a></li>
-		  <li><a href="#">Notifications</a></li>
+		  <li class="active"><a href="${ContextPath}/settings/general/account">General</a></li>
+		  <li><a href="${ContextPath}/settings/basicInformation">Basic Information</a></li>
+		  <li><a href="${ContextPath}/settings/profilePicture">Profile Picture</a></li>
+		  <li><a href="${ContextPath}/settings/preferences">Preferences</a></li>
 		</ul>
 	</div><!-- /well -->
 	</div><!-- /span2 -->
@@ -43,10 +45,11 @@
 			<td colspan="2">
 <form:form method="post" cssClass="form-horizontal" modelAttribute="userProfile">
 	<fieldset>
+		<form:errors path="*" cssClass="alert alert-error"/>
 		<div class="control-group">
 			<label class="control-label">First:</label>
 			<div class="controls">
-				<form:input path="firstName"/>
+				<form:input path="firstName" cssClass="focus_on_me"/>
 				<form:errors path="firstName" cssClass="alert alert-error"/>
 			</div>
 		</div>
@@ -57,7 +60,8 @@
 				<form:errors path="lastName" cssClass="alert alert-error"/>
 			</div>
 		</div>
-		<div class="control-group" style="display:none">
+		<c:if test="false">
+		<div class="control-group">
 			<label class="control-label">Display as:</label>
 			<div class="controls">
 			<label class="radio">
@@ -70,7 +74,8 @@
               </label>
 			</div>
 		</div>
-		<div calss="control-group">
+		</c:if>
+		<div class="control-group">
 			<div class="controls">
 				<input class="btn btn-primary" type="submit" value="Save Changes" />
 				<a class="btn" href="${ContextPath}/settings/general/account">Cancel</a>
@@ -99,7 +104,7 @@
 			<label class="control-label">Email:</label>
 			<div class="controls">
 	            <div class="input-prepend">
-	              <span class="add-on"><i class="icon-envelope"></i></span><form:input path="email"/>
+	              <span class="add-on"><i class="icon-envelope"></i></span><form:input path="email" cssClass="focus_on_me"/>
 	            </div>
 				<form:errors path="email" cssClass="alert alert-error"/>
 			</div>
@@ -116,7 +121,44 @@
 				<form:errors path="verifyPassword" cssClass="alert alert-error"/>
 			</div>
 		</div>
-		<div calss="control-group">
+		<div class="control-group">
+			<div class="controls">
+				<input class="btn btn-primary" type="submit" value="Save Changes" />
+				<a class="btn" href="${ContextPath}/settings/general/account">Cancel</a>
+			</div>
+		</div>
+	</fieldset>
+</form:form>
+			</td>
+		</tr>
+</c:if>
+<!-- phone -->
+<c:if test="${tab!='phone'}">
+		<tr class="tr-hover">
+			<th>Phone</th>
+			<td>
+				<c:choose>
+				<c:when test="${empty(userProfile.phone)}"><spring:message code="phone.empty" /></c:when>
+				<c:otherwise>${userProfile.phone}</c:otherwise>
+				</c:choose>
+			</td>
+			<td class="col2"><a href="${ContextPath}/settings/general/phone">Edit</a></td>
+		</tr>
+</c:if>
+<c:if test="${tab=='phone'}">
+		<tr class="activeRow">
+			<th>Email</th>
+			<td colspan="2">
+<form:form method="post" cssClass="form-horizontal" modelAttribute="userProfile">
+	<fieldset>
+		<div class="control-group">
+			<label class="control-label">Phone:</label>
+			<div class="controls">
+	            <form:input path="phone" cssClass="focus_on_me"/>
+				<form:errors path="phone" cssClass="alert alert-error"/>
+			</div>
+		</div>
+		<div class="control-group">
 			<div class="controls">
 				<input class="btn btn-primary" type="submit" value="Save Changes" />
 				<a class="btn" href="${ContextPath}/settings/general/account">Cancel</a>
@@ -146,7 +188,7 @@
 					<div class="control-group">
 						<label class="control-label">Current:</label>
 						<div class="controls">
-							<form:password path="currentPassword"/>
+							<form:password path="currentPassword" cssClass="focus_on_me"/>
 							<form:errors path="currentPassword"  cssClass="alert alert-error"/>
 						</div>
 					</div>
@@ -164,7 +206,7 @@
 							<form:errors path="retypePassword" cssClass="alert alert-error" />
 						</div>
 					</div>
-					<div calss="control-group">
+					<div class="control-group">
 						<div class="controls">
 							<input class="btn btn-primary" type="submit" value="Save Changes" />
 							<a class="btn" href="${ContextPath}/settings/general/account">Cancel</a>

@@ -22,7 +22,6 @@
 		<remember-me key="workerbee_security_key" token-validity-seconds="-1"/>
 	
 		<intercept-url pattern="/login" access="permitAll" />
-		<intercept-url pattern="/users/signup" access="permitAll" />
 		<intercept-url pattern="/messages/list" access="hasAnyRole('ROLE_USER','ROLE_ANONYMOUS')" />
 		<intercept-url pattern="/messages/post" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/messages/delete*" access="hasRole('ROLE_ADMIN')" />

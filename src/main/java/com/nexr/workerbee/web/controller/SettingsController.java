@@ -48,7 +48,7 @@ public class SettingsController {
     
     @RequestMapping(value={"/settings/general/{tab}"},method=RequestMethod.GET)
     public String account(Model model,@PathVariable("tab")String tab){
-        if (!tab.matches("account|name|password|email|language")) return "redirect:account"; 
+        if (!tab.matches("account|name|password|email|language|phone")) return "redirect:account"; 
         model.addAttribute("tab", tab);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByUsername(auth.getName());
@@ -63,6 +63,26 @@ public class SettingsController {
     
     @RequestMapping(value={"/settings/general/name"},method=RequestMethod.POST)
     public String editName(
+            @ModelAttribute("userProfile")UserProfile userProfile,
+            BindingResult result, SessionStatus status,Model model){
+        // validation
+        userProfileValidator.validate(userProfile, result);
+        
+        if (result.hasErrors()){
+            model.addAttribute("tab","name");
+            model.addAttribute("userProfile", userProfile);
+            return "tiles.settings.general";
+        }else{
+            status.setComplete();
+        }
+        
+        // update name
+        userProfileService.upateUserProfile(userProfile);
+        return "redirect:account";
+    }
+    
+    @RequestMapping(value={"/settings/general/phone"},method=RequestMethod.POST)
+    public String editPhone(
             @ModelAttribute("userProfile")UserProfile userProfile,
             BindingResult result, SessionStatus status,Model model){
         // validation
@@ -142,4 +162,15 @@ public class SettingsController {
         userProfileService.upateUserProfile(userProfile);
         return "redirect:account";
     }
+    
+    @RequestMapping(value={"/settings/profilePicture"},method=RequestMethod.GET)
+    public String profilePicture(){
+        return "tiles.settings.profile.picture";
+    }
+
+    @RequestMapping(value={"/settings/basicInformation"},method=RequestMethod.GET)
+    public String basicInformation(){
+        return "tiles.settings.basic.information";
+    }
+    
 }

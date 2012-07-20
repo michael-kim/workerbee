@@ -66,7 +66,7 @@
 		<div class="form-actions">
 			<input class="btn btn-primary" type="submit" value="Submit" />
 			<input class="btn" type="reset" value="Reset" />
-			<a class="btn" href="list">Cancel</a>
+			&nbsp;&nbsp;<a  href="list">Cancel</a>
 		</div>
 	</fieldset>
 </form:form>

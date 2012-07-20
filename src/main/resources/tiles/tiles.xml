@@ -230,12 +230,27 @@
     
     <!-- settings -->
     <definition name="tiles.settings.general" extends="template-main">
-    	<put-attribute name="title" value="Account settings" />
+    	<put-attribute name="title" value="Workerbee - Account settings" />
     	<put-attribute name="body" value="/WEB-INF/views/settings/account.jsp" />
     </definition>
     
     <definition name="tiles.settings.edit.name" extends="template-main">
-    	<put-attribute name="title" value="Account settings" />
+    	<put-attribute name="title" value="Workerbee - Account settings" />
     	<put-attribute name="body" value="/WEB-INF/views/settings/editName.jsp" />
+    </definition>
+    
+    <definition name="tiles.settings.basic.information" extends="template-main">
+    	<put-attribute name="title" value="Workerbee - Basic information" />
+    	<put-attribute name="body" value="/WEB-INF/views/settings/basicInformation.jsp" />
+    </definition>
+    
+    <definition name="tiles.settings.profile.picture" extends="template-main">
+    	<put-attribute name="title" value="Workerbee - Profile picture" />
+    	<put-attribute name="body" value="/WEB-INF/views/settings/profilePicture.jsp" />
+    </definition>
+    
+    <definition name="tiles.settings.preferences" extends="template-main">
+    	<put-attribute name="title" value="Workerbee - Preferences" />
+    	<put-attribute name="body" value="/WEB-INF/views/settings/preferences.jsp" />
     </definition>
 </tiles-definitions>

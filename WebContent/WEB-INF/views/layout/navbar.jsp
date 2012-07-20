@@ -4,19 +4,19 @@
 	<div class="navbar-inner">
  	<div class="container">
 	 	<a class="brand" href="${ContextPath}">WorkerBee</a>
+	 	
+	 	<sec:authorize ifNotGranted="ROLE_ANONYMOUS">
 	 	<ul class="nav">
 	 		<li class="divider-vertical"></li>
 	 		<li class="<tiles:insertAttribute name='nav.messages' defaultValue=''/>">
 	 			<a href="<c:url value='/messages/list' />">Board</a>
 	 		</li>
-	 		<li class="divider-vertical"></li>
 	 		<li class="<tiles:insertAttribute name='nav.tasks' defaultValue=''/>">
 	 			<a href="<c:url value='/projects/list' />">Projects</a>
 	 		</li>
 	 		<li class="<tiles:insertAttribute name='nav.properties' defaultValue=''/>">
 	 			<a href="<c:url value='/taskproperties/list' />">Properties</a>
 	 		</li>
-	 		<li class="divider-vertical"></li>
 	 		<li class="<tiles:insertAttribute name='nav.simpleform' defaultValue=''/>">
 	 			<a href="${ContextPath}/simpleForm">SimpleForm</a>
 	 		</li>
@@ -34,6 +34,7 @@
 	 		</li>
 		 	</sec:authorize>
 	 	</ul>
+	 	</sec:authorize>
 	 	
 	 	<sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
 	 	<ul class="nav pull-right">

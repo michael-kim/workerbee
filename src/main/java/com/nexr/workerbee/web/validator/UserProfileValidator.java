@@ -36,18 +36,18 @@ public class UserProfileValidator implements Validator{
         ValidationUtils.rejectIfEmpty(errors, "email", "error.field.required");
 
         if(errors.hasErrors()) return;
-        UserProfile command = (UserProfile)target;
-        if (command.getLastName().length()>20) errors.rejectValue("lastName", "error.too.long");
-        if (command.getLastName().length()>20) errors.rejectValue("firstName", "error.too.long");
+        UserProfile profile = (UserProfile)target;
+        if (profile.getLastName().length()>20) errors.rejectValue("lastName", "error.too.long");
+        if (profile.getLastName().length()>20) errors.rejectValue("firstName", "error.too.long");
 
         Pattern p = Pattern.compile(EMAIL_PATTERN);
-        Matcher m = p.matcher(command.getEmail());
+        Matcher m = p.matcher(profile.getEmail());
         boolean matchFound = m.matches();
         if (!matchFound){
             errors.rejectValue("email", "error.email.invalid");
         }
         
-        if (userProfileService.findByEmail(command.getEmail())!=null){
+        if (!userProfileService.isUpdatableEmail(profile.getEmail(),profile.getUser().getUsername())){
             errors.rejectValue("email", "error.email.already.exists");
         }
     }

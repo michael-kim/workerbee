@@ -1,3 +1,3 @@
 <div class="footer">
-	Powered by WHO?
+	BigData Center Powered by julingks (v0.1)
 </div>

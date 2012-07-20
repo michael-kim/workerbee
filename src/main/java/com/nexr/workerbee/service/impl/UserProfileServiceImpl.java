@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
 import com.nexr.workerbee.dao.UserDao;
@@ -12,6 +11,8 @@ import com.nexr.workerbee.dao.UserProfileDao;
 import com.nexr.workerbee.dto.User;
 import com.nexr.workerbee.dto.UserProfile;
 import com.nexr.workerbee.service.UserProfileService;
+
+import static org.hibernate.criterion.Restrictions.*;
 
 @Service("userProfileService")
 public class UserProfileServiceImpl implements UserProfileService{
@@ -24,7 +25,7 @@ public class UserProfileServiceImpl implements UserProfileService{
     
     @Override
     public UserProfile findByUsername(String username) {
-        List<User> list = userDao.findByCriteria(Restrictions.eq("username", username));
+        List<User> list = userDao.findByCriteria(eq("username", username));
         if (list.size()!=1) {
             // error vomit
         }
@@ -40,8 +41,27 @@ public class UserProfileServiceImpl implements UserProfileService{
 
     @Override
     public UserProfile findByEmail(String email) {
-        List<UserProfile> list = userProfileDao.findByCriteria(Restrictions.eq("email", email));
+        List<UserProfile> list = userProfileDao.findByCriteria(eq("email", email));
         return (list.size()==0?null:list.get(0));
+    }
+
+    @Override
+    public boolean isUpdatableEmail(String email, String username) {
+        
+        List<UserProfile> list = userProfileDao.findByCriteria(eq("email", email));
+        
+        // there is no the same email address.
+        if (list.size()==0) return true;
+        
+        // There are more than two email address. it cannot be possible.
+        if (list.size()>1) return false;
+        
+        if (list.size()==1) {
+            UserProfile profile = list.get(0);
+            if (profile.getUser().getUsername().equals(username)) return true;
+            else return false;
+        }
+        return false;
     }
 
 }

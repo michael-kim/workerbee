@@ -15,4 +15,7 @@ public interface UserProfileService {
     @Transactional
     public UserProfile findByEmail(String email);
     
+    @Transactional
+    public boolean isUpdatableEmail(String email, String username);
+    
 }

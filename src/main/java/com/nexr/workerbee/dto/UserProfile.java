@@ -34,8 +34,11 @@ public class UserProfile {
     
     @Column(name="LAST_NAME")
     private String lastName;
+    
+    @Column(name="PHONE")
+    private String phone;
 
-    @Column(name="EMAIL")
+    @Column(name="EMAIL",unique=true)
     private String email;
     
     @Column(name="PRIMARY_LANGUAGE",columnDefinition="varchar(5) default 'en'")
@@ -137,5 +140,13 @@ public class UserProfile {
 
     public void setVerifyPassword(String verifyPassword) {
         this.verifyPassword = verifyPassword;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
