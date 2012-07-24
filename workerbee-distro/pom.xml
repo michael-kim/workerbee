@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <parent>
+        <artifactId>workerbee</artifactId>
+        <groupId>com.nexr</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>workerbee-distro</artifactId>
+    <packaging>pom</packaging>
+    
+    <name>Workerbee Distro</name>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>assemble</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <inherited>false</inherited>
+                        <configuration>
+                            <finalName>workerbee-${project.version}</finalName>
+                            <descriptors>
+                                <descriptor>assembly-descriptor.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- Workerbee Web -->
+        <dependency>
+            <groupId>com.nexr</groupId>
+            <artifactId>workerbee-web</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        
+        <!-- Workerbee Server -->
+        <dependency>
+            <groupId>com.nexr</groupId>
+            <artifactId>workerbee-server</artifactId>
+            <type>jar</type>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>
