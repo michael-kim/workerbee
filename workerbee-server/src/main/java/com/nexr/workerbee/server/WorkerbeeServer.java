@@ -3,7 +3,7 @@ package com.nexr.workerbee.server;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
 
-public class WorkflowServer {
+public class WorkerbeeServer {
     
     public static void main(String... args) throws Exception {
         
@@ -18,7 +18,6 @@ public class WorkflowServer {
         
         server.start();
         server.join();
-        
     }
     
 }

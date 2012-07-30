@@ -2,7 +2,7 @@
 <assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
     xmlns:xsi="ttp://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
-    <id>bin</id>
+    <id>bundle</id>
     <formats>
         <format>dir</format>
         <format>tar.gz</format>
@@ -11,75 +11,43 @@
     <baseDirectory>workerbee-${project.version}</baseDirectory>
     <fileSets>
         <fileSet>
-            <directory>${basedir}/../bin/</directory>
-            <outputDirectory>/bin</outputDirectory>
-            <includes>
-                <include>*</include>
-            </includes>
+            <directory>../bin/</directory>
+            <outputDirectory>bin</outputDirectory>
             <fileMode>0755</fileMode>
         </fileSet>
         <fileSet>
-            <directory>${basedir}/../conf/</directory>
-            <outputDirectory>/conf</outputDirectory>
-            <includes>
-                <include>*</include>
-            </includes>
+            <directory>../conf/</directory>
+            <outputDirectory>conf</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${basedir}/../</directory>
+            <directory>../</directory>
             <outputDirectory>/</outputDirectory>
             <includes>
-                <!-- 
-                <include>README</include>
-                -->
-				<include>*.txt</include>
+				<include>README.txt</include>
             </includes>
         </fileSet>
     </fileSets>
-
     <dependencySets>
         <dependencySet>
+        	<useProjectArtifact>false</useProjectArtifact>
             <includes>
                 <include>com.nexr:workerbee-web</include>
             </includes>
             <useTransitiveDependencies>false</useTransitiveDependencies>
-            <outputDirectory>/webapps</outputDirectory>
+            <outputDirectory>webapps</outputDirectory>
+            <outputFileNameMapping>workerbee-web.war</outputFileNameMapping>
             <unpack>false</unpack>
-            <outputFileNameMapping>workerbee.war</outputFileNameMapping>
         </dependencySet>
-        
         <dependencySet>
+        	<useProjectArtifact>false</useProjectArtifact>
             <includes>
                 <include>com.nexr:workerbee-server</include>
             </includes>
             <useTransitiveDependencies>false</useTransitiveDependencies>
-            <outputDirectory>/lib</outputDirectory>
+            <outputDirectory>lib</outputDirectory>
+            <outputFileNameMapping>workerbee-server.jar</outputFileNameMapping>
             <unpack>false</unpack>
-            <outputFileNameMapping>workerbee-server-${project.version}.jar</outputFileNameMapping>
         </dependencySet>
         
-        <dependencySet>
-            <includes>
-                <include>org.eclipse.jetty:jetty-server</include>
-                <include>org.eclipse.jetty:jetty-webapp</include>
-                <include>org.eclipse.jetty:jetty-util</include>
-                <include>org.eclipse.jetty:jetty-continuation</include>
-                <include>org.eclipse.jetty:jetty-io</include>
-                <include>org.eclipse.jetty:jetty-http</include>
-                <include>org.eclipse.jetty:jetty-security</include>
-                <include>org.eclipse.jetty:jetty-servlet</include>
-                <include>org.eclipse.jetty:jetty-xml</include>
-                <include>org.mortbay.jetty:jsp-api-2.1-glassfish</include>
-                <include>org.mortbay.jetty:jsp-2.1-glassfish</include>
-                <include>org.eclipse.jetty.orbit:javax.servlet</include>
-                <include>javax.servlet:jstl</include>
-                <!-- 
-                <include>org.apache.ant:ant</include>
-                <include>org.apache.ant:ant-launcher</include>
-                 -->
-            </includes>
-            <outputDirectory>/lib</outputDirectory>
-            <unpack>false</unpack>
-        </dependencySet>
     </dependencySets>
 </assembly> 

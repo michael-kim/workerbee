@@ -9,7 +9,8 @@
     <packaging>pom</packaging>
 
     <name>workerbee</name>
-    <description>wokerbee</description>
+    
+    <description>Wokerbee</description>
 
     <modules>
         <module>workerbee-web</module>
@@ -27,6 +28,7 @@
 		<jetty-version>8.1.4.v20120524</jetty-version>
 		<jetty-jsp-version>2.1.v20100127</jetty-jsp-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mysql-connector-version>5.1.18</mysql-connector-version>
     </properties>
 	
 	<dependencyManagement>
@@ -187,7 +189,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.18</version>
+			<version>${mysql-connector-version}</version>
 		</dependency>
 
 		<!-- Apache commons -->
