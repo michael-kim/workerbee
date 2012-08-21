@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     
 	<groupId>com.nexr</groupId>
-    <artifactId>workerbee</artifactId>
+    <artifactId>workerbee-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>workerbee</name>
+    <name>workerbee-parent</name>
     
     <description>Wokerbee</description>
 

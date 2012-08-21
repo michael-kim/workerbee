@@ -39,15 +39,11 @@
             <unpack>false</unpack>
         </dependencySet>
         <dependencySet>
-        	<useProjectArtifact>false</useProjectArtifact>
             <includes>
-                <include>com.nexr:workerbee-server</include>
+                <include>*:jar:*</include>
             </includes>
-            <useTransitiveDependencies>false</useTransitiveDependencies>
             <outputDirectory>lib</outputDirectory>
-            <outputFileNameMapping>workerbee-server.jar</outputFileNameMapping>
             <unpack>false</unpack>
-        </dependencySet>
-        
+		</dependencySet>
     </dependencySets>
 </assembly> 

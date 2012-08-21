@@ -64,20 +64,20 @@ if [ "${WORKERBEE_HOME}" != "${workerbee_home}" ]; then
   print "  using WORKERBEE_HOME:          ${WORKERBEE_HOME}"
 fi
 
-if [ "${WORKERBEE_CONFIG_DIR}" = "" ]; then
-  export WORKERBEE_CONFIG_DIR=${WORKERBEE_HOME}/conf
-  print "Setting WORKERBEE_CONFIG_DIR:    ${WORKERBEE_CONFIG_DIR}"
+if [ "${WORKERBEE_CONF_DIR}" = "" ]; then
+  export WORKERBEE_CONF_DIR=${WORKERBEE_HOME}/conf
+  print "Setting WORKERBEE_CONF_DIR:      ${WORKERBEE_CONF_DIR}"
 else
-  print "Using   WORKERBEE_CONFIG_DIR:    ${WORKERBEE_CONFIG_DIR}"
+  print "Using   WORKERBEE_CONF_DIR:      ${WORKERBEE_CONF_DIR}"
 fi
-workerbee_config_dir=${WORKERBEE_CONFIG_DIR}
+workerbee_conf_dir=${WORKERBEE_CONF_DIR}
 
 # if the configuration dir has a env file, source it
 #
-if [ -e "${WORKERBEE_CONFIG_DIR}/workerbee-env.sh" ]; then
-  print "Sourcing:                    ${WORKERBEE_CONFIG_DIR}/workerbee-env.sh"
-  source ${WORKERBEE_CONFIG_DIR}/workerbee-env.sh
-  grep "^ *export " ${WORKERBEE_CONFIG_DIR}/workerbee-env.sh | sed 's/ *export/  setting/'
+if [ -e "${WORKERBEE_CONF_DIR}/workerbee-env.sh" ]; then
+  print "Sourcing:                        ${WORKERBEE_CONF_DIR}/workerbee-env.sh"
+  source ${WORKERBEE_CONF_DIR}/workerbee-env.sh
+  grep "^ *export " ${WORKERBEE_CONF_DIR}/workerbee-env.sh | sed 's/ *export/  setting/'
 fi
 
 # verify that the sourced env file didn't change WORKERBEE_HOME
@@ -88,27 +88,31 @@ if [ "${WORKERBEE_HOME}" != "${workerbee_home}" ]; then
   export WORKERBEE_HOME=${workerbee_home}
 fi
 
-# verify that the sourced env file didn't change WORKERBEE_CONFIG_DIR
+# verify that the sourced env file didn't change WORKERBEE_CONF_DIR
 # if so, warn and revert
 #
-if [ "${WORKERBEE_CONFIG_DIR}" != "${workerbee_config_dir}" ]; then
-  print "WARN: The sourced env file doesn't allow to change WOKERBEE_CONFIG_DIR"
-  print "WARN: WORKERBEE_CONFIG_DIR resetting to ''${WORKERBEE_CONFIG_DIR}'' ignored"
-  export WORKERBEE_CONFIG_DIR=${workerbee_config_dir}
+if [ "${WORKERBEE_CONF_DIR}" != "${workerbee_conf_dir}" ]; then
+  print "WARN: The sourced env file doesn't allow to change WORKERBEE_CONF_DIR"
+  print "WARN: WORKERBEE_CONF_DIR resetting to ''${WORKERBEE_CONF_DIR}'' ignored"
+  export WORKERBEE_CONF_DIR=${workerbee_conf_dir}
 fi
 
-if [ "${WORKERBEE_CONFIG_FILE}" = "" ]; then
-  export WORKERBEE_CONFIG_FILE="workerbee-site.xml"
-  print "Setting WORKERBEE_CONFIG_FILE:   ${WORKERBEE_CONFIG_FILE}"
+if [ "${WORKERBEE_CONF_FILE}" = "" ]; then
+  export WORKERBEE_CONF_FILE="workerbee-site.xml"
+  print "Setting WORKERBEE_CONF_FILE:     ${WORKERBEE_CONF_FILE}"
 else
-  print "Using   WORKERBEE_CONFIG_FILE:   ${WORKERBEE_CONFIG_FILE}"
+  print "Using   WORKERBEE_CONF_FILE:     ${WORKERBEE_CONF_FILE}"
 fi
 
-if [ "${WORKERBEE_TEMP}" = "" ]; then
-  export WORKERBEE_TEMP=${WORKERBEE_HOME}/temp
-  print "Setting WORKERBEE_TEMP:          ${WORKERBEE_TEMP}"
+if [ "${WORKERBEE_TMPDIR}" = "" ]; then
+  export WORKERBEE_TMPDIR=${WORKERBEE_HOME}/tmp
+  print "Setting WORKERBEE_TMPDIR:        ${WORKERBEE_TMPDIR}"
 else
-  print "Using   WORKERBEE_TEMP:          ${WORKERBEE_TEMP}"
+  print "Using   WORKERBEE_TMPDIR:        ${WORKERBEE_TMPDIR}"
+fi
+
+if [ ! -f ${WORKERBEE_TMPDIR} ]; then
+  mkdir -p ${WORKERBEE_TMPDIR}
 fi
 
 if [ "${WORKERBEE_LOG_DIR}" = "" ]; then
@@ -136,13 +140,6 @@ else
   print "Using   WORKERBEE_LOG4J_RELOAD:  ${WORKERBEE_LOG4J_RELOAD}"
 fi
 
-if [ "${WORKERBEE_HTTP_HOSTNAME}" = "" ]; then
-  export WORKERBEE_HTTP_HOSTNAME=`hostname -f`
-  print "Setting WORKERBEE_HTTP_HOSTNAME: ${WORKERBEE_HTTP_HOSTNAME}"
-else
-  print "Using   WORKERBEE_HTTP_HOSTNAME: ${WORKERBEE_HTTP_HOSTNAME}"
-fi
-
 if [ "${WORKERBEE_HTTP_PORT}" = "" ]; then
   export WORKERBEE_HTTP_PORT=12000
   print "Setting WORKERBEE_HTTP_PORT:     ${WORKERBEE_HTTP_PORT}"
@@ -150,18 +147,32 @@ else
   print "Using   WORKERBEE_HTTP_PORT:     ${WORKERBEE_HTTP_PORT}"
 fi
 
+if [ "${WORKERBEE_ROOT_CONTEXT}" = "" ]; then
+  export WORKERBEE_ROOT_CONTEXT=/workerbee
+  print "Setting WORKERBEE_ROOT_CONTEXT:  ${WORKERBEE_ROOT_CONTEXT}"
+else
+  print "Using   WORKERBEE_ROOT_CONTEXT:  ${WORKERBEE_ROOT_CONTEXT}"
+fi
+
 if [ "${WORKERBEE_PID}" = "" ]; then
-  export WORKERBEE_PID=${WORKERBEE_HOME}/temp/workerbee.pid
+  export WORKERBEE_PID=${WORKERBEE_TMPDIR}/workerbee.pid
   print "Setting WORKERBEE_PID:           ${WORKERBEE_PID}"
 else
   print "Using   WORKERBEE_PID:           ${WORKERBEE_PID}"
 fi
 
-if [ "${WORKERBEE_LOG_FILE}" = "" ]; then
-  export WORKERBEE_LOG_FILE=${WORKERBEE_LOG_DIR}/workerbee.out
-  print "Setting WORKERBEE_LOG_FILE:      ${WORKERBEE_LOG_FILE}"
+if [ "${WORKERBEE_OUT}" = "" ]; then
+  export WORKERBEE_OUT=${WORKERBEE_LOG_DIR}/workerbee.out
+  print "Setting WORKERBEE_OUT:           ${WORKERBEE_OUT}"
 else
-  print "Using   WORKERBEE_LOG_FILE:      ${WORKERBEE_LOG_FILE}"
+  print "Using   WORKERBEE_OUT:           ${WORKERBEE_OUT}"
+fi
+
+if [ "${WORKERBEE_ERR}" = "" ]; then
+  export WORKERBEE_ERR=${WORKERBEE_LOG_DIR}/workerbee.err
+  print "Setting WORKERBEE_ERR:           ${WORKERBEE_ERR}"
+else
+  print "Using   WORKERBEE_ERR:           ${WORKERBEE_ERR}"
 fi
 
 print
