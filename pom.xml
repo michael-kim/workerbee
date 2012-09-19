@@ -16,6 +16,7 @@
         <module>workerbee-web</module>
         <module>workerbee-distro</module>
 		<module>workerbee-server</module>
+		<module>workerbee-core</module>
     </modules>
     
 	<properties>
@@ -29,10 +30,18 @@
 		<jetty-jsp-version>2.1.v20100127</jetty-jsp-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mysql-connector-version>5.1.18</mysql-connector-version>
+		<hadoop-version>0.20.2-cdh3u2</hadoop-version>
     </properties>
 	
 	<dependencyManagement>
 	<dependencies>
+		<!-- hadoop -->
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-core</artifactId>
+			<version>${hadoop-version}</version>
+		</dependency>
+
 		<!-- hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>

@@ -1,8 +1,8 @@
 <%@ page  isELIgnored="false" session="true" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
 <%@ include file="/WEB-INF/views/common/include.jsp"%>
-<script type="text/javascript" src="<c:url value='/resources/codemirror-2.23/lib/codemirror.js'/>"></script>
-<script type="text/javascript" src="<c:url value='/resources/codemirror-2.23/mode/mysql/mysql.js'/>"></script>
-<link href="<c:url value='/resources/codemirror-2.23/lib/codemirror.css'/>" rel="stylesheet">
+<script type="text/javascript" src="<c:url value='/resources/codemirror/lib/codemirror.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/resources/codemirror/mode/mysql/mysql.js'/>"></script>
+<link href="<c:url value='/resources/codemirror/lib/codemirror.css'/>" rel="stylesheet">
 
 <style type="text/css">
 /* For input sizes, make them display block */

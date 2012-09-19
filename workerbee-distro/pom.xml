@@ -52,5 +52,12 @@
             <artifactId>workerbee-server</artifactId>
             <version>${project.version}</version>
         </dependency>
+		
+        <!-- Workerbee Core -->
+        <dependency>
+            <groupId>com.nexr</groupId>
+            <artifactId>workerbee-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 </project>
