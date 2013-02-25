@@ -13,7 +13,7 @@
     <description>Wokerbee</description>
 
     <modules>
-        <module>workerbee-web</module>
+        <!--module>workerbee-web</module-->
         <module>workerbee-distro</module>
 		<module>workerbee-server</module>
 		<module>workerbee-core</module>

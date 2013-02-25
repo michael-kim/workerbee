@@ -118,6 +118,7 @@ if [ "$actionCmd" = "start" ] ; then
 	then
 		echo $PID > $WORKERBEE_PID
 		echo "INFO: Workerbee initialized successfully."
+		echo "INOF: You can access the following address http://localhost:$WORKERBEE_HTTP_PORT/$WORKERBEE_ROOT_CONTEXT"
 	else
 		echo "ERROR: Workerbee startup failed, see $WORKERBEE_ERR"
 		cat $WORKERBEE_ERR

@@ -10,7 +10,7 @@ public class JettyEmbeddingServer {
 
     public void init(String[] args) throws Exception {
         int port = 12000;
-        String contextPath = "/workerbee-web";
+        String contextPath = "/workerbee";
         try {
             port = Integer.parseInt(System.getenv("WORKERBEE_HTTP_PORT"));
         } catch (Exception e) {
@@ -28,7 +28,7 @@ public class JettyEmbeddingServer {
         server = new Server(port);
         WebAppContext webcontext = new WebAppContext();
         webcontext.setContextPath(contextPath);
-        webcontext.setWar(workerbeeHome + "/webapps/workerbee-web.war");
+        webcontext.setWar(workerbeeHome + "/webapps/workerbee-core.war");
         server.setHandler(webcontext);
     }
 
