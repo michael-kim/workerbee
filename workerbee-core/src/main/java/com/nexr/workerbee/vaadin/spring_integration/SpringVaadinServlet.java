@@ -19,7 +19,7 @@ public class SpringVaadinServlet extends VaadinServlet
     /**
      * Servlet parameter name for UI bean
      */
-    private static final String BEAN_NAME_PARAMETER = "beanName";
+    private static final String INIT_BEAN_NAME_PARAMETER = "initBeanName";
     /**
      * Servlet parameter name for UI bean
      */
@@ -42,10 +42,10 @@ public class SpringVaadinServlet extends VaadinServlet
     public void init(ServletConfig servletConfig) throws ServletException
     {
         applicationContext = WebApplicationContextUtils.getWebApplicationContext(servletConfig.getServletContext());
-        if (servletConfig.getInitParameter(BEAN_NAME_PARAMETER) != null)
+        if (servletConfig.getInitParameter(INIT_BEAN_NAME_PARAMETER) != null)
         {
-            vaadinBeanName = servletConfig.getInitParameter(BEAN_NAME_PARAMETER);
-            logger.debug("found BEAN_NAME_PARAMETER: {}", vaadinBeanName);
+            vaadinBeanName = servletConfig.getInitParameter(INIT_BEAN_NAME_PARAMETER);
+            logger.debug("found INIT_BEAN_NAME_PARAMETER: {}", vaadinBeanName);
         }
 
         if (servletConfig.getInitParameter(SYSTEM_MESSAGES_BEAN_NAME_PARAMETER) != null)
