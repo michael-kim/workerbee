@@ -22,19 +22,40 @@
 	<properties>
 		<java-version>1.6</java-version>
 		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
+        <spring.security-version>3.1.0.RELEASE</spring.security-version>
 		<org.aspectj-version>1.6.9</org.aspectj-version>
 		<org.slf4j-version>1.5.10</org.slf4j-version>
-		<spring.security-version>3.1.0.RELEASE</spring.security-version>
 		<hibernate-version>3.6.0.Final</hibernate-version>
 		<jetty-version>8.1.4.v20120524</jetty-version>
 		<jetty-jsp-version>2.1.v20100127</jetty-jsp-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mysql-connector-version>5.1.18</mysql-connector-version>
 		<hadoop-version>0.20.2-cdh3u2</hadoop-version>
+        <vaadin-version>7.0.0</vaadin-version>
     </properties>
 	
 	<dependencyManagement>
 	<dependencies>
+
+        <!-- vaadin -->
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-client-compiled</artifactId>
+            <version>${vaadin-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-client</artifactId>
+            <version>${vaadin-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-themes</artifactId>
+            <version>${vaadin-version}</version>
+        </dependency>
+
 		<!-- hadoop -->
 		<dependency>
 			<groupId>org.apache.hadoop</groupId>
@@ -335,4 +356,11 @@
         </dependency>
 	</dependencies>
 	</dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>vaadin-addons</id>
+            <url>http://maven.vaadin.com/vaadin-addons</url>
+        </repository>
+    </repositories>
 </project>

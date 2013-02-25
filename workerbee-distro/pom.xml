@@ -39,12 +39,12 @@
 
     <dependencies>
         <!-- Workerbee Web -->
-        <dependency>
+        <!--dependency>
             <groupId>com.nexr</groupId>
             <artifactId>workerbee-web</artifactId>
             <version>${project.version}</version>
             <type>war</type>
-        </dependency>
+        </dependency-->
         
         <!-- Workerbee Server -->
         <dependency>
@@ -58,6 +58,7 @@
             <groupId>com.nexr</groupId>
             <artifactId>workerbee-core</artifactId>
             <version>${project.version}</version>
+            <type>war</type>
         </dependency>
     </dependencies>
 </project>

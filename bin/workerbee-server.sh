@@ -46,7 +46,7 @@ else
 	JAVA_BIN=${JAVA_HOME}/bin/java
 fi
 
-source ${BASEDIR}/bin/workerbee-config.sh
+source ${BASEDIR}/bin/lib/workerbee-config.sh
 
 if [ "$actionCmd" = "start" ] ; then
 

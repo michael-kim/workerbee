@@ -28,7 +28,7 @@
         </fileSet>
     </fileSets>
     <dependencySets>
-        <dependencySet>
+        <!--dependencySet>
         	<useProjectArtifact>false</useProjectArtifact>
             <includes>
                 <include>com.nexr:workerbee-web</include>
@@ -36,6 +36,16 @@
             <useTransitiveDependencies>false</useTransitiveDependencies>
             <outputDirectory>webapps</outputDirectory>
             <outputFileNameMapping>workerbee-web.war</outputFileNameMapping>
+            <unpack>false</unpack>
+        </dependencySet-->
+        <dependencySet>
+        	<useProjectArtifact>false</useProjectArtifact>
+            <includes>
+                <include>com.nexr:workerbee-core</include>
+            </includes>
+            <useTransitiveDependencies>false</useTransitiveDependencies>
+            <outputDirectory>webapps</outputDirectory>
+            <outputFileNameMapping>workerbee-core.war</outputFileNameMapping>
             <unpack>false</unpack>
         </dependencySet>
         <dependencySet>
