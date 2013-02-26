@@ -1,4 +1,4 @@
-package com.nexr.workerbee.vaadin;
+package com.nexr.workerbee.util;
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;

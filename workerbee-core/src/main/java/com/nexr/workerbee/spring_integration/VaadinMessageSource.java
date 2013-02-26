@@ -1,4 +1,4 @@
-package com.nexr.workerbee.vaadin.spring_integration;
+package com.nexr.workerbee.spring_integration;
 
 import com.vaadin.ui.UI;
 import org.springframework.beans.factory.annotation.Autowired;

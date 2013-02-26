@@ -11,10 +11,10 @@
     <http security="none" pattern="/favicon.ico"/>
 
     <http auto-config='true'>
-        <intercept-url pattern="/login/" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/s/login/" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <intercept-url pattern="/**" access="ROLE_USER, ROLE_ADMIN" />
 
-        <form-login login-page="/login/" authentication-failure-url="/login/?error=true" default-target-url="/" />
+        <form-login login-page="/s/login/" authentication-failure-url="/s/login/?error=true" default-target-url="/" />
 
     </http>
 

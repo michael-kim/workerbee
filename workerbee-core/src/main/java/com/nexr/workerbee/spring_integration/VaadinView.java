@@ -1,4 +1,4 @@
-package com.nexr.workerbee.vaadin.spring_integration;
+package com.nexr.workerbee.spring_integration;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

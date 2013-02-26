@@ -1,6 +1,6 @@
 package com.nexr.workerbee.vaadin;
 
-import com.nexr.workerbee.vaadin.spring_integration.DiscoveryNavigator;
+import com.nexr.workerbee.spring_integration.DiscoveryNavigator;
 import com.vaadin.server.*;
 import com.vaadin.ui.*;
 import org.springframework.context.annotation.Scope;
