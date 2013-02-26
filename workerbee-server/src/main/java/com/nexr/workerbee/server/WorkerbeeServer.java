@@ -25,5 +25,7 @@ public class WorkerbeeServer {
         WorkerbeeServer server = new WorkerbeeServer();
         server.init(args);
         server.start();
+
+        // TO DO : handle Exception
 	}
 }

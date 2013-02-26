@@ -16,9 +16,10 @@
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>3.1.2.RELEASE</spring.version>
-        <spring.security.version>3.1.2.RELEASE</spring.security.version>
-        <vaadin.version>7.0.0</vaadin.version>
+        <org.springframework-version>3.1.2.RELEASE</org.springframework-version>
+        <spring.security-version>3.1.2.RELEASE</spring.security-version>
+        <hibernate-version>4.0.1.Final</hibernate-version>
+        <vaadin-version>7.0.0</vaadin-version>
     </properties>
 
     <dependencies>
@@ -26,23 +27,30 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
+            <version>${hibernate-version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>4.2.0.Final</version>
         </dependency>
+
         <dependency>
             <groupId>org.hibernate.common</groupId>
             <artifactId>hibernate-commons-annotations</artifactId>
             <version>4.0.1.Final</version>
             <classifier>tests</classifier>
         </dependency>
+
+        <!-- hibernate jpa 2.0 API -->
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.0-api</artifactId>
             <version>1.0.1.Final</version>
         </dependency>
+
+        <!-- hibernate JPA entity Manager -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
@@ -56,7 +64,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- dbcp -->
+        <!-- commons DBCP -->
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
@@ -73,120 +81,127 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>${spring.security.version}</version>
+            <version>${spring.security-version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>${spring.security.version}</version>
+            <version>${spring.security-version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>${spring.security.version}</version>
+            <version>${spring.security-version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-taglibs</artifactId>
-            <version>${spring.security.version}</version>
+            <version>${spring.security-version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-acl</artifactId>
-            <version>${spring.security.version}</version>
+            <version>${spring.security-version}</version>
         </dependency>
 
         <!-- Spring -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-
+        <!-- spring core -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
+            <version>${org.springframework-version}</version>
         </dependency>
 
+        <!-- spring context -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+
+        <!-- spring beans -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>${spring.version}</version>
+            <version>${org.springframework-version}</version>
         </dependency>
 
+        <!-- spring web -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
+            <version>${org.springframework-version}</version>
         </dependency>
 
-        <dependency>
+        <!-- spring expression -->
+        <!--dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-expression</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
+            <version>${org.springframework-version}</version>
+        </dependency-->
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-            <version>${spring.version}</version>
+            <version>${org.springframework-version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
-            <version>${spring.version}</version>
+            <version>${org.springframework-version}</version>
         </dependency>
+
+        <!-- spring AOP -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
-            <version>${spring.version}</version>
+            <version>${org.springframework-version}</version>
         </dependency>
+
+        <!-- spring mvc -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
+            <version>${org.springframework-version}</version>
         </dependency>
-        <dependency>
+
+        <!--dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
+            <version>${org.springframework-version}</version>
+        </dependency-->
+
+        <!-- spring test -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
+            <version>${org.springframework-version}</version>
         </dependency>
 
         <!-- Vaadin -->
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-server</artifactId>
-            <version>${vaadin.version}</version>
+            <version>${vaadin-version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-client-compiled</artifactId>
-            <version>${vaadin.version}</version>
+            <version>${vaadin-version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-client</artifactId>
-            <version>${vaadin.version}</version>
+            <version>${vaadin-version}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-themes</artifactId>
-            <version>${vaadin.version}</version>
+            <version>${vaadin-version}</version>
         </dependency>
 
         <!-- Logging -->
@@ -195,18 +210,20 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.6.6</version>
         </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
             <version>1.6.6</version>
         </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>log4j-over-slf4j</artifactId>
             <version>1.6.6</version>
         </dependency>
 
-        <!-- Web API -->
+        <!-- servlet API -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
@@ -214,13 +231,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Login page -->
-        <!-- Spring MVC -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
+        <!-- freemaker -->
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
@@ -235,12 +246,30 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- -->
+        <!-- miscellaneous -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.1</version>
         </dependency>
+
+        <!-- Test Scope -->
+        <!-- junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.7</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- mockito -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>1.9.5</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -18,7 +18,7 @@
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">
             <list>
-                <value>classpath:/messages/security</value>
+                <value>classpath:/messages/security</value><!-- overwrite spring security messages -->
             </list>
         </property>
     </bean>
