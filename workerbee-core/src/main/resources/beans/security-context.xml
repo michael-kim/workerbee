@@ -15,7 +15,6 @@
         <intercept-url pattern="/**" access="ROLE_USER, ROLE_ADMIN" />
 
         <form-login login-page="/s/login/" authentication-failure-url="/s/login/?error=true" default-target-url="/" />
-
     </http>
 
     <authentication-manager>
