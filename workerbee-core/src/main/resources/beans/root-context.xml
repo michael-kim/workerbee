@@ -8,16 +8,9 @@
     <!-- annotaion config -->
     <context:annotation-config/>
 
-    <!-- component scan -->
-    <context:component-scan base-package="com.nexr.workerbee.vaadin" />
-
-    <!-- Property Placeholder Configurer-->
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations">
-            <list>
-                <value>classpath:/beans/beans-config.properties</value>
-            </list>
-        </property>
+    <!-- Property Placeholder Configurer -->
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:/default.properties" />
     </bean>
 
     <!-- Message Source -->
@@ -29,6 +22,9 @@
             </list>
         </property>
     </bean>
+
+    <!-- component scan -->
+    <context:component-scan base-package="com.nexr.workerbee.vaadin" />
 
     <import resource="security-context.xml"/>
     <import resource="db-context.xml"/>
