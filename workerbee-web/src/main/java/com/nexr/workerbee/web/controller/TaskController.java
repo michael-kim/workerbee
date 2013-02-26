@@ -1,8 +1,6 @@
-package com.nexr.workerbee.web.controller;
+package com.nexr.workerbee.controller.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +27,7 @@ import com.nexr.workerbee.dto.TaskGroup;
 import com.nexr.workerbee.service.TaskCommentService;
 import com.nexr.workerbee.service.TaskGroupService;
 import com.nexr.workerbee.service.TaskService;
-import com.nexr.workerbee.web.validator.TaskValidator;
+import com.nexr.workerbee.controller.validator.TaskValidator;
 
 @Controller
 @RequestMapping("/tasks")

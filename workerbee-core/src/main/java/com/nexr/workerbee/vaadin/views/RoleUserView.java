@@ -1,6 +1,6 @@
 package com.nexr.workerbee.vaadin.views;
 
-import com.nexr.workerbee.spring_integration.VaadinView;
+import com.nexr.workerbee.spring_vaadin_integration.VaadinView;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.ExternalResource;

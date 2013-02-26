@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.controller;
+package com.nexr.workerbee.controller.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

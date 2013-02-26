@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.controller;
+package com.nexr.workerbee.controller.controller;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.nexr.workerbee.dao.impl.EntityPage;
 import com.nexr.workerbee.dto.UserGroup;
 import com.nexr.workerbee.service.UserGroupService;
-import com.nexr.workerbee.web.validator.UserGroupValidator;
+import com.nexr.workerbee.controller.validator.UserGroupValidator;
 
 @Controller
 @SessionAttributes("userGroup")

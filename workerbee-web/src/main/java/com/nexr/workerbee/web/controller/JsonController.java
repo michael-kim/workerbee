@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.controller;
+package com.nexr.workerbee.controller.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;

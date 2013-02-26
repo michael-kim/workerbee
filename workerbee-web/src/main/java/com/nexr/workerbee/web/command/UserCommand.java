@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.command;
+package com.nexr.workerbee.controller.command;
 
 import com.nexr.workerbee.dto.Language;
 import com.nexr.workerbee.dto.User;

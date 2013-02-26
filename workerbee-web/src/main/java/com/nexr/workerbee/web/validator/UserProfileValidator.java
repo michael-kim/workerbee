@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.validator;
+package com.nexr.workerbee.controller.validator;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

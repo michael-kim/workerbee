@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.binding;
+package com.nexr.workerbee.controller.binding;
 
 import java.beans.PropertyEditorSupport;
 

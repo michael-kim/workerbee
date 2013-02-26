@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.controller;
+package com.nexr.workerbee.controller.controller;
 
 import java.util.Date;
 
@@ -23,9 +23,9 @@ import com.nexr.workerbee.dto.User;
 import com.nexr.workerbee.dto.UserProfile;
 import com.nexr.workerbee.service.UserProfileService;
 import com.nexr.workerbee.service.UserService;
-import com.nexr.workerbee.web.command.ChangePasswordCommand;
-import com.nexr.workerbee.web.validator.ChangePasswordCommandValidator;
-import com.nexr.workerbee.web.validator.UserProfileValidator;
+import com.nexr.workerbee.controller.command.ChangePasswordCommand;
+import com.nexr.workerbee.controller.validator.ChangePasswordCommandValidator;
+import com.nexr.workerbee.controller.validator.UserProfileValidator;
 
 @Controller
 @SessionAttributes(value={"userProfile"})

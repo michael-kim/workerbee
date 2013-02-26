@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.controller;
+package com.nexr.workerbee.controller.controller;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ import com.nexr.workerbee.dto.Project;
 import com.nexr.workerbee.dto.TaskGroup;
 import com.nexr.workerbee.service.ProjectService;
 import com.nexr.workerbee.service.TaskGroupService;
-import com.nexr.workerbee.web.validator.TaskGroupValidator;
+import com.nexr.workerbee.controller.validator.TaskGroupValidator;
 
 
 @Controller

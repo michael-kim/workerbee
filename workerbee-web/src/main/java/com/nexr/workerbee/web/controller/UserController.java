@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.controller;
+package com.nexr.workerbee.controller.controller;
 
 import java.util.List;
 
@@ -22,8 +22,8 @@ import com.nexr.workerbee.dto.Language;
 import com.nexr.workerbee.dto.User;
 import com.nexr.workerbee.dto.UserProfile;
 import com.nexr.workerbee.service.UserService;
-import com.nexr.workerbee.web.command.UserCommand;
-import com.nexr.workerbee.web.validator.UserCommandValidator;
+import com.nexr.workerbee.controller.command.UserCommand;
+import com.nexr.workerbee.controller.validator.UserCommandValidator;
 
 @Controller
 @SessionAttributes(value={"userCommand"})

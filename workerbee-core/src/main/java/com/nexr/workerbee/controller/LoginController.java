@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web;
+package com.nexr.workerbee.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

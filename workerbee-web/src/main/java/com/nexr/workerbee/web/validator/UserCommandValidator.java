@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.validator;
+package com.nexr.workerbee.controller.validator;
 
 import javax.annotation.Resource;
 
@@ -9,7 +9,7 @@ import org.springframework.validation.Validator;
 
 import com.nexr.workerbee.dto.User;
 import com.nexr.workerbee.service.UserService;
-import com.nexr.workerbee.web.command.UserCommand;
+import com.nexr.workerbee.controller.command.UserCommand;
 
 @Component("userCommandValidator")
 public class UserCommandValidator implements Validator{

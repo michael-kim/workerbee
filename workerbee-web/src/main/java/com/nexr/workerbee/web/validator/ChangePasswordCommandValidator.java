@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.validator;
+package com.nexr.workerbee.controller.validator;
 
 import javax.annotation.Resource;
 
@@ -9,7 +9,7 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import com.nexr.workerbee.dto.UserProfile;
-import com.nexr.workerbee.web.command.ChangePasswordCommand;
+import com.nexr.workerbee.controller.command.ChangePasswordCommand;
 
 
 @Component("changePasswordCommandValidator")

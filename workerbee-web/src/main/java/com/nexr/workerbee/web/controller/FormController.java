@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.controller;
+package com.nexr.workerbee.controller.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.nexr.workerbee.model.Reservation;
-import com.nexr.workerbee.web.validator.ReservationValidator;
+import com.nexr.workerbee.controller.validator.ReservationValidator;
 
 @Controller
 @SessionAttributes("reservation")

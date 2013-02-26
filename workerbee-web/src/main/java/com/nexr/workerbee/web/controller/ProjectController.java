@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.controller;
+package com.nexr.workerbee.controller.controller;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import com.nexr.workerbee.dto.Project;
 import com.nexr.workerbee.service.ProjectService;
-import com.nexr.workerbee.web.validator.ProjectValidator;
+import com.nexr.workerbee.controller.validator.ProjectValidator;
 
 @Controller
 @RequestMapping("/projects")

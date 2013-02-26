@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.controller;
+package com.nexr.workerbee.controller.controller;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +21,7 @@ import com.nexr.workerbee.dto.TaskComment;
 import com.nexr.workerbee.dto.User;
 import com.nexr.workerbee.service.TaskCommentService;
 import com.nexr.workerbee.service.UserService;
-import com.nexr.workerbee.web.validator.TaskCommentValidator;
+import com.nexr.workerbee.controller.validator.TaskCommentValidator;
 
 @Controller
 @RequestMapping("/taskComments")

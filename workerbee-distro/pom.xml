@@ -41,7 +41,7 @@
         <!-- Workerbee Web -->
         <!--dependency>
             <groupId>com.nexr</groupId>
-            <artifactId>workerbee-web</artifactId>
+            <artifactId>workerbee-controller</artifactId>
             <version>${project.version}</version>
             <type>war</type>
         </dependency-->

@@ -1,5 +1,6 @@
-package com.nexr.workerbee.spring_integration;
+package com.nexr.workerbee.spring_vaadin_integration.security;
 
+import com.nexr.workerbee.spring_vaadin_integration.DiscoveryNavigator;
 import com.vaadin.navigator.NavigationStateManager;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewDisplay;

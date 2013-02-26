@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.mvc;
+package com.nexr.workerbee.controller.mvc;
 import java.util.Map;
 
 import org.springframework.web.servlet.view.json.MappingJacksonJsonView;

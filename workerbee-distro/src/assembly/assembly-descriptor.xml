@@ -30,11 +30,11 @@
         <!--dependencySet>
         	<useProjectArtifact>false</useProjectArtifact>
             <includes>
-                <include>com.nexr:workerbee-web</include>
+                <include>com.nexr:workerbee-controller</include>
             </includes>
             <useTransitiveDependencies>false</useTransitiveDependencies>
             <outputDirectory>webapps</outputDirectory>
-            <outputFileNameMapping>workerbee-web.war</outputFileNameMapping>
+            <outputFileNameMapping>workerbee-controller.war</outputFileNameMapping>
             <unpack>false</unpack>
         </dependencySet-->
 

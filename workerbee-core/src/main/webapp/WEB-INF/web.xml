@@ -18,7 +18,7 @@
     <!-- Vaadin servlet -->
     <servlet>
         <servlet-name>VaadinServlet</servlet-name>
-        <servlet-class>com.nexr.workerbee.spring_integration.SpringVaadinServlet</servlet-class>
+        <servlet-class>com.nexr.workerbee.spring_vaadin_integration.SpringVaadinServlet</servlet-class>
         <init-param>
             <param-name>initBeanName</param-name>
             <param-value>myUI</param-value>

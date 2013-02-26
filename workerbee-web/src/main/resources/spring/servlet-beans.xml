@@ -54,10 +54,10 @@
 		
 	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
 	
-	<bean id="jsonViewWithoutRoot" class="com.nexr.workerbee.web.mvc.MappingJacksonJsonViewWithoutRoot" />
+	<bean id="jsonViewWithoutRoot" class="com.nexr.workerbee.controller.mvc.MappingJacksonJsonViewWithoutRoot" />
 		
 	<!-- 
-	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	<bean class="org.springframework.controller.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="defaultErrorView" value="error" />
 		<property name="exceptionMappings">
 			<map>
@@ -70,7 +70,7 @@
 	<!-- WebBindingInitializer  -->
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
     	<property name="webBindingInitializer">
-    		<bean class="com.nexr.workerbee.web.binding.WorkerbeeWebBindingInitializer" />
+    		<bean class="com.nexr.workerbee.controller.binding.WorkerbeeWebBindingInitializer" />
     	</property>
     </bean>
     

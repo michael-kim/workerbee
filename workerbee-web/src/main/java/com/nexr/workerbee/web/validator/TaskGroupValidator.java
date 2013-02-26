@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.validator;
+package com.nexr.workerbee.controller.validator;
 
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

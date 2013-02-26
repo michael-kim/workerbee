@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.controller;
+package com.nexr.workerbee.controller.controller;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ import com.nexr.workerbee.dto.Message;
 import com.nexr.workerbee.dto.User;
 import com.nexr.workerbee.service.MessageService;
 import com.nexr.workerbee.service.UserService;
-import com.nexr.workerbee.web.validator.MessageValidator;
+import com.nexr.workerbee.controller.validator.MessageValidator;
 
 @Controller
 @RequestMapping("/messages")

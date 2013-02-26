@@ -1,4 +1,4 @@
-package com.nexr.workerbee.web.controller;
+package com.nexr.workerbee.controller.controller;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.nexr.workerbee.dao.impl.EntityPage;
 import com.nexr.workerbee.dto.TaskProperty;
 import com.nexr.workerbee.service.TaskPropertyService;
-import com.nexr.workerbee.web.validator.TaskPropertyValidator;
+import com.nexr.workerbee.controller.validator.TaskPropertyValidator;
 
 @Controller
 @RequestMapping(value="/taskproperties")

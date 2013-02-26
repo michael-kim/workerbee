@@ -13,7 +13,7 @@
     <description>Wokerbee</description>
 
     <modules>
-        <!--module>workerbee-web</module-->
+        <!--module>workerbee-controller</module-->
         <module>workerbee-distro</module>
 		<module>workerbee-server</module>
 		<module>workerbee-core</module>
@@ -25,7 +25,7 @@
         <spring.security-version>3.1.0.RELEASE</spring.security-version>
 		<org.aspectj-version>1.6.9</org.aspectj-version>
 		<org.slf4j-version>1.5.10</org.slf4j-version>
-		<hibernate-version>3.6.0.Final</hibernate-version>
+		<hibernate-version>4.0.1.Final</hibernate-version>
 		<jetty-version>8.1.4.v20120524</jetty-version>
 		<jetty-jsp-version>2.1.v20100127</jetty-jsp-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -1,4 +1,4 @@
-package com.nexr.workerbee.spring_integration;
+package com.nexr.workerbee.spring_vaadin_integration;
 
 import com.vaadin.server.*;
 import org.slf4j.Logger;
