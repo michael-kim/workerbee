@@ -28,4 +28,7 @@
 
     <import resource="security-context.xml"/>
     <import resource="db-context.xml"/>
+
+    <!-- execute after all beans initialized. -->
+    <bean id="allBeansInitializedPostProcessor" class="com.nexr.workerbee.event.AllBeansInitializedPostProcessor" />
 </beans>

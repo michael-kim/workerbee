@@ -6,6 +6,7 @@
         <artifactId>workerbee-parent</artifactId>
         <groupId>com.nexr</groupId>
         <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>workerbee-core</artifactId>
@@ -16,10 +17,16 @@
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- spring framework -->
         <org.springframework-version>3.1.2.RELEASE</org.springframework-version>
-        <spring.security-version>3.1.2.RELEASE</spring.security-version>
+        <org.springframework.security-version>3.1.2.RELEASE</org.springframework.security-version>
+        <org.springframework.data.jpa-version>1.2.0.RELEASE</org.springframework.data.jpa-version>
+
         <hibernate-version>4.0.1.Final</hibernate-version>
         <vaadin-version>7.0.0</vaadin-version>
+        <org.slf4j-version>1.7.2</org.slf4j-version>
+        <logback-version>1.0.9</logback-version>
     </properties>
 
     <dependencies>
@@ -81,30 +88,30 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>${spring.security-version}</version>
+            <version>${org.springframework.security-version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>${spring.security-version}</version>
+            <version>${org.springframework.security-version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>${spring.security-version}</version>
+            <version>${org.springframework.security-version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-taglibs</artifactId>
-            <version>${spring.security-version}</version>
+            <version>${org.springframework.security-version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-acl</artifactId>
-            <version>${spring.security-version}</version>
+            <version>${org.springframework.security-version}</version>
         </dependency>
 
         <!-- Spring -->
@@ -115,21 +122,28 @@
             <version>${org.springframework-version}</version>
         </dependency>
 
-        <!-- spring context -->
+        <!-- Spring context -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${org.springframework-version}</version>
+            <exclusions>
+                <!-- Exclude Commons Logging in favor of SLF4j -->
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
-        <!-- spring beans -->
+        <!-- Spring beans -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
 
-        <!-- spring web -->
+        <!-- Spring web -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
@@ -193,7 +207,7 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
-            <version>1.2.0.RELEASE</version>
+            <version>${org.springframework.data.jpa-version}</version>
         </dependency>
 
         <!-- Vaadin -->
@@ -222,19 +236,25 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.6.6</version>
+            <version>${org.slf4j-version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
-            <version>1.6.6</version>
+            <version>${org.slf4j-version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>log4j-over-slf4j</artifactId>
-            <version>1.6.6</version>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback-version}</version>
         </dependency>
 
         <!-- servlet API -->
@@ -272,7 +292,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.7</version>
+            <version>4.9</version>
             <scope>test</scope>
         </dependency>
 
@@ -363,16 +383,16 @@
             <url>http://maven.vaadin.com/vaadin-addons</url>
         </repository>
 
-        <repository>
+        <!--repository>
             <id>repository.jboss.org-public</id>
             <name>JBoss repository</name>
             <url>https://repository.jboss.org/nexus/content/groups/public</url>
-        </repository>
+        </repository-->
 
-        <repository>
+        <!--repository>
             <id>repository.springframework.maven.release</id>
             <name>Spring Framework Maven Release Repository</name>
             <url>http://repo.springsource.org/libs-release</url>
-        </repository>
+        </repository-->
     </repositories>
 </project>
