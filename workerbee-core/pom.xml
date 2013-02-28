@@ -233,6 +233,8 @@
         </dependency>
 
         <!-- Logging -->
+        <!--slf4j is just a facade which need a binding to a logging framework doing
+        the actual work, and we choose log4j -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -245,6 +247,20 @@
             <version>${org.slf4j-version}</version>
         </dependency>
 
+        <!-- implementation of the facade(slf4j) -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${org.slf4j-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+        </dependency>
+
+        <!--    DO NOT USE, will be deleted.
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
@@ -256,6 +272,7 @@
             <artifactId>logback-classic</artifactId>
             <version>${logback-version}</version>
         </dependency>
+        -->
 
         <!-- servlet API -->
         <dependency>

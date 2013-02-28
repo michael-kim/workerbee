@@ -5,11 +5,14 @@
 
     <display-name>Workerbee</display-name>
 
+    <listener>
+        <listener-class>com.nexr.workerbee.util.AppServletContextListener</listener-class>
+    </listener>
+
     <!-- Spring -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:/beans/root-context.xml</param-value>

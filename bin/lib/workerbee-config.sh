@@ -104,6 +104,13 @@ else
   print "Using   WORKERBEE_CONF_FILE:     ${WORKERBEE_CONF_FILE}"
 fi
 
+if [ "${WORKERBEE_LOG4J_FILE}" = "" ]; then
+  export WORKERBEE_LOG4J_FILE="workerbee-log4j.xml"
+  print "Setting WORKERBEE_LOG4J_FILE:     ${WORKERBEE_LOG4J_FILE}"
+else
+  print "Using   WORKERBEE_LOG4J_FILE:     ${WORKERBEE_LOG4J_FILE}"
+fi
+
 if [ "${WORKERBEE_TMPDIR}" = "" ]; then
   export WORKERBEE_TMPDIR=${WORKERBEE_HOME}/tmp
   print "Setting WORKERBEE_TMPDIR:        ${WORKERBEE_TMPDIR}"
@@ -124,20 +131,6 @@ fi
 
 if [ ! -f ${WORKERBEE_LOG_DIR} ]; then
   mkdir -p ${WORKERBEE_LOG_DIR}
-fi
-
-if [ "${WORKERBEE_LOG4J_FILE}" = "" ]; then
-  export WORKERBEE_LOG4J_FILE="workerbee-log4j.properties"
-  print "Setting WORKERBEE_LOG4J_FILE:    ${WORKERBEE_LOG4J_FILE}"
-else
-  print "Using   WORKERBEE_LOG4J_FILE:    ${WORKERBEE_LOG4J_FILE}"
-fi
-
-if [ "${WORKERBEE_LOG4J_RELOAD}" = "" ]; then
-  export WORKERBEE_LOG4J_RELOAD="10"
-  print "Setting WORKERBEE_LOG4J_RELOAD:  ${WORKERBEE_LOG4J_RELOAD}"
-else
-  print "Using   WORKERBEE_LOG4J_RELOAD:  ${WORKERBEE_LOG4J_RELOAD}"
 fi
 
 if [ "${WORKERBEE_HTTP_PORT}" = "" ]; then
@@ -161,18 +154,18 @@ else
   print "Using   WORKERBEE_PID:           ${WORKERBEE_PID}"
 fi
 
-if [ "${WORKERBEE_OUT}" = "" ]; then
-  export WORKERBEE_OUT=${WORKERBEE_LOG_DIR}/workerbee.out
-  print "Setting WORKERBEE_OUT:           ${WORKERBEE_OUT}"
+if [ "${WORKERBEE_STDOUT}" = "" ]; then
+  export WORKERBEE_STDOUT=${WORKERBEE_LOG_DIR}/workerbee.out
+  print "Setting WORKERBEE_STDOUT:           ${WORKERBEE_STDOUT}"
 else
-  print "Using   WORKERBEE_OUT:           ${WORKERBEE_OUT}"
+  print "Using   WORKERBEE_STDOUT:           ${WORKERBEE_STDOUT}"
 fi
 
-if [ "${WORKERBEE_ERR}" = "" ]; then
-  export WORKERBEE_ERR=${WORKERBEE_LOG_DIR}/workerbee.err
-  print "Setting WORKERBEE_ERR:           ${WORKERBEE_ERR}"
+if [ "${WORKERBEE_STDERR}" = "" ]; then
+  export WORKERBEE_STDERR=${WORKERBEE_LOG_DIR}/workerbee.err
+  print "Setting WORKERBEE_STDERR:           ${WORKERBEE_STDERR}"
 else
-  print "Using   WORKERBEE_ERR:           ${WORKERBEE_ERR}"
+  print "Using   WORKERBEE_STDERR:           ${WORKERBEE_STDERR}"
 fi
 
 print

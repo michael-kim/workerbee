@@ -92,13 +92,13 @@ if [ "$actionCmd" = "start" ] ; then
   touch "$WORKERBEE_PID"
 
 
-  nohup ${JAVA_BIN} -cp ${CLASSPATH} com.nexr.workerbee.server.WorkerbeeServer ${@} >> $WORKERBEE_OUT 2> $WORKERBEE_ERR &
+  nohup ${JAVA_BIN} -cp ${CLASSPATH} com.nexr.workerbee.server.WorkerbeeServer ${@} >> $WORKERBEE_STDOUT 2> $WORKERBEE_STDERR &
 
   SLEEP_TIME_AFTER_START=10
   PID=$!
   if [ "${PID}x" == "x" ] ; then # we failed right off
-  	echo "ERROR: Workerbee startup failed, see $WORKERBEE_ERR"
-		cat $WORKERBEE_ERR
+  	echo "ERROR: Workerbee startup failed, see $WORKERBEE_STDERR"
+		cat $WORKERBEE_STDERR
 		exit 1
   fi
 
@@ -118,10 +118,10 @@ if [ "$actionCmd" = "start" ] ; then
 	then
 		echo $PID > $WORKERBEE_PID
 		echo "INFO: Workerbee initialized successfully."
-		echo "INOF: You can access the following address http://localhost:$WORKERBEE_HTTP_PORT/$WORKERBEE_ROOT_CONTEXT"
+		echo "INOF: You can access the following URL http://127.0.0.1:$WORKERBEE_HTTP_PORT/$WORKERBEE_ROOT_CONTEXT"
 	else
-		echo "ERROR: Workerbee startup failed, see $WORKERBEE_ERR"
-		cat $WORKERBEE_ERR
+		echo "ERROR: Workerbee startup failed, see $WORKERBEE_STDERR"
+		cat $WORKERBEE_STDERR
 		exit 1
 	fi
 
