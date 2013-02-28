@@ -260,20 +260,6 @@
             <version>1.2.16</version>
         </dependency>
 
-        <!--    DO NOT USE, will be deleted.
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-            <version>${logback-version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback-version}</version>
-        </dependency>
-        -->
-
         <!-- servlet API -->
         <dependency>
             <groupId>javax.servlet</groupId>
