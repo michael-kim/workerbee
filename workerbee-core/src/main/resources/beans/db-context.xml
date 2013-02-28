@@ -38,7 +38,6 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-                <property name="databasePlatform" value="${jpa.hibernate.dialect}" />
                 <property name="showSql" value="${jpa.showSql}"/>
                 <property name="generateDdl" value="${jpa.generateDdl}"/>
             </bean>

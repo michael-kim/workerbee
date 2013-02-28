@@ -247,7 +247,7 @@
             <version>${org.slf4j-version}</version>
         </dependency>
 
-        <!-- implementation of the facade(slf4j) -->
+        <!-- Implementation of the facade(slf4j) -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
@@ -260,7 +260,7 @@
             <version>1.2.16</version>
         </dependency>
 
-        <!-- servlet API -->
+        <!-- Servlet API -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
@@ -268,7 +268,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- freemaker -->
+        <!-- Freemarker -->
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>

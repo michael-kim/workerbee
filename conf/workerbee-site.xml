@@ -4,5 +4,27 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
+	<property>
+		<name>workerbee.jdbc.driver</name>
+		<value></value>
+		<description>JDBC driver class.</description>
+	</proeprty>
 
+	<property>
+		<name>workerbee.jdbc.url</name>
+		<value></value>
+		<description>JDBC URL.</description>
+	</proeprty>
+
+	<property>
+		<name>workerbee.jdbc.username</name>
+		<value></value>
+		<description>DB user name.</description>
+	</proeprty>
+
+	<property>
+		<name>workerbee.jdbc.password</name>
+		<value></value>
+		<description>DB user paswsword.</description>
+	</proeprty>
 </configuration>
