@@ -1,6 +1,6 @@
 #!/bin/bash
 
-usage="Usage: workerbee.sh (start|stop)"
+usage="Usage: workerbee-server.sh (start|stop)"
 
 if [ $# -ne 1 ]; then
 	echo $usage
