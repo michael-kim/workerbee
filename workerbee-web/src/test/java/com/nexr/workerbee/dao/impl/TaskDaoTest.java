@@ -1,4 +1,4 @@
-package com.nexr.workerbee.dao.impl;
+package com.nexr.workerbee.repository.impl;
 
 import javax.annotation.Resource;
 
@@ -9,8 +9,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.nexr.workerbee.dao.TaskDao;
-import com.nexr.workerbee.dao.TaskDependencyDao;
+import com.nexr.workerbee.repository.TaskDao;
+import com.nexr.workerbee.repository.TaskDependencyDao;
 import com.nexr.workerbee.dto.HiveTask;
 import com.nexr.workerbee.dto.Task;
 import com.nexr.workerbee.dto.TaskDependency;

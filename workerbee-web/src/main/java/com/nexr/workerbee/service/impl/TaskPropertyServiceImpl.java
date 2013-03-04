@@ -6,8 +6,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.nexr.workerbee.dao.TaskPropertyDao;
-import com.nexr.workerbee.dao.impl.EntityPage;
+import com.nexr.workerbee.repository.TaskPropertyDao;
+import com.nexr.workerbee.repository.impl.EntityPage;
 import com.nexr.workerbee.dto.TaskProperty;
 import com.nexr.workerbee.service.TaskPropertyService;
 

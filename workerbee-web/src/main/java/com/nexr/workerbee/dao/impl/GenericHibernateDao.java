@@ -1,4 +1,4 @@
-package com.nexr.workerbee.dao.impl;
+package com.nexr.workerbee.repository.impl;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -14,7 +14,7 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Example;
 
-import com.nexr.workerbee.dao.GenericDao;
+import com.nexr.workerbee.repository.GenericDao;
 
 
 public abstract class GenericHibernateDao <Entity, ID extends Serializable> implements GenericDao<Entity,ID>{

@@ -1,4 +1,4 @@
-package com.nexr.workerbee.dao;
+package com.nexr.workerbee.repository;
 
 import java.util.List;
 

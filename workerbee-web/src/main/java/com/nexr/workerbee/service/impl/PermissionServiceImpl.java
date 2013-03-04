@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.nexr.workerbee.dao.PermissionDao;
+import com.nexr.workerbee.repository.PermissionDao;
 import com.nexr.workerbee.dto.Permission;
 import com.nexr.workerbee.service.PermissionService;
 

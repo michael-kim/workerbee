@@ -1,4 +1,4 @@
-package com.nexr.workerbee.dao;
+package com.nexr.workerbee.repository;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.DetachedCriteria;
 
-import com.nexr.workerbee.dao.impl.EntityPage;
+import com.nexr.workerbee.repository.impl.EntityPage;
 
 public interface GenericDao<Entity,ID> {
     

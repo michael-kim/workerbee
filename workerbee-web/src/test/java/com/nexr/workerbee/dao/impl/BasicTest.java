@@ -1,7 +1,6 @@
-package com.nexr.workerbee.dao.impl;
+package com.nexr.workerbee.repository.impl;
 
 
-import java.lang.reflect.Type;
 import java.util.Date;
 
 import org.junit.Test;

@@ -6,8 +6,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.nexr.workerbee.dao.UserGroupDao;
-import com.nexr.workerbee.dao.impl.EntityPage;
+import com.nexr.workerbee.repository.UserGroupDao;
+import com.nexr.workerbee.repository.impl.EntityPage;
 import com.nexr.workerbee.dto.UserGroup;
 import com.nexr.workerbee.dto.UserProfile;
 import com.nexr.workerbee.service.UserGroupService;

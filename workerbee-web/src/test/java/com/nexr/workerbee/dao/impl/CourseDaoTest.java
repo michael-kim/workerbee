@@ -1,4 +1,4 @@
-package com.nexr.workerbee.dao.impl;
+package com.nexr.workerbee.repository.impl;
 
 import java.sql.Date;
 import java.util.List;
@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.nexr.workerbee.dao.CourseDao;
+import com.nexr.workerbee.repository.CourseDao;
 import com.nexr.workerbee.dto.Course;
 
 @RunWith(SpringJUnit4ClassRunner.class)

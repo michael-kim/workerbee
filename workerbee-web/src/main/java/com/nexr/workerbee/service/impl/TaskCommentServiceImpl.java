@@ -6,8 +6,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.nexr.workerbee.dao.TaskCommentDao;
-import com.nexr.workerbee.dao.TaskDao;
+import com.nexr.workerbee.repository.TaskCommentDao;
+import com.nexr.workerbee.repository.TaskDao;
 import com.nexr.workerbee.dto.Task;
 import com.nexr.workerbee.dto.TaskComment;
 import com.nexr.workerbee.service.TaskCommentService;

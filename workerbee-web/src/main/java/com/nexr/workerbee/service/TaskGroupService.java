@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.nexr.workerbee.dao.impl.EntityPage;
+import com.nexr.workerbee.repository.impl.EntityPage;
 import com.nexr.workerbee.dto.TaskGroup;
 
 public interface TaskGroupService {

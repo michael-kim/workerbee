@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.nexr.workerbee.dao.impl.EntityPage;
+import com.nexr.workerbee.repository.impl.EntityPage;
 import com.nexr.workerbee.dto.HiveTask;
 import com.nexr.workerbee.dto.JdbcTask;
 import com.nexr.workerbee.dto.SshTask;

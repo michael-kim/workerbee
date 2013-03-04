@@ -48,25 +48,25 @@
     
     <!-- messages -->
     
-    <definition name="tiles.messages.messageList" extends="template-main">
+    <definition name="tiles.i18n.messageList" extends="template-main">
     	<put-attribute name="title" value="Workerbee Messages" />
     	<put-attribute name="nav.messages" value="active" />
     	<put-attribute name="body" value="/WEB-INF/views/messages/listMessages.jsp" />
     </definition>
     
-    <definition name="tiles.messages.messagePost" extends="template-main">
+    <definition name="tiles.i18n.messagePost" extends="template-main">
     	<put-attribute name="title" value="Workerbee Messages" />
     	<put-attribute name="nav.messages" value="active" />
     	<put-attribute name="body" value="/WEB-INF/views/messages/postMessage.jsp" />
     </definition>
     
-    <definition name="tiles.messages.edit" extends="template-main">
+    <definition name="tiles.i18n.edit" extends="template-main">
     	<put-attribute name="title" value="Workerbee Messages" />
     	<put-attribute name="nav.messages" value="active" />
     	<put-attribute name="body" value="/WEB-INF/views/messages/editMessage.jsp" />
     </definition>
     
-    <definition name="tiles.messages.view" extends="template-main">
+    <definition name="tiles.i18n.view" extends="template-main">
     	<put-attribute name="title" value="Workerbee View Message" />
     	<put-attribute name="nav.messages" value="active" />
     	<put-attribute name="body" value="/WEB-INF/views/messages/viewMessage.jsp" />

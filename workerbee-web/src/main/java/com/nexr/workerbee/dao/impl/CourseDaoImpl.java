@@ -1,4 +1,4 @@
-package com.nexr.workerbee.dao.impl;
+package com.nexr.workerbee.repository.impl;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.nexr.workerbee.dao.CourseDao;
+import com.nexr.workerbee.repository.CourseDao;
 import com.nexr.workerbee.dto.Course;
 
 @Repository("courseDao")

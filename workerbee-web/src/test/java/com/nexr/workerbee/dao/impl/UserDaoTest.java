@@ -1,4 +1,4 @@
-package com.nexr.workerbee.dao.impl;
+package com.nexr.workerbee.repository.impl;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,7 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.nexr.workerbee.dao.UserDao;
+import com.nexr.workerbee.repository.UserDao;
 import com.nexr.workerbee.dto.User;
 import com.nexr.workerbee.dto.UserProfile;
 

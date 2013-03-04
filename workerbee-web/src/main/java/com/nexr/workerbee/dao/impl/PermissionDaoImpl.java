@@ -1,8 +1,8 @@
-package com.nexr.workerbee.dao.impl;
+package com.nexr.workerbee.repository.impl;
 
 import org.springframework.stereotype.Repository;
 
-import com.nexr.workerbee.dao.PermissionDao;
+import com.nexr.workerbee.repository.PermissionDao;
 import com.nexr.workerbee.dto.Permission;
 
 @Repository("permissionDao")

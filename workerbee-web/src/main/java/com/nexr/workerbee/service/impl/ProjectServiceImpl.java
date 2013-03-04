@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.nexr.workerbee.dao.ProjectDao;
+import com.nexr.workerbee.repository.ProjectDao;
 import com.nexr.workerbee.dto.Project;
 import com.nexr.workerbee.service.ProjectService;
 

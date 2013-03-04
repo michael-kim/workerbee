@@ -1,8 +1,8 @@
-package com.nexr.workerbee.dao.impl;
+package com.nexr.workerbee.repository.impl;
 
 import org.springframework.stereotype.Repository;
 
-import com.nexr.workerbee.dao.TaskGroupDao;
+import com.nexr.workerbee.repository.TaskGroupDao;
 import com.nexr.workerbee.dto.TaskGroup;
 
 @Repository("taskGroupDao")

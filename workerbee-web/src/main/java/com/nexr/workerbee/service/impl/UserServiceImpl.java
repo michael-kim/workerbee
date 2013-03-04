@@ -7,8 +7,8 @@ import javax.annotation.Resource;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
-import com.nexr.workerbee.dao.UserDao;
-import com.nexr.workerbee.dao.impl.EntityPage;
+import com.nexr.workerbee.repository.UserDao;
+import com.nexr.workerbee.repository.impl.EntityPage;
 import com.nexr.workerbee.dto.User;
 import com.nexr.workerbee.service.UserService;
 

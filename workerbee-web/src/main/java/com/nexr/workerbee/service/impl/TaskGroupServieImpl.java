@@ -8,8 +8,8 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
-import com.nexr.workerbee.dao.TaskGroupDao;
-import com.nexr.workerbee.dao.impl.EntityPage;
+import com.nexr.workerbee.repository.TaskGroupDao;
+import com.nexr.workerbee.repository.impl.EntityPage;
 import com.nexr.workerbee.dto.TaskGroup;
 import com.nexr.workerbee.service.TaskGroupService;
 

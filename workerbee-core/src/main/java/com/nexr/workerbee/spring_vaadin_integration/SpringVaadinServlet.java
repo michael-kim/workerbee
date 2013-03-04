@@ -1,6 +1,7 @@
 package com.nexr.workerbee.spring_vaadin_integration;
 
 import com.vaadin.server.*;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -9,6 +10,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import java.util.Date;
+import java.util.Enumeration;
 
 /**
  * @author xpoft
@@ -42,7 +44,18 @@ public class SpringVaadinServlet extends VaadinServlet
     public void init(ServletConfig servletConfig) throws ServletException
     {
         applicationContext = WebApplicationContextUtils.getWebApplicationContext(servletConfig.getServletContext());
-        if (servletConfig.getInitParameter(INIT_BEAN_NAME_PARAMETER) != null)
+        logger.info("####### ServletConfig.getServletName() {} ########", servletConfig.getServletName());
+
+      Enumeration attributeNames = servletConfig.getServletContext().getAttributeNames();
+      while(attributeNames.hasMoreElements()) {
+        logger.info("servletConfig.getServletContext().getAttributeName : {}", attributeNames.nextElement());
+      }
+
+      logger.info("bean names", StringUtils.join(applicationContext.getBeanDefinitionNames(), ","));
+
+      Class<?> myUI = applicationContext.getType("myUI");
+      logger.info("myUI : {}", myUI.getCanonicalName());
+      if (servletConfig.getInitParameter(INIT_BEAN_NAME_PARAMETER) != null)
         {
             vaadinBeanName = servletConfig.getInitParameter(INIT_BEAN_NAME_PARAMETER);
             logger.debug("found INIT_BEAN_NAME_PARAMETER: {}", vaadinBeanName);

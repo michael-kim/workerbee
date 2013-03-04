@@ -1,8 +1,8 @@
-package com.nexr.workerbee.dao.impl;
+package com.nexr.workerbee.repository.impl;
 
 import org.springframework.stereotype.Repository;
 
-import com.nexr.workerbee.dao.UserDao;
+import com.nexr.workerbee.repository.UserDao;
 import com.nexr.workerbee.dto.User;
 
 @Repository("userDao")
