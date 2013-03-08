@@ -15,89 +15,70 @@ import java.util.Enumeration;
 /**
  * @author xpoft
  */
-public class SpringVaadinServlet extends VaadinServlet
-{
-    private static Logger logger = LoggerFactory.getLogger(SpringVaadinServlet.class);
-    /**
-     * Servlet parameter name for UI bean
-     */
-    private static final String INIT_BEAN_NAME_PARAMETER = "initBeanName";
-    /**
-     * Servlet parameter name for UI bean
-     */
-    private static final String SYSTEM_MESSAGES_BEAN_NAME_PARAMETER = "systemMessagesBeanName";
-    /**
-     * Spring Application Context
-     */
-    private transient ApplicationContext applicationContext;
-    /**
-     * Servlet start date
-     */
-    private transient Date servletStartDate = new Date();
-    /**
-     * UI bean name
-     */
-    private String vaadinBeanName = "ui";
-    private String systemMessagesBeanName = "";
+public class SpringVaadinServlet extends VaadinServlet {
+  private static Logger logger = LoggerFactory.getLogger(SpringVaadinServlet.class);
+  /**
+   * Servlet parameter name for UI bean
+   */
+  private static final String INIT_BEAN_NAME_PARAMETER = "initBeanName";
+  /**
+   * Servlet parameter name for UI bean
+   */
+  private static final String SYSTEM_MESSAGES_BEAN_NAME_PARAMETER = "systemMessagesBeanName";
+  /**
+   * Spring Application Context
+   */
+  private transient ApplicationContext applicationContext;
+  /**
+   * Servlet start date
+   */
+  private transient Date servletStartDate = new Date();
+  /**
+   * UI bean name
+   */
+  private String vaadinBeanName = "ui";
+  private String systemMessagesBeanName = "";
 
-    @Override
-    public void init(ServletConfig servletConfig) throws ServletException
-    {
-        applicationContext = WebApplicationContextUtils.getWebApplicationContext(servletConfig.getServletContext());
-        logger.info("####### ServletConfig.getServletName() {} ########", servletConfig.getServletName());
+  @Override
+  public void init(ServletConfig servletConfig) throws ServletException {
+    applicationContext = WebApplicationContextUtils.getWebApplicationContext(servletConfig.getServletContext());
 
-      Enumeration attributeNames = servletConfig.getServletContext().getAttributeNames();
-      while(attributeNames.hasMoreElements()) {
-        logger.info("servletConfig.getServletContext().getAttributeName : {}", attributeNames.nextElement());
+    if (servletConfig.getInitParameter(INIT_BEAN_NAME_PARAMETER) != null) {
+      vaadinBeanName = servletConfig.getInitParameter(INIT_BEAN_NAME_PARAMETER);
+      logger.debug("found INIT_BEAN_NAME_PARAMETER: {}", vaadinBeanName);
+    }
+
+    if (servletConfig.getInitParameter(SYSTEM_MESSAGES_BEAN_NAME_PARAMETER) != null) {
+      systemMessagesBeanName = servletConfig.getInitParameter(SYSTEM_MESSAGES_BEAN_NAME_PARAMETER);
+      logger.debug("found SYSTEM_MESSAGES_BEAN_NAME_PARAMETER: {}", systemMessagesBeanName);
+    }
+
+    if (SpringApplicationContext.getApplicationContext() == null) {
+      SpringApplicationContext.setApplicationContext(applicationContext);
+    }
+
+    super.init(servletConfig);
+  }
+
+  @Override
+  protected VaadinServletService createServletService(DeploymentConfiguration deploymentConfiguration) {
+    final VaadinServletService service = super.createServletService(deploymentConfiguration);
+
+    // Spring system messages provider
+    if (systemMessagesBeanName != null && systemMessagesBeanName != "") {
+      SpringVaadinSystemMessagesProvider messagesProvider = new SpringVaadinSystemMessagesProvider(applicationContext, systemMessagesBeanName);
+      logger.debug("set SpringVaadinSystemMessagesProvider");
+      service.setSystemMessagesProvider(messagesProvider);
+    }
+
+    // Add UI provider for new session
+    service.addSessionInitListener(new SessionInitListener() {
+      @Override
+      public void sessionInit(SessionInitEvent event) throws ServiceException {
+        event.getSession().addUIProvider(new SpringUIProvider(vaadinBeanName));
       }
+    });
 
-      logger.info("bean names", StringUtils.join(applicationContext.getBeanDefinitionNames(), ","));
-
-      Class<?> myUI = applicationContext.getType("myUI");
-      logger.info("myUI : {}", myUI.getCanonicalName());
-      if (servletConfig.getInitParameter(INIT_BEAN_NAME_PARAMETER) != null)
-        {
-            vaadinBeanName = servletConfig.getInitParameter(INIT_BEAN_NAME_PARAMETER);
-            logger.debug("found INIT_BEAN_NAME_PARAMETER: {}", vaadinBeanName);
-        }
-
-        if (servletConfig.getInitParameter(SYSTEM_MESSAGES_BEAN_NAME_PARAMETER) != null)
-        {
-            systemMessagesBeanName = servletConfig.getInitParameter(SYSTEM_MESSAGES_BEAN_NAME_PARAMETER);
-            logger.debug("found SYSTEM_MESSAGES_BEAN_NAME_PARAMETER: {}", systemMessagesBeanName);
-        }
-
-        if (SpringApplicationContext.getApplicationContext() == null)
-        {
-            SpringApplicationContext.setApplicationContext(applicationContext);
-        }
-
-        super.init(servletConfig);
-    }
-
-    @Override
-    protected VaadinServletService createServletService(DeploymentConfiguration deploymentConfiguration)
-    {
-        final VaadinServletService service = super.createServletService(deploymentConfiguration);
-
-        // Spring system messages provider
-        if (systemMessagesBeanName != null && systemMessagesBeanName != "")
-        {
-            SpringVaadinSystemMessagesProvider messagesProvider = new SpringVaadinSystemMessagesProvider(applicationContext, systemMessagesBeanName);
-            logger.debug("set SpringVaadinSystemMessagesProvider");
-            service.setSystemMessagesProvider(messagesProvider);
-        }
-
-        // Add UI provider for new session
-        service.addSessionInitListener(new SessionInitListener()
-        {
-            @Override
-            public void sessionInit(SessionInitEvent event) throws ServiceException
-            {
-                event.getSession().addUIProvider(new SpringUIProvider(vaadinBeanName));
-            }
-        });
-
-        return service;
-    }
+    return service;
+  }
 }

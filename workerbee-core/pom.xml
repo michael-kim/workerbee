@@ -27,9 +27,17 @@
         <vaadin-version>7.0.0</vaadin-version>
         <org.slf4j-version>1.7.2</org.slf4j-version>
         <logback-version>1.0.9</logback-version>
+        <hadoop-version>0.20.2-cdh3u2</hadoop-version>
     </properties>
 
     <dependencies>
+        <!-- hadoop -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-core</artifactId>
+            <version>${hadoop-version}</version>
+        </dependency>
+
         <!-- hibernate -->
         <dependency>
             <groupId>org.hibernate</groupId>

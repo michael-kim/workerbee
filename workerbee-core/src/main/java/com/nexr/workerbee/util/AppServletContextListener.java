@@ -1,9 +1,8 @@
 package com.nexr.workerbee.util;
 
+import com.nexr.workerbee.conf.SystemVars;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -16,30 +15,22 @@ public class AppServletContextListener implements ServletContextListener {
   @Override
   public void contextInitialized(ServletContextEvent servletContextEvent) {
 
-    String confDir = System.getenv("WORKERBEE_CONF_DIR");
-    String log4jFile = System.getenv("WORKERBEE_LOG4J_FILE");
-    if (confDir != null && log4jFile != null) {
-      System.setProperty("log4j.configuration", "file:" + confDir + "/" + log4jFile);
-    } else {
-    }
-    System.out.println("log4j.configuration  :" + System.getProperty("log4j.configuration"));
+    SystemVars.validate();
 
-    String logDir = System.getenv("WORKERBEE_LOG_DIR");
-    if (logDir != null) {
-      System.setProperty("workerbee.log.dir", logDir);
-    } else {
-      System.err.println("env variable WORKERBEE_LOG_DIR is required");
-      throw new IllegalArgumentException("WORKERBEE_LOG_DIR is required");
-    }
+    String confDir = SystemVars.WORKERBEE_CONF_DIR;
+    String log4jFile = SystemVars.WORKERBEE_LOG4J_FILE;
+    String logDir = SystemVars.WORKERBEE_LOG_DIR;
+
+    System.setProperty("log4j.configuration", "file:" + Utilities.concatPath(confDir, log4jFile));
+    System.setProperty("workerbee.log.dir", logDir);
 
     logger = LoggerFactory.getLogger(AppServletContextListener.class);
-
     logger.info("####################################################");
     logger.info("##        ServletContextListener STARTED          ##");
     logger.info("####################################################");
 
     Enumeration attributeNames = servletContextEvent.getServletContext().getAttributeNames();
-    while(attributeNames.hasMoreElements()) {
+    while (attributeNames.hasMoreElements()) {
       logger.info("servletConfig.getServletContext().getAttributeName : {}", attributeNames.nextElement());
     }
 

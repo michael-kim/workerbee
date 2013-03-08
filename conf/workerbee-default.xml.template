@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+
+<!-- WARNING!!! This file is provided for documentation purposes ONLY!     -->
+<!-- WARNING!!! Any changes you make to this file will be ignored by Workerbee. -->
+<!-- WARNING!!! You must make your changes in workerbee-site.xml instead.       -->
+    <property>
+        <name></name>
+        <value></value>
+        <description></description>
+    </property>
+</configuration>

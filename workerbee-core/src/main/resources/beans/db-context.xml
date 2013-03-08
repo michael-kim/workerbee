@@ -11,8 +11,8 @@
         http://www.springframework.org/schema/data/jpa
         http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-    <!-- Component scan -->
-    <context:component-scan base-package="com.nexr.workerbee">
+    <!-- Component scan @Repository annotation only -->
+    <context:component-scan base-package="com.nexr.workerbee.repository" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />
     </context:component-scan>
 
@@ -33,15 +33,6 @@
     <bean name="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
-
-    <!-- datasource -->
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-          p:driverClassName="${db.driverClassName}"
-          p:url="${db.url}"
-          p:username="${db.username}"
-          p:password="${db.password}"
-          p:initialSize="2"
-          p:maxActive="5" />
 
     <!-- Entity Manager Factory -->
     <!--

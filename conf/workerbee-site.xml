@@ -6,25 +6,25 @@
 <configuration>
 	<property>
 		<name>workerbee.jdbc.driver</name>
-		<value></value>
+		<value>com.mysql.jdbc.Driver</value>
 		<description>JDBC driver class.</description>
-	</proeprty>
+	</property>
 
 	<property>
 		<name>workerbee.jdbc.url</name>
-		<value></value>
+		<value>jdbc:mysql://localhost:3306/workerbee_dev</value>
 		<description>JDBC URL.</description>
-	</proeprty>
+	</property>
 
 	<property>
 		<name>workerbee.jdbc.username</name>
-		<value></value>
+		<value>root</value>
 		<description>DB user name.</description>
-	</proeprty>
+	</property>
 
 	<property>
 		<name>workerbee.jdbc.password</name>
-		<value></value>
+		<value>data1234</value>
 		<description>DB user paswsword.</description>
-	</proeprty>
+	</property>
 </configuration>
