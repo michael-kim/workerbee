@@ -19,10 +19,9 @@
     <tx:annotation-driven transaction-manager="transactionManager" />
 
     <!-- Spring Data JPA -->
-    <!--
     <data:repositories base-package="com.nexr.workerbee.repository"
                        factory-class="com.nexr.workerbee.repository.GenericRepositoryFactoryBean" />
-    -->
+    <!--data:repositories base-package="com.nexr.workerbee.repository" /-->
 
     <!-- Property Placeholder Configurer -->
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">

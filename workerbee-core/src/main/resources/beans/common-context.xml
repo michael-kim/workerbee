@@ -26,13 +26,6 @@
         </property>
     </bean>
 
-    <!-- Component scan @Service annotation only -->
-    <!--context:component-scan base-package="com.nexr.workerbee.service" use-default-filters="false">
-        <context:include-filter type="annotation" expression="org.springframework.stereotype.Service" />
-    </context:component-scan>
+    <context:component-scan base-package="com.nexr.workerbee" />
 
-    <bean id="services" class="com.nexr.workerbee.service.XServices" />
-
-    <bean id="dataSourceFactory" class="com.nexr.workerbee.DataSourceFactory" />
-    -->
 </beans>

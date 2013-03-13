@@ -1,6 +1,8 @@
 package com.nexr.workerbee.repository;
 
-import java.io.Serializable;
+import com.nexr.workerbee.domain.User;
 
-public interface UserRepository<User, Long extends Serializable> extends GenericRepository<User, Long> {
+public interface UserRepository extends GenericRepository<User, Long> {
+
+  User findByUsername(String username);
 }

@@ -1,8 +1,11 @@
 package com.nexr.workerbee.util;
 
 import com.nexr.workerbee.conf.SystemVars;
+import com.nexr.workerbee.service.Services;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -38,6 +41,10 @@ public class AppServletContextListener implements ServletContextListener {
 
   @Override
   public void contextDestroyed(ServletContextEvent servletContextEvent) {
+    WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(servletContextEvent.getServletContext());
+    Services services = ctx.getBean(Services.class);
+    services.destory();
+
     logger.info("####################################################");
     logger.info("##        ServletContextListener DESTROYED        ##");
     logger.info("####################################################");

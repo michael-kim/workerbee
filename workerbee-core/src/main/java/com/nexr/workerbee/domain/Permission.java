@@ -18,6 +18,13 @@ public class Permission {
   @Column(name = "AUTHORITY")
   private String authority;
 
+  public Permission() {
+  }
+
+  public Permission(String authority) {
+    this.authority = authority;
+  }
+
   public Long getId() {
     return id;
   }

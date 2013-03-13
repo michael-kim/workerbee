@@ -2,9 +2,8 @@ package com.nexr.workerbee.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 
-@Service("configurationService")
+@org.springframework.stereotype.Service("configurationService")
 public class ConfigurationService extends AbstractXService {
   Logger logger = LoggerFactory.getLogger(this.getClass());
 

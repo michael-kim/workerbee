@@ -16,5 +16,6 @@ public class GenericRepositoryImpl<T, ID extends Serializable> extends SimpleJpa
 
   @Override
   public void sharedCustomMethod(ID id) {
+    // nothing
   }
 }

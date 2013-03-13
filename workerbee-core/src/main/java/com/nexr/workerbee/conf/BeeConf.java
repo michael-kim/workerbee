@@ -24,7 +24,6 @@ public class BeeConf {
   Logger logger = LoggerFactory.getLogger(this.getClass());
 
   /* define properties */
-
   @Property(name = "workerbee.jdbc.url", defaultValue = "url")
   private String jdbcUrl;
   @Property(name = "workerbee.jdbc.driver", defaultValue = "driver")

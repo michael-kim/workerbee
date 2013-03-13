@@ -1,5 +1,6 @@
 package com.nexr.workerbee.conf;
 
+import com.nexr.workerbee.util.Utilities;
 import org.springframework.util.Assert;
 
 import java.io.File;
@@ -17,15 +18,20 @@ public class SystemVars {
 
     WORKERBEE_HOME = System.getenv("WORKERBEE_HOME");
 
-    WORKERBEE_CONF_DIR = System.getenv("WORKERBEE_CONF_DIR");
+    String confDir = System.getenv("WORKERBEE_CONF_DIR");
+    WORKERBEE_CONF_DIR = (confDir !=null) ? confDir : Utilities.concatPath(WORKERBEE_HOME, "conf");
 
-    WORKERBEE_CONF_FILE = System.getenv("WORKERBEE_CONF_FILE");
+    String confFile = System.getenv("WORKERBEE_CONF_FILE");
+    WORKERBEE_CONF_FILE = (confFile != null) ? confFile : "workerbee-site.xml";
 
-    WORKERBEE_LOG_DIR = System.getenv("WORKERBEE_LOG_DIR");
+    String logDir = System.getenv("WORKERBEE_LOG_DIR");
+    WORKERBEE_LOG_DIR = (logDir != null) ? logDir : Utilities.concatPath(WORKERBEE_HOME, "logs");
 
-    WORKERBEE_LOG4J_FILE = System.getenv("WORKERBEE_LOG4J_FILE");
+    String log4jFile = System.getenv("WORKERBEE_LOG4J_FILE");
+    WORKERBEE_LOG4J_FILE = (log4jFile != null) ? log4jFile : "workerbee-log4j.xml";
 
-    WORKERBEE_TMPDIR = System.getenv("WORKERBEE_TMPDIR");
+    String tmpDir = System.getenv("WORKERBEE_TMPDIR");
+    WORKERBEE_TMPDIR = (tmpDir != null) ? tmpDir : Utilities.concatPath(WORKERBEE_HOME, "tmp");
   }
 
   private SystemVars() {

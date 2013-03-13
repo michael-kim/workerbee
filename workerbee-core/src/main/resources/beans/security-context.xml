@@ -5,9 +5,10 @@
              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
-    <!-- Enable the @Secured annotation to secure service layer methods   -->
-    <global-method-security secured-annotations="enabled"/>
+    <!-- Enable the @Secured, @PreAuthorize and @PostAuthorize annotations to secure service layer methods   -->
+    <global-method-security secured-annotations="enabled" pre-post-annotations="enabled"/>
 
+    <!--
     <http security="none" pattern="/favicon.ico"/>
 
     <http auto-config='true'>
@@ -23,6 +24,53 @@
                 <user name="user" password="user" authorities="ROLE_USER" />
                 <user name="admin" password="admin" authorities="ROLE_ADMIN, ROLE_USER" />
             </user-service>
+        </authentication-provider>
+    </authentication-manager>
+    -->
+
+    <http auto-config="true" use-expressions="true">
+        <form-login login-page="/s/login/" authentication-failure-url="/s/login/?error=true" default-target-url="/" />
+
+        <logout invalidate-session="true" logout-success-url="/s/login/" />
+
+        <!--remember-me key="workerbee_security_key" token-validity-seconds="-1"/-->
+
+        <intercept-url pattern="/s/login/" access="isAnonymous()"/>
+        <intercept-url pattern="/**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+    </http>
+
+    <!-- JdbcDaoImpl -->
+    <beans:bean id="jdbcUserService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+        <beans:property name="dataSource" ref="dataSource" />
+        <beans:property name="enableGroups" value="true" />
+        <beans:property name="enableAuthorities" value="false" />
+        <beans:property name="usersByUsernameQuery">
+            <beans:value>SELECT USERNAME,PASSWORD,CASE ENABLED WHEN 'T' THEN 1 ELSE 0 END FROM USERS WHERE USERNAME=?</beans:value>
+        </beans:property>
+        <beans:property name="authoritiesByUsernameQuery">
+            <beans:value>
+                SELECT u.USERNAME,a.AUTHORITY
+                FROM USERS u JOIN USER_PROFILES p ON u.ID=p.USER_ID
+                JOIN  AUTHORITIES a ON a.USER_PROFILE_ID=p.ID
+                WHERE u.USERNAME=?</beans:value>
+        </beans:property>
+        <beans:property name="groupAuthoritiesByUsernameQuery">
+            <beans:value>
+                SELECT u.USERNAME,g.GROUP_NAME,p.AUTHORITY
+                FROM USERS u JOIN USER_PROFILES pf ON u.ID=pf.USER_ID
+                JOIN USER_GROUPS g ON pf.USER_GROUP_ID=g.ID
+                JOIN USER_GROUPS_PERMISSIONS gp ON gp.USER_GROUP_ID=g.ID
+                JOIN PERMISSIONS p ON p.ID=gp.PERMISSION_ID WHERE u.USERNAME=?</beans:value>
+        </beans:property>
+    </beans:bean>
+
+    <!-- Password Encoder -->
+    <beans:bean id="md5PasswordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />
+
+    <!-- Authentication Manager-->
+    <authentication-manager>
+        <authentication-provider user-service-ref="jdbcUserService">
+            <password-encoder ref="md5PasswordEncoder" />
         </authentication-provider>
     </authentication-manager>
 

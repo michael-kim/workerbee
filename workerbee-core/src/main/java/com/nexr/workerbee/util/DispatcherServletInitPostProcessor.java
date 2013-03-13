@@ -1,5 +1,6 @@
 package com.nexr.workerbee.util;
 
+import com.nexr.workerbee.InitialDataPopulator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -26,6 +27,9 @@ public class DispatcherServletInitPostProcessor implements ApplicationListener {
     logger.info("#####################################################################");
     logger.info("##    SpringDispatcherServlet-servlet initialization completed     ##");
     logger.info("#####################################################################");
+
+    InitialDataPopulator populator = ctx.getBean(InitialDataPopulator.class);
+    populator.populate();
   }
 }
 

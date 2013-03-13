@@ -2,19 +2,15 @@ package com.nexr.workerbee.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-@Service
-public class XServices extends AbstractXService {
+@org.springframework.stereotype.Service
+public class Services extends AbstractXService {
   Logger logger = LoggerFactory.getLogger(this.getClass());
 
   @Resource
   private ConfigurationService configurationService;
-
-  @Resource
-  private SettingService settingService;
 
   private XService[] services;
 
@@ -22,13 +18,12 @@ public class XServices extends AbstractXService {
     logger.info("XServices init() called!!");
 
     services = new XService[]{
-            configurationService,
-            settingService
+            configurationService
     };
   }
 
   public Class<? extends XService> getInterface() {
-    return XServices.class;
+    return Services.class;
   }
 
   public void destory() {
