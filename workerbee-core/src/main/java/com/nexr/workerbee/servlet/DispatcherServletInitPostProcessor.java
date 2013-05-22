@@ -1,4 +1,4 @@
-package com.nexr.workerbee.util;
+package com.nexr.workerbee.servlet;
 
 import com.nexr.workerbee.InitialDataPopulator;
 import org.slf4j.Logger;

@@ -10,31 +10,12 @@
 
     <!--
     <http security="none" pattern="/favicon.ico"/>
-
-    <http auto-config='true'>
-        <intercept-url pattern="/s/login/" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-        <intercept-url pattern="/**" access="ROLE_USER, ROLE_ADMIN" />
-
-        <form-login login-page="/s/login/" authentication-failure-url="/s/login/?error=true" default-target-url="/" />
-    </http>
-
-    <authentication-manager>
-        <authentication-provider>
-            <user-service>
-                <user name="user" password="user" authorities="ROLE_USER" />
-                <user name="admin" password="admin" authorities="ROLE_ADMIN, ROLE_USER" />
-            </user-service>
-        </authentication-provider>
-    </authentication-manager>
     -->
 
     <http auto-config="true" use-expressions="true">
         <form-login login-page="/s/login/" authentication-failure-url="/s/login/?error=true" default-target-url="/" />
-
         <logout invalidate-session="true" logout-success-url="/s/login/" />
-
         <!--remember-me key="workerbee_security_key" token-validity-seconds="-1"/-->
-
         <intercept-url pattern="/s/login/" access="isAnonymous()"/>
         <intercept-url pattern="/**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
     </http>

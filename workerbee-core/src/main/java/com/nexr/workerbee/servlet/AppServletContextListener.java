@@ -1,7 +1,8 @@
-package com.nexr.workerbee.util;
+package com.nexr.workerbee.servlet;
 
 import com.nexr.workerbee.conf.SystemVars;
 import com.nexr.workerbee.service.Services;
+import com.nexr.workerbee.util.Utilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.WebApplicationContext;

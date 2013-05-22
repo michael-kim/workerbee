@@ -38,6 +38,6 @@
     </bean>
 
     <!-- execute after all the servlet beans initialized. -->
-    <bean id="dispatcherServletInitPostProcessor" class="com.nexr.workerbee.util.DispatcherServletInitPostProcessor" />
+    <bean id="dispatcherServletInitPostProcessor" class="com.nexr.workerbee.servlet.DispatcherServletInitPostProcessor" />
 
 </beans>

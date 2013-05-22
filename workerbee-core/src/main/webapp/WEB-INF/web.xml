@@ -6,7 +6,7 @@
     <display-name>Workerbee</display-name>
 
     <listener>
-        <listener-class>com.nexr.workerbee.util.AppServletContextListener</listener-class>
+        <listener-class>com.nexr.workerbee.servlet.AppServletContextListener</listener-class>
     </listener>
 
     <!-- Spring -->
@@ -24,7 +24,7 @@
         <servlet-class>com.nexr.workerbee.spring_vaadin_integration.SpringVaadinServlet</servlet-class>
         <init-param>
             <param-name>initBeanName</param-name>
-            <param-value>myUI</param-value>
+            <param-value>customSpringUI</param-value>
         </init-param>
         <init-param>
             <param-name>systemMessagesBeanName</param-name>

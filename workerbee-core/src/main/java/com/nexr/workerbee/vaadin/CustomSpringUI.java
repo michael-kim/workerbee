@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Scope("prototype")
-public class MyUI extends UI implements ErrorHandler
+public class CustomSpringUI extends UI implements ErrorHandler
 {
     @Override
     protected void init(final VaadinRequest request)
