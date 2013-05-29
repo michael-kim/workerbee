@@ -39,11 +39,12 @@ public class SystemVars {
 
   public static void validate() {
     try {
-      //Assert.notNull(WORKERBEE_HOME,"WORKERBEE_HOME is required.");
+      Assert.notNull(WORKERBEE_HOME,"WORKERBEE_HOME is required.");
       Assert.notNull(WORKERBEE_LOG4J_FILE, "WORKERBEE_LOG4J_FILE is required.");
       Assert.notNull(WORKERBEE_LOG_DIR, "WORKERBEE_LOG_DIR is required.");
       Assert.notNull(WORKERBEE_CONF_FILE, "WORKERBEE_CONF_FILE is required.");
       Assert.notNull(WORKERBEE_CONF_DIR, "WORKERBEE_CONF_DIR is required.");
+
       //Assert.notNull(WORKERBEE_TMPDIR, "WORKERBEE_TMPDIR is required.");
     } catch (Exception e) {
       System.out.println(e.getMessage());

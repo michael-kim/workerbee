@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"/beans/common-context.xml","/beans/db-context.xml"})
+@ContextConfiguration(locations = {"classpath:**/beans/beans-for-repository-test.xml"})
 public class UserRepositoryTest {
 
   @Resource

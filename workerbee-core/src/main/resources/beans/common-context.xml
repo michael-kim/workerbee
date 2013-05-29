@@ -26,6 +26,10 @@
         </property>
     </bean>
 
-    <context:component-scan base-package="com.nexr.workerbee" />
 
+    <!-- do not scan @Component beans -->
+    <!-- Should specify component beans explicitly -->
+    <bean id="beeConf" class="com.nexr.workerbee.conf.BeeConf" />
+    <bean id="dataSourceFactory" class="com.nexr.workerbee.DataSourceFactory" />
+    <bean id="initalDataPopulator" class="com.nexr.workerbee.InitialDataPopulator" />
 </beans>

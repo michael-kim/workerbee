@@ -27,7 +27,7 @@
         <vaadin-version>7.0.0</vaadin-version>
         <org.slf4j-version>1.7.2</org.slf4j-version>
         <logback-version>1.0.9</logback-version>
-        <hadoop-version>0.20.2-cdh3u2</hadoop-version>
+        <hadoop-version>0.20.2</hadoop-version>
     </properties>
 
     <dependencies>
@@ -320,9 +320,16 @@
     <build>
         <resources>
             <resource>
-                <directory>src/main/resources</directory>
+                <directory>${project.basedir}/src/main/resources</directory>
+				<filtering>true</filtering>
             </resource>
         </resources>
+
+		<testResources>
+            <testResource>
+				<directory>${project.basedir}/src/test/resources</directory>
+            </testResource>
+		</testResources>
 
         <plugins>
 
@@ -385,6 +392,25 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
+			<!-- surefire plugin-->
+			<!-- Run tests using surefire -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.9</version>
+                <!--configuration>
+                    <argLine>-Xss512k -Xms512m -Xmx1024m
+                        -XX:MaxPermSize=1024m
+                    </argLine>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit4</artifactId>
+                        <version>2.12</version>
+                    </dependency>
+                </dependencies-->
+            </plugin>
         </plugins>
     </build>
 
@@ -394,16 +420,5 @@
             <url>http://maven.vaadin.com/vaadin-addons</url>
         </repository>
 
-        <!--repository>
-            <id>repository.jboss.org-public</id>
-            <name>JBoss repository</name>
-            <url>https://repository.jboss.org/nexus/content/groups/public</url>
-        </repository-->
-
-        <!--repository>
-            <id>repository.springframework.maven.release</id>
-            <name>Spring Framework Maven Release Repository</name>
-            <url>http://repo.springsource.org/libs-release</url>
-        </repository-->
     </repositories>
 </project>

@@ -45,11 +45,11 @@ public abstract class AbstractConf {
         } else if (String.class.isAssignableFrom(type)) {
           field.set(this, conf.get(propName));
         } else if (Enum.class.isAssignableFrom(type)) {
-          field.set(this, conf.getEnum(propName, Enum.valueOf(type, defaultValue)));
+          //field.set(this, conf.getEnum(propName, Enum.valueOf(type, defaultValue)));
         } else if (Class.class.isAssignableFrom(type)) {
           field.set(this, conf.getClassByName(defaultValue));
         } else if (Pattern.class.isAssignableFrom(type)) {
-          field.set(this, conf.getPattern(propName, Pattern.compile(defaultValue)));
+          //field.set(this, conf.getPattern(propName, Pattern.compile(defaultValue)));
         } else {
           throw new RuntimeException("Not support property type: " + type.getName());
         }
