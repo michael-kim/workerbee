@@ -8,6 +8,5 @@
     <import resource="common-context.xml" />
     <import resource="db-context.xml"/>
     <import resource="security-context.xml"/>
-    <import resource="vaadin-context.xml"/>
 
 </beans>

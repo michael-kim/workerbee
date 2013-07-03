@@ -23,11 +23,11 @@ public abstract class AbstractConf {
     conf.addResource(getSiteURL());
 
     for (Field field : BeeConf.class.getDeclaredFields()) {
-      Property property = field.getAnnotation(Property.class);
-      if (property == null) continue;
+      BeeConfProperty beeConfProperty = field.getAnnotation(BeeConfProperty.class);
+      if (beeConfProperty == null) continue;
 
-      String propName = property.name();
-      String defaultValue = property.defaultValue();
+      String propName = beeConfProperty.name();
+      String defaultValue = beeConfProperty.defaultValue();
       Class type = field.getType();
 
       try {

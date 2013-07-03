@@ -17,6 +17,6 @@ public class LoginController {
     if (isError) {
       model.put("isError", isError);
     }
-    return "login";
+    return "login/login";
   }
 }

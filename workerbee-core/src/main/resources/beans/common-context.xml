@@ -19,7 +19,7 @@
         <property name="basenames">
             <list>
                 <value>
-                    classpath:/i18n/security<!-- overwrite spring security messages -->
+                    classpath:/i18n/security<!-- to overwrite spring security messages -->
                     classpath:/i18n/messages
                 </value>
             </list>

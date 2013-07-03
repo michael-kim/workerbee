@@ -37,7 +37,7 @@
                 <table>
                     <tr>
                         <td>Username</td>
-                        <td><input type="text" name="j_username"/></td>
+                        <td><input id="j_username" type="text" name="j_username"/></td>
                     </tr>
                     <tr>
                         <td>Password</td>
@@ -62,5 +62,8 @@
         </td>
     </tr>
 </table>
+<script type="text/javascript">
+    document.getElementById('j_username').focus();
+</script>
 </body>
 </html>

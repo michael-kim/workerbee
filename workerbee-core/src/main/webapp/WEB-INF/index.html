@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prototype</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+
+	<!-- jqeury  -->
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+
+	<!-- w2ui -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../assets/lib/w2ui-1.2/w2ui.css" />
+    <script type="text/javascript" src="../assets/lib/w2ui-1.2/w2ui.js"></script>
+
+	<!--  -->
+    <script type="text/javascript" src="../assets/js/table.js"></script>
+    <script type="text/javascript" src="../assets/js/main.js"></script>
+
+    <!-- codemirror -->
+    <script type="text/javascript" src="../assets/lib/codemirror-3.13/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="../assets/lib/codemirror-3.13/lib/codemirror.css">
+    <script type="text/javascript" src="../assets/lib/codemirror-3.13/mode/sql/sql.js"></script>
+	<script src="../assets/lib/ace/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+            /*box-sizing: border-box;*/
+        }
+        body {
+            overflow: hidden;
+        }
+        #main_layout {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+		#codewrap {
+			background:white;
+		}
+
+		.CodeMirror, .CodeMirror * {
+			-webkit-box-sizing: content-box;
+			-moz-box-sizing: content-box;
+			-ms-box-sizing: content-box;
+			-o-box-sizing: content-box;
+			box-sizing: content-box;
+		}
+
+		.CodeMirror {
+			height:100%;
+			width:100%;
+		}
+
+		.CodeMirror-scroll {
+			overflow-y: hidden;
+			overflow-x: auto;
+		}
+		
+		#editor, #editor * {
+		/*
+			-webkit-box-sizing: content-box;
+			-moz-box-sizing: content-box;
+			-ms-box-sizing: content-box;
+			-o-box-sizing: content-box;
+			box-sizing: content-box;
+			*/
+		}
+		
+		#editor {
+			font-size:12px;
+		}
+
+    </style>
+    
+</head>
+<body>
+    <div id="main_layout"></div>
+    <div id="codewrap">
+    	<textarea name="code">select * from src;</textarea>
+    </div>
+    <div id="test">test</div>
+    <div id="editor"></div>
+</body>
+</html>

@@ -27,9 +27,13 @@ public class DispatcherServletInitPostProcessor implements ApplicationListener {
     logger.info("#####################################################################");
     logger.info("##    SpringDispatcherServlet-servlet initialization completed     ##");
     logger.info("#####################################################################");
+    logger.info("\n######################### Application Initialization Started ##############################");
+
 
     InitialDataPopulator populator = ctx.getBean(InitialDataPopulator.class);
     populator.populate();
+
+    logger.info("######################### Application Initialization Completed ################################");
   }
 }
 
