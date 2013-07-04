@@ -2,19 +2,22 @@
 <html>
 <head>
     <title>Workerbee</title>
-    <link href="${rc.getContextPath()}/static/css/application.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="${rc.getContextPath()}/static/img/favicon.png">
+    <link href="${rc.contextPath}/static/css/application.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="${rc.contextPath}/static/img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <meta charset="utf-8">
-    <script src="${rc.getContextPath()}/static/lib/jquery/jquery.1.9.0.min.js"> </script>
+    <script src="${rc.contextPath}/static/lib/jquery/jquery.1.9.0.min.js"> </script>
     <!--<script src="lib/zepto/zepto.min.js"> </script>-->
-    <script src="${rc.getContextPath()}/static/lib/parsley/parsley.js"> </script>
-    <script src="${rc.getContextPath()}/static/lib/backbone/underscore-min.js"></script>
-    <script src="${rc.getContextPath()}/static/js/settings.js"> </script>
+    <script src="${rc.contextPath}/static/lib/parsley/parsley.js"> </script>
+    <script src="${rc.contextPath}/static/lib/backbone/underscore-min.js"></script>
+    <script src="${rc.contextPath}/static/js/settings.js"> </script>
 </head>
 <body>
+<div class="logo">
+    <h4><a href="${rc.contextPath}/">Worker<strong>Bee</strong></a></h4>
+</div>
 <div class="single-widget-container error-page">
     <section class="widget transparent widget-404">
         <div class="body">

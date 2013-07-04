@@ -1,0 +1,42 @@
+Table(
+	tableName:customers, 
+	dbName:samples,
+	owner:julingks, 
+	createTime:1370839481,
+	lastAccessTime:0,
+	retention:0, 
+	sd:StorageDescriptor(
+		cols:[
+			FieldSchema(name:customernumber, type:int, comment:null),
+			FieldSchema(name:customername, type:string, comment:null), 
+			FieldSchema(name:contactlastname, type:string, comment:null), 
+			FieldSchema(name:contactfirstname, type:string, comment:null), 
+			FieldSchema(name:phone, type:string, comment:null), 
+			FieldSchema(name:addressline1, type:string, comment:null), 
+			FieldSchema(name:addressline2, type:string, comment:null), 
+			FieldSchema(name:city, type:string, comment:null), 
+			FieldSchema(name:state, type:string, comment:null), 
+			FieldSchema(name:postalcode, type:string, comment:null), 
+			FieldSchema(name:country, type:string, comment:null), 
+			FieldSchema(name:salesrepemployeenumber, type:int, comment:null), 
+			FieldSchema(name:creditlimit, type:double, comment:null)
+		],
+		location:hdfs://localhost:9000/user/hive/warehouse/samples.db/customers,
+		inputFormat:org.apache.hadoop.mapred.TextInputFormat,
+		outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat,
+		compressed:false,
+		numBuckets:-1,
+		serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{serialization.format=|, field.delim=|}),
+		bucketCols:[],
+		sortCols:[],
+		parameters:{},
+		skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{}),
+		storedAsSubDirectories:false
+	),
+	partitionKeys:[],
+	parameters:{numPartitions=0, numFiles=1, transient_lastDdlTime=1370839482, numRows=0, totalSize=13580, rawDataSize=0},
+	viewOriginalText:null,
+	viewExpandedText:null,
+	tableType:MANAGED_TABLE
+)
+
