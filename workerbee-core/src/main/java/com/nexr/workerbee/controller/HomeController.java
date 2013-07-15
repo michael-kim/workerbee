@@ -19,6 +19,11 @@ public class HomeController {
 
     @RequestMapping(value = "/empty", method = RequestMethod.GET)
     public String empty() {
-        return "empty";
+        return "layout/simple/body";
+    }
+
+    @RequestMapping(value = "/icons", method = RequestMethod.GET)
+    public String icons() {
+        return "icons";
     }
 }

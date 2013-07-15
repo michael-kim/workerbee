@@ -33,4 +33,20 @@ $(function(){
             $this.toggleClass($(this).data("toggle-passive-class")).toggleClass($this.data("toggle-class"));
         }
     });
+
+
+    $("#notification-link").click(function(){
+        if ( $(window).width() > 767){
+            $("#settings").popover('show');
+            $(document).on("click",  function(e){
+                var $settings = $("#settings"),
+                    $popover = $settings.siblings(".popover");
+                if(!$.contains($popover[0], e.target)){
+                    $settings.popover('hide');
+                    $(document).off("click", close);
+                }
+            });
+            return false;
+        }
+    });
 });

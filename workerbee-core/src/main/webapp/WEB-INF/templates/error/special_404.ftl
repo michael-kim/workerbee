@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="logo">
-    <h4><a href="${rc.contextPath}/">Worker<strong>Bee</strong></a></h4>
+    <h4><a href="${rc.contextPath}/empty">Worker<strong>Bee</strong></a></h4>
 </div>
 <div class="single-widget-container error-page">
     <section class="widget transparent widget-404">

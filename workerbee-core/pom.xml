@@ -26,7 +26,7 @@
         <hibernate-version>4.0.1.Final</hibernate-version>
         <org.slf4j-version>1.7.2</org.slf4j-version>
         <logback-version>1.0.9</logback-version>
-        <hadoop-version>0.20.2</hadoop-version>
+        <hadoop-version>1.1.2</hadoop-version>
     </properties>
 
     <dependencies>

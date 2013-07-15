@@ -165,7 +165,18 @@
                         <i class="icon-reorder"></i>
                     </a>
                 </li>
-                <li class="hidden-phone"><a href="login.html"><i class="icon-signout"></i></a></li>
+                <li class="hidden-phone dropdown">
+                    <a href="#" title="Sign out" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-signout"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-logout" role="menu">
+                        <li role="presentation">
+                            <a href="${rc.contextPath}/j_spring_security_logout" class="link">
+                                <i class="eicon-logout"></i> Sign out
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
             <div class="notifications pull-right">
                 <div class="alert pull-right">
