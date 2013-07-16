@@ -908,12 +908,12 @@
         </section>
     </div>
 </div>
+<!-- End of body -->
+<#include "./layout/simple/footer.ftl">
 
 <!-- basic application js-->
 <script src="${rc.contextPath}/static/js/app.js"></script>
 <script src="${rc.contextPath}/static/js/settings.js"></script>
 
-<!-- End of body -->
-<#include "./layout/simple/footer.ftl">
 
 <#include "./layout/simple/template.ftl">

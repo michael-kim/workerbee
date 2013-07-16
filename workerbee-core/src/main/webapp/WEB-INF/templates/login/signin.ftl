@@ -19,7 +19,7 @@
 <div class="single-widget-container">
     <section class="widget login-widget">
         <header class="text-align-center">
-            <h4>Sign In</h4>
+            <h4>로그인</h4>
         </header>
         <div class="body">
             <form class="no-margin"
@@ -34,7 +34,7 @@
                                 <span class="add-on">
                                     <i class="eicon-user icon-large"></i>
                                 </span>
-                                <input id="j_username" type="text" name="j_username" placeholder="Your Username">
+                                <input id="j_username" type="text" name="j_username" placeholder="아이디">
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                                 <span class="add-on">
                                     <i class="icon-lock icon-large"></i>
                                 </span>
-                                <input id="j_password" type="password" name="j_password"  placeholder="Your Password">
+                                <input id="j_password" type="password" name="j_password"  placeholder="비밀번호">
                             </div>
                         </div>
                     </div>
@@ -59,15 +59,15 @@
                 </fieldset>
                 <div class="form-actions">
                     <button type="submit" class="btn btn-block btn-large btn-danger">
-                        <span class="small-circle"><i class="icon-caret-right"></i></span>&nbsp;<small>Sign In</small>
+                        <span class="small-circle"><i class="icon-caret-right"></i></span>&nbsp;<small>확인</small>
                     </button>
-                    <div class="forgot"><a class="forgot" href="${rc.contextPath}/forgot">Forgot Username or Password?</a></div>
+                    <div class="forgot"><a class="forgot" href="${rc.contextPath}/forgot">아이디나 비밀번호를 잊어버리셨습니까?</a></div>
                 </div>
             </form>
         </div>
         <footer>
             <div class="facebook-login">
-                <a href="${rc.contextPath}/signup"><span><i class="eicon-user-add icon-large"></i>&nbsp;Sign Up</span></a>
+                <a href="${rc.contextPath}/signup"><span><i class="eicon-user-add icon-large"></i>&nbsp;계정 만들기</span></a>
             </div>
         </footer>
     </section>

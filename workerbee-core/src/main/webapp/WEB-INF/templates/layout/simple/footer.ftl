@@ -5,3 +5,7 @@
 </body>
 </html>
 <!-- End of footer -->
+
+<#include "../../common/jquery.ftl">
+<#include "../../common/backbone.ftl">
+<#include "../../common/bootstrap.ftl">

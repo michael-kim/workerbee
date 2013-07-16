@@ -7,3 +7,6 @@
 <script src="${rc.contextPath}/static/js/bootstrap/bootstrap-button.js"></script>
 <script src="${rc.contextPath}/static/js/bootstrap/bootstrap-tab.js"> </script>
 <script src="${rc.contextPath}/static/js/bootstrap/bootstrap-dropdown.js"></script>
+<script src="${rc.contextPath}/static/js/bootstrap/bootstrap-modal.js"></script>
+
+<!-- bootstrap default plugins -->

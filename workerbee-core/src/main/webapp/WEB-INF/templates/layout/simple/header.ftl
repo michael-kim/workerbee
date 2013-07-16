@@ -10,9 +10,11 @@
     <meta name="author" content="">
     <meta charset="utf-8">
 
+    <#--
 <#include "../../common/jquery.ftl">
 <#include "../../common/backbone.ftl">
 <#include "../../common/bootstrap.ftl">
+-->
 
 </head>
 <body class="background-dark">

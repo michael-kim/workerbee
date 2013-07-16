@@ -24,17 +24,6 @@
                         </li>
                         <li role="presentation">
                             <a href="#" class="message">
-                                <img src="${rc.contextPath}/static/img/2.jpg" alt="">
-                                <div class="details">
-                                    <div class="sender">Alies Rumiancaŭ</div>
-                                    <div class="text">
-                                        I'll definitely buy this template
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="#" class="message">
                                 <img src="${rc.contextPath}/static/img/3.jpg" alt="">
                                 <div class="details">
                                     <div class="sender">Michał Rumiancaŭ</div>
@@ -46,7 +35,7 @@
                         </li>
                         <li role="presentation">
                             <a href="#" class="text-align-center see-all">
-                                See all messages <i class="icon-arrow-right"></i>
+                                모든 메시지 보기 <i class="icon-arrow-right"></i>
                             </a>
                         </li>
                     </ul>
@@ -134,7 +123,7 @@
                     <ul id="account-menu" class="dropdown-menu account" role="menu">
                         <li role="presentation" class="account-picture">
                             <img src="${rc.contextPath}/static/img/2.jpg" alt="">
-                            Philip Daineka
+                            마이클
                         </li>
                         <li role="presentation">
                             <a href="form_account.html" class="link">
@@ -169,10 +158,10 @@
                     <a href="#" title="Sign out" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="icon-signout"></i>
                     </a>
-                    <ul class="dropdown-menu dropdown-logout" role="menu">
+                    <ul class="dropdown-menu" role="menu">
                         <li role="presentation">
                             <a href="${rc.contextPath}/j_spring_security_logout" class="link">
-                                <i class="eicon-logout"></i> Sign out
+                                <i class="eicon-logout"></i> 로그 아웃
                             </a>
                         </li>
                     </ul>
@@ -181,7 +170,7 @@
             <div class="notifications pull-right">
                 <div class="alert pull-right">
                     <a href="#" class="close" data-dismiss="alert">&times;</a>
-                    <i class="icon-info-sign"></i> Check out Light Blue <a id="notification-link" href="#">settings</a> on the right!
+                    <i class="icon-info-sign"></i> 오른쪽 <a id="notification-link" href="#">설정</a>을 확인하세요
                 </div>
             </div>
         </div>

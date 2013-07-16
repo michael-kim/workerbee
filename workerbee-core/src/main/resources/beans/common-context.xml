@@ -10,7 +10,12 @@
 
     <!-- Property Placeholder Configurer -->
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:/default.properties" />
+        <property name="locations">
+            <list>
+                <value>classpath:/config.properties</value>
+                <value>classpath:/db.properties</value>
+            </list>
+        </property>
     </bean>
 
     <!-- Message Source -->
@@ -18,12 +23,11 @@
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">
             <list>
-                <value>
-                    classpath:/i18n/security<!-- to overwrite spring security messages -->
-                    classpath:/i18n/messages
-                </value>
+                <value>classpath:i18n/security</value><!-- to overwrite spring security messages -->
+                <value>classpath:i18n/messages</value>
             </list>
         </property>
+        <property name="cacheSeconds" value="1" />
     </bean>
 
 

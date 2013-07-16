@@ -37,6 +37,9 @@
         <property name="requestContextAttribute" value="rc"/>
     </bean>
 
+    <!-- Locale Resolver" -->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
+
     <!-- execute after all the servlet beans initialized. -->
     <bean id="dispatcherServletInitPostProcessor" class="com.nexr.workerbee.servlet.DispatcherServletInitPostProcessor" />
 
