@@ -1,7 +1,6 @@
 <#include "../layout/simple/header.ftl">
 
 <!-- Start of body -->
-
 <div class="row-fluid">
     <div class="span12">
         <h2 class="page-title">관리자 <small>사용자 목록</small></h2>
@@ -11,10 +10,11 @@
         </ul>
     </div>
 </div>
+
 <div class="row-fluid">
     <div class="span12">
-            <div  data-spy="affix" data-offset-top="198">
-                <div class="affix-inner">
+        <div data-spy="affix" data-offset-top="198">
+        <div class="affix-inner">
         <section class="widget widget-top">
                 <div class="clearfix">
                     <div class="input-append pull-left">
@@ -29,6 +29,9 @@
                         <button type="button" class="btn btn-transparent">검색</button>
                     </div>
                 </div>
+                <div class="clearfix margin-bottom">
+                    <a class="btn">필터</a>
+                </div>
                 <div class="clearfix">
                     <div class="btn pull-left" style="cursor:default;padding:3px;">
                         <input id="all-select" type="checkbox" class="uniform">
@@ -39,7 +42,7 @@
                         </button>
                         <ul class="dropdown-menu" style="min-width:60px; margin-left:-37px">
                             <li class="disabled"><a href="#">전체 선택</a></li>
-                            <li><a href="#">선택 안함</a></li>
+                            <li><a href="#" id="select-none">선택 안함</a></li>
                         </ul>
                     </div>
                     <div class="btn-group dropdown-inverse margin-left pull-left">
@@ -80,8 +83,8 @@
                     </div>
                 </div>
         </section>
-            </div><!-- affix outter-->
-        </div>
+        </div><!-- affix-inner -->
+        </div><!-- affix -->
         <section class="widget widget-bottom" style="padding-top:0">
             <table id="root_table" class="table table-middle table-hover">
             <thead>

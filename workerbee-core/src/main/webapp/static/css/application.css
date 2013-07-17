@@ -6688,10 +6688,6 @@ textarea + .help-block,
   background-color: rgba(51, 51, 51, 0.20);
 }
 
-/*
-.table-striped > tbody > tr:nth-child(odd):not(.no-striped):not(.success):not(.info):not(.warning):not(.error):not(.danger) > td:not(.no-striped),
-.table-striped > tbody > tr:nth-child(odd):not(.no-striped):not(.success):not(.info):not(.warning):not(.error):not(.danger) > th:not(.no-striped) {
-*/
 .table-striped > tbody > tr:nth-child(odd):not(.no-striped) > td:not(.no-striped),
 .table-striped > tbody > tr:nth-child(odd):not(.no-striped) > th:not(.no-striped) {
   background-color: rgba(51, 51, 51, 0.20);
@@ -6727,6 +6723,8 @@ tr.tr-hover > th {
     background-color: rgba(86, 188, 118, 0.10) !important;
 }
 
+tr.tr-striped.success:nth-child(odd):not(.no-striped) > td:not(.no-striped),
+tr.tr-striped.success:nth-child(odd):not(.no-striped) > th:not(.no-striped)
 .table-striped > tbody > tr.success:nth-child(odd):not(.no-striped) > td:not(.no-striped),
 .table-striped > tbody > tr.success:nth-child(odd):not(.no-striped) > th:not(.no-striped) {
     background-color: rgba(86, 188, 118, 0.20) !important;
@@ -6739,6 +6737,10 @@ tr.tr-hover > th {
     background-color: rgba(229, 96, 59, 0.10) !important;
 }
 
+tr.tr-striped.danger:nth-child(odd):not(.no-striped) > td:not(.no-striped),
+tr.tr-striped.danger:nth-child(odd):not(.no-striped) > th:not(.no-striped),
+tr.tr-striped.error:nth-child(odd):not(.no-striped) > td:not(.no-striped),
+tr.tr-striped.error:nth-child(odd):not(.no-striped) > th:not(.no-striped)
 .table-striped > tbody > tr.danger:nth-child(odd):not(.no-striped) > td:not(.no-striped),
 .table-striped > tbody > tr.danger:nth-child(odd):not(.no-striped) > th:not(.no-striped),
 .table-striped > tbody > tr.error:nth-child(odd):not(.no-striped) > td:not(.no-striped),
@@ -6751,6 +6753,8 @@ tr.tr-hover > th {
     background-color: rgba(234, 200, 94, 0.10) !important;
 }
 
+tr.tr-striped.warning:nth-child(odd):not(.no-striped) > td:not(.no-striped),
+tr.tr-striped.warning:nth-child(odd):not(.no-striped) > th:not(.no-striped)
 .table-striped > tbody > tr.warning:nth-child(odd):not(.no-striped) > td:not(.no-striped),
 .table-striped > tbody > tr.warning:nth-child(odd):not(.no-striped) > th:not(.no-striped) {
     background-color: rgba(234, 200, 94, 0.20) !important;
@@ -6761,6 +6765,8 @@ tr.tr-hover > th {
     background-color:  rgba(74, 176, 206, 0.10) !important;
 }
 
+tr.tr-striped.info:nth-child(odd):not(.no-striped) > td:not(.no-striped),
+tr.tr-striped.info:nth-child(odd):not(.no-striped) > th:not(.no-striped),
 .table-striped > tbody > tr.info:nth-child(odd):not(.no-striped) > td:not(.no-striped),
 .table-striped > tbody > tr.info:nth-child(odd):not(.no-striped) > th:not(.no-striped) {
     background-color:  rgba(74, 176, 206, 0.20) !important;
@@ -10752,7 +10758,7 @@ input.parsley-error {
   padding: 10px 0;
   top: 0;
   color: white;
-  z-index: 1;
+  z-index: 10001;
   margin: 80px 0 0 25px;
 }
 
@@ -12709,7 +12715,7 @@ input.input-padding-increased[type=search], input.input-padding-increased.search
 }
 
 /***********************************/
-/**          UTILS                **/
+/**          Affix                **/
 /**********************************/
 
 .widget-top {
@@ -12722,71 +12728,86 @@ input.input-padding-increased[type=search], input.input-padding-increased.search
     margin-top:0;
 }
 
-.affix .widget {
+.sidebar.affix {
+    margin-top:20px;
+}
+
+.wrap .affix .widget {
     background:#596468;
     padding-bottom:10px;
 }
 
-.affix {
+.wrap .affix {
     position: fixed !important;
     top:0;
     left:0;
     z-index:10000;
     width:100%;
     margin:0;padding:0;
-    /*border:1px solid white;*/
+}
+
+.wrap .affix.affix-bg {
+    background:#768990;
 }
 
 
-.affix .affix-inner {
+.wrap .affix .affix-inner {
     margin-left:185px;
     margin-right:0;
-    padding:0 2.250%;
-
+    padding:0 2.260%;
 }
 
-.sidebar-hidden .affix .affix-inner {
+.sidebar-hidden .wrap .affix .affix-inner {
     margin-left: 0;
     margin-right: 0;
 }
 
-.sidebar-on-right .affix .affix-inner {
+.sidebar-on-right .wrap .affix .affix-inner {
     margin-left: 0;
     margin-right: 185px;
 }
 
+.wrap.sidebar-icons .affix .affix-inner {
+    margin-left: 62px;
+}
+
+.sidebar-on-right .wrap.sidebar-icons .affix .affix-inner{
+    margin-right: 62px;
+}
+
 @media (max-width: 1048px) {
-    .affix .affix-inner {
-        margin-left:62px;
+    .wrap .affix .affix-inner {
+        margin-left:62px !important;
     }
 
-    .sidebar-on-right .affix .affix-inner {
-        margin-left: 0;
-        margin-right: 62px;
+    .sidebar-on-right .wrap .affix .affix-inner {
+        margin-left: 0 !important;
+        margin-right: 62px !important;
     }
 }
 @media (max-width: 767px) {
-    .affix .affix-inner,
-    .sidebar-on-right .affix .affix-inner {
-        margin-left: 0;
-        margin-right: 0;
+    .wrap .affix .affix-inner,
+    .sidebar-on-right .wrap .affix .affix-inner {
+        margin-left: 20px !important;
+        margin-right: 20px !important;
     }
 }
 
-.affix-target {
-    margin-bottom:0;
-    padding-bottom:0;
+@media (max-width: 480px) {
+    .wrap .affix .affix-inner,
+    .sidebar-on-right .wrap .affix .affix-inner {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
 }
-.affix .affix-inner .affix-target{
-    margin-left:0;
-    padding-bottom:10px;
-}
-
 
 /***********************************/
 /**          UTILS                **/
 /**********************************/
 
+.cursor-pointer {
+    cursor:pointer;
+}
 .btn-text {
     padding: 4px 12px;
     font-size: 13px;

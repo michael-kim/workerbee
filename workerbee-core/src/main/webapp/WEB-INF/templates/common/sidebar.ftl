@@ -1,6 +1,5 @@
 <!-- Start of sidebar.ftl -->
-<nav id="sidebar" class="sidebar nav-collapse collapse">
-    <!--<div class="side-nav-wrap affix" data-offset-top="200">-->
+<nav id="sidebar" class="sidebar nav-collapse collapse" data-spy="affix" data-offset-top="70">
     <ul id="side-nav" class="side-nav">
         <li class="active">
             <a rel="tooltip" title="Dashboard" href="${rc.contextPath}/"><i class="icon-dashboard"></i> <span class="name">대시보드</span></a>
@@ -51,6 +50,5 @@
                 data-value="auto"
                 class="btn-auto btn btn-transparent btn-small"><i class="icon-resize-full"></i></button>
     </div>
-    <!--</div>-->
 </nav>
 <!-- End of sidebar.ftl -->
