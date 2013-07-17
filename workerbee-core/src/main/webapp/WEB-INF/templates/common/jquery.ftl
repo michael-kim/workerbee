@@ -8,3 +8,4 @@
 <script src="${rc.contextPath}/static/lib/jquery-ui-1.10.1.custom.js"></script>
 <script src="${rc.contextPath}/static/lib/jquery.slimscroll.js"></script>
 <script src="${rc.contextPath}/static/lib/select2.js"></script>
+<script src="${rc.contextPath}/static/lib/jquery.sticky.js"></script>

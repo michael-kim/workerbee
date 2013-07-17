@@ -247,7 +247,6 @@ body {
   line-height: 20px;
   color: #f8f8f8;
   background-color: white;
-  background-color:#727781;
 }
 
 a {
@@ -5279,7 +5278,7 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
 }
 
 .affix {
-  position: fixed;
+  position: fixed !important;
 }
 
 .clearfix {
@@ -6722,37 +6721,70 @@ tr.tr-hover > th {
 .table:not(.table-bordered) td {
   border-top: none;
 }
+
 .table tbody tr.success > th,
 .table tbody tr.success > td {
-    background-color: rgba(86, 188, 118, 0.25);
+    background-color: rgba(86, 188, 118, 0.10) !important;
 }
+
+.table-striped > tbody > tr.success:nth-child(odd):not(.no-striped) > td:not(.no-striped),
+.table-striped > tbody > tr.success:nth-child(odd):not(.no-striped) > th:not(.no-striped) {
+    background-color: rgba(86, 188, 118, 0.20) !important;
+}
+
 .table tbody tr.danger > th,
 .table tbody tr.danger > td
 .table tbody tr.error > th,
 .table tbody tr.error > td {
-    background-color: rgba(229, 96, 59, 0.25);
+    background-color: rgba(229, 96, 59, 0.10) !important;
 }
+
+.table-striped > tbody > tr.danger:nth-child(odd):not(.no-striped) > td:not(.no-striped),
+.table-striped > tbody > tr.danger:nth-child(odd):not(.no-striped) > th:not(.no-striped),
+.table-striped > tbody > tr.error:nth-child(odd):not(.no-striped) > td:not(.no-striped),
+.table-striped > tbody > tr.error:nth-child(odd):not(.no-striped) > th:not(.no-striped) {
+    background-color: rgba(229, 96, 59, 0.20) !important;
+}
+
 .table tbody tr.warning > th,
 .table tbody tr.warning > td {
-    background-color: rgba(234, 200, 94, 0.25);
+    background-color: rgba(234, 200, 94, 0.10) !important;
+}
+
+.table-striped > tbody > tr.warning:nth-child(odd):not(.no-striped) > td:not(.no-striped),
+.table-striped > tbody > tr.warning:nth-child(odd):not(.no-striped) > th:not(.no-striped) {
+    background-color: rgba(234, 200, 94, 0.20) !important;
 }
 
 .table tbody tr.info > th,
 .table tbody tr.info > td {
-    background-color:  rgba(74, 176, 206, 0.25);
+    background-color:  rgba(74, 176, 206, 0.10) !important;
 }
 
-.table-hover > tbody > tr.success:hover:not(.no-hover) > td:not(.no-hover) {
-    background-color:  rgba(86, 188, 118, 0.45);
+.table-striped > tbody > tr.info:nth-child(odd):not(.no-striped) > td:not(.no-striped),
+.table-striped > tbody > tr.info:nth-child(odd):not(.no-striped) > th:not(.no-striped) {
+    background-color:  rgba(74, 176, 206, 0.20) !important;
+
 }
+
+tr.tr-striped.success:hover:not(.no-hover) > th:not(.no-hover),
+tr.tr-striped.success:hover:not(.no-hover) > td:not(.no-hover),
+.table-hover > tbody > tr.success:hover:not(.no-hover) > td:not(.no-hover) {
+    background-color:  rgba(86, 188, 118, 0.30) !important;
+}
+
+
 .table-hover > tbody > tr.error:hover:not(.no-hover) > td:not(.no-hover) {
-    background-color: rgba(229, 96, 59, 0.45);
+    background-color: rgba(229, 96, 59, 0.30) !important;
 }
 .table-hover > tbody > tr.warning:hover:not(.no-hover) > td:not(.no-hover) {
-    background-color: rgba(234, 200, 94, 0.45);
+    background-color: rgba(234, 200, 94, 0.30) !important;
 }
+
+tr.tr-striped.info:hover:not(.no-hover) > th:not(.no-hover),
+tr.tr-striped.info:hover:not(.no-hover) > td:not(.no-hover),
 .table-hover > tbody > tr.info:hover:not(.no-hover) > td:not(.no-hover) {
-    background-color: rgba(74, 176, 206, 0.45);
+    background-color: rgba(74, 176, 206, 0.30) !important;
 }
 
 
@@ -6969,6 +7001,13 @@ tr.tr-hover > th {
   background-color: transparent;
   border: 1px solid transparent;
   border-left-width: 0;
+}
+
+@media (max-width: 767px) {
+    .pagination ul > li > a,
+    .pagination ul > li > span {
+        padding: 4px 4px;
+    }
 }
 
 /***************************/
@@ -10838,11 +10877,13 @@ input.parsley-error {
 /*main content*/
 .wrap {
   margin-left: 185px;
+    padding-bottom:50px;
 }
 
 /*content except for header*/
 .content {
   padding: 25px 2.5641%;
+  padding: 25px 2.5%;
   -webkit-transition: margin-top 0.35s ease;
   -moz-transition: margin-top 0.35s ease;
   -o-transition: margin-top 0.35s ease;
@@ -12666,9 +12707,97 @@ input.input-padding-increased[type=search], input.input-padding-increased.search
 .alert-info strong {
     color:#003366;
 }
+
 /***********************************/
 /**          UTILS                **/
 /**********************************/
+
+.widget-top {
+    padding-bottom:0;
+    margin-bottom:0;
+}
+
+.widget-bottom {
+    padding-top:0;
+    margin-top:0;
+}
+
+.affix .widget {
+    background:#596468;
+    padding-bottom:10px;
+}
+
+.affix {
+    position: fixed !important;
+    top:0;
+    left:0;
+    z-index:10000;
+    width:100%;
+    margin:0;padding:0;
+    /*border:1px solid white;*/
+}
+
+
+.affix .affix-inner {
+    margin-left:185px;
+    margin-right:0;
+    padding:0 2.250%;
+
+}
+
+.sidebar-hidden .affix .affix-inner {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.sidebar-on-right .affix .affix-inner {
+    margin-left: 0;
+    margin-right: 185px;
+}
+
+@media (max-width: 1048px) {
+    .affix .affix-inner {
+        margin-left:62px;
+    }
+
+    .sidebar-on-right .affix .affix-inner {
+        margin-left: 0;
+        margin-right: 62px;
+    }
+}
+@media (max-width: 767px) {
+    .affix .affix-inner,
+    .sidebar-on-right .affix .affix-inner {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.affix-target {
+    margin-bottom:0;
+    padding-bottom:0;
+}
+.affix .affix-inner .affix-target{
+    margin-left:0;
+    padding-bottom:10px;
+}
+
+
+/***********************************/
+/**          UTILS                **/
+/**********************************/
+
+.btn-text {
+    padding: 4px 12px;
+    font-size: 13px;
+}
+
+.text-ellipsis {
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
 .bg-black {
     background-color: rgba(51, 51, 51, 0.25);
 }

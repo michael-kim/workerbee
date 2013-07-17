@@ -1,3 +1,0 @@
-<!--footer.ftl-->
-</body>
-</html>

@@ -11,4 +11,5 @@ import com.nexr.workerbee.domain.UserGroup;
  */
 public interface UserGroupRepository extends GenericRepository<UserGroup, Long>{
 
+    UserGroup findByGroupName(String groupName);
 }

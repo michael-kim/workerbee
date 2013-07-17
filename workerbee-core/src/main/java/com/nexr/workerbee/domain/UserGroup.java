@@ -30,10 +30,10 @@ public class UserGroup {
   @Column(name = "DESCRIPTION")
   private String description;
 
-  @OneToMany(mappedBy = "userGroup", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  @OneToMany(mappedBy = "userGroup")
   private List<UserProfile> userProfiles = new ArrayList<UserProfile>();
 
-  @ManyToMany
+  @ManyToMany(cascade = CascadeType.ALL)
   @JoinTable(
           name = "USER_GROUPS_PERMISSIONS",
           joinColumns = {@JoinColumn(name = "USER_GROUP_ID")},

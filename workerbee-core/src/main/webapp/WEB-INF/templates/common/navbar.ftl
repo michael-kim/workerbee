@@ -2,7 +2,6 @@
 <header class="page-header">
     <div class="navbar">
         <div class="navbar-inner">
-
             <ul class="nav pull-right">
                 <li class="dropdown">
                     <a href="#" title="Messages" id="messages"
