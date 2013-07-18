@@ -15,74 +15,76 @@
     <div class="span12">
         <div data-spy="affix" data-offset-top="198">
         <div class="affix-inner">
-        <section class="widget widget-top">
-                <div class="clearfix">
-                    <div class="input-append pull-left">
-                        <input type="search" id="search-input" >
-                        <select class="selectpicker dropdown-inverse" data-style="btn-default">
-                            <option>모든 필드</option>
-                            <option>아이디</option>
-                            <option>이름</option>
-                            <option>이메일</option>
-                            <option>그룹</option>
-                        </select>
-                        <button type="button" class="btn btn-transparent">검색</button>
+            <div class="affix-content">
+            <section class="widget widget-top">
+                    <div class="clearfix">
+                        <div class="input-append pull-left">
+                            <input type="search" id="search-input" >
+                            <select class="selectpicker dropdown-inverse" data-style="btn-default">
+                                <option>모든 필드</option>
+                                <option>아이디</option>
+                                <option>이름</option>
+                                <option>이메일</option>
+                                <option>그룹</option>
+                            </select>
+                            <button type="button" class="btn btn-transparent">검색</button>
+                        </div>
                     </div>
-                </div>
-                <div class="clearfix margin-bottom">
-                    <a class="btn">필터</a>
-                </div>
-                <div class="clearfix">
-                    <div class="btn pull-left" style="cursor:default;padding:3px;">
-                        <input id="all-select" type="checkbox" class="uniform">
+                    <div class="clearfix margin-bottom">
+                        <a class="btn">필터</a>
                     </div>
-                    <div class="btn-group dropdown-inverse pull-left">
-                        <button class="btn dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-caret-down"></i>
-                        </button>
-                        <ul class="dropdown-menu" style="min-width:60px; margin-left:-37px">
-                            <li class="disabled"><a href="#">전체 선택</a></li>
-                            <li><a href="#" id="select-none">선택 안함</a></li>
-                        </ul>
+                    <div class="clearfix">
+                        <div class="btn pull-left" style="cursor:default;padding:3px;">
+                            <input id="all-select" type="checkbox" class="uniform">
+                        </div>
+                        <div class="btn-group dropdown-inverse pull-left">
+                            <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-caret-down"></i>
+                            </button>
+                            <ul class="dropdown-menu" style="min-width:60px; margin-left:-37px">
+                                <li class="disabled"><a href="#">전체 선택</a></li>
+                                <li><a href="#" id="select-none">선택 안함</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group dropdown-inverse margin-left pull-left">
+                            <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                더보기&nbsp;&nbsp;<i class="icon-caret-down"></i>
+                            </button>
+                            <ul class="dropdown-menu pull-right">
+                                <li class="disabled"><a href="#">그룹 지정</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">활성화</a></li>
+                                <li><a href="#">비활성화</a></li>
+                            </ul>
+                        </div>
+                        <span id="select-message" class="btn-text pull-left hide"><span id="select-num"></span>개 선택</span>
+                        <div class="btn-group dropdown-inverse pull-right">
+                            <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-cogs"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="${rc.contextPath}"><i class="eicon-user-add"></i> 사용자 추가</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-submenu pull-left">
+                                    <a tabindex="-1">표시 밀도</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a onclick="$('#root_table').removeClass('table-condensed')">넓게</a></li>
+                                        <li><a onclick="$('#root_table').addClass('table-condensed')">좁게</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu pull-left">
+                                    <a tabindex="-1">페이지 당 표시 개수</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">20개</a></li>
+                                        <li><a href="#">50개</a></li>
+                                        <li><a href="#">100개</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="btn-group dropdown-inverse margin-left pull-left">
-                        <button class="btn dropdown-toggle" data-toggle="dropdown">
-                            더보기&nbsp;&nbsp;<i class="icon-caret-down"></i>
-                        </button>
-                        <ul class="dropdown-menu pull-right">
-                            <li class="disabled"><a href="#">그룹 지정</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">활성화</a></li>
-                            <li><a href="#">비활성화</a></li>
-                        </ul>
-                    </div>
-                    <span id="select-message" class="btn-text pull-left hide"><span id="select-num"></span>개 선택</span>
-                    <div class="btn-group dropdown-inverse pull-right">
-                        <button class="btn dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-cogs"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><i class="eicon-user-add"></i> 사용자 추가</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-submenu pull-left">
-                                <a tabindex="-1">표시 밀도</a>
-                                <ul class="dropdown-menu">
-                                    <li><a onclick="$('#root_table').removeClass('table-condensed')">넓게</a></li>
-                                    <li><a onclick="$('#root_table').addClass('table-condensed')">좁게</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu pull-left">
-                                <a tabindex="-1">페이지 당 표시 개수</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">20개</a></li>
-                                    <li><a href="#">50개</a></li>
-                                    <li><a href="#">100개</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-        </section>
+            </section>
+            </div><!-- affix-content -->
         </div><!-- affix-inner -->
         </div><!-- affix -->
         <section class="widget widget-bottom" style="padding-top:0">
@@ -106,7 +108,7 @@
                 <#else>
                 <tr class="tr-striped">
                 </#if>
-                <td><input type="checkbox" class="rowcheck uniform"></td>
+                <td><input type="checkbox" class="rowcheck uniform" data-row-index="${user_index}"></td>
                 <td><a href="#">${user.username}</a></td>
                 <td class="hidden-phone">${user.userProfile.firstName?if_exists} ${user.userProfile.lastName?if_exists}</td>
                 <td class="hidden-phone">${user.userProfile.email?if_exists}</td>
@@ -160,7 +162,6 @@
 <!-- basic application js-->
 <script src="${rc.contextPath}/static/js/app.js"></script>
 <script src="${rc.contextPath}/static/js/settings.js"></script>
-
 <script src="${rc.contextPath}/static/lib/uniform/js/jquery.uniform.js"></script>
 <script type="text/javascript">
     $(function(){
@@ -168,55 +169,50 @@
         $(".selectpicker").selectpicker();
     });
 </script>
+<style type="text/css">
+    .tr-lastcheck {
+        border-left:2px solid black !important;
+    }
+</style>
 <script type="text/javascript">
     $(function(){
-        var IS_SHIFT_PRESSED = false;
-        $(document).keydown(function(event){
-            if (event.which == 16) {
-                IS_SHIFT_PRESSED = true;
+        var selectedClass = 'info';
+
+        $('input.rowcheck[type=checkbox]').click(function (e) {
+            if (e.shiftKey) {
+                var current = $(this).attr('data-row-index');
+                var last = $('.tr-lastcheck input.rowcheck[type=checkbox]').attr('data-row-index');
+                $('#debug').text('shiftkey!' + last);
+                var start = Math.min(current, last);
+                var end = Math.max(current, last);
+                var isChecked = $(this).is(':checked');
+
+                console.log(!isChecked);
+                $('input.rowcheck[type=checkbox]').each(function(index) {
+                    if (start <= index && index <= end) {
+                        $(this).prop('checked', isChecked).trigger('change');
+                    }
+                });
             }
+            $('.tr-lastcheck').removeClass('tr-lastcheck');
+            $(this).closest('tr').addClass('tr-lastcheck');
         });
 
-        $(document).keyup(function(event){
-            if (event.which ==16) {
-                IS_SHIFT_PRESSED = false;
-            }
-        });
+        $('input.rowcheck[type=checkbox]').change(function () {
+            $(this).closest('tr').toggleClass(selectedClass, $(this).is(':checked'));
 
-        $('input.rowcheck[type=checkbox]').mousedown(function(){
-
-        });
-
-        $('input.rowcheck[type=checkbox]').change(function(event){
-            var clsname = 'info';
-            if ($(this).is(':checked')) {
-                $(this).closest('tr').addClass(clsname);
-            } else {
-                $(this).closest('tr').removeClass(clsname);
-            }
-            if (!$('input.rowcheck[type=checkbox]').is(':not(:checked)')) {
-               $('#all-select').prop('checked',true);
-            } else {
-                $('#all-select').prop('checked',false);
-            }
-            $.uniform.update();
+            var isAllChecked = !$('input.rowcheck[type=checkbox]').is(':not(:checked)');
+            $('#all-select').prop('checked', isAllChecked);
 
             var num = $('input.rowcheck[type=checkbox]:checked').length;
             $('#select-num').text(num);
-            if (num>0) {
-                $('#select-message').show();
-            }
-            else {
-                $('#select-message').hide();
-            }
+            $('#select-message').toggle(num > 0);
+
+            $.uniform.update();
         });
 
-        $('#all-select').change(function(event){
-            if($(this).is(':checked')) {
-                $('input.rowcheck[type=checkbox]').prop('checked',true).trigger('change');
-            } else {
-                $('td input.uniform[type=checkbox]').prop('checked',false).trigger('change');
-            }
+        $('#all-select').change(function () {
+            $('input.rowcheck[type=checkbox]').prop('checked', $(this).is(':checked')).trigger('change');
             $.uniform.update();
         });
 

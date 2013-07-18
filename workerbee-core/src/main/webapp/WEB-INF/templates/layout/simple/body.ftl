@@ -37,11 +37,12 @@
             </div>
         </section>
 </div>
-<!-- basic application js-->
+<!-- End of body -->
+<#include "footer.ftl">
+
+    <!-- basic application js-->
 <script src="${rc.contextPath}/static/js/app.js"></script>
 <script src="${rc.contextPath}/static/js/settings.js"></script>
 
-<!-- End of body -->
-<#include "footer.ftl">
 
 <#include "template.ftl">

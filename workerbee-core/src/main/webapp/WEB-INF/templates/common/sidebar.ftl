@@ -38,6 +38,7 @@
                 <li><a href="${rc.contextPath}/error/404">404 에러</a></li>
             </ul>
         </li>
+        <li><div id="debug">debug</div></li>
         <li class="visible-phone">
             <a href="${rc.contextPath}/j_spring_security_logout"><i class="icon-signout"></i> <span class="name">로그 아웃</span></a>
         </li>

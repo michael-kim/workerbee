@@ -10888,7 +10888,6 @@ input.parsley-error {
 
 /*content except for header*/
 .content {
-  padding: 25px 2.5641%;
   padding: 25px 2.5%;
   -webkit-transition: margin-top 0.35s ease;
   -moz-transition: margin-top 0.35s ease;
@@ -12743,7 +12742,8 @@ input.input-padding-increased[type=search], input.input-padding-increased.search
     left:0;
     z-index:10000;
     width:100%;
-    margin:0;padding:0;
+    margin:0;
+    padding:0;
 }
 
 .wrap .affix.affix-bg {
@@ -12754,7 +12754,11 @@ input.input-padding-increased[type=search], input.input-padding-increased.search
 .wrap .affix .affix-inner {
     margin-left:185px;
     margin-right:0;
-    padding:0 2.260%;
+    padding:0;
+}
+
+.wrap .affix .affix-inner .affix-content {
+    padding:0 2.5%;
 }
 
 .sidebar-hidden .wrap .affix .affix-inner {
