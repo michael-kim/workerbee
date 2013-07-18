@@ -13463,3 +13463,11 @@ input.input-padding-increased[type=search], input.input-padding-increased.search
   }
 }
 
+
+/***************************/
+/*         rowcheck        */
+/***************************/
+
+.tr-lastcheck {
+    border-left:2px solid #eee;
+}

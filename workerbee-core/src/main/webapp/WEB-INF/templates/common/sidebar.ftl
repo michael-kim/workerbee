@@ -6,22 +6,16 @@
         </li>
         <li class="accordion-group">
             <a class="accordion-toggle collapsed" data-toggle="collapse"
-               data-parent="#side-nav" href="#hadoop-collapse"><i class="icon-sitemap"></i> <span class="name">하둡</span></a>
-            <ul id="hadoop-collapse" class="accordion-body collapse">
-                <li><a href="#">Settings</a></li>
-            </ul>
-        </li>
-        <li class="accordion-group">
-            <a class="accordion-toggle collapsed" data-toggle="collapse"
-               data-parent="#side-nav" href="#side-item-hive"><i class="icon-edit"></i> <span class="name">하이브</span></a>
-            <ul id="side-item-hive" class="accordion-body collapse">
-                <li><a href="#">Settings</a></li>
-            </ul>
-        </li>
-        <li class="accordion-group">
-            <a class="accordion-toggle collapsed" data-toggle="collapse"
-               data-parent="#side-nav" href="#side-item-admin"><i class="icon-edit"></i> <span class="name">관리자</span></a>
+               data-parent="#side-nav" href="#side-item-admin"><i class="icon-edit"></i> <span class="name">하둡</span></a>
             <ul id="side-item-admin" class="accordion-body collapse">
+                <li><a href="${rc.contextPath}/services/hadoop/jobtracker">잡 트레커</a></li>
+                <li><a href="${rc.contextPath}/services/hadoop/jobs">잡들</a></li>
+            </ul>
+        </li>
+        <li class="accordion-group">
+            <a class="accordion-toggle collapsed" data-toggle="collapse"
+               data-parent="#side-nav" href="#side-item-hadoop"><i class="icon-edit"></i> <span class="name">관리자</span></a>
+            <ul id="side-item-hadoop" class="accordion-body collapse">
                 <li><a href="${rc.contextPath}/users/list">사용자 목록</a></li>
                 <li><a href="${rc.contextPath}/users/add">사용자 추가</a></li>
                 <li><a href="${rc.contextPath}/users/edit">사용자 정보 수정</a></li>
@@ -38,7 +32,6 @@
                 <li><a href="${rc.contextPath}/error/404">404 에러</a></li>
             </ul>
         </li>
-        <li><div id="debug">debug</div></li>
         <li class="visible-phone">
             <a href="${rc.contextPath}/j_spring_security_logout"><i class="icon-signout"></i> <span class="name">로그 아웃</span></a>
         </li>

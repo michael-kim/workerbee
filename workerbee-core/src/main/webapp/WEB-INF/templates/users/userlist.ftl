@@ -57,13 +57,13 @@
                                 <li><a href="#">비활성화</a></li>
                             </ul>
                         </div>
-                        <span id="select-message" class="btn-text pull-left hide"><span id="select-num"></span>개 선택</span>
+                        <span id="select-message" class="btn-text pull-left hide"><span id="select-num"></span>개 선택 됨</span>
                         <div class="btn-group dropdown-inverse pull-right">
                             <button class="btn dropdown-toggle" data-toggle="dropdown">
                                 <i class="icon-cogs"></i>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="${rc.contextPath}"><i class="eicon-user-add"></i> 사용자 추가</a></li>
+                                <li><a href="${rc.contextPath}/users/add"><i class="eicon-user-add"></i> 사용자 추가</a></li>
                                 <li class="divider"></li>
                                 <li class="dropdown-submenu pull-left">
                                     <a tabindex="-1">표시 밀도</a>
@@ -162,18 +162,12 @@
 <!-- basic application js-->
 <script src="${rc.contextPath}/static/js/app.js"></script>
 <script src="${rc.contextPath}/static/js/settings.js"></script>
-<script src="${rc.contextPath}/static/lib/uniform/js/jquery.uniform.js"></script>
 <script type="text/javascript">
     $(function(){
         $("input.uniform").uniform();
         $(".selectpicker").selectpicker();
     });
 </script>
-<style type="text/css">
-    .tr-lastcheck {
-        border-left:2px solid black !important;
-    }
-</style>
 <script type="text/javascript">
     $(function(){
         var selectedClass = 'info';
@@ -182,12 +176,9 @@
             if (e.shiftKey) {
                 var current = $(this).attr('data-row-index');
                 var last = $('.tr-lastcheck input.rowcheck[type=checkbox]').attr('data-row-index');
-                $('#debug').text('shiftkey!' + last);
                 var start = Math.min(current, last);
                 var end = Math.max(current, last);
                 var isChecked = $(this).is(':checked');
-
-                console.log(!isChecked);
                 $('input.rowcheck[type=checkbox]').each(function(index) {
                     if (start <= index && index <= end) {
                         $(this).prop('checked', isChecked).trigger('change');
