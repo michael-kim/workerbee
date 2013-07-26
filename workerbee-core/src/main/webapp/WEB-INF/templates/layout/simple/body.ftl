@@ -1,3 +1,4 @@
+<#assign sidebar="dashboard">
 <#include "header.ftl">
 
 <!-- Start of body -->
@@ -39,10 +40,5 @@
 </div>
 <!-- End of body -->
 <#include "footer.ftl">
-
-    <!-- basic application js-->
-<script src="${rc.contextPath}/static/js/app.js"></script>
-<script src="${rc.contextPath}/static/js/settings.js"></script>
-
 
 <#include "template.ftl">

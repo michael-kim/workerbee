@@ -1,3 +1,4 @@
+<#assign sidebar="pages", subbar="test">
 <#include "./layout/simple/header.ftl">
 
 <!-- Start of body -->
@@ -539,10 +540,6 @@
 
 <!-- End of body -->
 <#include "./layout/simple/footer.ftl">
-
-<!-- basic application js-->
-<script src="${rc.contextPath}/static/js/app.js"></script>
-<script src="${rc.contextPath}/static/js/settings.js"></script>
 
 <script src="${rc.contextPath}/static/lib/uniform/js/jquery.uniform.js"></script>
 <script type="text/javascript">

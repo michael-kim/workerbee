@@ -1,3 +1,4 @@
+<#assign sidebar="pages", subbar="userlist">
 <#include "../layout/simple/header.ftl">
 
 <!-- Start of body -->
@@ -20,7 +21,7 @@
                     <div class="clearfix">
                         <div class="input-append pull-left">
                             <input type="search" id="search-input" >
-                            <select class="selectpicker dropdown-inverse" data-style="btn-default">
+                            <select class="selectpicker dropdown-inverse" data-style="btn-default" data-width="auto">
                                 <option>모든 필드</option>
                                 <option>아이디</option>
                                 <option>이름</option>
@@ -34,8 +35,10 @@
                         <a class="btn">필터</a>
                     </div>
                     <div class="clearfix">
-                        <div class="btn pull-left" style="cursor:default;padding:3px;">
-                            <input id="all-select" type="checkbox" class="uniform">
+                        <div class="btn pull-left no-padding">
+                            <div class="ckbox">
+                                <input id="all-select" type="checkbox"><label for="all-select"></label>
+                            </div>
                         </div>
                         <div class="btn-group dropdown-inverse pull-left">
                             <button class="btn dropdown-toggle" data-toggle="dropdown">
@@ -108,7 +111,12 @@
                 <#else>
                 <tr class="tr-striped">
                 </#if>
-                <td><input type="checkbox" class="rowcheck uniform" data-row-index="${user_index}"></td>
+                <td>
+                    <div class="ckbox ckbox-mini">
+                        <input id="ckbox-${user_index}" type="checkbox" class="rowcheck" data-row-index="${user_index}">
+                        <label for="ckbox-${user_index}"></label>
+                    </div>
+                </td>
                 <td><a href="#">${user.username}</a></td>
                 <td class="hidden-phone">${user.userProfile.firstName?if_exists} ${user.userProfile.lastName?if_exists}</td>
                 <td class="hidden-phone">${user.userProfile.email?if_exists}</td>
@@ -135,19 +143,20 @@
             </#list>
             </tbody>
         </table>
-        <div class="pagination">
+        <div class="clearfix">
             <span class="btn-text pull-left">100개 중 1-23 </span>
-            <ul class="pull-right">
-                <li><a href="#">Prev</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">Next</a></li>
-            </ul>
+            <div class="pagination pull-right no-margin">
+                <ul>
+                    <li><a href="#">Prev</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">Next</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="float-clear"></div>
     </section>
     </div>
 </div>
@@ -156,15 +165,10 @@
 <#include "../layout/simple/footer.ftl">
 
 
-<!-- bootstrap plugin -->
-<script src="${rc.contextPath}/static/lib/bootstrap-select/bootstrap-select.js"></script>
 
-<!-- basic application js-->
-<script src="${rc.contextPath}/static/js/app.js"></script>
-<script src="${rc.contextPath}/static/js/settings.js"></script>
+
 <script type="text/javascript">
     $(function(){
-        $("input.uniform").uniform();
         $(".selectpicker").selectpicker();
     });
 </script>
@@ -198,13 +202,10 @@
             var num = $('input.rowcheck[type=checkbox]:checked').length;
             $('#select-num').text(num);
             $('#select-message').toggle(num > 0);
-
-            $.uniform.update();
         });
 
         $('#all-select').change(function () {
             $('input.rowcheck[type=checkbox]').prop('checked', $(this).is(':checked')).trigger('change');
-            $.uniform.update();
         });
 
     });

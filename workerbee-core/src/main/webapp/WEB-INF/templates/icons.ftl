@@ -1,3 +1,4 @@
+<#assign sidebar="pages", subbar="icon">
 <#include "./layout/simple/header.ftl">
 
 <!-- Start of body -->

@@ -2,6 +2,12 @@
 <header class="page-header">
     <div class="navbar">
         <div class="navbar-inner">
+            <ul class="nav pull-left">
+                <li class="active"><a class="text" href="#"><i class="icon-laptop"></i><span>Dashbaord</span></a></li>
+                <li><a class="text" href="#"><i class="icon-tasks"></i><span>Services</span></a></li>
+                <li><a class="text" href="#"><i class="icon-sitemap"></i><span>Hosts</span></a></li>
+                <li><a class="text" href="#"><i class="icon-wrench"></i><span>Admin</span></a></li>
+            </ul>
             <ul class="nav pull-right">
                 <li class="dropdown">
                     <a href="#" title="Messages" id="messages"

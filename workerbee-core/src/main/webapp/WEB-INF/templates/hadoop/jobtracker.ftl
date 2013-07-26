@@ -1,3 +1,4 @@
+<#assign sidebar="hadoop", subbar="jobtracker">
 <#include "../layout/simple/header.ftl">
 
 <!-- Start of body -->
@@ -84,8 +85,8 @@
                     <tr>
                         <td>0</td>
                         <td>0</td>
-                        <td>0</td>
                         <td>1</td>
+                        <td><a href="${rc.contextPath}/services/hadoop/machines">1</a></td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
@@ -93,9 +94,9 @@
                         <td>0</td>
                         <td>2</td>
                         <td>4.00</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
+                        <td><a href="#">0</a></td>
+                        <td><a href="#">0</a></td>
+                        <td><a href="#">0</a></td>
                     </tr>
                     </tbody>
                 </table>
@@ -106,10 +107,5 @@
 
     <!-- End of body -->
 <#include "../layout/simple/footer.ftl">
-
-    <!-- basic application js-->
-    <script src="${rc.contextPath}/static/js/app.js"></script>
-    <script src="${rc.contextPath}/static/js/settings.js"></script>
-
 
 <#include "../layout/simple/template.ftl">
