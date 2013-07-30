@@ -7,6 +7,14 @@
                 <li><a class="text" href="#"><i class="icon-tasks"></i><span>Services</span></a></li>
                 <li><a class="text" href="#"><i class="icon-sitemap"></i><span>Hosts</span></a></li>
                 <li><a class="text" href="#"><i class="icon-wrench"></i><span>Admin</span></a></li>
+                <li class="dropdown">
+                    <a class="text" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-group"></i><span>Test</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Test</a></li>
+                        <li class="active"><a href="#">Test</a></li>
+                        <li><a href="#">Test</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav pull-right">
                 <li class="dropdown">

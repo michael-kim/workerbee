@@ -26,7 +26,7 @@ public abstract class AbstractConf {
     protected abstract void setupLogging();
 
     private void initialize() {
-        logger.info("Initialization Started ---");
+        logger.info("--- Initialization Started ---");
         Configuration conf = new Configuration(false);
         conf.addResource(getSiteURL());
         

@@ -1,0 +1,170 @@
+
+/*****************************/
+/*     margin & padding      */
+/*****************************/
+
+@margin-size: 15px;
+@padding-size: 15px;
+
+.no-margin {
+  margin:0 !important;
+}
+
+.no-padding {
+  padding:0 !important;
+}
+
+.margin-top {
+  margin-top: @margin-size;
+}
+
+.margin-bottom {
+  margin-bottom: @margin-size;
+}
+
+.margin {
+  margin:@padding-size;
+}
+
+.padding {
+  padding:@padding-size;
+}
+
+
+/*****************************/
+/*          color            */
+/*****************************/
+
+.color-base { color:@base;}
+.color-firm { color:@firm;}
+.color-gray { color:@gray;}
+.color-lightgray {color:@lightgray ;}
+.color-success {color:@success;}
+.color-danger {color:@danger;}
+.color-warning {color:@warning;}
+.color-info {color:@info;}
+.color-link {color:@link-color;}
+.color-link-hover {color:@link-hover-color;}
+
+.c-turquoise{    color:@turquoise;}
+.c-green-sea{     color:@green-sea;}
+.c-emerland{      color:@emerland;}
+.c-nephritis{     color:@nephritis;}
+.c-peter-river{   color:@peter-river;}
+.c-belize-hole{   color:@belize-hole;}
+.c-amethyst{      color:@amethyst;}
+.c-wisteria{      color:@wisteria;}
+.c-wet-asphalt{   color:@wet-asphalt;}
+.c-midnight-blue{ color:@midnight-blue;}
+.c-sun-flower{    color:@sun-flower;}
+.c-orange{        color:@orange;}
+.c-carrot{        color:@carrot;}
+.c-pumpkin{       color:@pumpkin;}
+.c-alizarin{      color:@alizarin;}
+.c-pomegranate{   color:@pomegranate;}
+.c-clouds{        color:@clouds;}
+.c-silver{        color:@silver;}
+.c-concrete{      color:@concrete;}
+.c-asbestos{      color:@asbestos;}
+
+.bg-turquoise {    background-color:@turquoise;}
+.bg-green-sea{     background-color:@green-sea;}
+.bg-emerland{      background-color:@emerland;}
+.bg-nephritis{     background-color:@nephritis;}
+.bg-peter-river{   background-color:@peter-river;}
+.bg-belize-hole{   background-color:@belize-hole;}
+.bg-amethyst{      background-color:@amethyst;}
+.bg-wisteria{      background-color:@wisteria;}
+.bg-wet-asphalt{   background-color:@wet-asphalt;}
+.bg-midnight-blue{ background-color:@midnight-blue;}
+.bg-sun-flower{    background-color:@sun-flower;}
+.bg-orange{        background-color:@orange;}
+.bg-carrot{        background-color:@carrot;}
+.bg-pumpkin{       background-color:@pumpkin;}
+.bg-alizarin{      background-color:@alizarin;}
+.bg-pomegranate{   background-color:@pomegranate;}
+.bg-clouds{        background-color:@clouds;}
+.bg-silver{        background-color:@silver;}
+.bg-concrete{      background-color:@concrete;}
+.bg-asbestos{      background-color:@asbestos;}
+
+
+/*****************************/
+/*          form            */
+/*****************************/
+
+.input-fit
+{
+  display: block;
+  width: 100%;
+  min-height: 41px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.small.input-fit {
+  min-height:34px;
+}
+
+.form-actions .btn {
+  margin-right:8px;
+}
+
+/*****************************/
+/*        tip-block          */
+/*****************************/
+
+.form-horizontal .tip-block {
+  margin-bottom: 0;
+}
+
+.form-horizontal input + .tip-block,
+.form-horizontal select + .tip-block,
+.form-horizontal textarea + .tip-block,
+.form-horizontal .uneditable-input + .tip-block,
+.form-horizontal .input-prepend + .tip-block,
+.form-horizontal .input-append + .tip-block {
+  margin-top: 10px;
+}
+
+.tip-block {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/*****************************/
+/*        preload            */
+/*****************************/
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+/*****************************/
+/*        caret              */
+/*****************************/
+a.left-caret:before,
+a.right-caret:after {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+  *margin-right: .3em;
+  display: inline-block;
+  speak: none;
+}
+
+a.left-caret:before {
+  content: "\f0d9";
+  margin-right:5px;
+}
+a.right-caret:after {
+  float:right;
+  content: "\f0da";
+  margin-left:5px;
+}

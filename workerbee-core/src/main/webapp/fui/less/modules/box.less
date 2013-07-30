@@ -1,0 +1,94 @@
+
+//
+// Box
+// --------------------------------------------------
+
+// Base styles
+.box {
+  color: @base;
+  padding: 20px;
+  margin-bottom:15px;
+  text-shadow: none;
+  background-color: mix(@base, @alert-bg, 5%);
+  border-color:mix(@base, @alert-border, 5%);
+  border-width:0;
+  font-size: 16px;
+  line-height: @base-line-height * 1.25em;
+  h3 {
+    font-size: @base-font-size * 1.714;
+  }
+
+  p {
+    font-size: @base-font-size * 1.143;
+    line-height: @base-line-height * 1.32;
+  }
+
+  .close {
+    position: relative;
+    top: 3px;
+    right: -31px;
+    line-height: 18px;
+    font-size: 18px;
+    color: @base;
+  }
+
+  .btn {
+    margin-right: 15px;
+  }
+
+  @media (max-width: 480px) {
+    & {
+      .btn {
+        display: block;
+        min-width: auto;
+        margin-bottom: 10px;
+        margin-right: -15px;
+      }
+    }
+  }
+}
+
+.box-border {
+  border-width:2px;
+  border-style:solid;
+}
+
+.box-radius {
+  .border-radius(6px);
+}
+
+.box-all {
+  .box;
+  .box-border;
+  .box-radius;
+}
+
+// Alternate styles
+.box-green {
+  background-color: mix(@firm, @alert-bg, 5%);
+  border-color: mix(@firm, @alert-border, 5%);
+
+  background-color: mix(@link-color, @alert-bg, 8%);
+  border-color: mix(@link-color, @alert-border, 8%);
+}
+
+.box-blue {
+   background-color: mix(@info, @alert-bg, 15%);
+   border-color: mix(@info, @alert-border, 15%);
+ }
+
+.box-yellow {
+  background-color: mix(@warning, @alert-bg, 5%);
+  border-color: mix(@warning, @alert-border, 5%);
+}
+
+.box-red {
+  background-color: mix(@danger, @alert-bg, 5%);
+  border-color: mix(@danger, @alert-border, 5%);
+
+}
+
+.box-gray {
+  background-color: mix(@gray, @alert-bg, 10%);
+  border-color: mix(@gray, @alert-border, 10%);
+}

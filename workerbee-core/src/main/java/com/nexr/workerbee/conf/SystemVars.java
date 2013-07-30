@@ -11,7 +11,7 @@ public class SystemVars {
   public static final String WORKERBEE_CONF_FILE;
   public static final String WORKERBEE_LOG_DIR;
   public static final String WORKERBEE_LOG4J_FILE;
-  public static final String WORKERBEE_TMPDIR;
+  public static final String WORKERBEE_SCRATCH;
 
   static {
     // following property can be replaced with System.getProperty() instead of System.getenv();
@@ -30,8 +30,8 @@ public class SystemVars {
     String log4jFile = System.getenv("WORKERBEE_LOG4J_FILE");
     WORKERBEE_LOG4J_FILE = (log4jFile != null) ? log4jFile : "workerbee-log4j.xml";
 
-    String tmpDir = System.getenv("WORKERBEE_TMPDIR");
-    WORKERBEE_TMPDIR = (tmpDir != null) ? tmpDir : Utilities.concatPath(WORKERBEE_HOME, "tmp");
+    String tmpDir = System.getenv("WORKERBEE_SCRATCH");
+    WORKERBEE_SCRATCH = (tmpDir != null) ? tmpDir : Utilities.concatPath(WORKERBEE_HOME, "scratch");
   }
 
   private SystemVars() {
@@ -45,7 +45,6 @@ public class SystemVars {
       Assert.notNull(WORKERBEE_CONF_FILE, "WORKERBEE_CONF_FILE is required.");
       Assert.notNull(WORKERBEE_CONF_DIR, "WORKERBEE_CONF_DIR is required.");
 
-      //Assert.notNull(WORKERBEE_TMPDIR, "WORKERBEE_TMPDIR is required.");
     } catch (Exception e) {
       System.out.println(e.getMessage());
       throw new RuntimeException(e);

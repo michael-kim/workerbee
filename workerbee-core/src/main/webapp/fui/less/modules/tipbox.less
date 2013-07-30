@@ -1,0 +1,221 @@
+//
+// tipboxs
+// --------------------------------------------------
+
+@tipboxBackground:       #fff;
+@tipboxArrowWidth:       10px;
+@tipboxArrowColor:       #fff;
+@tipboxTitleBackground:  darken(@tipboxBackground, 3%);
+
+// Special enhancement for tipboxs
+@tipboxArrowOuterWidth:  @tipboxArrowWidth + 1;
+@tipboxArrowOuterColor:  rgba(0,0,0,.25);
+
+//
+// tipboxs
+// --------------------------------------------------
+
+
+.tipbox {
+  display: block;
+  margin: 0 13px 0 -3px;
+  position: relative;
+  width: auto;
+
+  /*
+  top: 0;
+  left: 0;*/
+  padding: 1px;
+  text-align: left; // Reset given new insertion method
+  background-color: @tipboxBackground;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0,0,0,.2);
+  .border-radius(6px);
+  .box-shadow(0 5px 10px rgba(0,0,0,.2));
+
+  // Overrides for proper insertion
+  white-space: normal;
+
+  // Offset the tipbox to account for the tipbox arrow
+  &.top     { margin-top: -15px; }
+  &.right   { margin-left: 15px; }
+  &.bottom  { margin-top: 15px; }
+  &.left    { margin-left: -15px; }
+}
+
+.tipbox-title {
+  margin: 0; // reset heading margin
+  padding: 8px 14px;
+
+  font-size: @base-font-size * 1.071;
+  font-weight: 700;
+  line-height: @base-line-height * 1.071;
+
+  background-color: @tipboxTitleBackground;
+  border-bottom: 1px solid darken(@tipboxTitleBackground, 5%);
+  .border-radius(5px 5px 0 0);
+
+  &:empty {
+    display: none;
+  }
+}
+
+.tipbox-content {
+  padding: 9px 14px;
+
+  p {
+    font-size: @base-font-size;
+    line-height: @base-line-height;
+  }
+}
+
+// Arrows
+//
+// .arrow is outer, .arrow:after is inner
+
+.tipbox .arrow,
+.tipbox .arrow:after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+.tipbox .arrow {
+  border-width: @tipboxArrowOuterWidth;
+}
+.tipbox .arrow:after {
+  border-width: @tipboxArrowWidth;
+  content: "";
+}
+
+.tipbox,
+.tipbox.tipbox-flat {
+  &.top .arrow {
+    left: 50%;
+    margin-left: -@tipboxArrowOuterWidth;
+    border-bottom-width: 0;
+    border-top-color: #999; // IE8 fallback
+    border-top-color: @tipboxArrowOuterColor;
+    bottom: -@tipboxArrowOuterWidth;
+    &:after {
+      bottom: 1px;
+      margin-left: -@tipboxArrowWidth;
+      border-bottom-width: 0;
+      border-top-color: @tipboxArrowColor;
+    }
+  }
+  &.right .arrow {
+    top: 50%;
+    left: -@tipboxArrowOuterWidth;
+    margin-top: -@tipboxArrowOuterWidth;
+    border-left-width: 0;
+    border-right-color: #999; // IE8 fallback
+    border-right-color: @tipboxArrowOuterColor;
+    &:after {
+      left: 1px;
+      bottom: -@tipboxArrowWidth;
+      border-left-width: 0;
+      border-right-color: @tipboxArrowColor;
+    }
+  }
+  &.bottom .arrow {
+    left: 50%;
+    margin-left: -@tipboxArrowOuterWidth;
+    border-top-width: 0;
+    border-bottom-color: #999; // IE8 fallback
+    border-bottom-color: @tipboxArrowOuterColor;
+    top: -@tipboxArrowOuterWidth;
+    &:after {
+      top: 1px;
+      margin-left: -@tipboxArrowWidth;
+      border-top-width: 0;
+      border-bottom-color: @tipboxArrowColor;
+    }
+  }
+
+  &.left .arrow {
+    top: 50%;
+    right: -@tipboxArrowOuterWidth;
+    margin-top: -@tipboxArrowOuterWidth;
+    border-right-width: 0;
+    border-left-color: #999; // IE8 fallback
+    border-left-color: @tipboxArrowOuterColor;
+    &:after {
+      right: 1px;
+      border-right-width: 0;
+      border-left-color: @tipboxArrowColor;
+      bottom: -@tipboxArrowWidth;
+    }
+  }
+}
+
+
+//
+// tipbox flat
+// --------------------------------------------------
+
+.tipbox.tipbox-flat {
+  background-color: mix(@base, white, 9%);
+  border: none;
+  padding: 0;
+  .box-shadow(none);
+
+  &.right .arrow {
+    border-right-color: mix(@base, white, 9%);
+    left: -9px;
+    margin-top: -9px;
+  }
+  &.left .arrow {
+    border-left-color: mix(@base, white, 9%);
+    right: -9px;
+    margin-top: -9px;
+  }
+  &.bottom .arrow,
+  &.bottom .arrow.arrow-inverse {
+    border-bottom-color: mix(@base, white, 9%);
+    margin-right: -9px;
+    top: -9px;
+  }
+
+  &.bottom .arrow.arrow-inverse {
+    border-bottom-color: mix(@base, white, 33%);
+  }
+
+  &.top .arrow {
+    border-top-color: mix(@base, white, 9%);
+    bottom: -9px;
+    margin-left: -9px;
+  }
+  .arrow {
+    border-width: 9px;
+
+    &:after {
+      display: none;
+    }
+  }
+}
+
+// tipbox Title
+.tipbox-flat .tipbox-title {
+  background-color: mix(@base, white, 33%);
+  color: @inverse;
+  font-size: @base-font-size * 1.071;
+  font-weight: 700;
+  padding: 10px 20px 11px;
+}
+
+// tipbox Content
+.tipbox-flat .tipbox-content {
+  padding: 9px 20px 1px;
+
+  p {
+    font-size: @base-font-size;
+    line-height: @base-line-height;
+  }
+}
+
