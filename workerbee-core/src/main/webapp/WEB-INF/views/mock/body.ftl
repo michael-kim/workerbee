@@ -13,16 +13,7 @@
                             <ul>
                                 <li><a href="#">하둡</a></li>
                                 <li><a href="#">하이브</a></li>
-                                <li><a href="#" class="left-caret">주키퍼</a></li>
-                                <li>
-                                    <a href="#" class="right-caret">HBase</a>
-                                    <ul>
-                                        <li><a href="#">사용자</a></li>
-                                        <li><a href="#">사용자</a></li>
-                                        <li><a href="#">사용자</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                <li><a href="#">주키퍼</a></li>
                             </ul>
                         </li>
                         <li><a href="#">호스트</a></li>
@@ -30,14 +21,6 @@
                             <a href="#">관리</a>
                             <ul class="pull-right">
                                 <li><a href="#">사용자</a></li>
-                                <li><a href="#">사용자</a></li>
-                                <li><a href="#">사용자</a>
-                                    <ul>
-                                        <li><a href="#">Item1</a></li>
-                                        <li><a href="#">Item1</a></li>
-                                        <li><a href="#">Item1</a></li>
-                                    </ul>
-                                </li>
                             </ul>
                         </li>
                     </ul>
