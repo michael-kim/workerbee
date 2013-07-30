@@ -49,10 +49,20 @@
         </div>
     </div>
 </page-header>
-<div class="container">
-    <div class="row">
-        <div class="span12">
-            <i class="icon-caret-right"></i>      asdfasdfasdfasdfasd
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span3">
+            <ul class="nav nav-list nav-list-vivid">
+                <li class="active"><a href="#">Link<span class="nav-counter">40</span></a></li>
+                <li class="active"><a href="#">Link <span class="nav-counter">40</span></a></li>
+            </ul>
+            <ul class="nav nav-list nav-list-vivid">
+                <li><a href="#">Link <span class="nav-counter">40</span></a></li>
+                <li><a href="#">Link <span class="nav-counter">40</span></a></li>
+            </ul>
+        </div>
+
+        <div class="span9">
         </div>
     </div>
 </div>

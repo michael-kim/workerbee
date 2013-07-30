@@ -5422,6 +5422,14 @@ input.search-query {
 .nav-list-vivid > li > a:focus {
   color: #16a085;
 }
+.nav-list-vivid > li.active:first-child > a {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+.nav-list-vivid > li.active:last-child > a {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
 .nav-list-vivid .nav-header:first-child {
   padding-top: 10px;
 }
@@ -6865,7 +6873,6 @@ a.caret-right:after {
   font-style: normal;
   text-decoration: inherit;
   -webkit-font-smoothing: antialiased;
-  *margin-right: .3em;
   display: inline-block;
   speak: none;
 }
