@@ -6921,3 +6921,50 @@ a.caret-right:after {
 .border-black {
   border: 1px solid black;
 }
+/*****************************/
+/*       layout-fill         */
+/*****************************/
+@media (min-width: 768px) {
+  .container-fill .fixed {
+    width: 150px;
+    float: left;
+  }
+  .container-fill .fixed + .filler {
+    margin-left: 170px;
+    overflow: hidden;
+  }
+  .container-fill .fixed.w180 {
+    width: 180px;
+  }
+  .container-fill .fixed.w180 + .filler {
+    margin-left: 200px;
+  }
+  .container-fill .fixed.w200 {
+    width: 200px;
+  }
+  .container-fill .fixed.w200 + .filler {
+    margin-left: 220px;
+  }
+  .container-fill .fixed.w220 {
+    width: 220px;
+  }
+  .container-fill .fixed.w220 + .filler {
+    margin-left: 240px;
+  }
+  .container-fill {
+    position: relative;
+  }
+  .container-fill .filler:after {
+    background-color: inherit;
+    bottom: 0;
+    content: "";
+    height: auto;
+    left: 0;
+    margin: inherit;
+    right: 0;
+    position: absolute;
+    top: 0;
+    width: inherit;
+    z-index: -1;
+  }
+}

@@ -174,3 +174,65 @@ a.caret-right:after {
 .border-black {
   border:1px solid black;
 }
+
+
+/*****************************/
+/*       layout-fill         */
+/*****************************/
+
+@filler-margin:20px;
+
+@media(min-width:768px) {
+  .container-fill .fixed {
+    width: 150px;
+    float: left;
+  }
+
+  .container-fill .fixed + .filler {
+    margin-left: 150px + @filler-margin;
+    overflow:hidden;
+  }
+
+  // width 180px
+  .container-fill .fixed.w180 {
+    width: 180px;
+  }
+  .container-fill .fixed.w180 + .filler {
+    margin-left: 180px + @filler-margin;
+  }
+
+  // width 200px
+  .container-fill .fixed.w200 {
+    width: 200px;
+  }
+  .container-fill .fixed.w200 + .filler {
+    margin-left: 200px + @filler-margin;
+  }
+
+  // width 220px
+  .container-fill .fixed.w220 {
+    width: 220px;
+  }
+  .container-fill .fixed.w220 + .filler {
+    margin-left: 220px + @filler-margin;
+  }
+
+  .container-fill {
+    position: relative;
+  }
+
+  // note this CSS has changed and is no longer the same as below
+  .container-fill .filler:after{
+    background-color:inherit;
+    bottom: 0;
+    content: "";
+    height: auto;
+    left: 0;
+    margin:inherit;
+    right: 0;
+    position: absolute;
+    top: 0;
+    width: inherit;
+    z-index: -1;
+  }
+}
