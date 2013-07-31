@@ -54,9 +54,7 @@
         <div class="span3">
             <ul class="nav nav-list nav-list-vivid">
                 <li class="active"><a href="#">Link<span class="nav-counter">40</span></a></li>
-                <li class="active"><a href="#">Link <span class="nav-counter">40</span></a></li>
-            </ul>
-            <ul class="nav nav-list nav-list-vivid">
+                <li><a href="#">Link <span class="nav-counter">40</span></a></li>
                 <li><a href="#">Link <span class="nav-counter">40</span></a></li>
                 <li><a href="#">Link <span class="nav-counter">40</span></a></li>
             </ul>
