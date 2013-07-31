@@ -1266,6 +1266,11 @@ a.muted:focus {
   padding-left: 0;
   padding-right: 5px;
 }
+@media (max-width: 979px) {
+  .navbar .nav .pull-right {
+    float: none;
+  }
+}
 .navbar-unread,
 .navbar-new {
   font-family: 'Lato', sans-serif;
@@ -1549,12 +1554,8 @@ a.muted:focus {
   .navbar .brand {
     padding-left: 20px;
   }
-  .navbar .nav > li:hover > ul,
-  .navbar .nav > li.dropdown:hover > ul,
-  .navbar .nav > li:hover .dropdown-menu,
-  .navbar .nav > li.dropdown:hover .dropdown-menu {
-    height: auto;
-    margin-left: 30px;
+  .navbar .nav {
+    margin: 0;
   }
   .navbar .nav > li:hover > ul li:hover a,
   .navbar .nav > li.dropdown:hover > ul li:hover a,
@@ -1608,6 +1609,8 @@ a.muted:focus {
   .navbar .nav li.dropdown .dropdown-menu {
     background: none;
     margin-top: 0;
+    height: auto;
+    margin-left: 30px;
   }
   .navbar .nav li.dropdown .dropdown-menu li a {
     color: #34495e;
@@ -6886,4 +6889,10 @@ a.caret-right:after {
   float: right;
   content: "\f0da";
   margin-left: 5px;
+}
+/*****************************/
+/*        border              */
+/*****************************/
+.border-black {
+  border: 1px solid black;
 }
