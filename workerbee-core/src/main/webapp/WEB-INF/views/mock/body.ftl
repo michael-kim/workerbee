@@ -43,6 +43,19 @@
                         </li>
                     </ul> <!-- /nav -->
 
+                    <ul class="nav pull-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-gear icon-large navbar-hidden"></i><span class="navbar-visible">설정  <i class="icon-caret-down"></i></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#fakelink">Action</a></li>
+                                <li><a href="#fakelink">Another action</a></li>
+                                <li><a href="#fakelink">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#fakelink">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul> <!-- /nav -->
+
                     <form class="navbar-search form-search pull-right" action="">
                         <div class="input-append">
                             <input type="text" class="search-query span2" placeholder="Search">
