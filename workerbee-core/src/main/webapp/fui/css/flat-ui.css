@@ -1387,6 +1387,12 @@ a.muted:focus {
   right: 20px;
   left: auto;
 }
+.navbar .dropdown-submenu.pull-left {
+  right: 100%;
+  left: auto;
+  padding-left: 0;
+  padding-right: 5px;
+}
 .navbar.navbar-inverse .navbar-search {
   border-left: 2px solid #2c3e50;
   border-bottom: 2px solid #2c3e50;
@@ -1585,7 +1591,6 @@ a.muted:focus {
   .navbar .nav > li:hover .dropdown-menu li:hover a,
   .navbar .nav > li.dropdown:hover .dropdown-menu li:hover a {
     background-color: transparent;
-    color: #1abc9c;
   }
   .navbar .nav > li:hover > ul li:hover ul,
   .navbar .nav > li.dropdown:hover > ul li:hover ul,
@@ -4809,9 +4814,6 @@ input.search-query {
   display: none;
 }
 @media (max-width: 767px) {
-  .table {
-    display: none;
-  }
   .rwd-table {
     display: block;
   }

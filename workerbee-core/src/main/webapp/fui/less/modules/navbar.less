@@ -448,9 +448,16 @@
   }
 }
 
-.nav.pull-right li.dropdown .dropdown-menu:after{
+.nav.pull-right li.dropdown .dropdown-menu:after {
   right:20px;
   left:auto;
+}
+
+.navbar .dropdown-submenu.pull-left {
+  right:100%;
+  left:auto;
+  padding-left:0;
+  padding-right:5px;
 }
 
 // SEARCH BOX
@@ -653,7 +660,7 @@
             li:hover {
               a {
                 background-color: transparent;
-                color: @firm;
+                //color: @firm;
               }
               ul {
                 height: auto;

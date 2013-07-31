@@ -1,74 +1,6 @@
 <#include "../header.ftl">
-<page-header>
-    <div class="navbar">
-        <div class="navbar-inner">
-            <div class="container">
-                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-01">
-                </button>
-                <a href="#fakelink" class="brand">Workerbee</a>
-                <div class="nav-collapse collapse" id="nav-collapse-01">
-                    <ul class="nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">호스트 <i class="icon-caret-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#fakelink">Action</a></li>
-                                <li><a href="#fakelink">Another action</a></li>
-                                <li><a href="#fakelink">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#fakelink">Separated link</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">서비스 <i class="icon-caret-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#fakelink">Action</a></li>
-                                <li><a href="#fakelink">Another action</a></li>
-                                <li><a href="#fakelink">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#fakelink">Separated link</a></li>
-                            </ul>
-                        </li>
-                    </ul> <!-- /nav -->
+<#include "../navbar.ftl">
 
-                    <ul class="nav pull-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">관리 <i class="icon-caret-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#fakelink">Action</a></li>
-                                <li><a href="#fakelink">Another action</a></li>
-                                <li><a href="#fakelink">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#fakelink">Separated link</a></li>
-                            </ul>
-                        </li>
-                    </ul> <!-- /nav -->
-
-                    <ul class="nav pull-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-gear icon-large navbar-hidden"></i><span class="navbar-visible">설정  <i class="icon-caret-down"></i></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#fakelink">Action</a></li>
-                                <li><a href="#fakelink">Another action</a></li>
-                                <li><a href="#fakelink">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#fakelink">Separated link</a></li>
-                            </ul>
-                        </li>
-                    </ul> <!-- /nav -->
-
-                    <form class="navbar-search form-search pull-right" action="">
-                        <div class="input-append">
-                            <input type="text" class="search-query span2" placeholder="Search">
-                            <button type="submit" class="btn btn-large">
-                                <i class="fui-search"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div><!--/.nav-collapse -->
-            </div>
-        </div>
-    </div> <!-- /navbar -->
-</page-header>
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span3">
@@ -81,6 +13,21 @@
         </div>
 
         <div class="span9">
+            <table class="table table-striped">
+                <thead>
+                    <tr><th>col1</th><th>col2</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
