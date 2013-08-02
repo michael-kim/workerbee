@@ -1,0 +1,55 @@
+/*****************************/
+/*       dropdown-icon       */
+/*****************************/
+.dropdown-icon {
+  display:inline;
+  margin-right: 10px;
+
+  > i:before {
+    vertical-align: -10%;
+    font-size: 1.3333333333333333em;
+  }
+
+  > i.dropdown-toggle {
+    color: @base;
+    cursor: pointer;
+  }
+  > i.dropdown-toggle:hover {
+    color: @firm;
+    .transition(@dropdown-icon-trans-time);
+  }
+
+  .dropdown-menu {
+    top: 15px;
+    left: -12px;
+  }
+
+  .dropdown-menu.pull-right {
+    right:-12px;
+    left:auto;
+  }
+
+
+  .dropdown-menu:before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 0 7px 7px 7px;
+    border-bottom-color: @clouds;
+    top:-7px;
+    left:13px;
+  }
+
+  .dropdown-menu.pull-right:before {
+    right:13px;
+    left:auto;
+  }
+
+  .dropdown-menu.dropdown-inverse:before {
+    border-bottom-color: @base;
+  }
+}

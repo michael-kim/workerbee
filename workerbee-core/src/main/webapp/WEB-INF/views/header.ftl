@@ -3,16 +3,15 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Flat UI</title>
+    <title>Pattaya</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Loading Bootstrap -->
-    <link href="${rootPath}/fui/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="${rootPath}/fui/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="${rootPath}/fui/font-awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="${rootPath}/fui/lib/bootstrap-2.3.2-custom/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${rootPath}/fui/lib/font-awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Loading Flat UI -->
-    <link href="${rootPath}/fui/css/flat-ui.css" rel="stylesheet">
+    <link href="${rootPath}/fui/css/flat-ui.css?${.now}" rel="stylesheet">
 
     <link rel="shortcut icon" href="${rootPath}/fui/images/favicon.ico">
 

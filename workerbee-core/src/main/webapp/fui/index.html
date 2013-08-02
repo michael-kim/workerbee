@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Loading Bootstrap -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="lib/bootstrap-2.3.2-custom/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Loading Flat UI -->
     <link href="css/demo.css" rel="stylesheet">
@@ -190,7 +189,29 @@
             <option value="1" selected>2</option>
             <option value="2" selected>3</option>
             <option value="3" selected>4</option>
-            <option value="4">5</option>
+            <option value="4">5</option> <select name="huge" class="select-block mbl">
+              <optgroup label="Profile">
+                  <option value="0">My Profile</option>
+                  <option value="1">My Friends</option>
+              </optgroup>
+              <optgroup label="System">
+                  <option value="2">Messages</option>
+                  <option value="3">My Settings</option>
+                  <option value="4" class="highlighted fui-lock">Logout</option>
+              </optgroup>
+          </select>
+              <div class="btn-group">
+                  <i class="dropdown-arrow dropdown-arrow-inverse"></i>
+                  <button class="btn btn-primary btn-huge">Dropdown</button>
+                  <button class="btn btn-primary btn-huge dropdown-toggle" data-toggle="dropdown">
+                      <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu dropdown-inverse">
+                      <li><a href="#fakelink">Sub Menu Element</a></li>
+                      <li><a href="#fakelink">Sub Menu Element</a></li>
+                      <li><a href="#fakelink">Sub Menu Element</a></li>
+                  </ul>
+              </div>
           </select>
 
           <div class="mbl">

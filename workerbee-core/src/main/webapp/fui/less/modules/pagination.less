@@ -111,7 +111,7 @@
         outline: none;
         padding: 12px 10px;
         text-align: center;
-        .transition(@pagination-tran-time ease-out);
+        .transition(@pagination-trans-time ease-out);
 
         &:hover, :focus {
           background-color: @firm;
@@ -294,13 +294,13 @@
         min-width: 0;
         padding: 0 4px;
         .border-radius(50px);
-        .transition(~"background "@pagination-tran-time" ease-out, border-color 0s ease-out, color "@pagination-tran-time" ease-out");
+        .transition(~"background "@pagination-trans-time" ease-out, border-color 0s ease-out, color "@pagination-trans-time" ease-out");
 
         &:hover, :focus {
           background-color: @firm;
           border-color: @firm;
           color: @inverse;
-          .transition(~"background "@pagination-tran-time" ease-out, border-color "@pagination-tran-time" ease-out, color "@pagination-tran-time" ease-out");
+          .transition(~"background "@pagination-trans-time" ease-out, border-color "@pagination-trans-time" ease-out, color "@pagination-trans-time" ease-out");
         }
         &:active {
           background-color: mix(@firm, black, 85%);

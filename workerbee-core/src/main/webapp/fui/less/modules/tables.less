@@ -2,13 +2,15 @@
 // Tables
 // --------------------------------------------------
 
+@selected-row-bg : mix(@firm, white, 5.5%);
+
 .table {
   font-size: @base-font-size * 1.142;
   
   // Cells
   th,
   td {
-    padding: 8px 25px;
+    //padding: 8px 25px;
     border-top: 2px solid @table-border;
   }
   th {
@@ -29,8 +31,9 @@
     }
   }
   .selected-row {
+    > th,
     > td {
-      background-color: mix(@firm, white, 5.5%)
+      background-color: @selected-row-bg;
     }
   }
   img { vertical-align: top; }
@@ -55,8 +58,7 @@
 .table-striped {
   tbody {
     > tr {
-      &:nth-child(even),
-      &.selected-row {
+      &:nth-child(even) {
         > td,
         > th {
           background-color: @table-bg-active;
@@ -68,6 +70,12 @@
           background-color: transparent;
         }
       }
+      &.selected-row {
+        > th,
+        > td {
+          background-color: @selected-row-bg;
+        }
+      }
     }
   }
 }
@@ -77,7 +85,11 @@
   tbody {
     tr:hover > td,
     tr:hover > th {
-      background-color: @table-bg-active;
+      background-color: lighten(@base, 67%);
+    }
+    tr.selected-row:hover > td,
+    tr.selected-row:hover > th {
+      background-color: mix(@firm, white, 12%);
     }
   }
 }
@@ -150,6 +162,13 @@
   .checkbox,
   .radio {
     display: none;
+  }
+}
+
+.last-selected-row {
+  > th:first-child,
+  > td:first-child {
+    border-left:2px solid black;
   }
 }
 

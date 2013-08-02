@@ -15,7 +15,7 @@
         </div>
 
         <div class="filler">
-            <table class="table table-striped">
+            <table class="table table-striped table-bordered">
                 <thead>
                     <tr><th>col1</th><th>col2</th></tr>
                 </thead>

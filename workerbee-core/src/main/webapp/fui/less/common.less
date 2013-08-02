@@ -22,6 +22,14 @@
   margin-bottom: @margin-size;
 }
 
+.margin-right {
+  margin-right: @margin-size;
+}
+
+.margin-left {
+  margin-left: @margin-size;
+}
+
 .margin {
   margin:@padding-size;
 }
@@ -30,6 +38,13 @@
   padding:@padding-size;
 }
 
+.padding-top {
+  padding-top:@padding-size;
+}
+
+.padding-bottom {
+  padding-bottom:@padding-size;
+}
 
 /*****************************/
 /*          color            */
@@ -235,4 +250,64 @@ a.caret-right:after {
     width: inherit;
     z-index: -1;
   }
+}
+
+/*****************************/
+/*       cursor              */
+/*****************************/
+.pointer {
+  cursor:pointer;
+}
+
+
+/*****************************/
+/*       affix              */
+/*****************************/
+
+.affix.affixbox {
+  background: white;
+  padding: 0;
+  margin: 0;
+  z-index: 10000;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-bottom: 2px solid #efefef;
+}
+
+.affix .affixbox-inner {
+  padding: 20px 20px 10px;
+}
+
+.affix + div {
+  margin-top: 160px;
+}
+
+/*****************************/
+/*         toolbox           */
+/*****************************/
+
+.toolbox {
+  line-height:41px;
+  .clearfix;
+}
+
+.toolbox-mini {
+  line-height: 31px;
+}
+
+.toolbox-small {
+  line-height:34px;
+}
+
+.toolbox .ckbox {
+  margin:0 10px;
+}
+
+/*****************************/
+/*         toolbox           */
+/*****************************/
+
+.rowselect-show {
+  display:none;
 }
