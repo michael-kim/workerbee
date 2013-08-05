@@ -6,9 +6,8 @@
             <div class="affixbox" data-spy="affix" data-offset-top="108">
                 <div class="affixbox-inner">
                     <ul class="breadcrumb no-padding margin-bottom">
-                        <li><a href="#fakelink">Home</a></li>
-                        <li><a href="#fakelink">Directory</a></li>
-                        <li class="active"><a href="#">Current Article</a></li>
+                        <li>관리</li>
+                        <li class="active"><a href="#">사용자</a></li>
                     </ul>
                     <div class="toolbox toolbox-small">
                             전체 선택
@@ -18,10 +17,9 @@
                             </span>
                         <span class="rowselect-show">
                             <span class="rowselect-num"></span>명 선택된 사용자 :
-                            <a href="#" class="btn btn-small">삭제</a>
                         </span>
-
-                        <a class="btn btn-small btn-info pull-right">사용자 추가</a>
+                        <a href="#" class="btn btn-small rowselect-show">삭제</a>
+                        <a href="${rootPath}/view/adduser" class="btn btn-small btn-info pull-right">사용자 추가</a>
                     </div>
                 </div><!-- affix-box-inner -->
             </div>
@@ -42,19 +40,6 @@
                     </tr>
                 </thead>
                 <tbody id="tbody">
-                    <tr>
-                        <td>
-                            <span class="ckbox ckbox-mini">
-                                <input type="checkbox" value="" id="checkbox-test">
-                                <label for="checkbox-test"></label>
-                            </span>
-                        </td>
-                        <td>name</td>
-                        <td>email</td>
-                        <td>관리자</td>
-                        <td>
-                        </td>
-                    </tr>
                     <#list 0..100 as i>
                     <tr>
                         <td>

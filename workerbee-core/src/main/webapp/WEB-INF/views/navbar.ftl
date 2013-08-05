@@ -44,11 +44,10 @@
                                 <span class="visible-navbar-collapse">설정  <i class="icon-caret-down"></i></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#fakelink">Action</a></li>
-                                <li><a href="#fakelink">Another action</a></li>
-                                <li><a href="#fakelink">Something else here</a></li>
+                                <li><a href="#fakelink">메시지</a></li>
+                                <li><a href="#fakelink">정보 수정</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#fakelink">Separated link</a></li>
+                                <li><a href="${rootPath}/j_spring_security_logout">로그 아웃</a></li>
                             </ul>
                         </li>
                     </ul> <!-- /nav -->
