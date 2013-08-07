@@ -32,9 +32,10 @@
                 <thead>
                     <tr>
                         <th style="width:20px"></th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Group</th>
+                        <th>이름</th>
+                        <th>이메일</th>
+                        <th>그룹</th>
+                        <th>상태</th>
                         <th></th>
 
                     </tr>
@@ -51,6 +52,12 @@
                         <td>name</td>
                         <td>email</td>
                         <td>관리자</td>
+                        <td>
+                            <#if i<10><span class="label label-info">활성</span>
+                            <#else>
+                                <span class="label label-warning">비활성</span>
+                            </#if>
+                        </td>
                         <td>
                             <div class="dropdown dropdown-icon">
                                 <i class="icon-gear dropdown-toggle" data-toggle="dropdown"></i>

@@ -12,41 +12,102 @@
             <form>
                 <fieldset>
                     <legend>사용자 추가</legend>
-                <label>사용자 이름</label>
-                <input type="text" class="focus input-xxlarge">
-                <label>이름</label>
-                <input type="text" class="input-xxlarge">
-                <label>이메일</label>
-                <input type="text" class="input-xxlarge">
-                <label>그룹</label>
-                <select data-placeholder="최초 그룹을 선택해 주세요"
-                        data-width="off"
-                        data-minimum-results-for-search="10"
-                        tabindex="-1"
-                        class="select2">
-                    <option value="ADMIN_GROUP">관리자</option>
-                    <option value="USER_GROUP">사용자</option>
-                </select>
-                <label>그룹2</label>
-                <select data-placeholder="최초 그룹을 선택해 주세요"
-                        data-width="off"
-                        data-minimum-results-for-search="10"
-                        tabindex="-1"
-                        class="selectpicker">
-                    <option value="ADMIN_GROUP">관리자</option>
-                    <option value="USER_GROUP">사용자</option>
-                </select>
-                    <label>그룹3</label>
+                    <label>사용자 이름</label>
+                    <input type="text" class="focus input-xxlarge">
+                    <label>이름</label>
+                    <input type="text" class="input-xxlarge">
+                    <label>이메일</label>
+                    <input type="text" class="input-xxlarge">
+                    <label>그룹</label>
+                    <select data-placeholder="최초 그룹을 선택해 주세요"
+                                     data-width="off"
+                                     data-minimum-results-for-search="10"
+                                     class="select2 input-large">
+                        <option value="ADMIN_GROUP">관리자</option>
+                        <option value="USER_GROUP">사용자</option>
+                    </select>
+                    <label>그룹</label>
                     <select class="select2 input-large">
                         <option value="ADMIN_GROUP">관리자</option>
                         <option value="USER_GROUP">사용자</option>
                     </select>
-                    <label>태그</label>
-                    <input type="text" id="e12" class="input-large" />
-                <div class="form-actions">
-                    <button class="btn btn-primary">추가</button>
-                    <button class="btn">취소</button>
-                </div>
+                    <label>활성화</label>
+                    <label class="radio inline">
+                        <input type="radio" name="group1" value="1" data-toggle="radio">
+                        Radio is off
+                    </label>
+
+                    <label class="radio inline">
+                        <input type="radio" name="group1" value="2" data-toggle="radio" checked>
+                        Radio is on
+                    </label>
+                    <span class="ckbox ckbox-mini">
+                        <input type="checkbox" value="" id="checkbox-table">
+                        <label for="checkbox-table"></label>
+                    </span>
+
+                    <div>
+                        <div class="tag">Checkbox Small</div>
+                        <input type="checkbox" id="checkbox-1-1" class="fui-checkbox" /><label for="checkbox-1-1"></label>
+                        <input type="checkbox" id="checkbox-1-2" class="fui-checkbox" /><label for="checkbox-1-2"></label>
+                        <input type="checkbox" id="checkbox-1-3" class="fui-checkbox" /><label for="checkbox-1-3"></label>
+                        <input type="checkbox" id="checkbox-1-4" class="fui-checkbox" /><label for="checkbox-1-4"></label>
+                    </div>
+                    <div>
+                        <div class="tag">Checkbox Big</div>
+                        <input type="checkbox" id="checkbox-2-1" class="fui-checkbox fui-checkbox-big" /><label for="checkbox-2-1"></label>
+                        <input type="checkbox" id="checkbox-2-2" class="fui-checkbox fui-checkbox-big" /><label for="checkbox-2-2"></label>
+                        <input type="checkbox" id="checkbox-2-3" class="fui-checkbox fui-checkbox-big" /><label for="checkbox-2-3"></label>
+                        <input type="checkbox" id="checkbox-2-4" class="fui-checkbox fui-checkbox-big" /><label for="checkbox-2-4"></label>
+                    </div>
+                    <div>
+                        <div class="tag">Radio Small</div>
+                        <div class="button-holder">
+                            <input type="radio" id="radio-1-1" name="radio-1-set" class="fui-radio" checked /><label for="radio-1-1"></label><br />
+                            <input type="radio" id="radio-1-2" name="radio-1-set" class="fui-radio" /><label for="radio-1-2"></label><br />
+                            <input type="radio" id="radio-1-3" name="radio-1-set" class="fui-radio" /><label for="radio-1-3"></label><br />
+                            <input type="radio" id="radio-1-4" name="radio-1-set" class="fui-radio" /><label for="radio-1-4"></label><br />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="tag">Radio Big</div>
+                        <div class="button-holder">
+                            <input type="radio" id="radio-2-1" name="radio-2-set" class="fui-radio fui-radio-big" /><label for="radio-2-1"></label><br />
+                            <input type="radio" id="radio-2-2" name="radio-2-set" class="fui-radio fui-radio-big" /><label for="radio-2-2"></label><br />
+                            <input type="radio" id="radio-2-3" name="radio-2-set" class="fui-radio fui-radio-big" checked /><label for="radio-2-3"></label><br />
+                            <input type="radio" id="radio-2-4" name="radio-2-set" class="fui-radio fui-radio-big" /><label for="radio-2-4"></label><br />
+                            <input type="radio" id="radio-2-5" name="radio-2-set" class="fui-radio fui-radio-big" /><label for="radio-2-5"></label><br />
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="tag">Radio Big</div>
+                        <div class="button-holder">
+                            <input type="radio" id="radio-3-1" name="radio-3-set" class="fui-radio fui-radio-big" /><label for="radio-3-1"></label><br />
+                            <input type="radio" id="radio-3-2" name="radio-3-set" class="fui-radio fui-radio-big" /><label for="radio-3-2"></label><br />
+                            <input type="radio" id="radio-3-3" name="radio-3-set" class="fui-radio fui-radio-big" checked /><label for="radio-3-3"></label><br />
+                            <input disabled checked type="radio" id="radio-3-4" name="radio-3-set" class="fui-radio fui-radio-big" /><label for="radio-3-4"></label><br />
+                            <input disabled type="radio" id="radio-3-5" name="radio-3-set" class="fui-radio fui-radio-big" /><label for="radio-3-5"></label><br />
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="tag">Radio Big</div>
+                        <div class="button-holder">
+                            <input type="radio" id="radio-4-1" name="radio-4-set" class="fui-radio fui-radio-small" /><label for="radio-4-1"></label>small<br />
+                            <input type="radio" id="radio-4-2" name="radio-4-set" class="fui-radio" /><label for="radio-4-2"></label>middle<br />
+                            <input type="radio" id="radio-4-3" name="radio-4-set" class="fui-radio fui-radio-big" checked /><label for="radio-4-3"></label>big<br />
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-actions">
+                        <button class="btn btn-primary">추가</button>
+                        <button class="btn">취소</button>
+                    </div>
+
+
                 </fieldset>
             </form>
         </div>
