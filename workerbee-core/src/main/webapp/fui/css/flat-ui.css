@@ -6395,8 +6395,14 @@ input.search-query {
 }
 .fui-checkbox + label + span,
 .fui-radio + label + span {
-  margin-left: 6px;
-  margin-right: 6px;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+.fui-checkbox + label + label,
+.fui-radio + label + label {
+  display: inline;
+  margin-left: 5px;
+  margin-right: 10px;
 }
 .fui-checkbox + label,
 .fui-radio + label {
@@ -6424,6 +6430,9 @@ input.search-query {
   -o-transition: 0.25s;
   transition: 0.25s;
   -webkit-backface-visibility: hidden;
+}
+.fui-checkbox.primary + label {
+  background-color: #34495e;
 }
 .fui-checkbox + label:after {
   font-family: FontAwesome;
@@ -6491,6 +6500,9 @@ input.search-query {
   transition: 0.25s;
   -webkit-backface-visibility: hidden;
 }
+.fui-radio.primary + label {
+  border-color: #34495e;
+}
 .fui-radio + label:after {
   position: absolute;
   background: #bdc3c7;
@@ -6503,6 +6515,9 @@ input.search-query {
   top: 3px;
   left: 3px;
   visibility: hidden;
+}
+.fui-radio.primary + label:after {
+  background: #34495e;
 }
 .fui-radio:not(:disabled) + label:hover:after {
   visibility: visible;
@@ -6570,7 +6585,7 @@ input.search-query {
 }
 .ptm,
 .pvm,
-.pam {
+.pan {
   padding-top: 10px;
 }
 .ptl,
@@ -6594,8 +6609,8 @@ input.search-query {
   padding-right: 5px;
 }
 .prm,
-.phm,
-.pam {
+.phn,
+.pan {
   padding-right: 10px;
 }
 .prl,
@@ -6618,9 +6633,9 @@ input.search-query {
 .pas {
   padding-bottom: 5px;
 }
-.pbm,
-.pvm,
-.pam {
+.pbn,
+.pvn,
+.pan {
   padding-bottom: 10px;
 }
 .pbl,
@@ -6643,9 +6658,9 @@ input.search-query {
 .pas {
   padding-left: 5px;
 }
-.plm,
-.phm,
-.pam {
+.pln,
+.phn,
+.pan {
   padding-left: 10px;
 }
 .pll,
@@ -6668,9 +6683,9 @@ input.search-query {
 .mas {
   margin-top: 5px;
 }
-.mtm,
-.mvm,
-.mam {
+.mtn,
+.mvn,
+.man {
   margin-top: 10px;
 }
 .mtl,
@@ -6693,9 +6708,9 @@ input.search-query {
 .mas {
   margin-right: 5px;
 }
-.mrm,
-.mhm,
-.mam {
+.mrn,
+.mhn,
+.man {
   margin-right: 10px;
 }
 .mrl,
@@ -6718,9 +6733,9 @@ input.search-query {
 .mas {
   margin-bottom: 5px;
 }
-.mbm,
-.mvm,
-.mam {
+.mbn,
+.mvn,
+.man {
   margin-bottom: 10px;
 }
 .mbl,
@@ -6743,48 +6758,15 @@ input.search-query {
 .mas {
   margin-left: 5px;
 }
-.mlm,
-.mhm,
-.mam {
+.mln,
+.mhn,
+.man {
   margin-left: 10px;
 }
 .mll,
 .mhl,
 .mal {
   margin-left: 15px;
-}
-/*****************************/
-/*     margin & padding      */
-/*****************************/
-.no-margin {
-  margin: 0 !important;
-}
-.no-padding {
-  padding: 0 !important;
-}
-.margin-top {
-  margin-top: 15px;
-}
-.margin-bottom {
-  margin-bottom: 15px;
-}
-.margin-right {
-  margin-right: 15px;
-}
-.margin-left {
-  margin-left: 15px;
-}
-.margin {
-  margin: 15px;
-}
-.padding {
-  padding: 15px;
-}
-.padding-top {
-  padding-top: 15px;
-}
-.padding-bottom {
-  padding-bottom: 15px;
 }
 /*****************************/
 /*          color            */

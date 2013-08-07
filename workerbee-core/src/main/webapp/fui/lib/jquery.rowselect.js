@@ -24,7 +24,11 @@
                 var num = $('input.{0}[type=checkbox]:checked'.f(inputClass)).length;
                 $num.text(num);
                 //$('.' + showClass).toggle(num > 0);
-                $('.' + showClass).toggleClass('hide');
+                if (num > 0) {
+                    $('.' + showClass).removeClass('hide'); //show
+                } else {
+                    $('.' + showClass).addClass('hide'); //hide
+                }
             };
 
             $('input.{0}[type=checkbox]'.f(inputClass)).click(function (e) {

@@ -5,12 +5,12 @@
         <div class="span12">
             <div class="affixbox" data-spy="affix" data-offset-top="108">
                 <div class="affixbox-inner">
-                    <ul class="breadcrumb no-padding margin-bottom">
+                    <ul class="breadcrumb paz mbn">
                         <li>관리</li>
                         <li class="active"><a href="#">사용자</a></li>
                     </ul>
-                    <div class="clearfix">
-                        <div class="pull-left">
+                    <div class="clearfix mbn">
+                        <div class="pull-left" style="height:41px;line-height: 40px">
                             전체 선택
                             <input class="fui-checkbox" type="checkbox" id="rowselect-all">
                             <label for="rowselect-all"></label>
@@ -23,8 +23,8 @@
                     </div>
                 </div><!-- affix-box-inner -->
             </div>
-            <div class="padding-top">
-                <div class="dialog dialog-success no-margin">
+            <div class="ptn">
+                <div class="dialog dialog-success maz">
                     <button class="close fui-cross"></button>
                     <div class="container">사용자가 추가되었습니다. &nbsp;&nbsp;<a href="#">실행 취소</a></div>
                 </div>
