@@ -9,7 +9,6 @@
 
     <!-- Loading Bootstrap -->
     <link href="${rootPath}/fui/lib/bootstrap-2.3.2-custom/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${rootPath}/fui/lib/font-awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Loading Flat UI -->
     <link href="${rootPath}/fui/css/flat-ui.css?${.now}" rel="stylesheet">

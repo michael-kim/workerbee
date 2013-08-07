@@ -598,81 +598,32 @@
           <p>
             Using flat style checkbox requires JS plugin that creates all custom markup for us. Let's take a look:
           </p>
-          <label class="checkbox" for="checkbox1">
-            <input type="checkbox" value="" id="checkbox1" data-toggle="checkbox">
-            Checkbox
+            <input class="fui-checkbox" type="checkbox" value="" id="checkbox1">
+          <label for="checkbox1">
           </label>
-          <label class="checkbox" for="checkbox2">
-            <input type="checkbox" value="" id="checkbox2" checked="checked" data-toggle="checkbox">
             Checkbox
+            <input class="fui-checkbox"  type="checkbox" value="" id="checkbox2" checked="checked">
+          <label for="checkbox2">
           </label>
-          <label class="checkbox" for="checkbox3">
-            <input type="checkbox" value="" id="checkbox3" data-toggle="checkbox" disabled="">
             Checkbox
+            <input  class="fui-checkbox" type="checkbox" value="" id="checkbox3" disabled="">
+          <label for="checkbox3">
           </label>
-          <label class="checkbox" for="checkbox4">
-            <input type="checkbox" value="" id="checkbox4" checked="checked" data-toggle="checkbox" disabled="">
             Checkbox
+            <input  class="fui-checkbox" type="checkbox" value="" id="checkbox4" checked="checked" disabled="">
+          <label for="checkbox4">
           </label>
+            Checkbox
 
           <h6 class="ptl">Usage via data attributes:</h6>
 <pre class="prettyprint">
-&lt;label class="checkbox" for="checkbox1"&gt;
-  &lt;input type="checkbox" value="" id="checkbox1" data-toggle="checkbox"&gt;
-  Checkbox
+  &lt;input type="checkbox" value="" id="checkbox1" class="fui-checkbox"&gt;
+&lt;label for="checkbox1"&gt;
 &lt;/label&gt;
+  Checkbox
 </pre>
 
-          <h6 class="ptl">Usage via JS:</h6>
-<pre class="prettyprint">
-$('[data-toggle="checkbox"]').each(function () {
-  $(this).checkbox();
-});
-</pre>
 
-          <div class="pvm">
-            <h6>Methods</h6>
-          </div>
-          <p class="mbl">
-            <strong>.checkbox('toggle')</strong>
-            <br/>
-            toggles checkbox state from <span class="text-info">checked</span>
-            to <span class="text-info">unchecked</span> and back.
-          </p>
-          <p class="mbl">
-            <strong>.checkbox('check')</strong>
-            <br/>
-            sets checkbox state to <span class="text-info">checked</span>.
-          </p>
-          <p class="mbl">
-            <strong>.checkbox('uncheck')</strong>
-            <br/>
-            sets checkbox state to <span class="text-info">unchecked</span>.
-          </p>
-<pre class="prettyprint">
-$(':checkbox').checkbox('check');
-</pre>
-
-          <div class="pbm ptl">
-            <h6>Events</h6>
-          </div>
-          <p class="mbl">
-            <strong>.on('toggle')</strong>
-            <br/>
-            Fired when checkbox state changed between
-            <span class="text-info">check</span> &harr;
-            <span class="text-info">uncheck</span>.
-          </p>
-          <p class="mbl">
-            <strong>.on('change')</strong>
-            <br/>
-            Same as <span class="text-info">toggle</span>.
-          </p>
-<pre class="prettyprint">
-$(':checkbox').on('toggle', function() {
-  // Do something
-});
-</pre>
           <div id="fui-radio"></div>
         </div> <!-- /.demo-content -->
       </div> <!-- /.demo-row -->
@@ -686,79 +637,34 @@ $(':checkbox').on('toggle', function() {
           <p>
             Firm radio also requires using JS plugin. We try making things easy so you won't have to spend huge amount of time playing around with custom&nbsp;components.
           </p>
-          <label class="radio">
-            <input type="radio" name="group1" value="1" data-toggle="radio">
-            Radio is off
+            <input class="fui-radio" id="radio-1" type="radio" name="group1" value="1" >
+          <label for="radio-1">
           </label>
-          <label class="radio">
-            <input type="radio" name="group1" value="2" data-toggle="radio" checked>
+            <span>Radio is off</span>
+            <input class="fui-radio"  id="radio-2" type="radio" name="group1" value="2" checked>
+          <label for="radio-2">
+          </label>
             Radio is on
+            <input class="fui-radio" id="radio-3" type="radio" name="group2" value="1" disabled>
+          <label for="radio-3">
           </label>
-          <label class="radio">
-            <input type="radio" name="group2" value="1" data-toggle="radio" disabled>
             Radio is off
+            <input class="fui-radio" id="radio-4"type="radio" name="group2" value="2"  disabled checked>
+          <label for="radio-4">
           </label>
-          <label class="radio">
-            <input type="radio" name="group2" value="2" data-toggle="radio" disabled checked>
             Radio is on
-          </label>
 
-          <h6 class="ptl">Usage via data attributes:</h6>
+          <h6 class="ptl">Usage</h6>
 <pre class="prettyprint">
-&lt;label class="radio"&gt;
-  &lt;input type="radio" name="group1" value="1" data-toggle="radio"&gt;
+  &lt;input id="radio-1" class="fui-radio" type="radio" name="group1" value="1" &gt;
+&lt;label for="radio-1"&gt;
+&lt;/label&gt;
   Radio is off
-&lt;/label&gt;
 
-&lt;label class="radio"&gt;
-  &lt;input type="radio" name="group1" value="2" data-toggle="radio" checked&gt;
+  &lt;input id="radio-2" class="fui-radio" type="radio" name="group1" value="2"  checked&gt;
+&lt;label for="radio-2" &gt;
+&lt;/label&gt;
   Radio is on
-&lt;/label&gt;
-</pre>
-
-          <h6 class="ptl">Usage via JS:</h6>
-<pre class="prettyprint">
-$('[data-toggle="radio"]').each(function () {
-  $(this).radio();
-});
-</pre>
-
-          <div class="pvm">
-            <h6>Methods</h6>
-          </div>
-          <p class="mbl">
-            <strong>.radio('check')</strong>
-            <br/>
-            sets radio state to <span class="text-info">checked</span>.
-          </p>
-          <p class="mbl">
-            <strong>.radio('uncheck')</strong>
-            <br/>
-            sets radio state to <span class="text-info">unchecked</span>.
-          </p>
-<pre class="prettyprint">
-$(':radio').radio('check');
-</pre>
-
-          <div class="pbm ptl">
-            <h6>Events</h6>
-          </div>
-          <p class="mbl">
-            <strong>.on('toggle')</strong>
-            <br/>
-            Fired when radio state changed between
-            <span class="text-info">check</span> &harr;
-            <span class="text-info">uncheck</span>.
-          </p>
-          <p class="mbl">
-            <strong>.on('change')</strong>
-            <br/>
-            Same as <span class="text-info">toggle</span> with just one difference &mdash; event sends for each radio which state was changed.
-          </p>
-<pre class="prettyprint">
-$(':radio').on('toggle', function() {
-  // Do something
-});
 </pre>
           <div id="fui-dialog"></div>
         </div> <!-- /.demo-content -->
@@ -2568,8 +2474,6 @@ if ($slider3.length > 0) {
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-select.js"></script>
     <script src="js/bootstrap-switch.js"></script>
-    <script src="js/flatui-checkbox.js"></script>
-    <script src="js/flatui-radio.js"></script>
     <script src="js/jquery.tagsinput.js"></script>
     <script src="js/jquery.placeholder.js"></script>
     <script src="js/jquery.stacktable.js"></script>

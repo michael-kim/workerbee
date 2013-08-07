@@ -7,9 +7,7 @@
 <script src="${rootPath}/fui/js/bootstrap.min.js"></script>
 <script src="${rootPath}/fui/js/bootstrap-select.js"></script>
 <script src="${rootPath}/fui/js/bootstrap-switch.js"></script>
-<script src="${rootPath}/fui/js/flatui-radio.js"></script>
 
-<#--<script src="${rootPath}/fui/js/flatui-checkbox.js"></script>-->
 <#--<script src="${rootPath}/fui/js/jquery.tagsinput.js"></script>-->
 <#--<script src="${rootPath}/fui/js/jquery.placeholder.js"></script>-->
 

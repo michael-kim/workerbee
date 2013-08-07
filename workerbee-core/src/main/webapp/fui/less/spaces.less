@@ -1,17 +1,18 @@
 // Should be used to modify the default spacing between objects (not between nodes of * the same object)
-// p,m = padding,margin
-// a,t,r,b,l,h,v = all,top,right,bottom,left,horizontal,vertical
-// x,s,m,l,n = extra-small(@x),small(@s),medium(@m),large(@l),none(0px)
-@x: 3px;
+// p,m = padding, margin
+// a,t,r,b,l,h,v = all, top, right, bottom, left, horizontal, vertical
+// s,n,l,x,z =  small(@s), normal(@n), large(@l), extra-large(@x), zero(0px)
+
 @s: 5px;
-@m: 10px;
-@l: 20px;
+@n: 10px;
+@l: 15px;
+@x: 20px;
 
 .last-col {
   overflow: hidden;
 }
 
-.ptn, .pvn, .pan {
+.ptz, .pvz, .paz {
   padding-top: 0;
 }
 
@@ -24,14 +25,14 @@
 }
 
 .ptm, .pvm, .pam {
-  padding-top: @m;
+  padding-top: @n;
 }
 
 .ptl, .pvl, .pal {
   padding-top: @l;
 }
 
-.prn, .phn, .pan {
+.prz, .phn, .paz {
   padding-right: 0;
 }
 
@@ -44,14 +45,14 @@
 }
 
 .prm, .phm, .pam {
-  padding-right: @m;
+  padding-right: @n;
 }
 
 .prl, .phl, .pal {
   padding-right: @l;
 }
 
-.pbn, .pvn, .pan {
+.pbz, .pvz, .paz {
   padding-bottom: 0;
 }
 
@@ -64,14 +65,14 @@
 }
 
 .pbm, .pvm, .pam {
-  padding-bottom: @m;
+  padding-bottom: @n;
 }
 
 .pbl, .pvl, .pal {
   padding-bottom: @l;
 }
 
-.pln, .phn, .pan {
+.plz, .phn, .paz {
   padding-left: 0;
 }
 
@@ -84,14 +85,14 @@
 }
 
 .plm, .phm, .pam {
-  padding-left: @m;
+  padding-left: @n;
 }
 
 .pll, .phl, .pal {
   padding-left: @l;
 }
 
-.mtn, .mvn, .man {
+.mtz, .mvz, .maz {
   margin-top: 0px;
 }
 
@@ -104,14 +105,14 @@
 }
 
 .mtm, .mvm, .mam {
-  margin-top: @m;
+  margin-top: @n;
 }
 
 .mtl, .mvl, .mal {
   margin-top: @l;
 }
 
-.mrn, .mhn, .man {
+.mrz, .mhz, .maz {
   margin-right: 0px;
 }
 
@@ -124,14 +125,14 @@
 }
 
 .mrm, .mhm, .mam {
-  margin-right: @m;
+  margin-right: @n;
 }
 
 .mrl, .mhl, .mal {
   margin-right: @l;
 }
 
-.mbn, .mvn, .man {
+.mbz, .mvz, .maz, {
   margin-bottom: 0px;
 }
 
@@ -144,14 +145,14 @@
 }
 
 .mbm, .mvm, .mam {
-  margin-bottom: @m;
+  margin-bottom: @n;
 }
 
 .mbl, .mvl, .mal {
   margin-bottom: @l;
 }
 
-.mln, .mhn, .man {
+.mlz, .mhz, .maz {
   margin-left: 0px;
 }
 
@@ -164,7 +165,7 @@
 }
 
 .mlm, .mhm, .mam {
-  margin-left: @m;
+  margin-left: @n;
 }
 
 .mll, .mhl, .mal {
