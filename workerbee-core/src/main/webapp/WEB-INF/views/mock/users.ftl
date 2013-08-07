@@ -9,17 +9,17 @@
                         <li>관리</li>
                         <li class="active"><a href="#">사용자</a></li>
                     </ul>
-                    <div class="toolbox toolbox-small">
+                    <div class="clearfix">
+                        <div class="pull-left">
                             전체 선택
-                            <span class="ckbox">
-                                <input  type="checkbox" value="" id="rowselect-all">
-                                <label for="rowselect-all"></label>
+                            <input class="fui-checkbox" type="checkbox" id="rowselect-all">
+                            <label for="rowselect-all"></label>
+                            <span class="rowselect-show hide">
+                                <span class="rowselect-num"></span>명 선택된 사용자 :
                             </span>
-                        <span class="rowselect-show">
-                            <span class="rowselect-num"></span>명 선택된 사용자 :
-                        </span>
-                        <a href="#" class="btn btn-small rowselect-show">삭제</a>
-                        <a href="${rootPath}/view/adduser" class="btn btn-small btn-info pull-right">사용자 추가</a>
+                            <a href="#" class="btn rowselect-show hide">삭제</a>
+                        </div>
+                        <a href="${rootPath}/view/adduser" class="btn btn-info pull-right">사용자 추가</a>
                     </div>
                 </div><!-- affix-box-inner -->
             </div>
@@ -44,10 +44,8 @@
                     <#list 0..100 as i>
                     <tr>
                         <td>
-                            <span class="ckbox ckbox-mini">
-                                <input data-row-index="${i}" class="rowselect" type="checkbox" value="" id="checkbox-table-${i}">
-                                <label for="checkbox-table-${i}"></label>
-                            </span>
+                            <input data-row-index="${i}" class="rowselect fui-checkbox fui-checkbox-s" type="checkbox" id="checkbox-table-${i}">
+                            <label for="checkbox-table-${i}"></label>
                         </td>
                         <td>name</td>
                         <td>email</td>

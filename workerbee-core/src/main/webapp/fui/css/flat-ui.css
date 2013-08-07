@@ -6166,6 +6166,10 @@ input.search-query {
 .carousel-caption p {
   font-size: 14.994px;
 }
+/*****************************/
+/*       Box                 */
+/*****************************/
+/* author : Minwoo Kim */
 .box {
   color: #34495e;
   padding: 20px;
@@ -6470,6 +6474,7 @@ input.search-query {
 /*****************************/
 /*       dropdown-icon       */
 /*****************************/
+/* author : Minwoo Kim */
 .dropdown-icon {
   display: inline;
   margin-right: 10px;
@@ -6518,141 +6523,120 @@ input.search-query {
 .dropdown-icon .dropdown-menu.dropdown-inverse:before {
   border-bottom-color: #34495e;
 }
-/*                 */
-/*      ckbox      */
-/*                 */
-/* see  http://cssdeck.com/labs/css-checkbox-styles */
-.btn .ckbox {
-  margin: 4px;
-}
-.ckbox {
-  line-height: 20px;
-  width: 20px;
-  position: relative;
-  display: inline-block;
-  -webkit-user-select: none;
-  /* webkit (safari, chrome) browsers */
-
-  -moz-user-select: none;
-  /* mozilla browsers */
-
-  -khtml-user-select: none;
-  /* webkit (konqueror) browsers */
-
-  -ms-user-select: none;
-}
-.ckbox input[type=checkbox] {
-  margin: 0;
-  padding: 0;
-  visibility: hidden;
-}
-.ckbox label {
-  margin: 0;
-  cursor: pointer;
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 0;
-  left: 0;
-  border-radius: 4px;
-  background-color: #bdc3c7;
-}
-.ckbox label:after {
-  visibility: hidden;
-  content: '';
-  position: absolute;
-  width: 9px;
-  height: 5px;
-  background: transparent;
-  top: 4px;
-  left: 4px;
-  border: 3px solid #ffffff;
-  border-top: none;
-  border-right: none;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-.ckbox input[type=checkbox]:not(:disabled) + label:hover:after,
-.ckbox input[type=checkbox]:checked + label:after {
-  visibility: visible;
-}
-.ckbox input[type=checkbox]:checked + label {
-  background-color: #1abc9c;
-}
-.ckbox input[type=checkbox]:disabled + label {
-  background-color: #e5e7e9;
-}
-.ckbox-blue label {
-  background-color: #34495e;
-}
-.ckbox-mini label {
-  width: 18px;
-  height: 18px;
-}
-.ckbox-mini label:after {
-  width: 7px;
-  height: 4px;
-  top: 4px;
-  left: 4px;
-  border-width: 3px;
-}
-.fui-checkbox {
-  display: none;
-}
-.fui-checkbox + label {
-  display: inline;
-  background-color: #fafafa;
-  padding: 9px;
-  border-radius: 3px;
-  display: inline-block;
-  position: relative;
-}
-.fui-checkbox:checked + label {
-  background-color: #e9ecee;
-  color: #99a1a7;
-}
-.fui-checkbox:checked + label:after {
-  content: '\2714';
-  font-size: 14px;
-  position: absolute;
-  top: -2px;
-  left: 4px;
-  color: #1abc9c;
-}
-.fui-checkbox-big + label {
-  padding: 18px;
-}
-.fui-checkbox-big:checked + label:after {
-  font-size: 28px;
-  left: 6px;
-  top: 6px;
-}
-/* RADIO */
+/* author : Minwoo Kim */
+.fui-checkbox,
 .fui-radio {
   display: none;
 }
+.fui-checkbox + label + span,
+.fui-radio + label + span {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+.fui-checkbox + label,
 .fui-radio + label {
-  display: inline;
   -webkit-appearance: none;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.fui-checkbox + label {
+  background-color: #bdc3c7;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-backface-visibility: hidden;
+}
+.fui-checkbox + label:after {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  content: '\f00c';
+  font-size: 16px;
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  color: #ffffff;
+  visibility: hidden;
+}
+.fui-checkbox:not(:disabled) + label:hover:after {
+  visibility: visible;
+}
+.fui-checkbox:checked + label {
+  background-color: #1abc9c;
+}
+.fui-checkbox:checked + label:after {
+  visibility: visible;
+}
+.fui-checkbox:disabled + label {
+  background: #e5e7e9;
+}
+.fui-checkbox-s + label {
+  width: 18px;
+  height: 18px;
+}
+.fui-checkbox-s + label:after {
+  font-size: 14px;
+  top: -1px;
+  left: 2px;
+}
+.fui-checkbox-l + label {
+  width: 25px;
+  height: 25px;
+}
+.fui-checkbox-l + label:after {
+  font-size: 21px;
+  top: 3px;
+  left: 2px;
+}
+.fui-checkbox-xl + label {
+  width: 30px;
+  height: 30px;
+}
+.fui-checkbox-xl + label:after {
+  font-size: 27px;
+  top: 5px;
+  left: 2px;
+}
+/* RADIO */
+.fui-radio + label {
   background-color: transparent;
   border: 4px solid #bdc3c7;
-  padding: 6px;
-  border-radius: 50px;
-  display: inline-block;
-  position: relative;
+  width: 12px;
+  height: 12px;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  border-radius: 60px;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-backface-visibility: hidden;
 }
 .fui-radio + label:after {
+  position: absolute;
+  background: #bdc3c7;
   content: ' ';
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  border-radius: 60px;
   width: 6px;
   height: 6px;
-  border-radius: 60px;
-  position: absolute;
   top: 3px;
   left: 3px;
-  background: #bdc3c7;
   visibility: hidden;
 }
 .fui-radio:not(:disabled) + label:hover:after {
@@ -6671,14 +6655,35 @@ input.search-query {
 .fui-radio:disabled + label:after {
   background: #e5e7e9;
 }
-.fui-radio-big + label {
-  padding: 14px;
+.fui-radio-s + label {
+  width: 10px;
+  height: 10px;
 }
-.fui-radio-big + label:after {
-  width: 16px;
-  height: 16px;
-  left: 6px;
-  top: 6px;
+.fui-radio-s + label:after {
+  width: 4px;
+  height: 4px;
+  left: 3px;
+  top: 3px;
+}
+.fui-radio-l + label {
+  width: 17px;
+  height: 17px;
+}
+.fui-radio-l + label:after {
+  width: 9px;
+  height: 9px;
+  left: 4px;
+  top: 4px;
+}
+.fui-radio-xl + label {
+  width: 22px;
+  height: 22px;
+}
+.fui-radio-xl + label:after {
+  width: 12px;
+  height: 12px;
+  left: 5px;
+  top: 5px;
 }
 .last-col {
   overflow: hidden;
@@ -7213,36 +7218,6 @@ a.caret-right:after {
 }
 .affix + div {
   margin-top: 160px;
-}
-/*****************************/
-/*         toolbox           */
-/*****************************/
-.toolbox {
-  line-height: 41px;
-  *zoom: 1;
-}
-.toolbox:before,
-.toolbox:after {
-  display: table;
-  content: "";
-}
-.toolbox:after {
-  clear: both;
-}
-.toolbox-mini {
-  line-height: 31px;
-}
-.toolbox-small {
-  line-height: 34px;
-}
-.toolbox .ckbox {
-  margin: 0 10px;
-}
-/*****************************/
-/*         toolbox           */
-/*****************************/
-.rowselect-show {
-  display: none;
 }
 /*
 Version: 3.4.1 Timestamp: Thu Jun 27 18:02:10 PDT 2013
