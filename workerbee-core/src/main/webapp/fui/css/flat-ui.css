@@ -6431,9 +6431,6 @@ input.search-query {
   transition: 0.25s;
   -webkit-backface-visibility: hidden;
 }
-.fui-checkbox.primary + label {
-  background-color: #34495e;
-}
 .fui-checkbox + label:after {
   font-family: FontAwesome;
   font-weight: normal;
@@ -6500,9 +6497,6 @@ input.search-query {
   transition: 0.25s;
   -webkit-backface-visibility: hidden;
 }
-.fui-radio.primary + label {
-  border-color: #34495e;
-}
 .fui-radio + label:after {
   position: absolute;
   background: #bdc3c7;
@@ -6515,9 +6509,6 @@ input.search-query {
   top: 3px;
   left: 3px;
   visibility: hidden;
-}
-.fui-radio.primary + label:after {
-  background: #34495e;
 }
 .fui-radio:not(:disabled) + label:hover:after {
   visibility: visible;
@@ -6564,6 +6555,15 @@ input.search-query {
   height: 12px;
   left: 5px;
   top: 5px;
+}
+.fui-checkbox.primary + label {
+  background-color: #34495e;
+}
+.fui-radio.primary + label {
+  border-color: #34495e;
+}
+.fui-radio.primary + label:after {
+  background: #34495e;
 }
 .last-col {
   overflow: hidden;

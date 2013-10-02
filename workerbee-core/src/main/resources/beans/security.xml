@@ -16,7 +16,7 @@
         <form-login
                 login-page="/login"
                 authentication-failure-url="/login?error=true"
-                default-target-url="/view/welcome" />
+                default-target-url="/view/users" always-use-default-target="true" />
 
         <logout invalidate-session="true" logout-success-url="/login" />
         <!--remember-me key="workerbee_security_key" token-validity-seconds="-1"/-->

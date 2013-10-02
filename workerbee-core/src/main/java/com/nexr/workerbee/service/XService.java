@@ -2,7 +2,7 @@ package com.nexr.workerbee.service;
 
 public interface XService {
 
-  public void init() throws ServiceException;
+  public void init() throws XServiceException;
 
   public void destory();
 

@@ -23,7 +23,7 @@ public class UserController {
 
     @Resource
     MessageSource messageSource;
-    
+
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String list(Model model) {
         List<User> users = userRepository.findAll();

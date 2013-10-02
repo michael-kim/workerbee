@@ -21,18 +21,15 @@ public abstract class AbstractXService implements XService {
   }
 
   @PostConstruct
-  protected void postConstruct() throws ServiceException {
-
-
+  protected void postConstruct() throws XServiceException {
     if (!isInitialized()) {
       logger.info("Initializing service [{}]", getInterface().getName());
       init();
-
       markInitialized();
     }
   }
 
-  public abstract void init() throws ServiceException;
+  public abstract void init() throws XServiceException;
 
   public abstract void destory();
 
